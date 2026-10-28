@@ -49,7 +49,7 @@ def main():
         original = ROOT / "data"
         before = {str(p.relative_to(original)): sha256(p) for p in original.rglob("*.csv")}
         evidence.check("G2/G3 全部真实 CSV 独立解析与离线重跑", lambda: check_cli(original, ["passed", "passed"], 0))
-        evidence.check("全流程未完成不能报告成功", lambda: check_cli(original, ["passed"] * 4 + ["not_implemented"] * 5, 2, stage="all"))
+        evidence.check("全流程未完成不能报告成功", lambda: check_cli(original, ["passed"] * 5 + ["not_implemented"] * 4, 2, stage="all"))
         evidence.check("缺失输入失败", lambda: check_cli(temp / "empty", ["failed", "failed"], 1))
         damaged = temp / "damaged"
         shutil.copytree(original, damaged)

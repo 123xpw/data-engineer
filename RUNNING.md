@@ -1,26 +1,24 @@
 # 运行说明与阶段验收
 
-## 当前阶段：Q1.2 补证审查
+## 当前阶段：Q1 三题已交付，业务认证与后续模块未完成
 
-已实现数据准备、Q1.1、Q1.2；Q1.3、Q2–Q5 尚未完成。
-补证命令：`python scripts/verify_q1_review.py`；预先口径见 q1_data_quality/ACCEPTANCE_Q1_2_REVIEW.md；解释与放行边界见 reports/q1_2_review_conclusions.md。新增逐记录归属只写本地忽略目录 .venv/q1-review/。
-本轮预先声明的口径与条件见 q1_data_quality/ACCEPTANCE_Q1_2.md，实际验收结果见 reports/q1_2/acceptance_latest.json。
+Q1.1 的质量报告、Q1.2 的探索与补证、Q1.3 的清洗策略已接入独立入口；Q2–Q5 尚未完成。当前范围及限制见 reports/q1_3_validation.md。
 
 ```bash
 python run_all.py --stage data
-python q1_data_quality/q1_findings.py
+python run_all.py --stage q1.1
 python run_all.py --stage q1.2
-python scripts/verify_q1_2.py
+python run_all.py --stage q1.3
+python run_all.py --stage q1
+python scripts/verify_q1_3.py
 ```
 
-- Q1.1 仍可用 q1_data_quality/q1_code.py 或 `--stage q1.1` 独立运行，Q1.2 不依赖其输出。
-- `--stage q1` 明确显示 Q1.3 未完成并返回 2；完整 run_all 返回 2，直到全部模块完成。当前应有 4 个阶段通过、5 个未实现。
-- Q1.2 计算验收包括手算与既有回归测试、五类错误植入、全量 CSV/Decimal 独立复算、两个入口产物一致、金额与行数守恒、解释前提核验和 Q1.1/骨架回归。
-- 客户均额的消融实验独立脚本为 scripts/experiment_q1_2_sensitivity.py；8 个视图有手算检查，首尾结果与主报告交叉核对。
-- 金额精确保留源精度，计数/字符串/金额精确比较；仅比率和均额允许绝对误差 1e-12。
-- 数值验收 passed 且源码指纹一致，仅证明规定计算检查通过。后续语义审查已撤回自动放行：业务解释与清洗规则仍待补证，详见 reports/q1_2_review.md；历史通过不自动放行修改后的代码或未验证的业务规则。
-- 依赖未变，复用 R0.1 的干净环境安装证明；新增代码在当前环境验证，不宣称已在新建环境再次测试。
-- findings.md/JSON 是聚合结果和少量原始证据，不提交 CSV。不要修改根 README、.gitignore 或冻结数据基准来迁就实现。
+- Q1.3 的独立命令为 `python q1_data_quality/q1_strategy.py`，只交付文档，不实施 ETL 或自动认证业务解释；其正文、规则审查表及口径见 q1_data_quality/。
+- `--stage q1` 完成三个题目的交付入口并返回 0；完整 run_all 仍返回 2，当前 5 个阶段完成、Q2–Q5 共 4 个未实现。入口 passed 不表示业务规则已获批准。
+- Q1.3 验收核对文档与字数、隔离运行、缺件失败、真实反例，并回归此前计算检查。每轮条件见 ACCEPTANCE_*.md；机器报告在 reports/ 对应目录，历史证据保留。
+- Q1.2 补证单独运行 `python scripts/verify_q1_review.py`；逐记录归属仅写本地忽略目录 .venv/q1-review/。字节一致、独立复算和定向变异均有适用边界，不能替代业务审查。
+- Q1.3 新发现正向候选保留等额取消对应的正单，可能影响最近购买、频次和推荐偏好。策略因此要求核对订单事件；未实现或认证自动匹配。语义审查仍由同一 AI 完成。
+- 不提交 CSV，不改根 README、.gitignore 或冻结数据基准。依赖未变，复用旧安装证明；新增代码在当前环境验证，未声称已在新建环境再次测试。
 
 以下是前期各轮的历史运行说明，不应覆盖本节的当前完成范围。
 
