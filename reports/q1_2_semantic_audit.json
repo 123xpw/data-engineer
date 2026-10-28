@@ -1,0 +1,28 @@
+{
+  "audited_commit": "b8229430253920dc2db75258f815a09217f3a9d0",
+  "scope": "只运行现有 Q1.2 的 10 个单元测试与全量指标等值检查；没有声称执行整个验收脚本",
+  "hypothesis_before_experiment": "若改变业务解释仍通过现有单元测试与数值核验，则这些检查不足以核验业务解释",
+  "original_source_sha256": "12a96f708808dfaf2ad0d17a87bcd3b6b4d07336b1dc17d74162c2d17ba1bb5e",
+  "mutant_source_sha256": "0d6bfc670385f130ab3f5892fbff94819a48e2b35a211ee5637563e0a686d0ea",
+  "mutation": {
+    "old": "'PADS': '描述指向配套垫子，可能是实体商品，需商品主数据确认'",
+    "new": "'PADS': '银行手续费；已确认不是商品，应直接删除'",
+    "synthetic_error": true,
+    "location": "仅临时副本"
+  },
+  "unit_result": {
+    "tests": 10,
+    "failures": [],
+    "errors": []
+  },
+  "all_business_metrics_unchanged": true,
+  "actual_source_descriptions": [
+    {
+      "value": "PADS TO MATCH ALL CUSHIONS",
+      "rows": 19
+    }
+  ],
+  "bad_report_row_FOR_TEST_ONLY": "| \"PADS\" | 19 | 0.001780% | -36.583 | -0.000190% | PADS TO MATCH ALL CUSHIONS | 银行手续费；已确认不是商品，应直接删除 |",
+  "conclusion": "现有 Q1.2 单元测试与全量指标检查漏过无依据的业务解释；数值正确不能当业务放行。",
+  "not_claimed": "没有证明所有测试都无效；没有验证业务真值；没有运行全部放行脚本。"
+}

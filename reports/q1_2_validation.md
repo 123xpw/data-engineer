@@ -1,6 +1,6 @@
 # Q1.2 本轮验收结果
 
-验收标准先于实现写入 q1_data_quality/ACCEPTANCE_Q1_2.md。当前结果：通过，允许进入 Q1.3；不表示整份笔试完成。
+验收标准先于实现写入 q1_data_quality/ACCEPTANCE_Q1_2.md。历史计算验收结果：通过。后续语义审查撤回自动进入 Q1.3 的结论，当前业务放行状态：待补证。详见 [语义审查与下一步实验约定](q1_2_review.md)。历史机器报告不改写，以免混淆当时实测与后续审查。
 
 - 本轮验收编号：`e657654b6414482187764adbd21add83`；精确源码指纹及逐项证据见 [机器报告](q1_2/acceptance_latest.json)。
 - 本轮独立消融编号：`98bdccff0a8f47f9addad51057d6cec9`；结果见 [口径实验](q1_2_sensitivity.md)。
