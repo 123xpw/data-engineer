@@ -1,12 +1,12 @@
 {
-  "run_id": "e657654b6414482187764adbd21add83",
+  "run_id": "62cec1cc15c44910974dc3ad67e77fa1",
   "status": "passed",
   "scope": "acceptance",
-  "started_utc": "2026-10-28T17:22:35.983877+00:00",
+  "started_utc": "2026-10-28T18:46:58.559488+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "pandas": "3.1.0",
-  "git_base": "d057f70e49b054a034726af55f3f1b71ee773289",
+  "git_base": "70c9ae72907a67922fc03264355c6d1379e4a45e",
   "source_sha256": {
     "requirements.txt": "e72f75124f63ae6b07970f640e49d334d930a97288e7464fe8e03c9b266656b4",
     "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
@@ -17,28 +17,32 @@
     "scripts/export_ai_log.py": "3d19d6954ef59a4801b5279565e500940ad75b0f99d62e9edc97bc18227bba59",
     "scripts/q1_findings_reference.py": "716e57de471da0bf591526454796b2bf1ec30035f6c051b15c303f909e9017b6",
     "scripts/q1_reference.py": "9b30a77c4c0d5458888dc94c472c2eae070c189604fb223e4339e533ac77f592",
+    "scripts/q1_review_experiments.py": "43fd4e749584edc25b48cea67ccdf75a6a02a8a04e4a96ef149eb8fef0651f70",
     "scripts/verification_support.py": "009ccbaf49769a93c59c7e03ec622cc07a0181f8cd9eecd50c0d17c0ea354c18",
     "scripts/verify_baseline.py": "16d6464d8ed9862c26ed37aabeb716582bd4757464711d39e734812296e6b35b",
     "scripts/verify_clean_environment.py": "8e19019a666c6e3cc3211ee4ded217ca21d4ddfe4b09418574226824ad672cd3",
     "scripts/verify_mutations.py": "751cc914af1e3b399aed7d2db4fb1066d33cac53c215f4fa1cd1d7468d2a5fa0",
     "scripts/verify_q1_1.py": "5e2302f413967790df315883de3d3633ab532936bd3c5d89823bacc03cd56146",
-    "scripts/verify_q1_2.py": "6a9a48d2c35b575b03b0caa9c9391488e5e510e66b8d03f52848adbac4f68c26",
+    "scripts/verify_q1_2.py": "47f4c9cab39f47c64af4265ae799b3b98788264392f2e69837bdd776988677df",
+    "scripts/verify_q1_review.py": "bad11e861cd44307c7a70e8d2930593b7de4191dd7bb37425278546636d50f71",
     "scripts/verify_stage_gate.py": "62d9a3fcc102715fd90795682f50781b6385cf2e1ae7c4c9770e44128af4e84e",
     "tests/test_baseline.py": "47fac2a6ee7759327eece4d643820e56dbbee33e0a2ec51fdde1c84d1adb7c5c",
     "tests/test_q1_findings.py": "4868fa4f898375fd72c834a45d973ee4909e1a2b475a9ce715e089fba6790cbd",
     "tests/test_q1_profile.py": "c2a1e8a1b4b235a12ff3742386d2f849fed40d940e71eba870c4704188783488",
+    "tests/test_q1_review.py": "7024092be87789b57551839b2a55b43341973790cf25566658cdeb5d9a30fddf",
     "tests/test_verification.py": "1dea283f5a64c15d8b1d1fe527128f9bbfc1799213627d24bdbf9925d593775c",
     "q1_data_quality/q1_code.py": "a4a8a2aae66854bc6171af08399da5c0f7097828be4f7d7521265a4591e6a8e2",
     "q1_data_quality/q1_findings.py": "12a96f708808dfaf2ad0d17a87bcd3b6b4d07336b1dc17d74162c2d17ba1bb5e",
     "q1_data_quality/ACCEPTANCE_Q1_1.md": "be762634b9f7f6348c9c2610bcaf07ad0680a5cfe09fd5955681fcece11b5a88",
-    "q1_data_quality/ACCEPTANCE_Q1_2.md": "5f20dde95d38cd2dff8556937899ebbe72179cd8e5ffafebc5b7b1cad6c1f3c9"
+    "q1_data_quality/ACCEPTANCE_Q1_2.md": "5f20dde95d38cd2dff8556937899ebbe72179cd8e5ffafebc5b7b1cad6c1f3c9",
+    "q1_data_quality/ACCEPTANCE_Q1_2_REVIEW.md": "34c3dfc6efdb859624d80267e168f325ab0762b8183f1438dc6d7ca2c59cbcec"
   },
   "checks": [
     {
       "name": "Q12-1 手算反例、置换不变性、成对冲销及回归",
       "passed": true,
       "evidence": {
-        "tests": 38,
+        "tests": 44,
         "failures": [],
         "errors": []
       }
@@ -147,7 +151,7 @@
       "name": "Q12-新增实验 单条件消融手算、全量运行及首尾交叉核对",
       "passed": true,
       "evidence": {
-        "run_id": "98bdccff0a8f47f9addad51057d6cec9",
+        "run_id": "1937156afcf443908594e37a30f41289",
         "hand_checked_views": 8,
         "report_sha256": "ef2327038384607b490555b831656ee9547467b3510f1f3188f14c516a57ecfa",
         "conclusion": "单独数量或单价过滤已使排序反转，不能唯一归因于特殊编码排除"
@@ -157,10 +161,10 @@
       "name": "Q12-4/6 当前源码的 Q1.1、骨架和旧变异回归",
       "passed": true,
       "evidence": {
-        "q1_1_current_regression": "89e04103d82f4f42abda978966c29f98",
+        "q1_1_current_regression": "8d4360d6c31d4a1097a3b37f478243cd",
         "includes": "原有骨架六个真实流程和旧五类变异；源文件/README/.gitignore 不变；依赖安装证明复用范围见 Q1.1 报告"
       }
     }
   ],
-  "finished_utc": "2026-10-28T17:23:24.324176+00:00"
+  "finished_utc": "2026-10-28T18:47:47.508685+00:00"
 }
