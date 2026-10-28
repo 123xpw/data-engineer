@@ -14,6 +14,9 @@ def main() -> None:
     parser.add_argument("session", type=Path, help="仅传入本项目这一次会话的 JSONL 文件")
     args = parser.parse_args()
     raw = args.session.read_bytes()
+    topic_path = ROOT / "ai_logs" / "topic_index.json"
+    topic_index = json.loads(topic_path.read_text(encoding="utf-8")) if topic_path.exists() else {}
+    topic = "Q0：需求分析与数据准备（Q1–Q5 的前置阶段）"
     messages = []
     iteration = 0
     for line in raw.splitlines():
@@ -33,8 +36,9 @@ def main() -> None:
             continue
         if role == "user":
             iteration += 1
+            topic = topic_index.get(str(iteration), topic)
         messages.append({"timestamp": item["timestamp"], "role": role, "iteration": iteration,
-                         "topic": "Q0：需求分析与数据准备（Q1–Q5 的前置阶段）",
+                         "topic": topic,
                          "tool": "Codex", "content_blocks": blocks})
     if not messages:
         raise ValueError("没有找到可导出的本次对话")
@@ -44,7 +48,7 @@ def main() -> None:
               "scope": "用户与助手可见文字原文；不含系统指令、内部推理、工具调用及工具结果；代码见提交文件。当前轮次仍可能追加消息，交付前须刷新。",
               "messages": messages}
     (directory / "baseline_conversation.json").write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    parts = ["# 需求分析与数据准备：可见对话原文\n\n", output["scope"], "\n\n"]
+    parts = ["# 笔试过程：可见对话原文\n\n", output["scope"], "\n\n"]
     for message in messages:
         timestamp = datetime.fromisoformat(message["timestamp"].replace("Z", "+00:00")).isoformat()
         parts.append(f"## {message['topic']}｜迭代 {message['iteration']}｜{message['role']}｜{timestamp}\n\n")

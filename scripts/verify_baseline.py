@@ -24,7 +24,8 @@ def main():
             report_path = temp / "cli.json"
             report_path.unlink(missing_ok=True)
             command = [sys.executable, str(ROOT / "run_all.py"), "--stage", stage,
-                       "--data-dir", str(data_dir), "--report", str(report_path)]
+                       "--data-dir", str(data_dir), "--report", str(report_path),
+                       "--q1-output-dir", str(temp / "q1-output")]
             if offline:
                 command.append("--offline")
             environment = os.environ.copy()
@@ -33,7 +34,7 @@ def main():
             # 从不同工作目录调用，验证路径不依赖启动位置。
             result = subprocess.run(command, cwd=temp, env=environment, timeout=900, capture_output=True, text=True)
             report = json.loads(report_path.read_text())
-            expected_names = ["data.retail", "data.olist"] + (["q1", "q2", "q3", "q4", "q5"] if stage == "all" else [])
+            expected_names = ["data.retail", "data.olist"] + (["q1.1", "q1.2", "q1.3", "q2", "q3", "q4", "q5"] if stage == "all" else [])
             if result.returncode != code or report["exit_code"] != code:
                 raise AssertionError(f"退出码不符合预期 {code}，实际 {result.returncode}")
             if [r["stage"] for r in report["results"]] != expected_names or [r["status"] for r in report["results"]] != statuses:
@@ -48,7 +49,7 @@ def main():
         original = ROOT / "data"
         before = {str(p.relative_to(original)): sha256(p) for p in original.rglob("*.csv")}
         evidence.check("G2/G3 全部真实 CSV 独立解析与离线重跑", lambda: check_cli(original, ["passed", "passed"], 0))
-        evidence.check("全流程未完成不能报告成功", lambda: check_cli(original, ["passed", "passed"] + ["not_implemented"] * 5, 2, stage="all"))
+        evidence.check("全流程未完成不能报告成功", lambda: check_cli(original, ["passed"] * 3 + ["not_implemented"] * 6, 2, stage="all"))
         evidence.check("缺失输入失败", lambda: check_cli(temp / "empty", ["failed", "failed"], 1))
         damaged = temp / "damaged"
         shutil.copytree(original, damaged)
