@@ -1,0 +1,2856 @@
+{
+  "rows": 1067371,
+  "price_decimal_places": 3,
+  "total": {
+    "rows": 1067371,
+    "invoices": 53628,
+    "net": "19287250.568",
+    "absolute": "22658685.708",
+    "row_share": 1.0,
+    "net_share": 1.0,
+    "absolute_share": 1.0,
+    "invoice_mean": 359.64888804355934,
+    "quantity_sign": {
+      "negative": 22950,
+      "zero": 0,
+      "positive": 1044421
+    },
+    "price_sign": {
+      "negative": 5,
+      "zero": 6202,
+      "positive": 1061164
+    }
+  },
+  "prefixes": {
+    "": {
+      "rows": 1047871,
+      "invoices": 45330,
+      "net": "20961532.508",
+      "absolute": "20961532.508",
+      "row_share": 0.9817308133722951,
+      "net_share": 1.086807704089138,
+      "absolute_share": 0.9250992214698139,
+      "invoice_mean": 462.4207480255901,
+      "quantity_sign": {
+        "negative": 3457,
+        "zero": 0,
+        "positive": 1044414
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 6202,
+        "positive": 1041669
+      },
+      "descriptions": [
+        {
+          "value": "WHITE HANGING HEART T-LIGHT HOLDER",
+          "rows": 5783
+        },
+        {
+          "value": "",
+          "rows": 4382
+        },
+        {
+          "value": "REGENCY CAKESTAND 3 TIER",
+          "rows": 4065
+        },
+        {
+          "value": "JUMBO BAG RED RETROSPOT",
+          "rows": 3395
+        },
+        {
+          "value": "ASSORTED COLOUR BIRD ORNAMENT",
+          "rows": 2939
+        }
+      ],
+      "examples": [
+        {
+          "record": 1,
+          "Invoice": "489434",
+          "StockCode": "85048",
+          "Description": "15CM CHRISTMAS GLASS BALL 20 LIGHTS",
+          "Quantity": "12",
+          "InvoiceDate": "2009-12-01 07:45:00",
+          "Price": "6.95",
+          "Customer ID": "13085.0",
+          "Country": "United Kingdom"
+        },
+        {
+          "record": 2,
+          "Invoice": "489434",
+          "StockCode": "79323P",
+          "Description": "PINK CHERRY LIGHTS",
+          "Quantity": "12",
+          "InvoiceDate": "2009-12-01 07:45:00",
+          "Price": "6.75",
+          "Customer ID": "13085.0",
+          "Country": "United Kingdom"
+        },
+        {
+          "record": 3,
+          "Invoice": "489434",
+          "StockCode": "79323W",
+          "Description": " WHITE CHERRY LIGHTS",
+          "Quantity": "12",
+          "InvoiceDate": "2009-12-01 07:45:00",
+          "Price": "6.75",
+          "Customer ID": "13085.0",
+          "Country": "United Kingdom"
+        }
+      ]
+    },
+    "A": {
+      "rows": 6,
+      "invoices": 6,
+      "net": "-147614.080",
+      "absolute": "169738.200",
+      "row_share": 5.621288193139968e-06,
+      "net_share": -0.007653453740312293,
+      "absolute_share": 0.007491087620323508,
+      "invoice_mean": -24602.346666666668,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 6
+      },
+      "price_sign": {
+        "negative": 5,
+        "zero": 0,
+        "positive": 1
+      },
+      "descriptions": [
+        {
+          "value": "Adjust bad debt",
+          "rows": 6
+        }
+      ],
+      "examples": [
+        {
+          "record": 179404,
+          "Invoice": "A506401",
+          "StockCode": "B",
+          "Description": "Adjust bad debt",
+          "Quantity": "1",
+          "InvoiceDate": "2010-04-29 13:36:00",
+          "Price": "-53594.36",
+          "Customer ID": "",
+          "Country": "United Kingdom"
+        },
+        {
+          "record": 276275,
+          "Invoice": "A516228",
+          "StockCode": "B",
+          "Description": "Adjust bad debt",
+          "Quantity": "1",
+          "InvoiceDate": "2010-07-19 11:24:00",
+          "Price": "-44031.79",
+          "Customer ID": "",
+          "Country": "United Kingdom"
+        },
+        {
+          "record": 403473,
+          "Invoice": "A528059",
+          "StockCode": "B",
+          "Description": "Adjust bad debt",
+          "Quantity": "1",
+          "InvoiceDate": "2010-10-20 12:04:00",
+          "Price": "-38925.87",
+          "Customer ID": "",
+          "Country": "United Kingdom"
+        }
+      ]
+    },
+    "C": {
+      "rows": 19494,
+      "invoices": 8292,
+      "net": "-1526667.860",
+      "absolute": "1527415.000",
+      "row_share": 0.018263565339511754,
+      "net_share": -0.07915425034882556,
+      "absolute_share": 0.06740969090986254,
+      "invoice_mean": -184.11334539315,
+      "quantity_sign": {
+        "negative": 19493,
+        "zero": 0,
+        "positive": 1
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 19494
+      },
+      "descriptions": [
+        {
+          "value": "Manual",
+          "rows": 538
+        },
+        {
+          "value": "REGENCY CAKESTAND 3 TIER",
+          "rows": 347
+        },
+        {
+          "value": "POSTAGE",
+          "rows": 229
+        },
+        {
+          "value": "BAKING SET 9 PIECE RETROSPOT ",
+          "rows": 211
+        },
+        {
+          "value": "STRAWBERRY CERAMIC TRINKET BOX",
+          "rows": 184
+        }
+      ],
+      "examples": [
+        {
+          "record": 179,
+          "Invoice": "C489449",
+          "StockCode": "22087",
+          "Description": "PAPER BUNTING WHITE LACE",
+          "Quantity": "-12",
+          "InvoiceDate": "2009-12-01 10:33:00",
+          "Price": "2.95",
+          "Customer ID": "16321.0",
+          "Country": "Australia"
+        },
+        {
+          "record": 180,
+          "Invoice": "C489449",
+          "StockCode": "85206A",
+          "Description": "CREAM FELT EASTER EGG BASKET",
+          "Quantity": "-6",
+          "InvoiceDate": "2009-12-01 10:33:00",
+          "Price": "1.65",
+          "Customer ID": "16321.0",
+          "Country": "Australia"
+        },
+        {
+          "record": 181,
+          "Invoice": "C489449",
+          "StockCode": "21895",
+          "Description": "POTTING SHED SOW 'N' GROW SET",
+          "Quantity": "-4",
+          "InvoiceDate": "2009-12-01 10:33:00",
+          "Price": "4.25",
+          "Customer ID": "16321.0",
+          "Country": "Australia"
+        }
+      ]
+    }
+  },
+  "special_codes": {
+    "47503J ": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "16.130",
+      "absolute": "16.130",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 8.363037511817117e-07,
+      "absolute_share": 7.118682966817027e-07,
+      "invoice_mean": 16.13,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 1
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 1
+      },
+      "descriptions": [
+        {
+          "value": "SET/3 FLORAL GARDEN TOOLS IN BAG",
+          "rows": 1
+        }
+      ]
+    },
+    "ADJUST": {
+      "rows": 67,
+      "invoices": 67,
+      "net": "6835.240",
+      "absolute": "10960.620",
+      "row_share": 6.277105149006297e-05,
+      "net_share": 0.0003543916213408111,
+      "absolute_share": 0.00048372708555334185,
+      "invoice_mean": 102.01850746268657,
+      "quantity_sign": {
+        "negative": 31,
+        "zero": 0,
+        "positive": 36
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 67
+      },
+      "descriptions": [
+        {
+          "value": "Adjustment by john on 26/01/2010 16",
+          "rows": 38
+        },
+        {
+          "value": "Adjustment by john on 26/01/2010 17",
+          "rows": 26
+        },
+        {
+          "value": "Adjustment by Peter on 24/05/2010 1",
+          "rows": 3
+        }
+      ]
+    },
+    "ADJUST2": {
+      "rows": 3,
+      "invoices": 3,
+      "net": "731.050",
+      "absolute": "731.050",
+      "row_share": 2.810644096569984e-06,
+      "net_share": 3.790327695606884e-05,
+      "absolute_share": 3.226356591997264e-05,
+      "invoice_mean": 243.68333333333334,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 3
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 3
+      },
+      "descriptions": [
+        {
+          "value": "Adjustment by Peter on Jun 25 2010 ",
+          "rows": 3
+        }
+      ]
+    },
+    "AMAZONFEE": {
+      "rows": 43,
+      "invoices": 36,
+      "net": "-260763.580",
+      "absolute": "328781.840",
+      "row_share": 4.02858987175031e-05,
+      "net_share": -0.013519997527933812,
+      "absolute_share": 0.014510190230668078,
+      "invoice_mean": -7243.432777777778,
+      "quantity_sign": {
+        "negative": 39,
+        "zero": 0,
+        "positive": 4
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 43
+      },
+      "descriptions": [
+        {
+          "value": "AMAZON FEE",
+          "rows": 43
+        }
+      ]
+    },
+    "B": {
+      "rows": 6,
+      "invoices": 6,
+      "net": "-147614.080",
+      "absolute": "169738.200",
+      "row_share": 5.621288193139968e-06,
+      "net_share": -0.007653453740312293,
+      "absolute_share": 0.007491087620323508,
+      "invoice_mean": -24602.346666666668,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 6
+      },
+      "price_sign": {
+        "negative": 5,
+        "zero": 0,
+        "positive": 1
+      },
+      "descriptions": [
+        {
+          "value": "Adjust bad debt",
+          "rows": 6
+        }
+      ]
+    },
+    "BANK CHARGES": {
+      "rows": 102,
+      "invoices": 95,
+      "net": "-35562.629",
+      "absolute": "36631.111",
+      "row_share": 9.556189928337944e-05,
+      "net_share": -0.0018438412916666786,
+      "absolute_share": 0.0016166476499149649,
+      "invoice_mean": -374.34346315789475,
+      "quantity_sign": {
+        "negative": 67,
+        "zero": 0,
+        "positive": 35
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 102
+      },
+      "descriptions": [
+        {
+          "value": "Bank Charges",
+          "rows": 96
+        },
+        {
+          "value": " Bank Charges",
+          "rows": 6
+        }
+      ]
+    },
+    "C2": {
+      "rows": 282,
+      "invoices": 277,
+      "net": "13386.000",
+      "absolute": "13966.000",
+      "row_share": 0.0002642005450775785,
+      "net_share": 0.0006940336028095718,
+      "absolute_share": 0.0006163640813054346,
+      "invoice_mean": 48.324909747292416,
+      "quantity_sign": {
+        "negative": 7,
+        "zero": 0,
+        "positive": 275
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 3,
+        "positive": 279
+      },
+      "descriptions": [
+        {
+          "value": "CARRIAGE",
+          "rows": 279
+        },
+        {
+          "value": "",
+          "rows": 3
+        }
+      ]
+    },
+    "C3": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "CRUK": {
+      "rows": 16,
+      "invoices": 16,
+      "net": "-7933.430",
+      "absolute": "7933.430",
+      "row_share": 1.4990101848373247e-05,
+      "net_share": -0.00041133027084547594,
+      "absolute_share": 0.0003501275450057979,
+      "invoice_mean": -495.839375,
+      "quantity_sign": {
+        "negative": 16,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 16
+      },
+      "descriptions": [
+        {
+          "value": "CRUK Commission",
+          "rows": 16
+        }
+      ]
+    },
+    "D": {
+      "rows": 177,
+      "invoices": 151,
+      "net": "-13484.540",
+      "absolute": "14280.320",
+      "row_share": 0.00016582800169762904,
+      "net_share": -0.0006991426773068716,
+      "absolute_share": 0.0006302360244556511,
+      "invoice_mean": -89.30158940397351,
+      "quantity_sign": {
+        "negative": 172,
+        "zero": 0,
+        "positive": 5
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 177
+      },
+      "descriptions": [
+        {
+          "value": "Discount",
+          "rows": 177
+        }
+      ]
+    },
+    "DCGS0003": {
+      "rows": 14,
+      "invoices": 14,
+      "net": "32.590",
+      "absolute": "32.590",
+      "row_share": 1.3116339117326591e-05,
+      "net_share": 1.6897172505277115e-06,
+      "absolute_share": 1.4383005448764222e-06,
+      "invoice_mean": 2.327857142857143,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 13
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 13
+      },
+      "descriptions": [
+        {
+          "value": "BOXED GLASS ASHTRAY",
+          "rows": 13
+        },
+        {
+          "value": "ebay",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0004": {
+      "rows": 5,
+      "invoices": 5,
+      "net": "67.940",
+      "absolute": "67.940",
+      "row_share": 4.684406827616639e-06,
+      "net_share": 3.522534212974922e-06,
+      "absolute_share": 2.998408684225349e-06,
+      "invoice_mean": 13.588,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 4
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 4
+      },
+      "descriptions": [
+        {
+          "value": "HAYNES CAMPER SHOULDER BAG",
+          "rows": 4
+        },
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0006": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0016": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0027": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0036": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0037": {
+      "rows": 2,
+      "invoices": 2,
+      "net": "12.720",
+      "absolute": "12.720",
+      "row_share": 1.8737627310466558e-06,
+      "net_share": 6.595030201507361e-07,
+      "absolute_share": 5.613741310471952e-07,
+      "invoice_mean": 6.36,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 1
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 1
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        },
+        {
+          "value": "KEY-RING CORKSCREW",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0039": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0041": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "5.060",
+      "absolute": "5.060",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 2.623494718524155e-07,
+      "absolute_share": 2.233139231995918e-07,
+      "invoice_mean": 5.06,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 1
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 1
+      },
+      "descriptions": [
+        {
+          "value": "HAYNES MINI-COOPER PLAYING CARDS",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0044": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "2.570",
+      "absolute": "2.570",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 1.3324864479460628e-07,
+      "absolute_share": 1.1342228905591915e-07,
+      "invoice_mean": 2.57,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 1
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 1
+      },
+      "descriptions": [
+        {
+          "value": "HANDZ-OFF CAR FRESHENER",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0053": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0055": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0056": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0057": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0058": {
+      "rows": 31,
+      "invoices": 31,
+      "net": "34.820",
+      "absolute": "34.820",
+      "row_share": 2.9043322331223164e-05,
+      "net_share": 1.80533766994093e-06,
+      "absolute_share": 1.5367175505552936e-06,
+      "invoice_mean": 1.123225806451613,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 31
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 30
+      },
+      "descriptions": [
+        {
+          "value": "MISO PRETTY  GUM",
+          "rows": 30
+        },
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0059": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0060": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0062": {
+      "rows": 2,
+      "invoices": 2,
+      "net": "2.510",
+      "absolute": "2.510",
+      "row_share": 1.8737627310466558e-06,
+      "net_share": 1.3013778149200845e-07,
+      "absolute_share": 1.1077429787173427e-07,
+      "invoice_mean": 1.255,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 1
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 1
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        },
+        {
+          "value": "ROAD-RAGE CAR FRESHENER",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0066N": {
+      "rows": 4,
+      "invoices": 4,
+      "net": "17.300",
+      "absolute": "17.300",
+      "row_share": 3.7475254620933116e-06,
+      "net_share": 8.969655855823691e-07,
+      "absolute_share": 7.635041247733078e-07,
+      "invoice_mean": 4.325,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 4
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 2,
+        "positive": 2
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 2
+        },
+        {
+          "value": "NAVY CUDDLES DOG HOODIE",
+          "rows": 2
+        }
+      ]
+    },
+    "DCGS0066P": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0067": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "ebay",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0068": {
+      "rows": 3,
+      "invoices": 3,
+      "net": "17.120",
+      "absolute": "17.120",
+      "row_share": 2.810644096569984e-06,
+      "net_share": 8.876329956745756e-07,
+      "absolute_share": 7.555601512207532e-07,
+      "invoice_mean": 5.706666666666667,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 2
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 2
+      },
+      "descriptions": [
+        {
+          "value": "DOGS NIGHT COLLAR",
+          "rows": 2
+        },
+        {
+          "value": "ebay",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0069": {
+      "rows": 6,
+      "invoices": 6,
+      "net": "80.310",
+      "absolute": "80.310",
+      "row_share": 5.621288193139968e-06,
+      "net_share": 4.163890530527171e-06,
+      "absolute_share": 3.5443362000314657e-06,
+      "invoice_mean": 13.385,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 5
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 5
+      },
+      "descriptions": [
+        {
+          "value": "OOH LA LA DOGS COLLAR",
+          "rows": 5
+        },
+        {
+          "value": "ebay",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0070": {
+      "rows": 3,
+      "invoices": 3,
+      "net": "25.440",
+      "absolute": "25.440",
+      "row_share": 2.810644096569984e-06,
+      "net_share": 1.3190060403014722e-06,
+      "absolute_share": 1.1227482620943904e-06,
+      "invoice_mean": 8.48,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 2
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 2
+      },
+      "descriptions": [
+        {
+          "value": "CAMOUFLAGE DOG COLLAR",
+          "rows": 2
+        },
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0071": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0072": {
+      "rows": 4,
+      "invoices": 4,
+      "net": "20.680",
+      "absolute": "20.680",
+      "row_share": 3.7475254620933116e-06,
+      "net_share": 1.0722108849620458e-06,
+      "absolute_share": 9.126742948157229e-07,
+      "invoice_mean": 5.17,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 3
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 3
+      },
+      "descriptions": [
+        {
+          "value": "CAT CAMOUFLAGUE COLLAR",
+          "rows": 3
+        },
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0073": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "ebay",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0074": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0075": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "12.720",
+      "absolute": "12.720",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 6.595030201507361e-07,
+      "absolute_share": 5.613741310471952e-07,
+      "invoice_mean": 12.72,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 1
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 1
+      },
+      "descriptions": [
+        {
+          "value": "CAMOUFLAGUE DOG LEAD",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGS0076": {
+      "rows": 15,
+      "invoices": 14,
+      "net": "292.090",
+      "absolute": "292.090",
+      "row_share": 1.4053220482849918e-05,
+      "net_share": 1.5144201034263248e-05,
+      "absolute_share": 1.289086241647604e-05,
+      "invoice_mean": 20.86357142857143,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 15
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 15
+      },
+      "descriptions": [
+        {
+          "value": "SUNJAR LED NIGHT NIGHT LIGHT",
+          "rows": 15
+        }
+      ]
+    },
+    "DCGSLBOY": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGSLGIRL": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGSSBOY": {
+      "rows": 23,
+      "invoices": 23,
+      "net": "251.350",
+      "absolute": "251.350",
+      "row_share": 2.1548271407036542e-05,
+      "net_share": 1.3031924851799332e-05,
+      "absolute_share": 1.1092876402414506e-05,
+      "invoice_mean": 10.928260869565218,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 22
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 2,
+        "positive": 21
+      },
+      "descriptions": [
+        {
+          "value": "BOYS PARTY BAG",
+          "rows": 21
+        },
+        {
+          "value": "",
+          "rows": 1
+        },
+        {
+          "value": "update",
+          "rows": 1
+        }
+      ]
+    },
+    "DCGSSGIRL": {
+      "rows": 25,
+      "invoices": 25,
+      "net": "295.630",
+      "absolute": "295.630",
+      "row_share": 2.3422034138083196e-05,
+      "net_share": 1.532774196911652e-05,
+      "absolute_share": 1.3047093896342948e-05,
+      "invoice_mean": 11.8252,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 24
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 2,
+        "positive": 23
+      },
+      "descriptions": [
+        {
+          "value": "GIRLS PARTY BAG",
+          "rows": 23
+        },
+        {
+          "value": "",
+          "rows": 1
+        },
+        {
+          "value": "update",
+          "rows": 1
+        }
+      ]
+    },
+    "DOT": {
+      "rows": 1446,
+      "invoices": 1425,
+      "net": "322647.470",
+      "absolute": "322667.490",
+      "row_share": 0.001354730454546732,
+      "net_share": 0.016728536234983805,
+      "absolute_share": 0.014240344482384397,
+      "invoice_mean": 226.41927719298246,
+      "quantity_sign": {
+        "negative": 3,
+        "zero": 0,
+        "positive": 1443
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 7,
+        "positive": 1439
+      },
+      "descriptions": [
+        {
+          "value": "DOTCOM POSTAGE",
+          "rows": 1444
+        },
+        {
+          "value": "",
+          "rows": 2
+        }
+      ]
+    },
+    "GIFT": {
+      "rows": 1,
+      "invoices": 1,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 9.368813655233279e-07,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 0
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "M": {
+      "rows": 1421,
+      "invoices": 1286,
+      "net": "-82796.320",
+      "absolute": "764976.020",
+      "row_share": 0.0013313084204086489,
+      "net_share": -0.004292800557969088,
+      "absolute_share": 0.03376082928454731,
+      "invoice_mean": -64.38283048211508,
+      "quantity_sign": {
+        "negative": 537,
+        "zero": 0,
+        "positive": 884
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 7,
+        "positive": 1414
+      },
+      "descriptions": [
+        {
+          "value": "Manual",
+          "rows": 1421
+        }
+      ]
+    },
+    "PADS": {
+      "rows": 19,
+      "invoices": 19,
+      "net": "-36.583",
+      "absolute": "36.617",
+      "row_share": 1.780074594494323e-05,
+      "net_share": -1.8967452033155957e-06,
+      "absolute_share": 1.616024886521631e-06,
+      "invoice_mean": -1.925421052631579,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 18
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 18
+      },
+      "descriptions": [
+        {
+          "value": "PADS TO MATCH ALL CUSHIONS",
+          "rows": 19
+        }
+      ]
+    },
+    "POST": {
+      "rows": 2122,
+      "invoices": 2084,
+      "net": "112341.000",
+      "absolute": "142853.840",
+      "row_share": 0.001988062257640502,
+      "net_share": 0.005824624904619013,
+      "absolute_share": 0.006304595149115963,
+      "invoice_mean": 53.90642994241843,
+      "quantity_sign": {
+        "negative": 229,
+        "zero": 0,
+        "positive": 1893
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 7,
+        "positive": 2115
+      },
+      "descriptions": [
+        {
+          "value": "POSTAGE",
+          "rows": 2115
+        },
+        {
+          "value": "",
+          "rows": 7
+        }
+      ]
+    },
+    "S": {
+      "rows": 104,
+      "invoices": 37,
+      "net": "-6065.800",
+      "absolute": "6339.500",
+      "row_share": 9.74356620144261e-05,
+      "net_share": -0.00031449791034829675,
+      "absolute_share": 0.00027978233520233443,
+      "invoice_mean": -163.94054054054055,
+      "quantity_sign": {
+        "negative": 101,
+        "zero": 0,
+        "positive": 3
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 104
+      },
+      "descriptions": [
+        {
+          "value": "SAMPLES",
+          "rows": 104
+        }
+      ]
+    },
+    "SP1002": {
+      "rows": 3,
+      "invoices": 3,
+      "net": "14.750",
+      "absolute": "14.750",
+      "row_share": 2.810644096569984e-06,
+      "net_share": 7.64753895221962e-07,
+      "absolute_share": 6.509644994454504e-07,
+      "invoice_mean": 4.916666666666667,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 2
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 2
+      },
+      "descriptions": [
+        {
+          "value": "KID'S CHALKBOARD/EASEL",
+          "rows": 2
+        },
+        {
+          "value": "",
+          "rows": 1
+        }
+      ]
+    },
+    "TEST001": {
+      "rows": 15,
+      "invoices": 15,
+      "net": "202.500",
+      "absolute": "247.500",
+      "row_share": 1.4053220482849918e-05,
+      "net_share": 1.0499163646267614e-05,
+      "absolute_share": 1.092296363476264e-05,
+      "invoice_mean": 13.5,
+      "quantity_sign": {
+        "negative": 4,
+        "zero": 0,
+        "positive": 11
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 2,
+        "positive": 13
+      },
+      "descriptions": [
+        {
+          "value": "This is a test product.",
+          "rows": 15
+        }
+      ]
+    },
+    "TEST002": {
+      "rows": 2,
+      "invoices": 2,
+      "net": "1.000",
+      "absolute": "1.000",
+      "row_share": 1.8737627310466558e-06,
+      "net_share": 5.184772170996353e-08,
+      "absolute_share": 4.413318640308138e-08,
+      "invoice_mean": 0.5,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 2
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 1,
+        "positive": 1
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 1
+        },
+        {
+          "value": "This is a test product.",
+          "rows": 1
+        }
+      ]
+    },
+    "gift_0001_10": {
+      "rows": 16,
+      "invoices": 16,
+      "net": "126.210",
+      "absolute": "126.210",
+      "row_share": 1.4990101848373247e-05,
+      "net_share": 6.543700957014497e-06,
+      "absolute_share": 5.570049455932901e-06,
+      "invoice_mean": 7.888125,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 16
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 2,
+        "positive": 14
+      },
+      "descriptions": [
+        {
+          "value": "Dotcomgiftshop Gift Voucher £10.00",
+          "rows": 14
+        },
+        {
+          "value": "",
+          "rows": 2
+        }
+      ]
+    },
+    "gift_0001_20": {
+      "rows": 29,
+      "invoices": 29,
+      "net": "471.060",
+      "absolute": "471.060",
+      "row_share": 2.7169559600176507e-05,
+      "net_share": 2.4423387788695418e-05,
+      "absolute_share": 2.0789378787035514e-05,
+      "invoice_mean": 16.243448275862068,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 29
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 3,
+        "positive": 26
+      },
+      "descriptions": [
+        {
+          "value": "Dotcomgiftshop Gift Voucher £20.00",
+          "rows": 26
+        },
+        {
+          "value": "",
+          "rows": 2
+        },
+        {
+          "value": "to push order througha s stock was ",
+          "rows": 1
+        }
+      ]
+    },
+    "gift_0001_30": {
+      "rows": 29,
+      "invoices": 29,
+      "net": "610.090",
+      "absolute": "610.090",
+      "row_share": 2.7169559600176507e-05,
+      "net_share": 3.163177653803165e-05,
+      "absolute_share": 2.692521569265592e-05,
+      "invoice_mean": 21.037586206896552,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 29
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 5,
+        "positive": 24
+      },
+      "descriptions": [
+        {
+          "value": "Dotcomgiftshop Gift Voucher £30.00",
+          "rows": 24
+        },
+        {
+          "value": "",
+          "rows": 5
+        }
+      ]
+    },
+    "gift_0001_40": {
+      "rows": 7,
+      "invoices": 7,
+      "net": "166.090",
+      "absolute": "166.090",
+      "row_share": 6.5581695586632955e-06,
+      "net_share": 8.611388098807842e-06,
+      "absolute_share": 7.330080929687787e-06,
+      "invoice_mean": 23.72714285714286,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 7
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 2,
+        "positive": 5
+      },
+      "descriptions": [
+        {
+          "value": "Dotcomgiftshop Gift Voucher £40.00",
+          "rows": 5
+        },
+        {
+          "value": "",
+          "rows": 2
+        }
+      ]
+    },
+    "gift_0001_50": {
+      "rows": 8,
+      "invoices": 8,
+      "net": "253.590",
+      "absolute": "253.590",
+      "row_share": 7.495050924186623e-06,
+      "net_share": 1.3148063748429651e-05,
+      "absolute_share": 1.1191734739957408e-05,
+      "invoice_mean": 31.69875,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 8
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 2,
+        "positive": 6
+      },
+      "descriptions": [
+        {
+          "value": "Dotcomgiftshop Gift Voucher £50.00",
+          "rows": 6
+        },
+        {
+          "value": "",
+          "rows": 2
+        }
+      ]
+    },
+    "gift_0001_60": {
+      "rows": 2,
+      "invoices": 2,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 1.8737627310466558e-06,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 2
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 2,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 2
+        }
+      ]
+    },
+    "gift_0001_70": {
+      "rows": 3,
+      "invoices": 3,
+      "net": "59.570",
+      "absolute": "59.570",
+      "row_share": 2.810644096569984e-06,
+      "net_share": 3.0885687822625273e-06,
+      "absolute_share": 2.629013914031558e-06,
+      "invoice_mean": 19.856666666666666,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 3
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 2,
+        "positive": 1
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 2
+        },
+        {
+          "value": "Dotcomgiftshop Gift Voucher £70.00",
+          "rows": 1
+        }
+      ]
+    },
+    "gift_0001_80": {
+      "rows": 4,
+      "invoices": 4,
+      "net": "0.000",
+      "absolute": "139.120",
+      "row_share": 3.7475254620933116e-06,
+      "net_share": 0.0,
+      "absolute_share": 6.139808892396681e-06,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 1,
+        "zero": 0,
+        "positive": 3
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 2,
+        "positive": 2
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 2
+        },
+        {
+          "value": "Dotcomgiftshop Gift Voucher £80.00",
+          "rows": 2
+        }
+      ]
+    },
+    "gift_0001_90": {
+      "rows": 2,
+      "invoices": 2,
+      "net": "0.000",
+      "absolute": "0.000",
+      "row_share": 1.8737627310466558e-06,
+      "net_share": 0.0,
+      "absolute_share": 0.0,
+      "invoice_mean": 0.0,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 2
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 2,
+        "positive": 0
+      },
+      "descriptions": [
+        {
+          "value": "",
+          "rows": 2
+        }
+      ]
+    },
+    "m": {
+      "rows": 5,
+      "invoices": 4,
+      "net": "15.050",
+      "absolute": "15.050",
+      "row_share": 4.684406827616639e-06,
+      "net_share": 7.803082117349511e-07,
+      "absolute_share": 6.642044553663748e-07,
+      "invoice_mean": 3.7625,
+      "quantity_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 5
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 0,
+        "positive": 5
+      },
+      "descriptions": [
+        {
+          "value": "Manual",
+          "rows": 5
+        }
+      ]
+    }
+  },
+  "special_total": {
+    "rows": 6094,
+    "invoices": 5524,
+    "net": "-95209.312",
+    "absolute": "1823187.048",
+    "row_share": 0.00570935504149916,
+    "net_share": -0.004936385912773091,
+    "absolute_share": 0.08046305383706769,
+    "invoice_mean": -17.235574221578567,
+    "quantity_sign": {
+      "negative": 1239,
+      "zero": 0,
+      "positive": 4855
+    },
+    "price_sign": {
+      "negative": 5,
+      "zero": 86,
+      "positive": 6003
+    }
+  },
+  "extremes": [
+    {
+      "record": 1065883,
+      "Invoice": "581483",
+      "StockCode": "23843",
+      "Description": "PAPER CRAFT , LITTLE BIRDIE",
+      "Quantity": "80995",
+      "InvoiceDate": "2011-12-09 09:15:00",
+      "Price": "2.08",
+      "Customer ID": "16446.0",
+      "Country": "United Kingdom"
+    },
+    {
+      "record": 1065884,
+      "Invoice": "C581484",
+      "StockCode": "23843",
+      "Description": "PAPER CRAFT , LITTLE BIRDIE",
+      "Quantity": "-80995",
+      "InvoiceDate": "2011-12-09 09:27:00",
+      "Price": "2.08",
+      "Customer ID": "16446.0",
+      "Country": "United Kingdom"
+    }
+  ],
+  "negative_prices": [
+    {
+      "record": 179404,
+      "Invoice": "A506401",
+      "StockCode": "B",
+      "Description": "Adjust bad debt",
+      "Quantity": "1",
+      "InvoiceDate": "2010-04-29 13:36:00",
+      "Price": "-53594.36",
+      "Customer ID": "",
+      "Country": "United Kingdom"
+    },
+    {
+      "record": 276275,
+      "Invoice": "A516228",
+      "StockCode": "B",
+      "Description": "Adjust bad debt",
+      "Quantity": "1",
+      "InvoiceDate": "2010-07-19 11:24:00",
+      "Price": "-44031.79",
+      "Customer ID": "",
+      "Country": "United Kingdom"
+    },
+    {
+      "record": 403473,
+      "Invoice": "A528059",
+      "StockCode": "B",
+      "Description": "Adjust bad debt",
+      "Quantity": "1",
+      "InvoiceDate": "2010-10-20 12:04:00",
+      "Price": "-38925.87",
+      "Customer ID": "",
+      "Country": "United Kingdom"
+    },
+    {
+      "record": 825445,
+      "Invoice": "A563186",
+      "StockCode": "B",
+      "Description": "Adjust bad debt",
+      "Quantity": "1",
+      "InvoiceDate": "2011-08-12 14:51:00",
+      "Price": "-11062.06",
+      "Customer ID": "",
+      "Country": "United Kingdom"
+    },
+    {
+      "record": 825446,
+      "Invoice": "A563187",
+      "StockCode": "B",
+      "Description": "Adjust bad debt",
+      "Quantity": "1",
+      "InvoiceDate": "2011-08-12 14:52:00",
+      "Price": "-11062.06",
+      "Customer ID": "",
+      "Country": "United Kingdom"
+    }
+  ],
+  "customers": {
+    "present": {
+      "rows": 824364,
+      "invoices": 44876,
+      "net": "16648292.388",
+      "absolute": "18838565.968",
+      "row_share": 0.7723312700082726,
+      "net_share": 0.8631760306791282,
+      "absolute_share": 0.8314059434324892,
+      "invoice_mean": 370.98432097334876,
+      "quantity_sign": {
+        "negative": 18744,
+        "zero": 0,
+        "positive": 805620
+      },
+      "price_sign": {
+        "negative": 0,
+        "zero": 71,
+        "positive": 824293
+      },
+      "candidate_sales": {
+        "rows": 802632,
+        "invoices": 36594,
+        "net": "17434449.980",
+        "absolute": "17434449.980",
+        "row_share": 0.7519709641727197,
+        "net_share": 0.9039365107293192,
+        "absolute_share": 0.7694378308025385,
+        "invoice_mean": 476.4291954965295,
+        "quantity_sign": {
+          "negative": 0,
+          "zero": 0,
+          "positive": 802632
+        },
+        "price_sign": {
+          "negative": 0,
+          "zero": 0,
+          "positive": 802632
+        }
+      },
+      "countries": {
+        "Australia": {
+          "rows": 1913,
+          "within_group_share": 0.002320576832564256,
+          "net": "167129.070"
+        },
+        "Austria": {
+          "rows": 938,
+          "within_group_share": 0.0011378468734685163,
+          "net": "23177.600"
+        },
+        "Bahrain": {
+          "rows": 59,
+          "within_group_share": 7.157032572989601e-05,
+          "net": "1354.370"
+        },
+        "Belgium": {
+          "rows": 3123,
+          "within_group_share": 0.003788375038211276,
+          "net": "63574.490"
+        },
+        "Brazil": {
+          "rows": 94,
+          "within_group_share": 0.0001140272986205123,
+          "net": "1411.870"
+        },
+        "Canada": {
+          "rows": 228,
+          "within_group_share": 0.0002765768519731575,
+          "net": "4883.040"
+        },
+        "Channel Islands": {
+          "rows": 1664,
+          "within_group_share": 0.0020185257968567284,
+          "net": "41453.610"
+        },
+        "Cyprus": {
+          "rows": 1176,
+          "within_group_share": 0.001426554289124707,
+          "net": "24162.740"
+        },
+        "Czech Republic": {
+          "rows": 30,
+          "within_group_share": 3.639169104909967e-05,
+          "net": "707.720"
+        },
+        "Denmark": {
+          "rows": 817,
+          "within_group_share": 0.0009910670529038143,
+          "net": "65741.090"
+        },
+        "EIRE": {
+          "rows": 16195,
+          "within_group_share": 0.019645447884672304,
+          "net": "578501.630"
+        },
+        "European Community": {
+          "rows": 61,
+          "within_group_share": 7.399643846650266e-05,
+          "net": "1291.750"
+        },
+        "Finland": {
+          "rows": 1049,
+          "within_group_share": 0.0012724961303501852,
+          "net": "29514.450"
+        },
+        "France": {
+          "rows": 14202,
+          "within_group_share": 0.017227826542643782,
+          "net": "326504.670"
+        },
+        "Germany": {
+          "rows": 17624,
+          "within_group_share": 0.021378905434977752,
+          "net": "417988.561"
+        },
+        "Greece": {
+          "rows": 663,
+          "within_group_share": 0.0008042563721851027,
+          "net": "18995.490"
+        },
+        "Iceland": {
+          "rows": 253,
+          "within_group_share": 0.0003069032611807405,
+          "net": "5633.320"
+        },
+        "Israel": {
+          "rows": 324,
+          "within_group_share": 0.0003930302633302764,
+          "net": "10193.650"
+        },
+        "Italy": {
+          "rows": 1534,
+          "within_group_share": 0.0018608284689772964,
+          "net": "30679.350"
+        },
+        "Japan": {
+          "rows": 582,
+          "within_group_share": 0.0007059988063525336,
+          "net": "43776.580"
+        },
+        "Korea": {
+          "rows": 63,
+          "within_group_share": 7.64225512031093e-05,
+          "net": "949.820"
+        },
+        "Lebanon": {
+          "rows": 45,
+          "within_group_share": 5.45875365736495e-05,
+          "net": "1693.880"
+        },
+        "Lithuania": {
+          "rows": 189,
+          "within_group_share": 0.00022926765360932791,
+          "net": "6553.740"
+        },
+        "Malta": {
+          "rows": 299,
+          "within_group_share": 0.0003627038541226934,
+          "net": "5192.220"
+        },
+        "Netherlands": {
+          "rows": 5140,
+          "within_group_share": 0.006235109733079077,
+          "net": "548524.950"
+        },
+        "Nigeria": {
+          "rows": 30,
+          "within_group_share": 3.639169104909967e-05,
+          "net": "140.390"
+        },
+        "Norway": {
+          "rows": 1455,
+          "within_group_share": 0.001764997015881334,
+          "net": "39243.030"
+        },
+        "Poland": {
+          "rows": 535,
+          "within_group_share": 0.0006489851570422774,
+          "net": "10528.090"
+        },
+        "Portugal": {
+          "rows": 2504,
+          "within_group_share": 0.003037493146231519,
+          "net": "52405.450"
+        },
+        "RSA": {
+          "rows": 123,
+          "within_group_share": 0.00014920593330130865,
+          "net": "1933.740"
+        },
+        "Saudi Arabia": {
+          "rows": 10,
+          "within_group_share": 1.2130563683033222e-05,
+          "net": "131.170"
+        },
+        "Singapore": {
+          "rows": 346,
+          "within_group_share": 0.0004197175034329495,
+          "net": "13158.160"
+        },
+        "Spain": {
+          "rows": 3811,
+          "within_group_share": 0.0046229578196039615,
+          "net": "91859.480"
+        },
+        "Sweden": {
+          "rows": 1345,
+          "within_group_share": 0.0016315608153679685,
+          "net": "87455.420"
+        },
+        "Switzerland": {
+          "rows": 3064,
+          "within_group_share": 0.0037168047124813797,
+          "net": "99082.810"
+        },
+        "Thailand": {
+          "rows": 76,
+          "within_group_share": 9.219228399105249e-05,
+          "net": "3070.540"
+        },
+        "USA": {
+          "rows": 535,
+          "within_group_share": 0.0006489851570422774,
+          "net": "6286.540"
+        },
+        "United Arab Emirates": {
+          "rows": 386,
+          "within_group_share": 0.00046823975816508243,
+          "net": "9071.710"
+        },
+        "United Kingdom": {
+          "rows": 741301,
+          "within_group_share": 0.8992398988796212,
+          "net": "13806423.027"
+        },
+        "Unspecified": {
+          "rows": 524,
+          "within_group_share": 0.0006356415369909409,
+          "net": "7376.760"
+        },
+        "West Indies": {
+          "rows": 54,
+          "within_group_share": 6.550504388837941e-05,
+          "net": "536.410"
+        }
+      },
+      "top_products": [
+        {
+          "code": "85123A",
+          "rows": 5188,
+          "invoices": 4895,
+          "descriptions": [
+            {
+              "value": "WHITE HANGING HEART T-LIGHT HOLDER",
+              "rows": 5181
+            },
+            {
+              "value": "CREAM HANGING HEART T-LIGHT HOLDER",
+              "rows": 7
+            }
+          ]
+        },
+        {
+          "code": "22423",
+          "rows": 3428,
+          "invoices": 3317,
+          "descriptions": [
+            {
+              "value": "REGENCY CAKESTAND 3 TIER",
+              "rows": 3428
+            }
+          ]
+        },
+        {
+          "code": "85099B",
+          "rows": 3360,
+          "invoices": 3260,
+          "descriptions": [
+            {
+              "value": "JUMBO BAG RED RETROSPOT",
+              "rows": 2702
+            },
+            {
+              "value": "JUMBO BAG RED WHITE SPOTTY ",
+              "rows": 473
+            },
+            {
+              "value": "RED RETROSPOT JUMBO BAG ",
+              "rows": 185
+            }
+          ]
+        },
+        {
+          "code": "84879",
+          "rows": 2777,
+          "invoices": 2652,
+          "descriptions": [
+            {
+              "value": "ASSORTED COLOUR BIRD ORNAMENT",
+              "rows": 2777
+            }
+          ]
+        },
+        {
+          "code": "20725",
+          "rows": 2678,
+          "invoices": 2579,
+          "descriptions": [
+            {
+              "value": "LUNCH BAG RED RETROSPOT",
+              "rows": 1593
+            },
+            {
+              "value": "LUNCH BAG RED SPOTTY",
+              "rows": 1085
+            }
+          ]
+        },
+        {
+          "code": "21212",
+          "rows": 2654,
+          "invoices": 2508,
+          "descriptions": [
+            {
+              "value": "PACK OF 72 RETROSPOT CAKE CASES",
+              "rows": 1450
+            },
+            {
+              "value": "PACK OF 72 RETRO SPOT CAKE CASES",
+              "rows": 1204
+            }
+          ]
+        },
+        {
+          "code": "47566",
+          "rows": 2121,
+          "invoices": 2077,
+          "descriptions": [
+            {
+              "value": "PARTY BUNTING",
+              "rows": 2121
+            }
+          ]
+        },
+        {
+          "code": "22383",
+          "rows": 2100,
+          "invoices": 2004,
+          "descriptions": [
+            {
+              "value": "LUNCH BAG SUKI  DESIGN ",
+              "rows": 1135
+            },
+            {
+              "value": "LUNCH BAG SUKI DESIGN ",
+              "rows": 933
+            },
+            {
+              "value": "LUNCHBAG SUKI  DESIGN ",
+              "rows": 32
+            }
+          ]
+        },
+        {
+          "code": "20727",
+          "rows": 2117,
+          "invoices": 1997,
+          "descriptions": [
+            {
+              "value": "LUNCH BAG  BLACK SKULL.",
+              "rows": 2117
+            }
+          ]
+        },
+        {
+          "code": "22382",
+          "rows": 1986,
+          "invoices": 1919,
+          "descriptions": [
+            {
+              "value": "LUNCH BAG SPACEBOY DESIGN ",
+              "rows": 1941
+            },
+            {
+              "value": "LUNCHBAG SPACEBOY DESIGN ",
+              "rows": 45
+            }
+          ]
+        }
+      ]
+    },
+    "missing": {
+      "rows": 243007,
+      "invoices": 8752,
+      "net": "2638958.180",
+      "absolute": "3820119.740",
+      "row_share": 0.22766872999172733,
+      "net_share": 0.13682396932087185,
+      "absolute_share": 0.16859405656751078,
+      "invoice_mean": 301.52630027422305,
+      "quantity_sign": {
+        "negative": 4206,
+        "zero": 0,
+        "positive": 238801
+      },
+      "price_sign": {
+        "negative": 5,
+        "zero": 6131,
+        "positive": 236871
+      },
+      "candidate_sales": {
+        "rows": 234244,
+        "invoices": 2922,
+        "net": "2674529.290",
+        "absolute": "2674529.290",
+        "row_share": 0.2194588385856464,
+        "net_share": 0.13866825033306635,
+        "absolute_share": 0.1180354996960709,
+        "invoice_mean": 915.307765229295,
+        "quantity_sign": {
+          "negative": 0,
+          "zero": 0,
+          "positive": 234244
+        },
+        "price_sign": {
+          "negative": 0,
+          "zero": 0,
+          "positive": 234244
+        }
+      },
+      "countries": {
+        "Bahrain": {
+          "rows": 67,
+          "within_group_share": 0.00027571222228166265,
+          "net": "1507.180"
+        },
+        "Bermuda": {
+          "rows": 34,
+          "within_group_share": 0.00013991366503845567,
+          "net": "1253.140"
+        },
+        "EIRE": {
+          "rows": 1671,
+          "within_group_share": 0.006876345125860572,
+          "net": "37017.920"
+        },
+        "France": {
+          "rows": 128,
+          "within_group_share": 0.0005267337977918332,
+          "net": "1687.130"
+        },
+        "Hong Kong": {
+          "rows": 364,
+          "within_group_share": 0.0014978992374705255,
+          "net": "14039.300"
+        },
+        "Israel": {
+          "rows": 47,
+          "within_group_share": 0.00019341006637668874,
+          "net": "913.570"
+        },
+        "Lebanon": {
+          "rows": 13,
+          "within_group_share": 5.349640133823306e-05,
+          "net": "172.030"
+        },
+        "Nigeria": {
+          "rows": 2,
+          "within_group_share": 8.230215590497393e-06,
+          "net": "-147.050"
+        },
+        "Portugal": {
+          "rows": 116,
+          "within_group_share": 0.0004773525042488488,
+          "net": "731.350"
+        },
+        "RSA": {
+          "rows": 46,
+          "within_group_share": 0.00018929495858144004,
+          "net": "1435.290"
+        },
+        "Sweden": {
+          "rows": 19,
+          "within_group_share": 7.818704810972523e-05,
+          "net": "354.000"
+        },
+        "Switzerland": {
+          "rows": 125,
+          "within_group_share": 0.0005143884744060871,
+          "net": "645.950"
+        },
+        "United Arab Emirates": {
+          "rows": 114,
+          "within_group_share": 0.0004691222886583514,
+          "net": "876.940"
+        },
+        "United Kingdom": {
+          "rows": 240029,
+          "within_group_share": 0.9877452089857494,
+          "net": "2576160.870"
+        },
+        "Unspecified": {
+          "rows": 232,
+          "within_group_share": 0.0009547050084976976,
+          "net": "2310.560"
+        }
+      },
+      "top_products": [
+        {
+          "code": "85099B",
+          "rows": 764,
+          "invoices": 729,
+          "descriptions": [
+            {
+              "value": "JUMBO BAG RED RETROSPOT",
+              "rows": 664
+            },
+            {
+              "value": "JUMBO BAG RED WHITE SPOTTY ",
+              "rows": 72
+            },
+            {
+              "value": "RED RETROSPOT JUMBO BAG ",
+              "rows": 28
+            }
+          ]
+        },
+        {
+          "code": "21931",
+          "rows": 633,
+          "invoices": 615,
+          "descriptions": [
+            {
+              "value": "JUMBO STORAGE BAG SUKI",
+              "rows": 633
+            }
+          ]
+        },
+        {
+          "code": "21212",
+          "rows": 636,
+          "invoices": 610,
+          "descriptions": [
+            {
+              "value": "PACK OF 72 RETROSPOT CAKE CASES",
+              "rows": 384
+            },
+            {
+              "value": "PACK OF 72 RETRO SPOT CAKE CASES",
+              "rows": 252
+            }
+          ]
+        },
+        {
+          "code": "22423",
+          "rows": 633,
+          "invoices": 601,
+          "descriptions": [
+            {
+              "value": "REGENCY CAKESTAND 3 TIER",
+              "rows": 633
+            }
+          ]
+        },
+        {
+          "code": "47566",
+          "rows": 619,
+          "invoices": 597,
+          "descriptions": [
+            {
+              "value": "PARTY BUNTING",
+              "rows": 619
+            }
+          ]
+        },
+        {
+          "code": "22197",
+          "rows": 594,
+          "invoices": 570,
+          "descriptions": [
+            {
+              "value": "SMALL POPCORN HOLDER",
+              "rows": 391
+            },
+            {
+              "value": "POPCORN HOLDER",
+              "rows": 172
+            },
+            {
+              "value": "POPCORN HOLDER , SMALL ",
+              "rows": 31
+            }
+          ]
+        },
+        {
+          "code": "22379",
+          "rows": 573,
+          "invoices": 557,
+          "descriptions": [
+            {
+              "value": "RECYCLING BAG RETROSPOT ",
+              "rows": 573
+            }
+          ]
+        },
+        {
+          "code": "22355",
+          "rows": 566,
+          "invoices": 551,
+          "descriptions": [
+            {
+              "value": "CHARLOTTE BAG SUKI DESIGN",
+              "rows": 461
+            },
+            {
+              "value": "CHARLOTTE BAG , SUKI DESIGN",
+              "rows": 105
+            }
+          ]
+        },
+        {
+          "code": "21232",
+          "rows": 555,
+          "invoices": 542,
+          "descriptions": [
+            {
+              "value": "STRAWBERRY CERAMIC TRINKET BOX",
+              "rows": 505
+            },
+            {
+              "value": "STRAWBERRY CERAMIC TRINKET POT",
+              "rows": 50
+            }
+          ]
+        },
+        {
+          "code": "20724",
+          "rows": 558,
+          "invoices": 540,
+          "descriptions": [
+            {
+              "value": "RED RETROSPOT CHARLOTTE BAG",
+              "rows": 362
+            },
+            {
+              "value": "RED SPOTTY CHARLOTTE BAG",
+              "rows": 196
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "mixed_identity_invoices": 0,
+  "multiple_known_customer_invoices": 0,
+  "counterexamples": {
+    "c_nonnegative": {
+      "rows": 1,
+      "examples": [
+        {
+          "record": 76800,
+          "Invoice": "C496350",
+          "StockCode": "M",
+          "Description": "Manual",
+          "Quantity": "1",
+          "InvoiceDate": "2010-02-01 08:24:00",
+          "Price": "373.57",
+          "Customer ID": "",
+          "Country": "United Kingdom"
+        }
+      ]
+    },
+    "numeric_invoice_negative": {
+      "rows": 3457,
+      "examples": [
+        {
+          "record": 264,
+          "Invoice": "489464",
+          "StockCode": "21733",
+          "Description": "85123a mixed",
+          "Quantity": "-96",
+          "InvoiceDate": "2009-12-01 10:52:00",
+          "Price": "0.0",
+          "Customer ID": "",
+          "Country": "United Kingdom"
+        },
+        {
+          "record": 284,
+          "Invoice": "489463",
+          "StockCode": "71477",
+          "Description": "short",
+          "Quantity": "-240",
+          "InvoiceDate": "2009-12-01 10:52:00",
+          "Price": "0.0",
+          "Customer ID": "",
+          "Country": "United Kingdom"
+        },
+        {
+          "record": 285,
+          "Invoice": "489467",
+          "StockCode": "85123A",
+          "Description": "21733 mixed",
+          "Quantity": "-192",
+          "InvoiceDate": "2009-12-01 10:53:00",
+          "Price": "0.0",
+          "Customer ID": "",
+          "Country": "United Kingdom"
+        }
+      ]
+    },
+    "ordinary_stock_nonpositive": {
+      "rows": 24401,
+      "examples": [
+        {
+          "record": 179,
+          "Invoice": "C489449",
+          "StockCode": "22087",
+          "Description": "PAPER BUNTING WHITE LACE",
+          "Quantity": "-12",
+          "InvoiceDate": "2009-12-01 10:33:00",
+          "Price": "2.95",
+          "Customer ID": "16321.0",
+          "Country": "Australia"
+        },
+        {
+          "record": 180,
+          "Invoice": "C489449",
+          "StockCode": "85206A",
+          "Description": "CREAM FELT EASTER EGG BASKET",
+          "Quantity": "-6",
+          "InvoiceDate": "2009-12-01 10:33:00",
+          "Price": "1.65",
+          "Customer ID": "16321.0",
+          "Country": "Australia"
+        },
+        {
+          "record": 181,
+          "Invoice": "C489449",
+          "StockCode": "21895",
+          "Description": "POTTING SHED SOW 'N' GROW SET",
+          "Quantity": "-4",
+          "InvoiceDate": "2009-12-01 10:33:00",
+          "Price": "4.25",
+          "Customer ID": "16321.0",
+          "Country": "Australia"
+        }
+      ]
+    }
+  },
+  "source": {
+    "handle": "mashlyn/online-retail-ii-uci/versions/3",
+    "sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9"
+  }
+}

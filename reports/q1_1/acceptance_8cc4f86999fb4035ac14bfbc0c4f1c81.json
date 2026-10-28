@@ -1,0 +1,490 @@
+{
+  "run_id": "8cc4f86999fb4035ac14bfbc0c4f1c81",
+  "status": "passed",
+  "scope": "acceptance",
+  "started_utc": "2026-10-28T17:18:00.867752+00:00",
+  "python": "3.12.13",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "pandas": "3.1.0",
+  "git_base": "d057f70e49b054a034726af55f3f1b71ee773289",
+  "source_sha256": {
+    "requirements.txt": "e72f75124f63ae6b07970f640e49d334d930a97288e7464fe8e03c9b266656b4",
+    "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
+    "VALIDATION_GATES.md": "51b9ae9d7c106078be5b27090476268285a27ba31b45cc95e77213ccec902051",
+    "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
+    "run_all.py": "5c8a2441d9fd7a3e8c9b6498aeb9693aedc5ea3792594c3fd89b18318e666183",
+    "scripts/export_ai_log.py": "3d19d6954ef59a4801b5279565e500940ad75b0f99d62e9edc97bc18227bba59",
+    "scripts/q1_findings_reference.py": "716e57de471da0bf591526454796b2bf1ec30035f6c051b15c303f909e9017b6",
+    "scripts/q1_reference.py": "9b30a77c4c0d5458888dc94c472c2eae070c189604fb223e4339e533ac77f592",
+    "scripts/verification_support.py": "009ccbaf49769a93c59c7e03ec622cc07a0181f8cd9eecd50c0d17c0ea354c18",
+    "scripts/verify_baseline.py": "16d6464d8ed9862c26ed37aabeb716582bd4757464711d39e734812296e6b35b",
+    "scripts/verify_clean_environment.py": "8e19019a666c6e3cc3211ee4ded217ca21d4ddfe4b09418574226824ad672cd3",
+    "scripts/verify_mutations.py": "751cc914af1e3b399aed7d2db4fb1066d33cac53c215f4fa1cd1d7468d2a5fa0",
+    "scripts/verify_q1_1.py": "5e2302f413967790df315883de3d3633ab532936bd3c5d89823bacc03cd56146",
+    "scripts/verify_q1_2.py": "0b50c76ca6909f346d4ac7317f000cc7d03bbb8cb3809194ed7839df54725a06",
+    "scripts/verify_stage_gate.py": "62d9a3fcc102715fd90795682f50781b6385cf2e1ae7c4c9770e44128af4e84e",
+    "tests/test_baseline.py": "47fac2a6ee7759327eece4d643820e56dbbee33e0a2ec51fdde1c84d1adb7c5c",
+    "tests/test_q1_findings.py": "4868fa4f898375fd72c834a45d973ee4909e1a2b475a9ce715e089fba6790cbd",
+    "tests/test_q1_profile.py": "c2a1e8a1b4b235a12ff3742386d2f849fed40d940e71eba870c4704188783488",
+    "tests/test_verification.py": "1dea283f5a64c15d8b1d1fe527128f9bbfc1799213627d24bdbf9925d593775c",
+    "q1_data_quality/q1_code.py": "a4a8a2aae66854bc6171af08399da5c0f7097828be4f7d7521265a4591e6a8e2",
+    "q1_data_quality/q1_findings.py": "5d18f1a5ec6a53288dfc37db45f88324190acc79d14ced82bf08c0a15ba0ef15",
+    "q1_data_quality/ACCEPTANCE_Q1_1.md": "be762634b9f7f6348c9c2610bcaf07ad0680a5cfe09fd5955681fcece11b5a88",
+    "q1_data_quality/ACCEPTANCE_Q1_2.md": "b7daf6e8a30a4d709ea90b779582bd4c9772f8b41bd3f1bd3531fb6c03084f5d"
+  },
+  "checks": [
+    {
+      "name": "Q11-B 手算样本、独立参考实现及现有回归",
+      "passed": true,
+      "evidence": {
+        "tests": 38,
+        "failures": [],
+        "errors": []
+      }
+    },
+    {
+      "name": "Q11-F 漏计一行",
+      "passed": true,
+      "evidence": {
+        "tests": 10,
+        "failures": [
+          "test_q1_profile.Q1ProfileTests.test_every_row_and_column_is_counted",
+          "test_q1_profile.Q1ProfileTests.test_missing_denominator_and_literal_null_are_distinct"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "Q11-F 错误使用总体标准差",
+      "passed": true,
+      "evidence": {
+        "tests": 10,
+        "failures": [
+          "test_q1_profile.Q1ProfileTests.test_numeric_statistics_follow_hand_calculation"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "Q11-F 静默裁剪字符串",
+      "passed": true,
+      "evidence": {
+        "tests": 10,
+        "failures": [
+          "test_q1_profile.Q1ProfileTests.test_whitespace_and_ties_are_preserved"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "Q11-F 并列排序错误",
+      "passed": true,
+      "evidence": {
+        "tests": 10,
+        "failures": [
+          "test_q1_profile.Q1ProfileTests.test_whitespace_and_ties_are_preserved"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "Q11-F 缺失率分母错误",
+      "passed": true,
+      "evidence": {
+        "tests": 10,
+        "failures": [
+          "test_q1_profile.Q1ProfileTests.test_missing_denominator_and_literal_null_are_distinct"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "Q11-G 独立入口、总入口与交付产物一致",
+      "passed": true,
+      "evidence": {
+        "artifact_sha256": {
+          "data_quality_metrics.json": "382ce6c09ca40341650133f6b6085b328dc1f6700bcc2fc97f43ad98fce68a44",
+          "data_quality_report.md": "690a4117954f741c37f2cf0ff2e879ec39c175e5780599768320d680178a1a3d"
+        },
+        "scope": "两个入口只宣称 Q1.1 完成"
+      }
+    },
+    {
+      "name": "Q11-A/C/D 全量独立复算与守恒",
+      "passed": true,
+      "evidence": {
+        "independent_method": "csv.reader + Decimal(precision=50) + Counter；不导入生产统计函数",
+        "comparison": "计数与排序精确；均值/std rtol=1e-10, atol=1e-8",
+        "reference": {
+          "rows": 1067371,
+          "columns": {
+            "Invoice": {
+              "missing_count": 0,
+              "missing_fraction": 0.0,
+              "whitespace_only_count": 0,
+              "unique_nonempty": 53628,
+              "top10": [
+                {
+                  "value": "537434",
+                  "count": 1350
+                },
+                {
+                  "value": "538071",
+                  "count": 1304
+                },
+                {
+                  "value": "537638",
+                  "count": 1202
+                },
+                {
+                  "value": "537237",
+                  "count": 1194
+                },
+                {
+                  "value": "536876",
+                  "count": 1186
+                },
+                {
+                  "value": "536592",
+                  "count": 1184
+                },
+                {
+                  "value": "537823",
+                  "count": 1182
+                },
+                {
+                  "value": "537240",
+                  "count": 1136
+                },
+                {
+                  "value": "573585",
+                  "count": 1114
+                },
+                {
+                  "value": "537666",
+                  "count": 1072
+                }
+              ]
+            },
+            "StockCode": {
+              "missing_count": 0,
+              "missing_fraction": 0.0,
+              "whitespace_only_count": 0,
+              "unique_nonempty": 5305,
+              "top10": [
+                {
+                  "value": "85123A",
+                  "count": 5829
+                },
+                {
+                  "value": "22423",
+                  "count": 4424
+                },
+                {
+                  "value": "85099B",
+                  "count": 4216
+                },
+                {
+                  "value": "21212",
+                  "count": 3318
+                },
+                {
+                  "value": "20725",
+                  "count": 3259
+                },
+                {
+                  "value": "84879",
+                  "count": 2960
+                },
+                {
+                  "value": "47566",
+                  "count": 2768
+                },
+                {
+                  "value": "21232",
+                  "count": 2747
+                },
+                {
+                  "value": "22197",
+                  "count": 2549
+                },
+                {
+                  "value": "22383",
+                  "count": 2540
+                }
+              ]
+            },
+            "Description": {
+              "missing_count": 4382,
+              "missing_fraction": 0.0041054141437232225,
+              "whitespace_only_count": 0,
+              "unique_nonempty": 5698,
+              "top10": [
+                {
+                  "value": "WHITE HANGING HEART T-LIGHT HOLDER",
+                  "count": 5918
+                },
+                {
+                  "value": "REGENCY CAKESTAND 3 TIER",
+                  "count": 4412
+                },
+                {
+                  "value": "JUMBO BAG RED RETROSPOT",
+                  "count": 3469
+                },
+                {
+                  "value": "ASSORTED COLOUR BIRD ORNAMENT",
+                  "count": 2958
+                },
+                {
+                  "value": "PARTY BUNTING",
+                  "count": 2765
+                },
+                {
+                  "value": "STRAWBERRY CERAMIC TRINKET BOX",
+                  "count": 2613
+                },
+                {
+                  "value": "LUNCH BAG  BLACK SKULL.",
+                  "count": 2529
+                },
+                {
+                  "value": "JUMBO STORAGE BAG SUKI",
+                  "count": 2434
+                },
+                {
+                  "value": "HEART OF WICKER SMALL",
+                  "count": 2319
+                },
+                {
+                  "value": "JUMBO SHOPPER VINTAGE RED PAISLEY",
+                  "count": 2297
+                }
+              ]
+            },
+            "Quantity": {
+              "missing_count": 0,
+              "missing_fraction": 0.0,
+              "whitespace_only_count": 0,
+              "numeric": {
+                "valid_count": 1067371,
+                "invalid_nonempty_count": 0,
+                "min": -80995.0,
+                "max": 80995.0,
+                "mean": 9.9388984711033,
+                "std": 172.70579407675342
+              }
+            },
+            "InvoiceDate": {
+              "missing_count": 0,
+              "missing_fraction": 0.0,
+              "whitespace_only_count": 0,
+              "unique_nonempty": 47635,
+              "top10": [
+                {
+                  "value": "2010-12-06 16:57:00",
+                  "count": 1350
+                },
+                {
+                  "value": "2010-12-09 14:09:00",
+                  "count": 1304
+                },
+                {
+                  "value": "2010-12-07 15:28:00",
+                  "count": 1202
+                },
+                {
+                  "value": "2010-12-06 09:58:00",
+                  "count": 1194
+                },
+                {
+                  "value": "2010-12-03 11:36:00",
+                  "count": 1186
+                },
+                {
+                  "value": "2010-12-01 17:06:00",
+                  "count": 1184
+                },
+                {
+                  "value": "2010-12-08 14:25:00",
+                  "count": 1182
+                },
+                {
+                  "value": "2010-12-06 10:08:00",
+                  "count": 1136
+                },
+                {
+                  "value": "2011-10-31 14:41:00",
+                  "count": 1114
+                },
+                {
+                  "value": "2010-12-07 18:36:00",
+                  "count": 1072
+                }
+              ]
+            },
+            "Price": {
+              "missing_count": 0,
+              "missing_fraction": 0.0,
+              "whitespace_only_count": 0,
+              "numeric": {
+                "valid_count": 1067371,
+                "invalid_nonempty_count": 0,
+                "min": -53594.36,
+                "max": 38970.0,
+                "mean": 4.64938772741624,
+                "std": 123.55305872146319
+              }
+            },
+            "Customer ID": {
+              "missing_count": 243007,
+              "missing_fraction": 0.22766872999172733,
+              "whitespace_only_count": 0,
+              "unique_nonempty": 5942,
+              "top10": [
+                {
+                  "value": "17841.0",
+                  "count": 13097
+                },
+                {
+                  "value": "14911.0",
+                  "count": 11613
+                },
+                {
+                  "value": "12748.0",
+                  "count": 7307
+                },
+                {
+                  "value": "14606.0",
+                  "count": 6709
+                },
+                {
+                  "value": "14096.0",
+                  "count": 5128
+                },
+                {
+                  "value": "15311.0",
+                  "count": 4717
+                },
+                {
+                  "value": "14156.0",
+                  "count": 4130
+                },
+                {
+                  "value": "14646.0",
+                  "count": 3890
+                },
+                {
+                  "value": "13089.0",
+                  "count": 3438
+                },
+                {
+                  "value": "16549.0",
+                  "count": 3255
+                }
+              ]
+            },
+            "Country": {
+              "missing_count": 0,
+              "missing_fraction": 0.0,
+              "whitespace_only_count": 0,
+              "unique_nonempty": 43,
+              "top10": [
+                {
+                  "value": "United Kingdom",
+                  "count": 981330
+                },
+                {
+                  "value": "EIRE",
+                  "count": 17866
+                },
+                {
+                  "value": "Germany",
+                  "count": 17624
+                },
+                {
+                  "value": "France",
+                  "count": 14330
+                },
+                {
+                  "value": "Netherlands",
+                  "count": 5140
+                },
+                {
+                  "value": "Spain",
+                  "count": 3811
+                },
+                {
+                  "value": "Switzerland",
+                  "count": 3189
+                },
+                {
+                  "value": "Belgium",
+                  "count": 3123
+                },
+                {
+                  "value": "Portugal",
+                  "count": 2620
+                },
+                {
+                  "value": "Australia",
+                  "count": 1913
+                }
+              ]
+            }
+          },
+          "dates": {
+            "valid_count": 1067371,
+            "invalid_nonempty_count": 0,
+            "min": "2009-12-01 07:45:00",
+            "max": "2011-12-09 12:50:00"
+          },
+          "diagnostics": {
+            "negative_quantity": 22950,
+            "zero_quantity": 0,
+            "large_absolute_quantity": 15,
+            "negative_price": 5,
+            "zero_price": 6202,
+            "non_numeric_invoice": 19500,
+            "unusual_stock_format": 6094,
+            "description_edge_whitespace": 213035,
+            "duplicate_extra_rows": 34335
+          }
+        }
+      }
+    },
+    {
+      "name": "Q11-E 报告至少五个现象且对应统计证据",
+      "passed": true,
+      "evidence": {
+        "observations": 10,
+        "checked_counts": {
+          "客户标识缺失": 243007,
+          "数量为负": 22950,
+          "单价为负": 5,
+          "单价为零": 6202,
+          "完全相同行的额外出现": 34335
+        },
+        "business_causes": "未声称已证明"
+      }
+    },
+    {
+      "name": "Q11-G 骨架真实流程与原有变异回归",
+      "passed": true,
+      "evidence": {
+        "baseline": "5f2275ae0c56441a961c74bcd8fef23d",
+        "mutations": "408961562dcf4e5aafc2c4a1e298a56a"
+      }
+    },
+    {
+      "name": "Q11-A/H 原始证据不变及环境适用范围",
+      "passed": true,
+      "evidence": {
+        "source_unchanged": true,
+        "reused_dependency_installation_run": "d08af816e16a42208991cdcffec81dfe",
+        "limitation": "依赖未变，复用上轮安装证明；本轮新增代码没有声称在新建环境重测"
+      }
+    }
+  ],
+  "finished_utc": "2026-10-28T17:18:29.482895+00:00"
+}
