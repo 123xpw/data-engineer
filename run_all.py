@@ -1,4 +1,4 @@
-"""分阶段执行入口：数据准备与 Q1.1 已接入，其余部分如实标为未完成。"""
+"""分阶段执行入口：数据准备、Q1.1、Q1.2 已接入，其余如实标为未完成。"""
 
 from __future__ import annotations
 
@@ -20,6 +20,12 @@ def q1_profile(data_dir, output_dir):
     """按需导入，其他独立模块不受 Q1 依赖导入失败影响。"""
     from q1_data_quality.q1_code import run_profile
     return run_profile(data_dir / "online_retail_ii.csv", output_dir)
+
+
+def q1_findings(data_dir, output_dir):
+    """探索模块独立导入和运行，不依赖 Q1.1 的产物。"""
+    from q1_data_quality.q1_findings import run_findings
+    return run_findings(data_dir / "online_retail_ii.csv", output_dir)
 
 
 def run_steps(steps: list[tuple[str, Callable | None]]) -> tuple[list[dict], int]:
@@ -48,7 +54,7 @@ def run_steps(steps: list[tuple[str, Callable | None]]) -> tuple[list[dict], int
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--stage", choices=("all", "data", "q1", "q1.1", "q2", "q3", "q4", "q5"), default="all")
+    parser.add_argument("--stage", choices=("all", "data", "q1", "q1.1", "q1.2", "q2", "q3", "q4", "q5"), default="all")
     parser.add_argument("--offline", action="store_true", help="数据准备只校验本地文件")
     parser.add_argument("--data-dir", type=Path, default=ROOT / "data")
     parser.add_argument("--q1-output-dir", type=Path, default=ROOT / "q1_data_quality")
@@ -61,8 +67,10 @@ def main() -> int:
             steps.append((f"data.{name}", lambda n=name, s=spec: prepare_dataset(n, s, args.data_dir, offline=args.offline)))
     if args.stage in ("all", "q1", "q1.1"):
         steps.append(("q1.1", lambda: q1_profile(args.data_dir, args.q1_output_dir)))
-        if args.stage != "q1.1":
-            steps.extend([("q1.2", None), ("q1.3", None)])
+    if args.stage in ("all", "q1", "q1.2"):
+        steps.append(("q1.2", lambda: q1_findings(args.data_dir, args.q1_output_dir)))
+    if args.stage in ("all", "q1"):
+        steps.append(("q1.3", None))
     for name in ("q2", "q3", "q4", "q5"):
         if args.stage in ("all", name):
             steps.append((name, None))

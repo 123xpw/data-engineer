@@ -1,0 +1,161 @@
+{
+  "run_id": "53ffabe118ca45f1bb6570778b6c7625",
+  "status": "passed",
+  "scope": "sensitivity",
+  "started_utc": "2026-10-28T17:19:08.187536+00:00",
+  "python": "3.12.13",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "pandas": "3.1.0",
+  "git_base": "d057f70e49b054a034726af55f3f1b71ee773289",
+  "source_sha256": {
+    "requirements.txt": "e72f75124f63ae6b07970f640e49d334d930a97288e7464fe8e03c9b266656b4",
+    "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
+    "VALIDATION_GATES.md": "51b9ae9d7c106078be5b27090476268285a27ba31b45cc95e77213ccec902051",
+    "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
+    "run_all.py": "5c8a2441d9fd7a3e8c9b6498aeb9693aedc5ea3792594c3fd89b18318e666183",
+    "scripts/experiment_q1_2_sensitivity.py": "81c12282434e0d994c1fb13fea2a8f1e1c1148e3c892a43fad55dea76a12b1e1",
+    "scripts/export_ai_log.py": "3d19d6954ef59a4801b5279565e500940ad75b0f99d62e9edc97bc18227bba59",
+    "scripts/q1_findings_reference.py": "716e57de471da0bf591526454796b2bf1ec30035f6c051b15c303f909e9017b6",
+    "scripts/q1_reference.py": "9b30a77c4c0d5458888dc94c472c2eae070c189604fb223e4339e533ac77f592",
+    "scripts/verification_support.py": "009ccbaf49769a93c59c7e03ec622cc07a0181f8cd9eecd50c0d17c0ea354c18",
+    "scripts/verify_baseline.py": "16d6464d8ed9862c26ed37aabeb716582bd4757464711d39e734812296e6b35b",
+    "scripts/verify_clean_environment.py": "8e19019a666c6e3cc3211ee4ded217ca21d4ddfe4b09418574226824ad672cd3",
+    "scripts/verify_mutations.py": "751cc914af1e3b399aed7d2db4fb1066d33cac53c215f4fa1cd1d7468d2a5fa0",
+    "scripts/verify_q1_1.py": "5e2302f413967790df315883de3d3633ab532936bd3c5d89823bacc03cd56146",
+    "scripts/verify_q1_2.py": "0b50c76ca6909f346d4ac7317f000cc7d03bbb8cb3809194ed7839df54725a06",
+    "scripts/verify_stage_gate.py": "62d9a3fcc102715fd90795682f50781b6385cf2e1ae7c4c9770e44128af4e84e",
+    "tests/test_baseline.py": "47fac2a6ee7759327eece4d643820e56dbbee33e0a2ec51fdde1c84d1adb7c5c",
+    "tests/test_q1_findings.py": "4868fa4f898375fd72c834a45d973ee4909e1a2b475a9ce715e089fba6790cbd",
+    "tests/test_q1_profile.py": "c2a1e8a1b4b235a12ff3742386d2f849fed40d940e71eba870c4704188783488",
+    "tests/test_verification.py": "1dea283f5a64c15d8b1d1fe527128f9bbfc1799213627d24bdbf9925d593775c",
+    "q1_data_quality/q1_code.py": "a4a8a2aae66854bc6171af08399da5c0f7097828be4f7d7521265a4591e6a8e2",
+    "q1_data_quality/q1_findings.py": "5d18f1a5ec6a53288dfc37db45f88324190acc79d14ced82bf08c0a15ba0ef15",
+    "q1_data_quality/ACCEPTANCE_Q1_1.md": "be762634b9f7f6348c9c2610bcaf07ad0680a5cfe09fd5955681fcece11b5a88",
+    "q1_data_quality/ACCEPTANCE_Q1_2.md": "b7daf6e8a30a4d709ea90b779582bd4c9772f8b41bd3f1bd3531fb6c03084f5d"
+  },
+  "checks": [
+    {
+      "name": "逐条件消融：匿名群体均额是否稳健",
+      "passed": true,
+      "evidence": {
+        "input_sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9",
+        "views": {
+          "raw": {
+            "missing": {
+              "rows": 243007,
+              "net": "2638958.18",
+              "invoices": 8752,
+              "invoice_mean": "301.5263002742230347349177331"
+            },
+            "present": {
+              "rows": 824364,
+              "net": "16648292.388",
+              "invoices": 44876,
+              "invoice_mean": "370.9843209733487833140208575"
+            }
+          },
+          "positive_quantity_only": {
+            "missing": {
+              "rows": 238801,
+              "net": "3070862.82",
+              "invoices": 4969,
+              "invoice_mean": "618.0041899778627490440732542"
+            },
+            "present": {
+              "rows": 805620,
+              "net": "17743429.178",
+              "invoices": 36975,
+              "invoice_mean": "479.8763807437457741717376606"
+            }
+          },
+          "positive_price_only": {
+            "missing": {
+              "rows": 236871,
+              "net": "2797634.32",
+              "invoices": 3499,
+              "invoice_mean": "799.5525350100028579594169763"
+            },
+            "present": {
+              "rows": 824293,
+              "net": "16648292.388",
+              "invoices": 44870,
+              "invoice_mean": "371.0339288611544461778471139"
+            }
+          },
+          "numeric_invoice_only": {
+            "missing": {
+              "rows": 242251,
+              "net": "3218103.33",
+              "invoices": 8355,
+              "invoice_mean": "385.1709551166965888689407540"
+            },
+            "present": {
+              "rows": 805620,
+              "net": "17743429.178",
+              "invoices": 36975,
+              "invoice_mean": "479.8763807437457741717376606"
+            }
+          },
+          "ordinary_code_only": {
+            "missing": {
+              "rows": 240651,
+              "net": "2667662.88",
+              "invoices": 8241,
+              "invoice_mean": "323.7062104113578449217327994"
+            },
+            "present": {
+              "rows": 820626,
+              "net": "16714797.00",
+              "invoices": 43879,
+              "invoice_mean": "380.9293055903735271997994485"
+            }
+          },
+          "positive_quantity_and_price": {
+            "missing": {
+              "rows": 236122,
+              "net": "3229538.96",
+              "invoices": 3109,
+              "invoice_mean": "1038.770974589900289482148601"
+            },
+            "present": {
+              "rows": 805549,
+              "net": "17743429.178",
+              "invoices": 36969,
+              "invoice_mean": "479.9542637885796207633422597"
+            }
+          },
+          "positive_and_numeric_invoice": {
+            "missing": {
+              "rows": 236120,
+              "net": "3218103.33",
+              "invoices": 3107,
+              "invoice_mean": "1035.759037656903765690376569"
+            },
+            "present": {
+              "rows": 805549,
+              "net": "17743429.178",
+              "invoices": 36969,
+              "invoice_mean": "479.9542637885796207633422597"
+            }
+          },
+          "candidate": {
+            "missing": {
+              "rows": 234244,
+              "net": "2674529.29",
+              "invoices": 2922,
+              "invoice_mean": "915.3077652292950034223134839"
+            },
+            "present": {
+              "rows": 802632,
+              "net": "17434449.98",
+              "invoices": 36594,
+              "invoice_mean": "476.4291954965294857080395693"
+            }
+          }
+        },
+        "meaning": "均额为组内所选明细净额/这些明细的不同发票数；每步分母会变化。单条件与累积条件是描述性比较，不是因果实验。"
+      }
+    }
+  ],
+  "finished_utc": "2026-10-28T17:19:11.270264+00:00"
+}

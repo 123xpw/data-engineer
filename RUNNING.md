@@ -1,23 +1,25 @@
 # 运行说明与阶段验收
 
-## 当前阶段：Q1.1
+## 当前阶段：Q1.2
 
-已实现数据准备和 Q1.1；Q1.2、Q1.3、Q2–Q5 尚未完成。
-本轮预先声明的口径与验收条件见 q1_data_quality/ACCEPTANCE_Q1_1.md。
+已实现数据准备、Q1.1、Q1.2；Q1.3、Q2–Q5 尚未完成。
+本轮预先声明的口径与条件见 q1_data_quality/ACCEPTANCE_Q1_2.md，实际验收结果见 reports/q1_2/acceptance_latest.json。
 
 ```bash
 python run_all.py --stage data
-python q1_data_quality/q1_code.py
-python run_all.py --stage q1.1
-python scripts/verify_q1_1.py
+python q1_data_quality/q1_findings.py
+python run_all.py --stage q1.2
+python scripts/verify_q1_2.py
 ```
 
-- 前两个 Q1 入口只声明完成 Q1.1；`--stage q1` 会同时显示 Q1.2/Q1.3 未完成并返回 2。
-- 完整 `python run_all.py` 同样返回 2，直到全部要求的模块完成。
-- Q1.1 验收进行手算、全量独立复算、指定错误变体、两个入口产物一致、旧骨架回归和源文件不变检查。
-- 均值与标准差容差在实现前约定；计数、频次排序与 min/max 精确比较。
-- 依赖文件未变，本轮复用 R0.1 的干净环境安装证明；新增代码在当前环境验证，不宣称已在新建环境再次测试。
-- 本轮放行入口为 verify_q1_1.py；此前的 verify_stage_gate.py 是 R0.1 门槛，不能替代 Q1 验收。
+- Q1.1 仍可用 q1_data_quality/q1_code.py 或 `--stage q1.1` 独立运行，Q1.2 不依赖其输出。
+- `--stage q1` 明确显示 Q1.3 未完成并返回 2；完整 run_all 返回 2，直到全部模块完成。当前应有 4 个阶段通过、5 个未实现。
+- Q1.2 验收包括 38 项单元测试、五类错误植入、全量 CSV/Decimal 独立复算、两个入口产物一致、金额与行数守恒、解释前提核验和 Q1.1/骨架回归。
+- 客户均额的消融实验独立脚本为 scripts/experiment_q1_2_sensitivity.py；8 个视图有手算检查，首尾结果与主报告交叉核对。
+- 金额精确保留源精度，计数/字符串/金额精确比较；仅比率和均额允许绝对误差 1e-12。
+- 最新验收报告须为 passed，且源码指纹对应当前文件，才放行下一轮；历史通过不自动放行修改后的代码。
+- 依赖未变，复用 R0.1 的干净环境安装证明；新增代码在当前环境验证，不宣称已在新建环境再次测试。
+- findings.md/JSON 是聚合结果和少量原始证据，不提交 CSV。不要修改根 README、.gitignore 或冻结数据基准来迁就实现。
 
 以下是前期各轮的历史运行说明，不应覆盖本节的当前完成范围。
 
