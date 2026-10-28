@@ -1,0 +1,2397 @@
+{
+  "total": {
+    "rows": 1067371,
+    "quantity": "10608492",
+    "net": "19287250.568",
+    "absolute": "22658685.708",
+    "invoices": 53628
+  },
+  "decisions": [
+    {
+      "decision": "candidate_keep",
+      "reason": "numeric_positive",
+      "rows": 1036876,
+      "quantity": "11402382",
+      "net": "20108979.27",
+      "absolute": "20108979.27",
+      "invoices": 39516,
+      "record_numbers_sha256": "3875dcf3d2d97a005a86b84cf4ee84c97010945222647a82fe8965244cd9734b",
+      "examples": [
+        {
+          "record": 1,
+          "Invoice": "489434",
+          "StockCode": "85048",
+          "Description": "15CM CHRISTMAS GLASS BALL 20 LIGHTS",
+          "Quantity": "12",
+          "InvoiceDate": "2009-12-01 07:45:00",
+          "Price": "6.95",
+          "Customer ID": "13085.0",
+          "Country": "United Kingdom"
+        },
+        {
+          "record": 2,
+          "Invoice": "489434",
+          "StockCode": "79323P",
+          "Description": "PINK CHERRY LIGHTS",
+          "Quantity": "12",
+          "InvoiceDate": "2009-12-01 07:45:00",
+          "Price": "6.75",
+          "Customer ID": "13085.0",
+          "Country": "United Kingdom"
+        },
+        {
+          "record": 3,
+          "Invoice": "489434",
+          "StockCode": "79323W",
+          "Description": " WHITE CHERRY LIGHTS",
+          "Quantity": "12",
+          "InvoiceDate": "2009-12-01 07:45:00",
+          "Price": "6.75",
+          "Customer ID": "13085.0",
+          "Country": "United Kingdom"
+        }
+      ]
+    },
+    {
+      "decision": "exclude_positive_basket",
+      "reason": "c_negative",
+      "rows": 18285,
+      "quantity": "-481890",
+      "net": "-726519.39",
+      "absolute": "726519.39",
+      "invoices": 7405,
+      "record_numbers_sha256": "825bc85c1673e7fa23e9e1dcb85621f6ce9b61d3d0654b353c43af2ee0a42d85",
+      "examples": [
+        {
+          "record": 179,
+          "Invoice": "C489449",
+          "StockCode": "22087",
+          "Description": "PAPER BUNTING WHITE LACE",
+          "Quantity": "-12",
+          "InvoiceDate": "2009-12-01 10:33:00",
+          "Price": "2.95",
+          "Customer ID": "16321.0",
+          "Country": "Australia"
+        },
+        {
+          "record": 180,
+          "Invoice": "C489449",
+          "StockCode": "85206A",
+          "Description": "CREAM FELT EASTER EGG BASKET",
+          "Quantity": "-6",
+          "InvoiceDate": "2009-12-01 10:33:00",
+          "Price": "1.65",
+          "Customer ID": "16321.0",
+          "Country": "Australia"
+        },
+        {
+          "record": 181,
+          "Invoice": "C489449",
+          "StockCode": "21895",
+          "Description": "POTTING SHED SOW 'N' GROW SET",
+          "Quantity": "-4",
+          "InvoiceDate": "2009-12-01 10:33:00",
+          "Price": "4.25",
+          "Customer ID": "16321.0",
+          "Country": "Australia"
+        }
+      ]
+    },
+    {
+      "decision": "pending",
+      "reason": "numeric__q_negative__p_zero",
+      "rows": 3426,
+      "quantity": "-567801",
+      "net": "0.0",
+      "absolute": "0.0",
+      "invoices": 3362,
+      "record_numbers_sha256": "3cc65860c32a7f48cff3b63b5c89ebbf1f218cd9073aa4b8a3fceec40ad4c4b7",
+      "examples": [
+        {
+          "record": 264,
+          "Invoice": "489464",
+          "StockCode": "21733",
+          "Description": "85123a mixed",
+          "Quantity": "-96",
+          "InvoiceDate": "2009-12-01 10:52:00",
+          "Price": "0.0",
+          "Customer ID": "",
+          "Country": "United Kingdom"
+        },
+        {
+          "record": 284,
+          "Invoice": "489463",
+          "StockCode": "71477",
+          "Description": "short",
+          "Quantity": "-240",
+          "InvoiceDate": "2009-12-01 10:52:00",
+          "Price": "0.0",
+          "Customer ID": "",
+          "Country": "United Kingdom"
+        },
+        {
+          "record": 285,
+          "Invoice": "489467",
+          "StockCode": "85123A",
+          "Description": "21733 mixed",
+          "Quantity": "-192",
+          "InvoiceDate": "2009-12-01 10:53:00",
+          "Price": "0.0",
+          "Customer ID": "",
+          "Country": "United Kingdom"
+        }
+      ]
+    },
+    {
+      "decision": "pending",
+      "reason": "numeric__q_positive__p_zero",
+      "rows": 2690,
+      "quantity": "244939",
+      "net": "0.0",
+      "absolute": "0.0",
+      "invoices": 1933,
+      "record_numbers_sha256": "2933d8baa3516c85f92f650d5652067b885c40cdad197777067cc82f376a8c5c",
+      "examples": [
+        {
+          "record": 3162,
+          "Invoice": "489659",
+          "StockCode": "21350",
+          "Description": "",
+          "Quantity": "230",
+          "InvoiceDate": "2009-12-01 17:39:00",
+          "Price": "0.0",
+          "Customer ID": "",
+          "Country": "United Kingdom"
+        },
+        {
+          "record": 3732,
+          "Invoice": "489781",
+          "StockCode": "84292",
+          "Description": "",
+          "Quantity": "17",
+          "InvoiceDate": "2009-12-02 11:45:00",
+          "Price": "0.0",
+          "Customer ID": "",
+          "Country": "United Kingdom"
+        },
+        {
+          "record": 4675,
+          "Invoice": "489825",
+          "StockCode": "22076",
+          "Description": "6 RIBBONS EMPIRE  ",
+          "Quantity": "12",
+          "InvoiceDate": "2009-12-02 13:34:00",
+          "Price": "0.0",
+          "Customer ID": "16126.0",
+          "Country": "United Kingdom"
+        }
+      ]
+    },
+    {
+      "decision": "pending",
+      "reason": "special_code",
+      "rows": 6094,
+      "quantity": "10862",
+      "net": "-95209.312",
+      "absolute": "1823187.048",
+      "invoices": 5524,
+      "record_numbers_sha256": "a7607abcfb973068e151bdcca0fc69828dac141ca857bb8fc652b55197dfd3cf",
+      "examples": [
+        {
+          "record": 90,
+          "Invoice": "489439",
+          "StockCode": "POST",
+          "Description": "POSTAGE",
+          "Quantity": "3",
+          "InvoiceDate": "2009-12-01 09:28:00",
+          "Price": "18.0",
+          "Customer ID": "12682.0",
+          "Country": "France"
+        },
+        {
+          "record": 127,
+          "Invoice": "489444",
+          "StockCode": "POST",
+          "Description": "POSTAGE",
+          "Quantity": "1",
+          "InvoiceDate": "2009-12-01 09:55:00",
+          "Price": "141.0",
+          "Customer ID": "12636.0",
+          "Country": "USA"
+        },
+        {
+          "record": 174,
+          "Invoice": "489447",
+          "StockCode": "POST",
+          "Description": "POSTAGE",
+          "Quantity": "1",
+          "InvoiceDate": "2009-12-01 10:10:00",
+          "Price": "130.0",
+          "Customer ID": "12362.0",
+          "Country": "Belgium"
+        }
+      ]
+    }
+  ],
+  "decision_invoice_sum": 57740,
+  "decision_invoice_union": 53628,
+  "special_codes": {
+    "47503J ": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "SET/3 FLORAL GARDEN TOOLS IN BAG": 1
+      }
+    },
+    "ADJUST": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "Adjustment by Peter on 24/05/2010 1": 3,
+        "Adjustment by john on 26/01/2010 16": 38,
+        "Adjustment by john on 26/01/2010 17": 26
+      }
+    },
+    "ADJUST2": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "Adjustment by Peter on Jun 25 2010 ": 3
+      }
+    },
+    "AMAZONFEE": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "AMAZON FEE": 43
+      }
+    },
+    "B": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "Adjust bad debt": 6
+      }
+    },
+    "BANK CHARGES": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        " Bank Charges": 6,
+        "Bank Charges": 96
+      }
+    },
+    "C2": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 3,
+        "CARRIAGE": 279
+      }
+    },
+    "C3": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "CRUK": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "CRUK Commission": 16
+      }
+    },
+    "D": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "Discount": 177
+      }
+    },
+    "DCGS0003": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "BOXED GLASS ASHTRAY": 13,
+        "ebay": 1
+      }
+    },
+    "DCGS0004": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1,
+        "HAYNES CAMPER SHOULDER BAG": 4
+      }
+    },
+    "DCGS0006": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0016": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0027": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0036": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0037": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1,
+        "KEY-RING CORKSCREW": 1
+      }
+    },
+    "DCGS0039": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0041": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "HAYNES MINI-COOPER PLAYING CARDS": 1
+      }
+    },
+    "DCGS0044": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "HANDZ-OFF CAR FRESHENER": 1
+      }
+    },
+    "DCGS0053": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0055": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0056": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0057": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0058": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1,
+        "MISO PRETTY  GUM": 30
+      }
+    },
+    "DCGS0059": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0060": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0062": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1,
+        "ROAD-RAGE CAR FRESHENER": 1
+      }
+    },
+    "DCGS0066N": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 2,
+        "NAVY CUDDLES DOG HOODIE": 2
+      }
+    },
+    "DCGS0066P": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0067": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "ebay": 1
+      }
+    },
+    "DCGS0068": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "DOGS NIGHT COLLAR": 2,
+        "ebay": 1
+      }
+    },
+    "DCGS0069": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "OOH LA LA DOGS COLLAR": 5,
+        "ebay": 1
+      }
+    },
+    "DCGS0070": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1,
+        "CAMOUFLAGE DOG COLLAR": 2
+      }
+    },
+    "DCGS0071": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0072": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1,
+        "CAT CAMOUFLAGUE COLLAR": 3
+      }
+    },
+    "DCGS0073": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "ebay": 1
+      }
+    },
+    "DCGS0074": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGS0075": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "CAMOUFLAGUE DOG LEAD": 1
+      }
+    },
+    "DCGS0076": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "SUNJAR LED NIGHT NIGHT LIGHT": 15
+      }
+    },
+    "DCGSLBOY": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGSLGIRL": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "DCGSSBOY": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1,
+        "BOYS PARTY BAG": 21,
+        "update": 1
+      }
+    },
+    "DCGSSGIRL": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1,
+        "GIRLS PARTY BAG": 23,
+        "update": 1
+      }
+    },
+    "DOT": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 2,
+        "DOTCOM POSTAGE": 1444
+      }
+    },
+    "GIFT": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1
+      }
+    },
+    "M": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "Manual": 1421
+      }
+    },
+    "PADS": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "PADS TO MATCH ALL CUSHIONS": 19
+      }
+    },
+    "POST": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 7,
+        "POSTAGE": 2115
+      }
+    },
+    "S": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "SAMPLES": 104
+      }
+    },
+    "SP1002": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1,
+        "KID'S CHALKBOARD/EASEL": 2
+      }
+    },
+    "TEST001": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "This is a test product.": 15
+      }
+    },
+    "TEST002": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 1,
+        "This is a test product.": 1
+      }
+    },
+    "gift_0001_10": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 2,
+        "Dotcomgiftshop Gift Voucher £10.00": 14
+      }
+    },
+    "gift_0001_20": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 2,
+        "Dotcomgiftshop Gift Voucher £20.00": 26,
+        "to push order througha s stock was ": 1
+      }
+    },
+    "gift_0001_30": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 5,
+        "Dotcomgiftshop Gift Voucher £30.00": 24
+      }
+    },
+    "gift_0001_40": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 2,
+        "Dotcomgiftshop Gift Voucher £40.00": 5
+      }
+    },
+    "gift_0001_50": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 2,
+        "Dotcomgiftshop Gift Voucher £50.00": 6
+      }
+    },
+    "gift_0001_60": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 2
+      }
+    },
+    "gift_0001_70": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 2,
+        "Dotcomgiftshop Gift Voucher £70.00": 1
+      }
+    },
+    "gift_0001_80": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 2,
+        "Dotcomgiftshop Gift Voucher £80.00": 2
+      }
+    },
+    "gift_0001_90": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "": 2
+      }
+    },
+    "m": {
+      "status": "缺少商品主数据确认；不得仅凭格式删除",
+      "descriptions": {
+        "Manual": 5
+      }
+    }
+  },
+  "decompositions": {
+    "missing": {
+      "raw_rows": 243007,
+      "selected_rows": 234244,
+      "raw_net": "2638958.18",
+      "selected_net": "2674529.29",
+      "excluded_net": "-35571.11",
+      "raw_invoices": 8752,
+      "selected_invoices": 2922,
+      "raw_mean": 301.52630027422305,
+      "fixed_denominator_mean": 305.59064099634367,
+      "selected_mean": 915.307765229295,
+      "numerator_effect": 4.064340722120658,
+      "denominator_effect": 609.7171242329513,
+      "exact_identity_verified": true,
+      "partitions": {
+        "disappeared": {
+          "invoices": 5830,
+          "raw_net": "-350656.89",
+          "selected_net": "0",
+          "raw_zero": 5248,
+          "raw_negative": 395,
+          "raw_positive": 187
+        },
+        "retained_amount_changed": {
+          "invoices": 1440,
+          "raw_net": "2211371.37",
+          "selected_net": "1896285.59",
+          "raw_zero": 0,
+          "raw_negative": 0,
+          "raw_positive": 1440
+        },
+        "retained_amount_unchanged": {
+          "invoices": 1482,
+          "raw_net": "778243.70",
+          "selected_net": "778243.70",
+          "raw_zero": 0,
+          "raw_negative": 0,
+          "raw_positive": 1482
+        }
+      }
+    },
+    "present": {
+      "raw_rows": 824364,
+      "selected_rows": 802632,
+      "raw_net": "16648292.388",
+      "selected_net": "17434449.98",
+      "excluded_net": "-786157.592",
+      "raw_invoices": 44876,
+      "selected_invoices": 36594,
+      "raw_mean": 370.98432097334876,
+      "fixed_denominator_mean": 388.50276272395047,
+      "selected_mean": 476.4291954965295,
+      "numerator_effect": 17.518441750601657,
+      "denominator_effect": 87.92643277257905,
+      "exact_identity_verified": true,
+      "partitions": {
+        "disappeared": {
+          "invoices": 8282,
+          "raw_net": "-921191.179",
+          "selected_net": "0",
+          "raw_zero": 6,
+          "raw_negative": 7901,
+          "raw_positive": 375
+        },
+        "retained_amount_changed": {
+          "invoices": 2410,
+          "raw_net": "1236605.847",
+          "selected_net": "1101572.26",
+          "raw_zero": 0,
+          "raw_negative": 0,
+          "raw_positive": 2410
+        },
+        "retained_amount_unchanged": {
+          "invoices": 34184,
+          "raw_net": "16332877.72",
+          "selected_net": "16332877.72",
+          "raw_zero": 0,
+          "raw_negative": 0,
+          "raw_positive": 34184
+        }
+      }
+    }
+  },
+  "global_candidate_distributions": {
+    "missing": {
+      "invoices": 2922,
+      "net": "2674529.29",
+      "mean": 915.307765229295,
+      "median": 185.435,
+      "p90": 2236.533,
+      "removed_top_count": 30,
+      "removed_top_net": "539332.00",
+      "trimmed_mean": 738.3116493775933
+    },
+    "present": {
+      "invoices": 36594,
+      "net": "17434449.98",
+      "mean": 476.4291954965295,
+      "median": 304.65,
+      "p90": 842.989,
+      "removed_top_count": 366,
+      "removed_top_net": "2969233.05",
+      "trimmed_mean": 399.28279038312905
+    }
+  },
+  "layers": {
+    "country": {
+      "Australia": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 1806,
+          "invoices": 89,
+          "net": "168484.66",
+          "mean": 1893.0860674157304,
+          "median": 398.18,
+          "p90": 3173.288,
+          "removed_top_count": 1,
+          "removed_top_net": "22775.93",
+          "trimmed_mean": 1655.7810227272728
+        }
+      },
+      "Austria": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 888,
+          "invoices": 40,
+          "net": "20297.01",
+          "mean": 507.42525,
+          "median": 403.91,
+          "p90": 1044.783,
+          "removed_top_count": 1,
+          "removed_top_net": "1429.83",
+          "trimmed_mean": 483.77384615384614
+        }
+      },
+      "Bahrain": {
+        "missing": {
+          "rows": 65,
+          "invoices": 6,
+          "net": "1755.42",
+          "mean": 292.57,
+          "median": 317.77,
+          "p90": 451.565,
+          "removed_top_count": 1,
+          "removed_top_net": "463.28",
+          "trimmed_mean": 258.428
+        },
+        "present": {
+          "rows": 59,
+          "invoices": 4,
+          "net": "1354.37",
+          "mean": 338.5925,
+          "median": 388.58,
+          "p90": 479.567,
+          "removed_top_count": 1,
+          "removed_top_net": "488.21",
+          "trimmed_mean": 288.72
+        }
+      },
+      "Belgium": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 2923,
+          "invoices": 143,
+          "net": "57322.77",
+          "mean": 400.85853146853145,
+          "median": 301.56,
+          "p90": 790.43,
+          "removed_top_count": 2,
+          "removed_top_net": "3254.35",
+          "trimmed_mean": 383.46397163120565
+        }
+      },
+      "Bermuda": {
+        "missing": {
+          "rows": 34,
+          "invoices": 1,
+          "net": "1253.14",
+          "mean": 1253.14,
+          "median": 1253.14,
+          "p90": 1253.14,
+          "removed_top_count": 1,
+          "removed_top_net": "1253.14",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        }
+      },
+      "Brazil": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 94,
+          "invoices": 2,
+          "net": "1411.87",
+          "mean": 705.935,
+          "median": 705.935,
+          "p90": 1056.067,
+          "removed_top_count": 1,
+          "removed_top_net": "1143.60",
+          "trimmed_mean": 268.27
+        }
+      },
+      "Canada": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 227,
+          "invoices": 7,
+          "net": "4332.10",
+          "mean": 618.8714285714286,
+          "median": 534.24,
+          "p90": 1189.932,
+          "removed_top_count": 1,
+          "removed_top_net": "1217.64",
+          "trimmed_mean": 519.0766666666667
+        }
+      },
+      "Channel Islands": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 1561,
+          "invoices": 54,
+          "net": "44353.76",
+          "mean": 821.3659259259259,
+          "median": 833.795,
+          "p90": 1442.65,
+          "removed_top_count": 1,
+          "removed_top_net": "2060.03",
+          "trimmed_mean": 797.9949056603774
+        }
+      },
+      "Cyprus": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 1151,
+          "invoices": 35,
+          "net": "24614.44",
+          "mean": 703.2697142857143,
+          "median": 500.61,
+          "p90": 1618.186,
+          "removed_top_count": 1,
+          "removed_top_net": "2876.85",
+          "trimmed_mean": 639.3408823529412
+        }
+      },
+      "Czech Republic": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 24,
+          "invoices": 2,
+          "net": "786.74",
+          "mean": 393.37,
+          "median": 393.37,
+          "p90": 518.082,
+          "removed_top_count": 1,
+          "removed_top_net": "549.26",
+          "trimmed_mean": 237.48
+        }
+      },
+      "Denmark": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 775,
+          "invoices": 42,
+          "net": "68560.19",
+          "mean": 1632.385476190476,
+          "median": 703.74,
+          "p90": 3749.49,
+          "removed_top_count": 1,
+          "removed_top_net": "16973.10",
+          "trimmed_mean": 1258.2217073170732
+        }
+      },
+      "EIRE": {
+        "missing": {
+          "rows": 1581,
+          "invoices": 53,
+          "net": "37391.98",
+          "mean": 705.5090566037736,
+          "median": 620.38,
+          "p90": 1209.828,
+          "removed_top_count": 1,
+          "removed_top_net": "2013.74",
+          "trimmed_mean": 680.3507692307692
+        },
+        "present": {
+          "rows": 15524,
+          "invoices": 528,
+          "net": "591536.65",
+          "mean": 1120.3345643939394,
+          "median": 711.135,
+          "p90": 1678.406,
+          "removed_top_count": 6,
+          "removed_top_net": "115934.48",
+          "trimmed_mean": 911.1152681992337
+        }
+      },
+      "European Community": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 57,
+          "invoices": 3,
+          "net": "1159.25",
+          "mean": 386.4166666666667,
+          "median": 387.05,
+          "p90": 570.85,
+          "removed_top_count": 1,
+          "removed_top_net": "616.80",
+          "trimmed_mean": 271.225
+        }
+      },
+      "Finland": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 985,
+          "invoices": 54,
+          "net": "25180.10",
+          "mean": 466.29814814814813,
+          "median": 327.67,
+          "p90": 788.454,
+          "removed_top_count": 1,
+          "removed_top_net": "2474.62",
+          "trimmed_mean": 428.4052830188679
+        }
+      },
+      "France": {
+        "missing": {
+          "rows": 128,
+          "invoices": 8,
+          "net": "1687.13",
+          "mean": 210.89125,
+          "median": 207.25,
+          "p90": 301.333,
+          "removed_top_count": 1,
+          "removed_top_net": "330.88",
+          "trimmed_mean": 193.75
+        },
+        "present": {
+          "rows": 13322,
+          "invoices": 590,
+          "net": "315261.67",
+          "mean": 534.3418135593221,
+          "median": 364.12,
+          "p90": 1006.984,
+          "removed_top_count": 6,
+          "removed_top_net": "38644.55",
+          "trimmed_mean": 473.65945205479454
+        }
+      },
+      "Germany": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 16034,
+          "invoices": 753,
+          "net": "388829.75",
+          "mean": 516.3741699867198,
+          "median": 364.88,
+          "p90": 1017.76,
+          "removed_top_count": 8,
+          "removed_top_net": "33286.83",
+          "trimmed_mean": 477.2388187919463
+        }
+      },
+      "Greece": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 653,
+          "invoices": 18,
+          "net": "18711.19",
+          "mean": 1039.5105555555556,
+          "median": 666.33,
+          "p90": 2553.314,
+          "removed_top_count": 1,
+          "removed_top_net": "3084.02",
+          "trimmed_mean": 919.2452941176471
+        }
+      },
+      "Hong Kong": {
+        "missing": {
+          "rows": 351,
+          "invoices": 9,
+          "net": "13875.25",
+          "mean": 1541.6944444444443,
+          "median": 1685.65,
+          "p90": 2482.598,
+          "removed_top_count": 1,
+          "removed_top_net": "2653.95",
+          "trimmed_mean": 1402.6625
+        },
+        "present": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        }
+      },
+      "Iceland": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 253,
+          "invoices": 8,
+          "net": "5633.32",
+          "mean": 704.165,
+          "median": 598.22,
+          "p90": 1333.098,
+          "removed_top_count": 1,
+          "removed_top_net": "1423.58",
+          "trimmed_mean": 601.3914285714286
+        }
+      },
+      "Israel": {
+        "missing": {
+          "rows": 47,
+          "invoices": 3,
+          "net": "913.57",
+          "mean": 304.5233333333333,
+          "median": 379.84,
+          "p90": 414.952,
+          "removed_top_count": 1,
+          "removed_top_net": "423.73",
+          "trimmed_mean": 244.92
+        },
+        "present": {
+          "rows": 322,
+          "invoices": 7,
+          "net": "10421.09",
+          "mean": 1488.7271428571428,
+          "median": 1248.42,
+          "p90": 3120.112,
+          "removed_top_count": 1,
+          "removed_top_net": "4873.81",
+          "trimmed_mean": 924.5466666666666
+        }
+      },
+      "Italy": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 1436,
+          "invoices": 59,
+          "net": "29323.75",
+          "mean": 497.01271186440675,
+          "median": 379.63,
+          "p90": 1010.696,
+          "removed_top_count": 1,
+          "removed_top_net": "1457.55",
+          "trimmed_mean": 480.451724137931
+        }
+      },
+      "Japan": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 485,
+          "invoices": 33,
+          "net": "47138.39",
+          "mean": 1428.4360606060607,
+          "median": 375.33,
+          "p90": 3674.64,
+          "removed_top_count": 1,
+          "removed_top_net": "7588.80",
+          "trimmed_mean": 1235.9246875
+        }
+      },
+      "Korea": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 53,
+          "invoices": 2,
+          "net": "1118.51",
+          "mean": 559.255,
+          "median": 559.255,
+          "p90": 871.707,
+          "removed_top_count": 1,
+          "removed_top_net": "949.82",
+          "trimmed_mean": 168.69
+        }
+      },
+      "Lebanon": {
+        "missing": {
+          "rows": 12,
+          "invoices": 1,
+          "net": "211.70",
+          "mean": 211.7,
+          "median": 211.7,
+          "p90": 211.7,
+          "removed_top_count": 1,
+          "removed_top_net": "211.70",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 45,
+          "invoices": 1,
+          "net": "1693.88",
+          "mean": 1693.88,
+          "median": 1693.88,
+          "p90": 1693.88,
+          "removed_top_count": 1,
+          "removed_top_net": "1693.88",
+          "trimmed_mean": null
+        }
+      },
+      "Lithuania": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 189,
+          "invoices": 6,
+          "net": "6553.74",
+          "mean": 1092.29,
+          "median": 1200.695,
+          "p90": 1998.175,
+          "removed_top_count": 1,
+          "removed_top_net": "2290.12",
+          "trimmed_mean": 852.724
+        }
+      },
+      "Malta": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 277,
+          "invoices": 7,
+          "net": "4757.34",
+          "mean": 679.62,
+          "median": 673.16,
+          "p90": 1290.724,
+          "removed_top_count": 1,
+          "removed_top_net": "1868.56",
+          "trimmed_mean": 481.4633333333333
+        }
+      },
+      "Netherlands": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 4983,
+          "invoices": 216,
+          "net": "549952.66",
+          "mean": 2546.07712962963,
+          "median": 657.08,
+          "p90": 8445.5,
+          "removed_top_count": 3,
+          "removed_top_net": "57999.46",
+          "trimmed_mean": 2309.6394366197183
+        }
+      },
+      "Nigeria": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 29,
+          "invoices": 1,
+          "net": "112.57",
+          "mean": 112.57,
+          "median": 112.57,
+          "p90": 112.57,
+          "removed_top_count": 1,
+          "removed_top_net": "112.57",
+          "trimmed_mean": null
+        }
+      },
+      "Norway": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 1410,
+          "invoices": 39,
+          "net": "42362.48",
+          "mean": 1086.217435897436,
+          "median": 477.07,
+          "p90": 2847.044,
+          "removed_top_count": 1,
+          "removed_top_net": "4366.78",
+          "trimmed_mean": 999.8868421052632
+        }
+      },
+      "Poland": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 506,
+          "invoices": 28,
+          "net": "10462.45",
+          "mean": 373.6589285714286,
+          "median": 318.32,
+          "p90": 641.006,
+          "removed_top_count": 1,
+          "removed_top_net": "981.95",
+          "trimmed_mean": 351.1296296296296
+        }
+      },
+      "Portugal": {
+        "missing": {
+          "rows": 116,
+          "invoices": 2,
+          "net": "731.35",
+          "mean": 365.675,
+          "median": 365.675,
+          "p90": 412.447,
+          "removed_top_count": 1,
+          "removed_top_net": "424.14",
+          "trimmed_mean": 307.21
+        },
+        "present": {
+          "rows": 2381,
+          "invoices": 83,
+          "net": "48088.04",
+          "mean": 579.3739759036145,
+          "median": 367.52,
+          "p90": 1314.594,
+          "removed_top_count": 1,
+          "removed_top_net": "2454.68",
+          "trimmed_mean": 556.5043902439024
+        }
+      },
+      "RSA": {
+        "missing": {
+          "rows": 44,
+          "invoices": 1,
+          "net": "1435.29",
+          "mean": 1435.29,
+          "median": 1435.29,
+          "p90": 1435.29,
+          "removed_top_count": 1,
+          "removed_top_net": "1435.29",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 122,
+          "invoices": 2,
+          "net": "1933.74",
+          "mean": 966.87,
+          "median": 966.87,
+          "p90": 995.222,
+          "removed_top_count": 1,
+          "removed_top_net": "1002.31",
+          "trimmed_mean": 931.43
+        }
+      },
+      "Saudi Arabia": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 9,
+          "invoices": 1,
+          "net": "145.92",
+          "mean": 145.92,
+          "median": 145.92,
+          "p90": 145.92,
+          "removed_top_count": 1,
+          "removed_top_net": "145.92",
+          "trimmed_mean": null
+        }
+      },
+      "Singapore": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 332,
+          "invoices": 8,
+          "net": "13158.16",
+          "mean": 1644.77,
+          "median": 1653.01,
+          "p90": 2852.84,
+          "removed_top_count": 1,
+          "removed_top_net": "3949.32",
+          "trimmed_mean": 1315.5485714285714
+        }
+      },
+      "Spain": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 3617,
+          "invoices": 144,
+          "net": "98612.79",
+          "mean": 684.8110416666667,
+          "median": 364.37,
+          "p90": 1569.939,
+          "removed_top_count": 2,
+          "removed_top_net": "8879.86",
+          "trimmed_mean": 631.9220422535211
+        }
+      },
+      "Sweden": {
+        "missing": {
+          "rows": 18,
+          "invoices": 1,
+          "net": "274.00",
+          "mean": 274.0,
+          "median": 274.0,
+          "p90": 274.0,
+          "removed_top_count": 1,
+          "removed_top_net": "274.00",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 1269,
+          "invoices": 98,
+          "net": "86079.04",
+          "mean": 878.3575510204082,
+          "median": 376.6,
+          "p90": 2310.696,
+          "removed_top_count": 1,
+          "removed_top_net": "5296.96",
+          "trimmed_mean": 832.8049484536083
+        }
+      },
+      "Switzerland": {
+        "missing": {
+          "rows": 125,
+          "invoices": 3,
+          "net": "645.95",
+          "mean": 215.31666666666666,
+          "median": 235.96,
+          "p90": 366.184,
+          "removed_top_count": 1,
+          "removed_top_net": "398.74",
+          "trimmed_mean": 123.605
+        },
+        "present": {
+          "rows": 2956,
+          "invoices": 82,
+          "net": "93624.34",
+          "mean": 1141.760243902439,
+          "median": 524.025,
+          "p90": 2524.435,
+          "removed_top_count": 1,
+          "removed_top_net": "11229.99",
+          "trimmed_mean": 1017.2141975308642
+        }
+      },
+      "Thailand": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 76,
+          "invoices": 2,
+          "net": "3070.54",
+          "mean": 1535.27,
+          "median": 1535.27,
+          "p90": 1872.526,
+          "removed_top_count": 1,
+          "removed_top_net": "1956.84",
+          "trimmed_mean": 1113.7
+        }
+      },
+      "USA": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 404,
+          "invoices": 16,
+          "net": "7920.01",
+          "mean": 495.000625,
+          "median": 393.275,
+          "p90": 930.955,
+          "removed_top_count": 1,
+          "removed_top_net": "1579.51",
+          "trimmed_mean": 422.7
+        }
+      },
+      "United Arab Emirates": {
+        "missing": {
+          "rows": 82,
+          "invoices": 3,
+          "net": "1376.04",
+          "mean": 458.68,
+          "median": 503.9,
+          "p90": 503.9,
+          "removed_top_count": 1,
+          "removed_top_net": "503.90",
+          "trimmed_mean": 436.07
+        },
+        "present": {
+          "rows": 380,
+          "invoices": 9,
+          "net": "8897.19",
+          "mean": 988.5766666666667,
+          "median": 975.54,
+          "p90": 1566.008,
+          "removed_top_count": 1,
+          "removed_top_net": "2047.28",
+          "trimmed_mean": 856.23875
+        }
+      },
+      "United Kingdom": {
+        "missing": {
+          "rows": 231410,
+          "invoices": 2823,
+          "net": "2610656.11",
+          "mean": 924.7807686857952,
+          "median": 165.72,
+          "p90": 2293.012,
+          "removed_top_count": 29,
+          "removed_top_net": "532181.93",
+          "trimmed_mean": 743.9062920544023
+        },
+        "present": {
+          "rows": 724440,
+          "invoices": 33361,
+          "net": "14622043.45",
+          "mean": 438.29751656125416,
+          "median": 301.7,
+          "p90": 780.42,
+          "removed_top_count": 334,
+          "removed_top_net": "2264294.09",
+          "trimmed_mean": 374.17111333151666
+        }
+      },
+      "Unspecified": {
+        "missing": {
+          "rows": 231,
+          "invoices": 8,
+          "net": "2322.36",
+          "mean": 290.295,
+          "median": 261.045,
+          "p90": 628.616,
+          "removed_top_count": 1,
+          "removed_top_net": "632.55",
+          "trimmed_mean": 241.40142857142857
+        },
+        "present": {
+          "rows": 521,
+          "invoices": 16,
+          "net": "8613.65",
+          "mean": 538.353125,
+          "median": 300.015,
+          "p90": 1189.94,
+          "removed_top_count": 1,
+          "removed_top_net": "1387.50",
+          "trimmed_mean": 481.74333333333334
+        }
+      },
+      "West Indies": {
+        "missing": {
+          "rows": 0,
+          "invoices": 0,
+          "net": "0",
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "removed_top_count": 0,
+          "removed_top_net": "0",
+          "trimmed_mean": null
+        },
+        "present": {
+          "rows": 54,
+          "invoices": 1,
+          "net": "536.41",
+          "mean": 536.41,
+          "median": 536.41,
+          "p90": 536.41,
+          "removed_top_count": 1,
+          "removed_top_net": "536.41",
+          "trimmed_mean": null
+        }
+      }
+    },
+    "month": {
+      "2009-12": {
+        "missing": {
+          "rows": 13109,
+          "invoices": 169,
+          "net": "119873.61",
+          "mean": 709.311301775148,
+          "median": 30.75,
+          "p90": 3866.936,
+          "removed_top_count": 2,
+          "removed_top_net": "11210.36",
+          "trimmed_mean": 650.6781437125749
+        },
+        "present": {
+          "rows": 30690,
+          "invoices": 1497,
+          "net": "681066.22",
+          "mean": 454.9540547762191,
+          "median": 306.0,
+          "p90": 851.202,
+          "removed_top_count": 15,
+          "removed_top_net": "96001.22",
+          "trimmed_mean": 394.780701754386
+        }
+      },
+      "2010-01": {
+        "missing": {
+          "rows": 8806,
+          "invoices": 90,
+          "net": "78595.22",
+          "mean": 873.2802222222223,
+          "median": 77.435,
+          "p90": 2202.088,
+          "removed_top_count": 1,
+          "removed_top_net": "6896.69",
+          "trimmed_mean": 805.6014606741574
+        },
+        "present": {
+          "rows": 21687,
+          "invoices": 959,
+          "net": "535229.37",
+          "mean": 558.111960375391,
+          "median": 309.76,
+          "p90": 908.412,
+          "removed_top_count": 10,
+          "removed_top_net": "124784.22",
+          "trimmed_mean": 432.5027924130664
+        }
+      },
+      "2010-02": {
+        "missing": {
+          "rows": 4858,
+          "invoices": 96,
+          "net": "39978.87",
+          "mean": 416.4465625,
+          "median": 47.92,
+          "p90": 1391.175,
+          "removed_top_count": 1,
+          "removed_top_net": "3823.73",
+          "trimmed_mean": 380.5804210526316
+        },
+        "present": {
+          "rows": 23281,
+          "invoices": 1093,
+          "net": "499749.68",
+          "mean": 457.22752058554437,
+          "median": 298.99,
+          "p90": 837.016,
+          "removed_top_count": 11,
+          "removed_top_net": "73330.43",
+          "trimmed_mean": 394.1028188539741
+        }
+      },
+      "2010-03": {
+        "missing": {
+          "rows": 7960,
+          "invoices": 138,
+          "net": "95716.30",
+          "mean": 693.5963768115942,
+          "median": 93.8,
+          "p90": 2016.319,
+          "removed_top_count": 2,
+          "removed_top_net": "27079.19",
+          "trimmed_mean": 504.68463235294115
+        },
+        "present": {
+          "rows": 32163,
+          "invoices": 1509,
+          "net": "668577.19",
+          "mean": 443.05976805831676,
+          "median": 302.9,
+          "p90": 849.192,
+          "removed_top_count": 16,
+          "removed_top_net": "81248.30",
+          "trimmed_mean": 393.3884058941728
+        }
+      },
+      "2010-04": {
+        "missing": {
+          "rows": 5945,
+          "invoices": 120,
+          "net": "61132.30",
+          "mean": 509.43583333333333,
+          "median": 94.35,
+          "p90": 1576.313,
+          "removed_top_count": 2,
+          "removed_top_net": "7556.76",
+          "trimmed_mean": 454.03
+        },
+        "present": {
+          "rows": 27122,
+          "invoices": 1315,
+          "net": "587753.77",
+          "mean": 446.96104182509504,
+          "median": 315.05,
+          "p90": 842.118,
+          "removed_top_count": 14,
+          "removed_top_net": "63577.12",
+          "trimmed_mean": 402.90288239815527
+        }
+      },
+      "2010-05": {
+        "missing": {
+          "rows": 5072,
+          "invoices": 119,
+          "net": "50741.10",
+          "mean": 426.39579831932775,
+          "median": 102.88,
+          "p90": 1411.138,
+          "removed_top_count": 2,
+          "removed_top_net": "5589.38",
+          "trimmed_mean": 385.91213675213675
+        },
+        "present": {
+          "rows": 28563,
+          "invoices": 1365,
+          "net": "594886.54",
+          "mean": 435.814315018315,
+          "median": 301.09,
+          "p90": 846.126,
+          "removed_top_count": 14,
+          "removed_top_net": "86955.11",
+          "trimmed_mean": 375.96700962250185
+        }
+      },
+      "2010-06": {
+        "missing": {
+          "rows": 7610,
+          "invoices": 133,
+          "net": "67667.45",
+          "mean": 508.7778195488722,
+          "median": 126.21,
+          "p90": 1480.608,
+          "removed_top_count": 2,
+          "removed_top_net": "7839.03",
+          "trimmed_mean": 456.7054961832061
+        },
+        "present": {
+          "rows": 31095,
+          "invoices": 1479,
+          "net": "631504.85",
+          "mean": 426.9809668695064,
+          "median": 294.62,
+          "p90": 765.89,
+          "removed_top_count": 15,
+          "removed_top_net": "89635.02",
+          "trimmed_mean": 370.12966530054643
+        }
+      },
+      "2010-07": {
+        "missing": {
+          "rows": 5390,
+          "invoices": 145,
+          "net": "51481.52",
+          "mean": 355.0449655172414,
+          "median": 120.34,
+          "p90": 1308.126,
+          "removed_top_count": 2,
+          "removed_top_net": "4451.32",
+          "trimmed_mean": 328.88251748251747
+        },
+        "present": {
+          "rows": 26936,
+          "invoices": 1362,
+          "net": "583388.53",
+          "mean": 428.33225403817914,
+          "median": 294.975,
+          "p90": 752.632,
+          "removed_top_count": 14,
+          "removed_top_net": "89939.38",
+          "trimmed_mean": 366.0602002967359
+        }
+      },
+      "2010-08": {
+        "missing": {
+          "rows": 6005,
+          "invoices": 126,
+          "net": "79480.65",
+          "mean": 630.7988095238095,
+          "median": 165.975,
+          "p90": 1440.86,
+          "removed_top_count": 2,
+          "removed_top_net": "14565.69",
+          "trimmed_mean": 523.5077419354839
+        },
+        "present": {
+          "rows": 26311,
+          "invoices": 1276,
+          "net": "596579.22",
+          "mean": 467.5385736677116,
+          "median": 304.875,
+          "p90": 825.93,
+          "removed_top_count": 13,
+          "removed_top_net": "102425.98",
+          "trimmed_mean": 391.2535550277118
+        }
+      },
+      "2010-09": {
+        "missing": {
+          "rows": 6422,
+          "invoices": 130,
+          "net": "63714.60",
+          "mean": 490.1123076923077,
+          "median": 167.97,
+          "p90": 1318.574,
+          "removed_top_count": 2,
+          "removed_top_net": "11575.47",
+          "trimmed_mean": 407.336953125
+        },
+        "present": {
+          "rows": 34467,
+          "invoices": 1659,
+          "net": "808145.06",
+          "mean": 487.12782399035564,
+          "median": 308.7,
+          "p90": 900.348,
+          "removed_top_count": 17,
+          "removed_top_net": "132263.72",
+          "trimmed_mean": 411.6207917174178
+        }
+      },
+      "2010-10": {
+        "missing": {
+          "rows": 8130,
+          "invoices": 136,
+          "net": "82814.63",
+          "mean": 608.9311029411765,
+          "median": 182.505,
+          "p90": 1676.255,
+          "removed_top_count": 2,
+          "removed_top_net": "11368.58",
+          "trimmed_mean": 533.1794776119403
+        },
+        "present": {
+          "rows": 49411,
+          "invoices": 2108,
+          "net": "1015124.74",
+          "mean": 481.5582258064516,
+          "median": 314.98,
+          "p90": 876.223,
+          "removed_top_count": 22,
+          "removed_top_net": "152169.57",
+          "trimmed_mean": 413.6889597315436
+        }
+      },
+      "2010-11": {
+        "missing": {
+          "rows": 16062,
+          "invoices": 149,
+          "net": "273678.40",
+          "mean": 1836.7677852348993,
+          "median": 280.89,
+          "p90": 3881.286,
+          "removed_top_count": 2,
+          "removed_top_net": "95177.96",
+          "trimmed_mean": 1214.2887074829932
+        },
+        "present": {
+          "rows": 60124,
+          "invoices": 2570,
+          "net": "1161854.41",
+          "mean": 452.0834280155642,
+          "median": 300.47,
+          "p90": 821.278,
+          "removed_top_count": 26,
+          "removed_top_net": "173936.87",
+          "trimmed_mean": 388.33236635220123
+        }
+      },
+      "2010-12": {
+        "missing": {
+          "rows": 22741,
+          "invoices": 156,
+          "net": "310061.60",
+          "mean": 1987.574358974359,
+          "median": 65.255,
+          "p90": 5558.46,
+          "removed_top_count": 2,
+          "removed_top_net": "44404.06",
+          "trimmed_mean": 1725.0489610389611
+        },
+        "present": {
+          "rows": 40501,
+          "invoices": 1394,
+          "net": "877014.47",
+          "mean": 629.1352008608321,
+          "median": 362.12,
+          "p90": 1176.46,
+          "removed_top_count": 14,
+          "removed_top_net": "125504.58",
+          "trimmed_mean": 544.572384057971
+        }
+      },
+      "2011-01": {
+        "missing": {
+          "rows": 13009,
+          "invoices": 98,
+          "net": "107888.30",
+          "mean": 1100.9010204081633,
+          "median": 511.685,
+          "p90": 2985.789,
+          "removed_top_count": 1,
+          "removed_top_net": "5032.29",
+          "trimmed_mean": 1060.371237113402
+        },
+        "present": {
+          "rows": 21137,
+          "invoices": 983,
+          "net": "564026.64",
+          "mean": 573.7809155645982,
+          "median": 303.36,
+          "p90": 784.62,
+          "removed_top_count": 10,
+          "removed_top_net": "170481.93",
+          "trimmed_mean": 404.46527235354574
+        }
+      },
+      "2011-02": {
+        "missing": {
+          "rows": 7110,
+          "invoices": 101,
+          "net": "65523.73",
+          "mean": 648.7498019801981,
+          "median": 448.84,
+          "p90": 1539.71,
+          "removed_top_count": 2,
+          "removed_top_net": "5750.71",
+          "trimmed_mean": 603.7678787878788
+        },
+        "present": {
+          "rows": 19851,
+          "invoices": 992,
+          "net": "443346.02",
+          "mean": 446.92139112903226,
+          "median": 299.47,
+          "p90": 814.356,
+          "removed_top_count": 10,
+          "removed_top_net": "66451.44",
+          "trimmed_mean": 383.8030346232179
+        }
+      },
+      "2011-03": {
+        "missing": {
+          "rows": 8545,
+          "invoices": 128,
+          "net": "106569.74",
+          "mean": 832.57609375,
+          "median": 375.92,
+          "p90": 1666.016,
+          "removed_top_count": 2,
+          "removed_top_net": "26697.25",
+          "trimmed_mean": 633.9086507936508
+        },
+        "present": {
+          "rows": 27055,
+          "invoices": 1312,
+          "net": "584562.85",
+          "mean": 445.5509527439024,
+          "median": 289.225,
+          "p90": 789.801,
+          "removed_top_count": 14,
+          "removed_top_net": "94219.68",
+          "trimmed_mean": 377.76823574730355
+        }
+      },
+      "2011-04": {
+        "missing": {
+          "rows": 6399,
+          "invoices": 96,
+          "net": "60928.00",
+          "mean": 634.6666666666666,
+          "median": 368.97,
+          "p90": 1682.57,
+          "removed_top_count": 1,
+          "removed_top_net": "3275.33",
+          "trimmed_mean": 606.8702105263158
+        },
+        "present": {
+          "rows": 22554,
+          "invoices": 1139,
+          "net": "455266.91",
+          "mean": 399.707559262511,
+          "median": 299.1,
+          "p90": 726.164,
+          "removed_top_count": 12,
+          "removed_top_net": "57222.55",
+          "trimmed_mean": 353.18931677018634
+        }
+      },
+      "2011-05": {
+        "missing": {
+          "rows": 7768,
+          "invoices": 124,
+          "net": "80671.86",
+          "mean": 650.5795161290323,
+          "median": 422.01,
+          "p90": 1559.5,
+          "removed_top_count": 2,
+          "removed_top_net": "8478.23",
+          "trimmed_mean": 591.7510655737705
+        },
+        "present": {
+          "rows": 28207,
+          "invoices": 1544,
+          "net": "660481.90",
+          "mean": 427.77325129533676,
+          "median": 303.315,
+          "p90": 769.42,
+          "removed_top_count": 16,
+          "removed_top_net": "102932.55",
+          "trimmed_mean": 364.88831806282724
+        }
+      },
+      "2011-06": {
+        "missing": {
+          "rows": 8694,
+          "invoices": 135,
+          "net": "84319.31",
+          "mean": 624.5874814814815,
+          "median": 269.44,
+          "p90": 1533.104,
+          "removed_top_count": 2,
+          "removed_top_net": "12648.65",
+          "trimmed_mean": 538.8771428571429
+        },
+        "present": {
+          "rows": 27079,
+          "invoices": 1390,
+          "net": "654432.56",
+          "mean": 470.8147913669065,
+          "median": 286.765,
+          "p90": 738.102,
+          "removed_top_count": 14,
+          "removed_top_net": "156804.33",
+          "trimmed_mean": 361.64842296511625
+        }
+      },
+      "2011-07": {
+        "missing": {
+          "rows": 11721,
+          "invoices": 131,
+          "net": "96557.96",
+          "mean": 737.0836641221374,
+          "median": 258.14,
+          "p90": 2172.85,
+          "removed_top_count": 2,
+          "removed_top_net": "8418.40",
+          "trimmed_mean": 683.2524031007752
+        },
+        "present": {
+          "rows": 26719,
+          "invoices": 1321,
+          "net": "592731.90",
+          "mean": 448.6993943981832,
+          "median": 302.18,
+          "p90": 770.46,
+          "removed_top_count": 14,
+          "removed_top_net": "96677.12",
+          "trimmed_mean": 379.53693955623567
+        }
+      },
+      "2011-08": {
+        "missing": {
+          "rows": 7424,
+          "invoices": 72,
+          "net": "88686.52",
+          "mean": 1231.7572222222223,
+          "median": 1175.375,
+          "p90": 2639.146,
+          "removed_top_count": 1,
+          "removed_top_net": "12172.09",
+          "trimmed_mean": 1077.6680281690142
+        },
+        "present": {
+          "rows": 26900,
+          "invoices": 1267,
+          "net": "636807.24",
+          "mean": 502.6102920284136,
+          "median": 304.63,
+          "p90": 841.748,
+          "removed_top_count": 13,
+          "removed_top_net": "130347.38",
+          "trimmed_mean": 403.8754864433812
+        }
+      },
+      "2011-09": {
+        "missing": {
+          "rows": 9186,
+          "invoices": 79,
+          "net": "89567.97",
+          "mean": 1133.7717721518986,
+          "median": 1309.83,
+          "p90": 2184.968,
+          "removed_top_count": 1,
+          "removed_top_net": "3988.62",
+          "trimmed_mean": 1097.1711538461539
+        },
+        "present": {
+          "rows": 39869,
+          "invoices": 1739,
+          "net": "940900.81",
+          "mean": 541.0585451408856,
+          "median": 321.01,
+          "p90": 964.492,
+          "removed_top_count": 18,
+          "removed_top_net": "155710.49",
+          "trimmed_mean": 456.2407437536316
+        }
+      },
+      "2011-10": {
+        "missing": {
+          "rows": 9700,
+          "invoices": 102,
+          "net": "101023.63",
+          "mean": 990.4277450980392,
+          "median": 271.43,
+          "p90": 2241.763,
+          "removed_top_count": 2,
+          "removed_top_net": "19540.08",
+          "trimmed_mean": 814.8355
+        },
+        "present": {
+          "rows": 49367,
+          "invoices": 1903,
+          "net": "1005642.90",
+          "mean": 528.4513399894903,
+          "median": 314.15,
+          "p90": 949.22,
+          "removed_top_count": 20,
+          "removed_top_net": "172582.05",
+          "trimmed_mean": 442.4114976101965
+        }
+      },
+      "2011-11": {
+        "missing": {
+          "rows": 18790,
+          "invoices": 109,
+          "net": "315596.47",
+          "mean": 2895.3804587155964,
+          "median": 751.54,
+          "p90": 5131.884,
+          "removed_top_count": 2,
+          "removed_top_net": "103594.85",
+          "trimmed_mean": 1981.323551401869
+        },
+        "present": {
+          "rows": 64301,
+          "invoices": 2642,
+          "net": "1142145.77",
+          "mean": 432.30347085541257,
+          "median": 297.78,
+          "p90": 770.764,
+          "removed_top_count": 27,
+          "removed_top_net": "156698.14",
+          "trimmed_mean": 376.84421797323137
+        }
+      },
+      "2011-12": {
+        "missing": {
+          "rows": 7788,
+          "invoices": 40,
+          "net": "102259.55",
+          "mean": 2556.48875,
+          "median": 450.105,
+          "p90": 6086.023,
+          "removed_top_count": 1,
+          "removed_top_net": "7848.73",
+          "trimmed_mean": 2420.7902564102565
+        },
+        "present": {
+          "rows": 17242,
+          "invoices": 776,
+          "net": "513230.43",
+          "mean": 661.3794201030928,
+          "median": 295.46,
+          "p90": 772.35,
+          "removed_top_count": 8,
+          "removed_top_net": "220182.98",
+          "trimmed_mean": 381.57220052083335
+        }
+      }
+    }
+  },
+  "cross_layer_invoices": {
+    "country": 0,
+    "month": 0
+  },
+  "mixed_identity_invoices": 0
+}

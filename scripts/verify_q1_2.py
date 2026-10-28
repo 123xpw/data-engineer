@@ -154,7 +154,7 @@ def main():
             return {'q1_1_current_regression':old['run_id'],'includes':'原有骨架六个真实流程和旧五类变异；源文件/README/.gitignore 不变；依赖安装证明复用范围见 Q1.1 报告'}
         e.check('Q12-4/6 当前源码的 Q1.1、骨架和旧变异回归',regression)
     print(e.path)
-    print('Q1.2 验收通过，可进入 Q1.3' if e.report['status']=='passed' else 'Q1.2 未通过，禁止进入 Q1.3')
+    print('Q1.2 规定计算检查通过；业务放行仍须补证，见 reports/q1_2_review.md' if e.report['status']=='passed' else 'Q1.2 计算检查未通过，禁止据此放行')
     return 0 if e.report['status']=='passed' else 1
 
 

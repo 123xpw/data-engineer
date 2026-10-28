@@ -1,8 +1,9 @@
 # 运行说明与阶段验收
 
-## 当前阶段：Q1.2
+## 当前阶段：Q1.2 补证审查
 
 已实现数据准备、Q1.1、Q1.2；Q1.3、Q2–Q5 尚未完成。
+补证命令：`python scripts/verify_q1_review.py`；预先口径见 q1_data_quality/ACCEPTANCE_Q1_2_REVIEW.md；解释与放行边界见 reports/q1_2_review_conclusions.md。新增逐记录归属只写本地忽略目录 .venv/q1-review/。
 本轮预先声明的口径与条件见 q1_data_quality/ACCEPTANCE_Q1_2.md，实际验收结果见 reports/q1_2/acceptance_latest.json。
 
 ```bash
@@ -14,7 +15,7 @@ python scripts/verify_q1_2.py
 
 - Q1.1 仍可用 q1_data_quality/q1_code.py 或 `--stage q1.1` 独立运行，Q1.2 不依赖其输出。
 - `--stage q1` 明确显示 Q1.3 未完成并返回 2；完整 run_all 返回 2，直到全部模块完成。当前应有 4 个阶段通过、5 个未实现。
-- Q1.2 验收包括 38 项单元测试、五类错误植入、全量 CSV/Decimal 独立复算、两个入口产物一致、金额与行数守恒、解释前提核验和 Q1.1/骨架回归。
+- Q1.2 计算验收包括手算与既有回归测试、五类错误植入、全量 CSV/Decimal 独立复算、两个入口产物一致、金额与行数守恒、解释前提核验和 Q1.1/骨架回归。
 - 客户均额的消融实验独立脚本为 scripts/experiment_q1_2_sensitivity.py；8 个视图有手算检查，首尾结果与主报告交叉核对。
 - 金额精确保留源精度，计数/字符串/金额精确比较；仅比率和均额允许绝对误差 1e-12。
 - 数值验收 passed 且源码指纹一致，仅证明规定计算检查通过。后续语义审查已撤回自动放行：业务解释与清洗规则仍待补证，详见 reports/q1_2_review.md；历史通过不自动放行修改后的代码或未验证的业务规则。
