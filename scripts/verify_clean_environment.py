@@ -26,6 +26,10 @@ def main():
             shutil.copyfile(ROOT / name, project / name)
         for name in ("scripts", "tests"):
             shutil.copytree(ROOT / name, project / name, ignore=shutil.ignore_patterns("__pycache__"))
+        (project / "q1_data_quality").mkdir()
+        for path in (ROOT / "q1_data_quality").iterdir():
+            if path.suffix == ".py" or path.name.startswith("ACCEPTANCE_"):
+                shutil.copyfile(path, project / "q1_data_quality" / path.name)
         environment = os.environ.copy()
         for key in ("PYTHONPATH", "PYTHONHOME", "VIRTUAL_ENV"):
             environment.pop(key, None)
