@@ -1,0 +1,72 @@
+{
+  "run_id": "76468d5c0e3b408c8318b8e7f3ec1b14",
+  "status": "passed",
+  "scope": "stage_gate",
+  "started_utc": "2026-10-28T08:14:51.553473+00:00",
+  "python": "3.12.13",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "pandas": "3.1.0",
+  "git_base": "648b3c50a0792c691ead296dd834bda330a0c2e7",
+  "source_sha256": {
+    "requirements.txt": "e72f75124f63ae6b07970f640e49d334d930a97288e7464fe8e03c9b266656b4",
+    "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
+    "VALIDATION_GATES.md": "51b9ae9d7c106078be5b27090476268285a27ba31b45cc95e77213ccec902051",
+    "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
+    "run_all.py": "f8aef3ddb69e7a6e1e5d0ba51c036ea33301ad9c041c1d9a547d6833009423b0",
+    "scripts/export_ai_log.py": "0ca546db66ab50aabc65dd8e969e36a1ff21861e8b9a55aa9f020ad3bceead36",
+    "scripts/verification_support.py": "bc65e1fdefc9a5ef9a14491dcf081cf8f960a5636739eb6f7a49fa145a1d505b",
+    "scripts/verify_baseline.py": "98995c1bd554fc0bc03b90aca648fa4af5da273543c6e53b7a5725454fc69e65",
+    "scripts/verify_clean_environment.py": "3ca21436a6472364ad2ef0c934c4199e113ea7cda5eccb63a62879c8c224fc3b",
+    "scripts/verify_mutations.py": "751cc914af1e3b399aed7d2db4fb1066d33cac53c215f4fa1cd1d7468d2a5fa0",
+    "scripts/verify_stage_gate.py": "62d9a3fcc102715fd90795682f50781b6385cf2e1ae7c4c9770e44128af4e84e",
+    "tests/test_baseline.py": "47fac2a6ee7759327eece4d643820e56dbbee33e0a2ec51fdde1c84d1adb7c5c",
+    "tests/test_verification.py": "1dea283f5a64c15d8b1d1fe527128f9bbfc1799213627d24bdbf9925d593775c"
+  },
+  "checks": [
+    {
+      "name": "G1/G4/G5 固定答案、异常处理、验证器自检",
+      "passed": true,
+      "evidence": {
+        "tests": 18,
+        "failures": 0,
+        "errors": 0
+      }
+    },
+    {
+      "name": "G2–G7 baseline 报告有效且对应当前源码",
+      "passed": true,
+      "evidence": {
+        "report": "reports/hardening/baseline_latest.json",
+        "run_id": "252dc554358c4519902154bae0b50c4c",
+        "sha256": "b5b376b9a6e86471b8acf648a8689d2baf288032b080f0c7cd4379b9b570d24a"
+      }
+    },
+    {
+      "name": "G2–G7 mutations 报告有效且对应当前源码",
+      "passed": true,
+      "evidence": {
+        "report": "reports/hardening/mutations_latest.json",
+        "run_id": "081cb363a86a493ab847a0479c6abba7",
+        "sha256": "b6d7a4ea4b5b57537be1544f02e854610b5611b5c650ff70bfd7cbda18e40358"
+      }
+    },
+    {
+      "name": "G2–G7 clean_environment 报告有效且对应当前源码",
+      "passed": true,
+      "evidence": {
+        "report": "reports/hardening/clean_environment_latest.json",
+        "run_id": "d08af816e16a42208991cdcffec81dfe",
+        "sha256": "a50561702f00b15003d567a719a6153d729deeac86ae68f63fa1abe14806f23c"
+      }
+    },
+    {
+      "name": "G8 原题、忽略规则和数据基准未改动",
+      "passed": true,
+      "evidence": {
+        "protected_files_unchanged": true,
+        "datasets_not_tracked": true
+      }
+    }
+  ],
+  "finished_utc": "2026-10-28T08:14:52.165469+00:00"
+}

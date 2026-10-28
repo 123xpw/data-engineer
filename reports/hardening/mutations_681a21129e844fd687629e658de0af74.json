@@ -1,0 +1,83 @@
+{
+  "run_id": "681a21129e844fd687629e658de0af74",
+  "status": "failed",
+  "scope": "mutations",
+  "started_utc": "2026-10-28T07:58:37.841622+00:00",
+  "python": "3.12.13",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "pandas": "3.1.0",
+  "git_base": "648b3c50a0792c691ead296dd834bda330a0c2e7",
+  "source_sha256": {
+    "requirements.txt": "1942d6901b0f7b55852f4a26d12a29452bbbf89280776754ac371388d8322577",
+    "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
+    "VALIDATION_GATES.md": "51b9ae9d7c106078be5b27090476268285a27ba31b45cc95e77213ccec902051",
+    "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
+    "run_all.py": "f8aef3ddb69e7a6e1e5d0ba51c036ea33301ad9c041c1d9a547d6833009423b0",
+    "scripts/export_ai_log.py": "0ca546db66ab50aabc65dd8e969e36a1ff21861e8b9a55aa9f020ad3bceead36",
+    "scripts/verification_support.py": "bc65e1fdefc9a5ef9a14491dcf081cf8f960a5636739eb6f7a49fa145a1d505b",
+    "scripts/verify_baseline.py": "98995c1bd554fc0bc03b90aca648fa4af5da273543c6e53b7a5725454fc69e65",
+    "scripts/verify_mutations.py": "dd54cab8013b0629e0e422f156fab0b8775e81a4451b60aad345b4567d7133d1",
+    "tests/test_baseline.py": "47fac2a6ee7759327eece4d643820e56dbbee33e0a2ec51fdde1c84d1adb7c5c",
+    "tests/test_verification.py": "1dea283f5a64c15d8b1d1fe527128f9bbfc1799213627d24bdbf9925d593775c"
+  },
+  "checks": [
+    {
+      "name": "未修改版本先通过",
+      "passed": true,
+      "evidence": {
+        "tests": 12,
+        "failures": [],
+        "errors": []
+      }
+    },
+    {
+      "name": "字段顺序反转",
+      "passed": false,
+      "error": "变异未被可靠捕获：{'tests': 12, 'failures': [\"test_baseline.BaselineTests.test_each_metadata_contract_is_enforced (key='columns')\", 'test_baseline.BaselineTests.test_multiline_is_one_record_and_preserves_identifier'], 'errors': ['test_baseline.BaselineTests.test_download_uses_pinned_source_and_reuses_verified_files']}"
+    },
+    {
+      "name": "少计一行",
+      "passed": false,
+      "error": "变异未被可靠捕获：{'tests': 12, 'failures': [\"test_baseline.BaselineTests.test_each_metadata_contract_is_enforced (key='columns')\", 'test_baseline.BaselineTests.test_multiline_is_one_record_and_preserves_identifier'], 'errors': ['test_baseline.BaselineTests.test_download_uses_pinned_source_and_reuses_verified_files']}"
+    },
+    {
+      "name": "跳过校验",
+      "passed": true,
+      "evidence": {
+        "tests": 12,
+        "failures": [
+          "test_baseline.BaselineTests.test_bad_download_never_becomes_official_input",
+          "test_baseline.BaselineTests.test_changed_content_with_same_size_and_rows_is_rejected",
+          "test_baseline.BaselineTests.test_corrupt_existing_input_is_not_silently_overwritten",
+          "test_baseline.BaselineTests.test_each_metadata_contract_is_enforced (key='rows')",
+          "test_baseline.BaselineTests.test_each_metadata_contract_is_enforced (key='bytes')",
+          "test_baseline.BaselineTests.test_each_metadata_contract_is_enforced (key='columns')"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "失败报成功",
+      "passed": true,
+      "evidence": {
+        "tests": 12,
+        "failures": [
+          "test_baseline.BaselineTests.test_failure_does_not_prevent_independent_step"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "未执行就报成功",
+      "passed": true,
+      "evidence": {
+        "tests": 12,
+        "failures": [
+          "test_baseline.BaselineTests.test_failure_does_not_prevent_independent_step"
+        ],
+        "errors": []
+      }
+    }
+  ],
+  "finished_utc": "2026-10-28T07:58:38.202997+00:00"
+}

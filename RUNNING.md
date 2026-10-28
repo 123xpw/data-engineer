@@ -1,5 +1,29 @@
 # 运行说明与阶段验收
 
+## R0.1：验证补强后的运行方法
+
+当前仍只实现数据准备；Q1–Q5 未接入。补强验证的具体门槛见 VALIDATION_GATES.md。
+新增 pandas C 引擎作为独立解析器，requirements.txt 已包含精确版本。
+
+```bash
+python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v
+python scripts/verify_mutations.py
+python scripts/verify_baseline.py
+python scripts/verify_clean_environment.py
+python scripts/verify_stage_gate.py
+```
+
+- verify_baseline：从独立工作目录调用真实 CLI，再读取全部实际文件，不只相信成功状态。
+- verify_clean_environment：创建新虚拟环境和源码副本、无缓存安装锁定依赖、下载两份真实数据、执行测试和独立核验；需要网络。
+- verify_stage_gate：非零退出码表示禁止进入 Q1.1。任何被检查的代码、依赖、测试或门槛文件变化都会使旧报告失效，需要重跑相应验证。
+- reports/hardening/ 下每次运行有唯一报告；*_latest.json 指向当前结果，包括 running/failed。历史失败保留，不用后续成功覆盖历史。
+- 指定错误变体被捕获只证明对应风险受到测试覆盖，不是整体正确率或完整覆盖率。
+- 干净虚拟环境不等于全新操作系统。当前没有其他人员独立审核，也没有跨平台兼容性结论。
+- 可处理的异常会记录失败；进程被强杀可能仅留下 running，放行脚本同样拒绝。磁盘完全不可写时不能保证写出报告，此时也不能将旧证据视为本次通过。
+
+以下保留第一轮背景，原始第一轮报告不作为补强后的放行依据。
+
 ## 当前范围（2026-10-28）
 
 第一轮只完成原始数据准备和执行骨架。Q1–Q5 尚未实现，不代表整份笔试完成。
