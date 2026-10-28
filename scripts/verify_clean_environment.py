@@ -28,7 +28,7 @@ def main():
             shutil.copytree(ROOT / name, project / name, ignore=shutil.ignore_patterns("__pycache__"))
         (project / "q1_data_quality").mkdir()
         for path in (ROOT / "q1_data_quality").iterdir():
-            if path.suffix == ".py" or path.name.startswith("ACCEPTANCE_"):
+            if path.suffix == ".py" or path.name.startswith("ACCEPTANCE_") or path.name in ("cleaning_strategy.md", "strategy_review.md"):
                 shutil.copyfile(path, project / "q1_data_quality" / path.name)
         environment = os.environ.copy()
         for key in ("PYTHONPATH", "PYTHONHOME", "VIRTUAL_ENV"):

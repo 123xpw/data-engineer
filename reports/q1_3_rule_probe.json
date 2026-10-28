@@ -1,0 +1,105 @@
+{
+  "scope": "已知极值客户的个案反例，不代表总体，也未确认真实匹配",
+  "customer": "16446.0",
+  "records": [
+    {
+      "record": 371781,
+      "Invoice": "C525275",
+      "StockCode": "TEST001",
+      "Description": "This is a test product.",
+      "Quantity": "-2",
+      "InvoiceDate": "2010-10-04 16:38:00",
+      "Price": "4.5",
+      "Customer ID": "16446.0",
+      "Country": "United Kingdom"
+    },
+    {
+      "record": 719816,
+      "Invoice": "553573",
+      "StockCode": "22980",
+      "Description": "PANTRY SCRUBBING BRUSH",
+      "Quantity": "1",
+      "InvoiceDate": "2011-05-18 09:52:00",
+      "Price": "1.65",
+      "Customer ID": "16446.0",
+      "Country": "United Kingdom"
+    },
+    {
+      "record": 719817,
+      "Invoice": "553573",
+      "StockCode": "22982",
+      "Description": "PANTRY PASTRY BRUSH",
+      "Quantity": "1",
+      "InvoiceDate": "2011-05-18 09:52:00",
+      "Price": "1.25",
+      "Customer ID": "16446.0",
+      "Country": "United Kingdom"
+    },
+    {
+      "record": 1065883,
+      "Invoice": "581483",
+      "StockCode": "23843",
+      "Description": "PAPER CRAFT , LITTLE BIRDIE",
+      "Quantity": "80995",
+      "InvoiceDate": "2011-12-09 09:15:00",
+      "Price": "2.08",
+      "Customer ID": "16446.0",
+      "Country": "United Kingdom"
+    },
+    {
+      "record": 1065884,
+      "Invoice": "C581484",
+      "StockCode": "23843",
+      "Description": "PAPER CRAFT , LITTLE BIRDIE",
+      "Quantity": "-80995",
+      "InvoiceDate": "2011-12-09 09:27:00",
+      "Price": "2.08",
+      "Customer ID": "16446.0",
+      "Country": "United Kingdom"
+    }
+  ],
+  "candidate": {
+    "rows": 3,
+    "gross": "168472.50",
+    "invoices": 2,
+    "latest_purchase": "2011-12-09 09:15:00"
+  },
+  "if_extreme_purchase_is_confirmed_cancelled": {
+    "rows": 2,
+    "gross": "2.90",
+    "invoices": 1,
+    "latest_purchase": "2011-05-18 09:52:00"
+  },
+  "pair_net": "0.00",
+  "pair_positive_amount": "168469.60",
+  "pair_time_seconds": 720.0,
+  "pair_candidate_rows": 1,
+  "raw_customer_net": "-6.10",
+  "raw_net_warning": "原始客户净额另含 TEST001 的 -9.00，不等于认证商品净额；不能用个案条件情景直接替换生产结果",
+  "synthetic_cases": {
+    "partial_return": {
+      "scope": "手算合成；假定唯一关联已确认",
+      "purchased": 3,
+      "returned": 1,
+      "unit_price": "10.00",
+      "remaining": 2,
+      "net": "20.00"
+    },
+    "recency": {
+      "scope": "合成；购买与退货是不同事件",
+      "purchase": "2020-01-01",
+      "return": "2020-01-10",
+      "last_purchase": "2020-01-01"
+    },
+    "offset_deletion": {
+      "scope": "手算合成；两个事件正负抵消",
+      "positive": "20.00",
+      "negative": "-20.00",
+      "net_before": "0.00",
+      "net_after_deleting_both": "0.00",
+      "positive_events_before": 1,
+      "positive_events_after": 0
+    }
+  },
+  "input_sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9"
+}

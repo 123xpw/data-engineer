@@ -1,4 +1,4 @@
-"""分阶段执行入口：数据准备、Q1.1、Q1.2 已接入，其余如实标为未完成。"""
+"""分阶段执行入口：数据准备与 Q1 已接入，其余如实标为未完成。"""
 
 from __future__ import annotations
 
@@ -28,6 +28,12 @@ def q1_findings(data_dir, output_dir):
     return run_findings(data_dir / "online_retail_ii.csv", output_dir)
 
 
+def q1_strategy(output_dir):
+    """交付策略文档，不将文件检查冒充业务认证或 ETL 执行。"""
+    from q1_data_quality.q1_strategy import deliver_strategy
+    return deliver_strategy(output_dir)
+
+
 def run_steps(steps: list[tuple[str, Callable | None]]) -> tuple[list[dict], int]:
     """各阶段独立汇报；失败后继续其他独立阶段，最终仍返回失败码。"""
     results = []
@@ -54,7 +60,7 @@ def run_steps(steps: list[tuple[str, Callable | None]]) -> tuple[list[dict], int
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--stage", choices=("all", "data", "q1", "q1.1", "q1.2", "q2", "q3", "q4", "q5"), default="all")
+    parser.add_argument("--stage", choices=("all", "data", "q1", "q1.1", "q1.2", "q1.3", "q2", "q3", "q4", "q5"), default="all")
     parser.add_argument("--offline", action="store_true", help="数据准备只校验本地文件")
     parser.add_argument("--data-dir", type=Path, default=ROOT / "data")
     parser.add_argument("--q1-output-dir", type=Path, default=ROOT / "q1_data_quality")
@@ -69,8 +75,8 @@ def main() -> int:
         steps.append(("q1.1", lambda: q1_profile(args.data_dir, args.q1_output_dir)))
     if args.stage in ("all", "q1", "q1.2"):
         steps.append(("q1.2", lambda: q1_findings(args.data_dir, args.q1_output_dir)))
-    if args.stage in ("all", "q1"):
-        steps.append(("q1.3", None))
+    if args.stage in ("all", "q1", "q1.3"):
+        steps.append(("q1.3", lambda: q1_strategy(args.q1_output_dir)))
     for name in ("q2", "q3", "q4", "q5"):
         if args.stage in ("all", name):
             steps.append((name, None))
