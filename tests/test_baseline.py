@@ -19,15 +19,15 @@ class BaselineTests(unittest.TestCase):
         self.source.mkdir()
         self.data = self.root / "data"
         self.fixture = self.source / "example.csv"
-        with self.fixture.open("w", encoding="utf-8", newline="") as stream:
-            writer = csv.writer(stream)
-            writer.writerows([["id", "comment"], ["001", "第一行\n第二行"], ["002", "正常"]])
-        self.expected = inspect_csv(self.fixture)
+        # 手工夹具，固定字节；预期不能由 inspect_csv 自己生成。
+        self.fixture.write_bytes(b'id,comment\n001,"first\nsecond"\n002,normal\n')
+        self.expected = {"columns": ["id", "comment"], "rows": 2, "bytes": 41,
+                         "sha256": "6563bb86dcce481e9fec9d1e94d0f9669d4f971fc7a4de0c496bbf7b940943ce"}
         self.spec = {"handle": "test/fixture/versions/1", "files": [
             {"source": "example.csv", "target": "example.csv", **self.expected}]}
 
     def test_multiline_is_one_record_and_preserves_identifier(self):
-        self.assertEqual(self.expected["rows"], 2)
+        self.assertEqual(inspect_csv(self.fixture), self.expected)
         with self.fixture.open(encoding="utf-8", newline="") as stream:
             self.assertEqual(list(csv.reader(stream))[1][0], "001")
 
@@ -50,6 +50,7 @@ class BaselineTests(unittest.TestCase):
             result = prepare_dataset("fixture", self.spec, self.data)
             fetch.assert_called_once_with("test/fixture/versions/1")
             self.assertEqual(result["files"][0]["action"], "downloaded")
+        self.assertEqual((self.data / "example.csv").read_bytes(), self.fixture.read_bytes())
         before = (self.data / "example.csv").stat().st_mtime_ns
         with patch("download_data.fetch_dataset", side_effect=AssertionError("不应联网")):
             result = prepare_dataset("fixture", self.spec, self.data, offline=True)
@@ -80,6 +81,23 @@ class BaselineTests(unittest.TestCase):
                 prepare_dataset("fixture", self.spec, self.data)
         self.assertFalse((self.data / "example.csv").exists())
         self.assertEqual(list(self.data.iterdir()), [])
+
+    def test_interrupted_copy_never_publishes_partial_file(self):
+        def interrupted(source, target):
+            Path(target).write_bytes(b"partial")
+            raise OSError("模拟磁盘写入中断")
+        with patch("download_data.fetch_dataset", return_value=self.source), patch("download_data.shutil.copyfile", side_effect=interrupted):
+            with self.assertRaises(OSError):
+                prepare_dataset("fixture", self.spec, self.data)
+        self.assertFalse((self.data / "example.csv").exists())
+        self.assertEqual(list(self.data.iterdir()), [])
+
+    def test_each_metadata_contract_is_enforced(self):
+        for key, bad in (("rows", 3), ("bytes", 42), ("columns", ["comment", "id"])):
+            with self.subTest(key=key):
+                expected = {**self.expected, key: bad}
+                with self.assertRaisesRegex(DataValidationError, key):
+                    verify_file(self.fixture, expected)
 
     def test_failure_does_not_prevent_independent_step(self):
         called = []

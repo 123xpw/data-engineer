@@ -1,5 +1,14 @@
 # TOOLS.md - 工具与软件使用清单
 
+## R0.1 新增实际工具
+
+- pandas 3.1.0：使用 C 引擎独立读取真实 CSV，保留字符串及空字段，与生产端 csv.reader 的结果交叉核验；替代方案是另一个独立 CSV 引擎。
+- 系统 shasum：取得固定小样本的 SHA-256，避免测试预期由生产函数生成；替代方案是其他独立摘要工具。
+- Python venv/subprocess/unittest：新环境复现、真实子进程故障、测试验证器本身、临时副本变异实验；替代方案为容器和其他测试框架。
+- pandas 参数依据：[官方 read_csv 文档](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)。numpy 等间接依赖随 requirements.txt 锁定，不表示已进行业务数值分析。
+
+---
+
 ## 已实际使用：第一轮骨架（2026-10-28）
 
 | 工具 | 解决的问题／实际场景 | 替代方式 |
