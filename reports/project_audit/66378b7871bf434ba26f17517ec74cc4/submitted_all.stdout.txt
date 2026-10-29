@@ -1,0 +1,9 @@
+customers: 99441 条暂存及全字段往返通过
+geolocation: 1000163 条暂存及全字段往返通过
+order_items: 112650 条暂存及全字段往返通过
+order_payments: 103886 条暂存及全字段往返通过
+order_reviews: 99224 条暂存及全字段往返通过
+orders: 99441 条暂存及全字段往返通过
+products: 32951 条暂存及全字段往返通过
+sellers: 3095 条暂存及全字段往返通过
+product_category_name_translation: 71 条暂存及全字段往返通过

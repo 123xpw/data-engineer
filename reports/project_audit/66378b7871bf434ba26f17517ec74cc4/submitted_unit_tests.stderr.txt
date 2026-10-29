@@ -1,0 +1,53 @@
+test_bad_download_never_becomes_official_input (test_baseline.BaselineTests.test_bad_download_never_becomes_official_input) ... ok
+test_changed_content_with_same_size_and_rows_is_rejected (test_baseline.BaselineTests.test_changed_content_with_same_size_and_rows_is_rejected) ... ok
+test_completed_scope_returns_zero (test_baseline.BaselineTests.test_completed_scope_returns_zero) ... ok
+test_corrupt_existing_input_is_not_silently_overwritten (test_baseline.BaselineTests.test_corrupt_existing_input_is_not_silently_overwritten) ... ok
+test_download_uses_pinned_source_and_reuses_verified_files (test_baseline.BaselineTests.test_download_uses_pinned_source_and_reuses_verified_files) ... ok
+test_each_metadata_contract_is_enforced (test_baseline.BaselineTests.test_each_metadata_contract_is_enforced) ... ok
+test_failed_nested_module_is_not_success (test_baseline.BaselineTests.test_failed_nested_module_is_not_success) ... {'stage_completion': 'failed'}
+ok
+test_failure_does_not_prevent_independent_step (test_baseline.BaselineTests.test_failure_does_not_prevent_independent_step) ... 测试夹具错误
+ok
+test_interrupted_copy_never_publishes_partial_file (test_baseline.BaselineTests.test_interrupted_copy_never_publishes_partial_file) ... ok
+test_multiline_is_one_record_and_preserves_identifier (test_baseline.BaselineTests.test_multiline_is_one_record_and_preserves_identifier) ... ok
+test_offline_missing_files_fail_without_network (test_baseline.BaselineTests.test_offline_missing_files_fail_without_network) ... ok
+test_partial_module_is_not_complete (test_baseline.BaselineTests.test_partial_module_is_not_complete) ... ok
+test_truncated_and_duplicate_headers_are_rejected (test_baseline.BaselineTests.test_truncated_and_duplicate_headers_are_rejected) ... ok
+test_unimplemented_is_not_success (test_baseline.BaselineTests.test_unimplemented_is_not_success) ... ok
+test_cancelling_pair_metamorphic (test_q1_findings.FindingsTests.test_cancelling_pair_metamorphic) ... ok
+test_candidate_order_not_line_average (test_q1_findings.FindingsTests.test_candidate_order_not_line_average) ... ok
+test_independent_reference_on_hand_fixture (test_q1_findings.FindingsTests.test_independent_reference_on_hand_fixture) ... ok
+test_manual_money_and_missing (test_q1_findings.FindingsTests.test_manual_money_and_missing) ... ok
+test_missing_prefix_and_multiple_customer (test_q1_findings.FindingsTests.test_missing_prefix_and_multiple_customer) ... ok
+test_no_stripping_identifiers_or_null (test_q1_findings.FindingsTests.test_no_stripping_identifiers_or_null) ... ok
+test_permutation_invariance (test_q1_findings.FindingsTests.test_permutation_invariance) ... ok
+test_prefix_is_not_quantity_sign (test_q1_findings.FindingsTests.test_prefix_is_not_quantity_sign) ... ok
+test_ranking_by_invoices_not_lines (test_q1_findings.FindingsTests.test_ranking_by_invoices_not_lines) ... ok
+test_zero_denominator_and_abs (test_q1_findings.FindingsTests.test_zero_denominator_and_abs) ... ok
+test_all_invalid_numeric_values_are_not_zero_filled (test_q1_profile.Q1ProfileTests.test_all_invalid_numeric_values_are_not_zero_filled) ... ok
+test_diagnostics_are_counts_not_business_labels (test_q1_profile.Q1ProfileTests.test_diagnostics_are_counts_not_business_labels) ... ok
+test_duplicate_count_means_extra_occurrences (test_q1_profile.Q1ProfileTests.test_duplicate_count_means_extra_occurrences) ... ok
+test_every_row_and_column_is_counted (test_q1_profile.Q1ProfileTests.test_every_row_and_column_is_counted) ... ok
+test_missing_denominator_and_literal_null_are_distinct (test_q1_profile.Q1ProfileTests.test_missing_denominator_and_literal_null_are_distinct) ... ok
+test_numeric_statistics_follow_hand_calculation (test_q1_profile.Q1ProfileTests.test_numeric_statistics_follow_hand_calculation) ... ok
+test_permuting_input_does_not_change_profile (test_q1_profile.Q1ProfileTests.test_permuting_input_does_not_change_profile) ... ok
+test_reference_implementation_also_matches_hand_calculation (test_q1_profile.Q1ProfileTests.test_reference_implementation_also_matches_hand_calculation) ... ok
+test_single_numeric_value_has_no_sample_std (test_q1_profile.Q1ProfileTests.test_single_numeric_value_has_no_sample_std) ... ok
+test_whitespace_and_ties_are_preserved (test_q1_profile.Q1ProfileTests.test_whitespace_and_ties_are_preserved) ... ok
+test_cross_layers_are_not_new_invoices (test_q1_review.ReviewTests.test_cross_layers_are_not_new_invoices) ... ok
+test_empty_candidate_and_mixed_identity (test_q1_review.ReviewTests.test_empty_candidate_and_mixed_identity) ... ok
+test_fixed_denominator_decomposition (test_q1_review.ReviewTests.test_fixed_denominator_decomposition) ... ok
+test_precision_and_quantile (test_q1_review.ReviewTests.test_precision_and_quantile) ... ok
+test_rule_partition_hand_values (test_q1_review.ReviewTests.test_rule_partition_hand_values) ... ok
+test_top_one_percent_ceil_and_empty (test_q1_review.ReviewTests.test_top_one_percent_ceil_and_empty) ... ok
+test_claimed_success_with_missing_output_is_rejected (test_verification.VerificationTests.test_claimed_success_with_missing_output_is_rejected) ... ok
+test_failure_is_saved_before_context_finishes (test_verification.VerificationTests.test_failure_is_saved_before_context_finishes) ... ok
+test_interruption_replaces_old_success_with_new_failed_run (test_verification.VerificationTests.test_interruption_replaces_old_success_with_new_failed_run) ... ok
+test_real_verifier_process_failure_leaves_report_and_nonzero_exit (test_verification.VerificationTests.test_real_verifier_process_failure_leaves_report_and_nonzero_exit) ... ok
+test_report_cannot_lie_about_real_output (test_verification.VerificationTests.test_report_cannot_lie_about_real_output) ... ok
+test_second_parser_matches_fixed_answer (test_verification.VerificationTests.test_second_parser_matches_fixed_answer) ... ok
+
+----------------------------------------------------------------------
+Ran 46 tests in 0.510s
+
+OK

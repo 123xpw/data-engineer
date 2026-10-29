@@ -1,0 +1,2 @@
+MySQL 手算、可运行错误、变换与异常组: PASS
+/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-project-review-bg59b1f0/submitted/reports/q2_2/sql_cases_5cdabc750de04a8ca6d4f9175cf0bef1.json

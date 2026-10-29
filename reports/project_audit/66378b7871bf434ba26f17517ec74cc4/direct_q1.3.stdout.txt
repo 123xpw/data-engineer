@@ -1,0 +1,1 @@
+{"scope": "Q1.3 策略文档交付；未实施 ETL", "nonwhitespace_characters": 462, "han_characters": 408, "artifact_sha256": {"cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942", "strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208"}, "business_approval": "未获得；见规则假设和待确认范围", "validation_limit": "程序只核验交付文件和长度；不是自动业务语义审查"}

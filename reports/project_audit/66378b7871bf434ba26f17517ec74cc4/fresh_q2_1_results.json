@@ -1,0 +1,18 @@
+{
+  "server_version": "8.4.13",
+  "load_version": "6c840620bbd8",
+  "total_products": 32951,
+  "unknown_category_products": 610,
+  "named_translation_gaps": [
+    {
+      "category": "pc_gamer",
+      "products": 3
+    },
+    {
+      "category": "portateis_cozinha_e_preparadores_de_alimentos",
+      "products": 10
+    }
+  ],
+  "named_gap_products": 13,
+  "scope": "精确类别名反连接；空类别单列，不猜测补译"
+}

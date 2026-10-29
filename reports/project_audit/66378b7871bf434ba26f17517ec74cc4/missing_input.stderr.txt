@@ -1,0 +1,3 @@
+INFO q2.2：failed（0.3395 秒）
+ERROR {'stage_completion': 'failed', 'results': [{'stage': 'q2.load', 'status': 'failed', 'error': 'FileNotFoundError'}, {'stage': 'q2.2', 'status': 'blocked_dependency'}]}
+INFO 报告：/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-project-review-bg59b1f0/failed.json；退出码：1
