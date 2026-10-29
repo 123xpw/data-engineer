@@ -1,6 +1,7 @@
 """验证器本身也需接受测试；不以被测函数生成固定答案。"""
 
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -12,6 +13,27 @@ from scripts.verification_support import EvidenceRun, ROOT, inspect_independentl
 
 
 class VerificationTests(unittest.TestCase):
+    def test_optimized_modes_fail_before_action_and_replace_stale_success(self):
+        for flag,value,level in [('-O',None,1),('-OO',None,2),(None,'1',1),(None,'2',2)]:
+            with self.subTest(flag=flag,environment=value),tempfile.TemporaryDirectory() as folder:
+                root=Path(folder);history=root/'mode_old.json';latest=root/'mode_latest.json'
+                history.write_text('{"status":"passed","run_id":"old"}')
+                latest.write_bytes(history.read_bytes())
+                original=history.read_bytes();marker=root/'action_ran'
+                code="from scripts.verification_support import EvidenceRun\nfrom pathlib import Path\nwith EvidenceRun(Path("+repr(folder)+"), 'mode') as e:\n Path("+repr(str(marker))+").touch()\n e.check('action', lambda: {})\n"
+                env=os.environ.copy();env.pop('PYTHONOPTIMIZE',None)
+                if value:env['PYTHONOPTIMIZE']=value
+                cmd=[sys.executable]+([flag] if flag else [])+['-c',code]
+                r=subprocess.run(cmd,cwd=ROOT,env=env,capture_output=True,text=True,timeout=30)
+                self.assertNotEqual(r.returncode,0)
+                self.assertIn('禁止使用优化模式验收',r.stderr)
+                self.assertFalse(marker.exists())
+                report=json.loads(latest.read_text())
+                self.assertEqual(report['status'],'failed')
+                self.assertEqual(report['python_optimization_level'],level)
+                self.assertNotEqual(report['run_id'],'old')
+                self.assertEqual(history.read_bytes(),original)
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

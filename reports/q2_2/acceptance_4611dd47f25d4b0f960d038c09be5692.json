@@ -1,0 +1,466 @@
+{
+  "run_id": "4611dd47f25d4b0f960d038c09be5692",
+  "status": "passed",
+  "scope": "仅 Q2.2 明示口径；不声明全项目、并发恢复或业务认证完成",
+  "started_utc": "2026-10-29T15:05:37.689304+00:00",
+  "python": "3.12.13",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "pandas": "3.1.0",
+  "git_base": "029b1095cb05c0438d900fa242c7d6c89c487241",
+  "python_optimization_level": 0,
+  "source_sha256": {
+    "requirements.txt": "dc84079cbbf1746fc870afd863b5e2cd64f3c92b772c5783a1151b1f1f1fa8f7",
+    "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
+    "VALIDATION_GATES.md": "51b9ae9d7c106078be5b27090476268285a27ba31b45cc95e77213ccec902051",
+    "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
+    "run_all.py": "2c4e7fd8f342574436db8edbfd29f6b32e1a5a63f2e3a2026379a4c35d41d94d",
+    "scripts/check_q2_1_cases.py": "b4f35cd1f2d7202b2598ef640e0899e04fdfd2e9168fcc2a2a29e4be53b217ea",
+    "scripts/check_q2_2_cases.py": "bedeae1353e7fece57f71fea830a658c1d1d83b96455175e42752fc6fc3d6551",
+    "scripts/check_q2_typed_values.py": "0637b8f4429cc89ee303205b2e4a4b8cbc4b95e506ac5694ed66ab3482c5858d",
+    "scripts/experiment_q1_2_sensitivity.py": "70c5bc0c19eab3ec6ae4cc89921e4e9fd52643eccd1e35cb099be2a101a7edf5",
+    "scripts/export_ai_log.py": "3d19d6954ef59a4801b5279565e500940ad75b0f99d62e9edc97bc18227bba59",
+    "scripts/probe_q1_3_rules.py": "454c4e668e2283fa7dd2a04112d9843ff429e697b920b0166bcde20562bda6bc",
+    "scripts/q1_findings_reference.py": "716e57de471da0bf591526454796b2bf1ec30035f6c051b15c303f909e9017b6",
+    "scripts/q1_reference.py": "9b30a77c4c0d5458888dc94c472c2eae070c189604fb223e4339e533ac77f592",
+    "scripts/q1_review_experiments.py": "43fd4e749584edc25b48cea67ccdf75a6a02a8a04e4a96ef149eb8fef0651f70",
+    "scripts/q2_2_reference.py": "6aa8595f88d7885ea82e9b384336916620c61d73bba8961743ff613dc944b508",
+    "scripts/verification_support.py": "99688a34305e4f5b606e4dbb326deeb62faa3c38ea085d4235d6eb8b0e155d66",
+    "scripts/verify_baseline.py": "d316e3f95ac93e080b6216ac0ab1f298cce98194760508aa939747828ef0d71a",
+    "scripts/verify_clean_environment.py": "8050bbbfb4857f043f2faec2da1b1a5d3e0e2bcb3313a5efa06c70149248c7e8",
+    "scripts/verify_mutations.py": "47d1de4c90ae8a9432c76f5b27c6fcc8d6de4aad622c7283f07cdd2dd538a3f4",
+    "scripts/verify_q1_1.py": "5e2302f413967790df315883de3d3633ab532936bd3c5d89823bacc03cd56146",
+    "scripts/verify_q1_2.py": "47f4c9cab39f47c64af4265ae799b3b98788264392f2e69837bdd776988677df",
+    "scripts/verify_q1_3.py": "cd3f7ac5759c8e901137130548b65f21d93fe860766a98136a97063c37cfef25",
+    "scripts/verify_q1_review.py": "bad11e861cd44307c7a70e8d2930593b7de4191dd7bb37425278546636d50f71",
+    "scripts/verify_q2_1.py": "37b301ac6736b6b8ebfd1bc3d0281f0e6e187727ebd5c9947bc79efd04d44614",
+    "scripts/verify_q2_2.py": "1ec9547b59471a70c9186819eeab039ff84774bb3a2a9586954d18432d760a8f",
+    "scripts/verify_stage_gate.py": "62d9a3fcc102715fd90795682f50781b6385cf2e1ae7c4c9770e44128af4e84e",
+    "tests/test_baseline.py": "976372dafdf60d7559a709673fc491c6069a7bd3aae7c000276d87756075d567",
+    "tests/test_q1_findings.py": "4868fa4f898375fd72c834a45d973ee4909e1a2b475a9ce715e089fba6790cbd",
+    "tests/test_q1_profile.py": "c2a1e8a1b4b235a12ff3742386d2f849fed40d940e71eba870c4704188783488",
+    "tests/test_q1_review.py": "7024092be87789b57551839b2a55b43341973790cf25566658cdeb5d9a30fddf",
+    "tests/test_verification.py": "eb225814f4d3dd80feea38878d4ab952a54e1c61be1d351bbea97b9748355ce4",
+    "q1_data_quality/q1_code.py": "a4a8a2aae66854bc6171af08399da5c0f7097828be4f7d7521265a4591e6a8e2",
+    "q1_data_quality/q1_findings.py": "12a96f708808dfaf2ad0d17a87bcd3b6b4d07336b1dc17d74162c2d17ba1bb5e",
+    "q1_data_quality/q1_strategy.py": "80574133dcb1966388b31e213651984a62819121a5d74628bbb7a7ee46a42050",
+    "q1_data_quality/ACCEPTANCE_Q1_1.md": "be762634b9f7f6348c9c2610bcaf07ad0680a5cfe09fd5955681fcece11b5a88",
+    "q1_data_quality/ACCEPTANCE_Q1_2.md": "5f20dde95d38cd2dff8556937899ebbe72179cd8e5ffafebc5b7b1cad6c1f3c9",
+    "q1_data_quality/ACCEPTANCE_Q1_2_REVIEW.md": "34c3dfc6efdb859624d80267e168f325ab0762b8183f1438dc6d7ca2c59cbcec",
+    "q1_data_quality/ACCEPTANCE_Q1_3.md": "0c556690b80c49587c99f1f7f7397e6b695f61c813812f909e87d595cf09a929",
+    "q2_sql_analysis/catalog.py": "0108180bd105bb2dc977f7f42493e2ffbc30ec9fa7cc834007a5ce4d26174c30",
+    "q2_sql_analysis/load_olist.py": "d2cbc404f8ec4f9255a84756056ee27ff471a9965ba6550bfc0a6c6ac76fe7ba",
+    "q2_sql_analysis/mysql_runtime.py": "c6cee8a016d25090cdd561d1fbbf7434fb161e96ae04f5f766f02c90dd28b9a0",
+    "q2_sql_analysis/q2_1.py": "b68fdec1a0f04b2cd156134ddb5606965917c367482d9976cd4bdf9c21203d4f",
+    "q2_sql_analysis/q2_2.py": "4f5e53a8c69cd2423f99ce963471c9c5a44681a7d0005217e27e28ea7a2d74ff",
+    "q2_sql_analysis/q2_1_translation_gap.sql": "8ebd5dd6d6ab5b7d8d2848cefea7f606fea2b16e41816846e529745d4cd33b9a",
+    "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
+    "q2_sql_analysis/ACCEPTANCE_Q2_1.md": "95970638080de39def5bd8498366e43aaa5a5582d6485406acd91181ed659345",
+    "q2_sql_analysis/ACCEPTANCE_Q2_2.md": "1051ef3ad09fce68f2393f3b84227408ae9003a94d8ff059c2a4a5f694dbbf4d"
+  },
+  "checks": [
+    {
+      "name": "真实 MySQL 与本地项目环境",
+      "passed": true,
+      "evidence": {
+        "version": "8.4.13",
+        "sql_mode": "STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION",
+        "collation": "utf8mb4_0900_bin",
+        "tls_cipher": "TLS_AES_256_GCM_SHA384",
+        "image_id": "sha256:a0225d1ea6631c8bc2385dc4c2faba17bbf1834ecf369e1659a9a382bd8d5dd7",
+        "endpoint": "127.0.0.1:3307",
+        "database": "gekko_exam"
+      }
+    },
+    {
+      "name": "独立参考校准、手算、变换、错误注入与边界",
+      "passed": true,
+      "evidence": {
+        "synthetic": true,
+        "handcalculated_january": {
+          "month": "2017-01",
+          "total_orders": 6,
+          "delivered_orders": 3,
+          "canceled_orders": 1,
+          "cancel_rate": "16.67",
+          "delivered_gmv": "54",
+          "avg_delivery_days": "1.25",
+          "valid_delivery_orders": 2,
+          "missing_delivery_time_orders": 1,
+          "delivered_missing_item_orders": 0,
+          "delivered_invalid_amount_orders": 0,
+          "negative_delivery_orders": 0
+        },
+        "mutations": {
+          "inner_join": {
+            "executed": true,
+            "numeric_assertion_rejected": true,
+            "actual_rows": 1,
+            "expected_rows": 2,
+            "differences": [
+              {
+                "row": 0,
+                "field": "total_orders",
+                "actual": "4",
+                "expected": "6"
+              },
+              {
+                "row": 0,
+                "field": "canceled_orders",
+                "actual": "0",
+                "expected": "1"
+              },
+              {
+                "row": 0,
+                "field": "cancel_rate",
+                "actual": "0.00",
+                "expected": "16.67"
+              }
+            ]
+          },
+          "item_weighting": {
+            "executed": true,
+            "numeric_assertion_rejected": true,
+            "actual_rows": 2,
+            "expected_rows": 2,
+            "differences": [
+              {
+                "row": 0,
+                "field": "total_orders",
+                "actual": "7",
+                "expected": "6"
+              },
+              {
+                "row": 0,
+                "field": "delivered_orders",
+                "actual": "4",
+                "expected": "3"
+              },
+              {
+                "row": 0,
+                "field": "cancel_rate",
+                "actual": "14.29",
+                "expected": "16.67"
+              },
+              {
+                "row": 0,
+                "field": "avg_delivery_days",
+                "actual": "1.000000",
+                "expected": "1.25"
+              },
+              {
+                "row": 0,
+                "field": "valid_delivery_orders",
+                "actual": "3",
+                "expected": "2"
+              }
+            ]
+          },
+          "omit_freight": {
+            "executed": true,
+            "numeric_assertion_rejected": true,
+            "actual_rows": 2,
+            "expected_rows": 2,
+            "differences": [
+              {
+                "row": 0,
+                "field": "delivered_gmv",
+                "actual": "45.000",
+                "expected": "54"
+              }
+            ]
+          },
+          "sum_distinct": {
+            "executed": true,
+            "numeric_assertion_rejected": true,
+            "actual_rows": 2,
+            "expected_rows": 2,
+            "differences": [
+              {
+                "row": 0,
+                "field": "delivered_gmv",
+                "actual": "42.000",
+                "expected": "54"
+              }
+            ]
+          },
+          "all_status_gmv": {
+            "executed": true,
+            "numeric_assertion_rejected": true,
+            "actual_rows": 2,
+            "expected_rows": 2,
+            "differences": [
+              {
+                "row": 0,
+                "field": "delivered_gmv",
+                "actual": "164.000",
+                "expected": "54"
+              },
+              {
+                "row": 1,
+                "field": "delivered_gmv",
+                "actual": "None",
+                "expected": "0"
+              }
+            ]
+          },
+          "partial_cancel_denominator": {
+            "executed": true,
+            "numeric_assertion_rejected": true,
+            "actual_rows": 2,
+            "expected_rows": 2,
+            "differences": [
+              {
+                "row": 0,
+                "field": "cancel_rate",
+                "actual": "25.00",
+                "expected": "16.67"
+              }
+            ]
+          },
+          "unavailable_is_canceled": {
+            "executed": true,
+            "numeric_assertion_rejected": true,
+            "actual_rows": 2,
+            "expected_rows": 2,
+            "differences": [
+              {
+                "row": 0,
+                "field": "canceled_orders",
+                "actual": "2",
+                "expected": "1"
+              },
+              {
+                "row": 0,
+                "field": "cancel_rate",
+                "actual": "33.33",
+                "expected": "16.67"
+              }
+            ]
+          },
+          "delivery_month": {
+            "executed": true,
+            "numeric_assertion_rejected": true,
+            "actual_rows": 3,
+            "expected_rows": 2,
+            "differences": [
+              {
+                "row": 0,
+                "field": "month",
+                "actual": "None",
+                "expected": "2017-01"
+              },
+              {
+                "row": 0,
+                "field": "total_orders",
+                "actual": "5",
+                "expected": "6"
+              },
+              {
+                "row": 0,
+                "field": "delivered_orders",
+                "actual": "1",
+                "expected": "3"
+              },
+              {
+                "row": 0,
+                "field": "canceled_orders",
+                "actual": "2",
+                "expected": "1"
+              },
+              {
+                "row": 0,
+                "field": "cancel_rate",
+                "actual": "40.00",
+                "expected": "16.67"
+              },
+              {
+                "row": 0,
+                "field": "delivered_gmv",
+                "actual": "6.000",
+                "expected": "54"
+              },
+              {
+                "row": 0,
+                "field": "avg_delivery_days",
+                "actual": "None",
+                "expected": "1.25"
+              },
+              {
+                "row": 0,
+                "field": "valid_delivery_orders",
+                "actual": "0",
+                "expected": "2"
+              },
+              {
+                "row": 1,
+                "field": "month",
+                "actual": "2017-01",
+                "expected": "2017-02"
+              },
+              {
+                "row": 1,
+                "field": "delivered_orders",
+                "actual": "1",
+                "expected": "0"
+              },
+              {
+                "row": 1,
+                "field": "canceled_orders",
+                "actual": "0",
+                "expected": "1"
+              },
+              {
+                "row": 1,
+                "field": "cancel_rate",
+                "actual": "0.00",
+                "expected": "100"
+              },
+              {
+                "row": 1,
+                "field": "delivered_gmv",
+                "actual": "24.000",
+                "expected": "0"
+              },
+              {
+                "row": 1,
+                "field": "avg_delivery_days",
+                "actual": "2.000000",
+                "expected": "None"
+              },
+              {
+                "row": 1,
+                "field": "valid_delivery_orders",
+                "actual": "1",
+                "expected": "0"
+              }
+            ]
+          },
+          "missing_time_zero": {
+            "executed": true,
+            "numeric_assertion_rejected": true,
+            "actual_rows": 2,
+            "expected_rows": 2,
+            "differences": [
+              {
+                "row": 0,
+                "field": "avg_delivery_days",
+                "actual": "0.833333",
+                "expected": "1.25"
+              },
+              {
+                "row": 0,
+                "field": "valid_delivery_orders",
+                "actual": "3",
+                "expected": "2"
+              }
+            ]
+          },
+          "whole_days": {
+            "executed": true,
+            "numeric_assertion_rejected": true,
+            "actual_rows": 2,
+            "expected_rows": 2,
+            "differences": [
+              {
+                "row": 0,
+                "field": "avg_delivery_days",
+                "actual": "1.000000",
+                "expected": "1.25"
+              }
+            ]
+          }
+        },
+        "split_items_invariant": true,
+        "same_amount_new_order_additive": true,
+        "all_delivery_times_missing": true,
+        "one_second_precision": true,
+        "exact_rounding_tie": true,
+        "critical_diagnostics_block_publish": {
+          "missing_items": true,
+          "missing_amount": true,
+          "negative_duration": true,
+          "missing_purchase": true
+        },
+        "empty_query_rows": 0,
+        "limitation": "定向变体有限，不能把捕获比例当业务准确率"
+      }
+    },
+    {
+      "name": "真实全部月份及诊断列独立复算",
+      "passed": true,
+      "evidence": {
+        "months": 25,
+        "orders": 99441,
+        "delivered": 96478,
+        "canceled": 625,
+        "gmv": "15419773.750",
+        "missing_time": 8,
+        "reference": "原始 CSV/订单字典/Decimal/datetime；逐月全部列比较，不调用生产聚合函数"
+      }
+    },
+    {
+      "name": "真实数据直接连接的偏差与独立敏感性",
+      "passed": true,
+      "evidence": {
+        "wrong_sql_observed": {
+          "left": {
+            "joined_rows": 113425,
+            "canceled_rows": 706,
+            "weighted_avg_days": "12.472246"
+          },
+          "inner": {
+            "joined_rows": 112650,
+            "canceled_rows": 542,
+            "weighted_avg_days": "12.472246"
+          }
+        },
+        "independent_reference": {
+          "correct_orders": 99441,
+          "left_detail_rows": 113425,
+          "inner_detail_rows": 112650,
+          "correct_canceled": 625,
+          "left_join_canceled_rows": 706,
+          "inner_join_canceled_rows": 542,
+          "correct_avg_days": "12.558217",
+          "detail_weighted_avg_days": "12.472246",
+          "missing_time_zero_avg_days": "12.557176",
+          "valid_delivery_orders": 96470,
+          "delivered_orders": 96478
+        },
+        "limitation": "错误查询只作实验，未替换正式输出；敏感性不证明哪种业务定义是唯一正确"
+      }
+    },
+    {
+      "name": "同模块独立题目失败隔离",
+      "passed": true,
+      "evidence": {
+        "q21_failure_does_not_block_independent_q22": true,
+        "mock_scope": "仅验证控制流；SQL 另有真实 MySQL 实验"
+      }
+    },
+    {
+      "name": "独立/总入口与真实缺输入故障",
+      "passed": true,
+      "evidence": {
+        "outside_cwd": true,
+        "direct_and_combined_business_results_equal": true,
+        "missing_input_blocks_query": true
+      }
+    },
+    {
+      "name": "九表/Q2.1/Q1 当前源码回归与最终批次复算",
+      "passed": true,
+      "evidence": {
+        "q21_full_run": "8a93386f1410438ebc5ac3b497358d5f",
+        "includes_q1_regression": true,
+        "fresh_environment": "无新依赖，复用锁定依赖安装证明；本轮新代码在当前环境执行"
+      }
+    }
+  ],
+  "artifact_sha256": {
+    "q2_sql_analysis/q2_2_results.json": "b8459ca8a7dd0e98eb8b777e78b8e75cb12af21b632533739fa6ba279b9980d2",
+    "q2_sql_analysis/q2_2_findings.md": "53c779a1c84eac0c553c0ab4a581d19b412c7375a6b04837f60e64f4938e67bb",
+    "reports/q2_2_reference.json": "41651b00c4ef90b701f3fadea4efce30dbe9c1f482742c4aa3cde03cc40eb54f"
+  },
+  "finished_utc": "2026-10-29T15:08:58.575164+00:00"
+}
