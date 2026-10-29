@@ -9,7 +9,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0,str(ROOT))
 from q2_sql_analysis.mysql_runtime import connect
 from q2_sql_analysis.q2_2 import validate_months
-from scripts.verification_support import EvidenceRun
+from scripts.verification_support import EvidenceRun,require,require_verification_mode
 from scripts.q2_2_reference import calculate
 
 FIELDS=['month','total_orders','delivered_orders','canceled_orders','cancel_rate','delivered_gmv','avg_delivery_days',
@@ -19,6 +19,7 @@ FEB=dict(zip(FIELDS,['2017-02',1,0,1,D('100'),D('0'),None,0,0,0,0,0]))
 
 
 def check_cases():
+    require_verification_mode()
     sql=(ROOT/'q2_sql_analysis/q2_2_monthly_metrics.sql').read_text().replace('FROM order_items','FROM monthly_items').replace('FROM orders AS','FROM monthly_orders AS')
     with connect() as c,c.cursor() as cur:
         cur.execute('CREATE TEMPORARY TABLE monthly_orders (order_id VARCHAR(20) PRIMARY KEY, order_status VARCHAR(30), order_purchase_timestamp DATETIME, order_delivered_customer_date DATETIME)')
@@ -33,8 +34,8 @@ def check_cases():
             [dict(zip(['order_id','order_status','order_purchase_timestamp','order_delivered_customer_date'],[v or '' for v in row])) for row in orders],
             [dict(zip(['order_id','order_item_id','price','freight_value'],map(str,row))) for row in items])
         for observed,expected in zip(reference,[JAN,FEB]):
-            assert {k:D(v) if k in ('cancel_rate','delivered_gmv','avg_delivery_days') and v is not None else v for k,v in observed.items()}==expected,'独立参考未通过手算校准'
-        assert len(reference)==2
+            require({k:D(v) if k in ('cancel_rate','delivered_gmv','avg_delivery_days') and v is not None else v for k,v in observed.items()}==expected,'独立参考未通过手算校准')
+        require(len(reference)==2,'参考月份数不符')
         def reset():
             cur.execute('DELETE FROM monthly_items');cur.execute('DELETE FROM monthly_orders')
             cur.executemany('INSERT INTO monthly_orders VALUES (%s,%s,%s,%s)',orders)
@@ -42,9 +43,9 @@ def check_cases():
         def execute(text=sql):
             cur.execute(text);columns=[col[0] for col in cur.description]
             rows=[dict(zip(columns,row)) for row in cur.fetchall()]
-            cur.execute('SHOW COUNT(*) WARNINGS');assert cur.fetchone()[0]==0,'实验 SQL 产生警告'
+            cur.execute('SHOW COUNT(*) WARNINGS');require(cur.fetchone()[0]==0,'实验 SQL 产生警告')
             return rows
-        reset();assert execute()==[JAN,FEB],'基础手算结果不同'
+        reset();require(execute()==[JAN,FEB],'基础手算结果不同')
         mutations={
             'inner_join':('LEFT JOIN item_totals','INNER JOIN item_totals'),
             'item_weighting':('GROUP BY order_id','GROUP BY order_id, order_item_id'),
@@ -59,35 +60,34 @@ def check_cases():
         }
         captured={}
         for name,(old,new) in mutations.items():
-            assert old in sql,f'变体 {name} 定位失败'
+            require(old in sql,f'变体 {name} 定位失败')
             actual=execute(sql.replace(old,new))
             # SQL 错误在 execute 中直接失败，不算成功捕获。
-            rejected=False
-            try:
-                assert actual==[JAN,FEB]
-            except AssertionError:
-                rejected=True
-            assert rejected,f'可运行错误 {name} 逃过手算断言'
-            captured[name]={'executed':True,'numeric_assertion_rejected':True}
+            rejected=actual!=[JAN,FEB]
+            require(rejected,f'可运行错误 {name} 逃过手算检查')
+            differences=[{'row':i,'field':key,'actual':str(row.get(key)),'expected':str(wanted[key])}
+                for i,(row,wanted) in enumerate(zip(actual,[JAN,FEB])) for key in wanted if row.get(key)!=wanted[key]]
+            captured[name]={'executed':True,'numeric_assertion_rejected':rejected,
+                'actual_rows':len(actual),'expected_rows':2,'differences':differences}
         cur.execute("DELETE FROM monthly_items WHERE order_id='B'")
         cur.executemany('INSERT INTO monthly_items VALUES (%s,%s,%s,%s)',[('B',1,10,2),('B',2,10,2)])
-        assert execute()==[JAN,FEB],'等额拆分明细改变订单指标'
+        require(execute()==[JAN,FEB],'等额拆分明细改变订单指标')
         reset()
         cur.execute("INSERT INTO monthly_orders VALUES ('H','delivered','2017-01-10','2017-01-12')")
         cur.execute("INSERT INTO monthly_items VALUES ('H',1,20,4)")
         extra=execute()[0]
-        assert extra['delivered_gmv']==D('78') and extra['total_orders']==7,'新同额订单被误去重'
+        require(extra['delivered_gmv']==D('78') and extra['total_orders']==7,'新同额订单被误去重')
         # 独立的极端组：整个月只有缺送达时间的 delivered 订单。
         reset();cur.execute('DELETE FROM monthly_orders');cur.execute('DELETE FROM monthly_items')
         cur.execute("INSERT INTO monthly_orders VALUES ('Z','delivered','2017-03-01',NULL)")
         cur.execute("INSERT INTO monthly_items VALUES ('Z',1,5,1)")
         expected=dict(zip(FIELDS,['2017-03',1,1,0,D('0'),D('6'),None,0,1,0,0,0]))
-        assert execute()==[expected],'全组缺时长时诊断或平均值错误'
+        require(execute()==[expected],'全组缺时长时诊断或平均值错误')
         validate_months([expected])
         cur.execute('SAVEPOINT fractional_second')
         cur.execute("UPDATE monthly_orders SET order_delivered_customer_date='2017-03-01 00:00:01'")
         precise=execute()[0]
-        assert precise['avg_delivery_days']==D('0.000012'),f"一秒时长过早舍入：{precise['avg_delivery_days']}"
+        require(precise['avg_delivery_days']==D('0.000012'),f"一秒时长过早舍入：{precise['avg_delivery_days']}")
         cur.execute('ROLLBACK TO SAVEPOINT fractional_second')
         cur.execute('SAVEPOINT rounding_tie')
         cur.execute("UPDATE monthly_orders SET order_delivered_customer_date='2017-03-01 00:00:02'")
@@ -96,7 +96,7 @@ def check_cases():
             ('Z3','delivered','2017-03-01 00:00:00','2017-03-01 00:01:17')])
         cur.executemany('INSERT INTO monthly_items VALUES (%s,%s,%s,%s)',[('Z2',1,5,1),('Z3',1,5,1)])
         tied=execute()[0]
-        assert tied['avg_delivery_days']==D('0.000313'),f"恰好半单位的平均值舍入错误：{tied['avg_delivery_days']}"
+        require(tied['avg_delivery_days']==D('0.000313'),f"恰好半单位的平均值舍入错误：{tied['avg_delivery_days']}")
         cur.execute('ROLLBACK TO SAVEPOINT rounding_tie')
         edge_results={}
         for name,statement in [
@@ -111,13 +111,13 @@ def check_cases():
                 validate_months(actual)
             except ValueError:
                 rejected=True
-            assert rejected,f'{name} 未阻止正式发布'
+            require(rejected,f'{name} 未阻止正式发布')
             if name in ('missing_items','missing_amount'):
-                assert actual[0]['delivered_gmv'] is None,'未知金额被补零'
-            edge_results[name]=True
+                require(actual[0]['delivered_gmv'] is None,'未知金额被补零')
+            edge_results[name]=rejected
             cur.execute('ROLLBACK TO SAVEPOINT edge_case')
         cur.execute('DELETE FROM monthly_orders');cur.execute('DELETE FROM monthly_items')
-        assert execute()==[]
+        require(execute()==[],'空表查询不为空')
         try:
             validate_months([])
         except ValueError:

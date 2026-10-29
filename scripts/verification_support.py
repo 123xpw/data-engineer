@@ -8,12 +8,25 @@ import os
 from pathlib import Path
 import platform
 import subprocess
+import sys
 import tempfile
 import uuid
 
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def require(condition, message):
+    """关键验证不依赖可被 -O 删除的 assert。"""
+    if not condition:
+        raise AssertionError(message)
+
+
+def require_verification_mode():
+    """遗留检查仍含 assert，因此统一拒绝禁用断言的执行模式。"""
+    if sys.flags.optimize:
+        raise RuntimeError('禁止使用优化模式验收：请移除 -O/-OO，并清除 PYTHONOPTIMIZE 后重跑')
 
 
 def sha256(path):
@@ -85,9 +98,16 @@ class EvidenceRun:
                        "started_utc": datetime.now(timezone.utc).isoformat(),
                        "python": platform.python_version(), "platform": platform.platform(),
                        "pandas": version("pandas"), "git_base": git.stdout.strip(),
+                       "python_optimization_level": sys.flags.optimize,
                        "source_sha256": {str(p.relative_to(ROOT)): sha256(p) for p in files if p.exists()},
                        "checks": []}
         self.save()
+        if sys.flags.optimize:
+            self.report['checks'].append({'name':'验收运行模式', 'passed':False,
+                'error':'优化模式禁用 assert，拒绝执行任何验收动作'})
+            self.report.update(status='failed', finished_utc=datetime.now(timezone.utc).isoformat())
+            self.save()
+            require_verification_mode()
 
     def save(self):
         atomic_json(self.path, self.report)
