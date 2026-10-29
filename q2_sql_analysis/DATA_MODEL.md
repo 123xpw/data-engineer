@@ -47,3 +47,9 @@ python scripts/verify_q2_1.py
 缺输入或写入阶段失败不会发布半套新表；发布后视图阶段若失败则状态不为 ready，查询拒绝。保留的未发布暂存表可能需要人工排查，脚本不盲删它们。当前实测包括缺输入保留旧版、严格模式拒绝超长/重复键、有损转换拒绝、未就绪守卫；未做断电、强杀或并发读写故障演练，不能声称全部恢复路径已证实。
 
 [MySQL LOAD DATA 官方说明](https://dev.mysql.com/doc/refman/8.4/en/load-data.html)指出 LOCAL 等模式可能将解释错误降为警告，因此本轮不用 LOAD DATA LOCAL 作为快捷导入；参数插入、严格模式和全字段读回共同检查保存结果。[官方排序规则说明](https://dev.mysql.com/doc/refman/8.4/en/charset-binary-collations.html)解释 NO PAD 与尾空格比较差异，本轮选择 utf8mb4_0900_bin 避免静默合并类别名。
+
+## R2 配置生命周期修复
+
+仅在容器、卷及私有配置均不存在时生成新凭据。已有容器或受管卷缺配置时立即失败；认证错误与启动等待分别处理。复制代码到新目录时，用 `GEKKO_MYSQL_ENV_FILE` 指向原私有配置，不要重新生成密码。可通过 `GEKKO_MYSQL_CONTAINER`、`GEKKO_MYSQL_VOLUME`、`GEKKO_MYSQL_PORT` 指定独立实例，三个参数须成套管理；端口仍只绑定回环地址。
+
+新卷带项目所有权标签。删除测试容器后，使用同一受管卷和原配置可恢复；未标记的旧卷不自动接管，原项目现存容器仍兼容。当前不提供密码找回或旧卷自动迁移。实测及首次失败记录见 [R2 结果](../repairs/R2_RESULT.md)。
