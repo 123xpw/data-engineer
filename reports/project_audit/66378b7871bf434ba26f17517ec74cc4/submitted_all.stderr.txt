@@ -1,0 +1,12 @@
+INFO retail：1 个文件校验通过
+INFO data.retail：passed（0.4709 秒）
+INFO olist：9 个文件校验通过
+INFO data.olist：passed（0.6300 秒）
+INFO q1.1：passed（2.4159 秒）
+INFO q1.2：passed（3.9588 秒）
+INFO q1.3：passed（0.0018 秒）
+INFO q2：partial（26.5611 秒）
+INFO q3：not_implemented（0.0000 秒）
+INFO q4：not_implemented（0.0000 秒）
+INFO q5：not_implemented（0.0000 秒）
+INFO 报告：/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-project-review-bg59b1f0/all.json；退出码：2

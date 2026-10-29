@@ -1,0 +1,356 @@
+{
+  "rows": 1067371,
+  "columns": {
+    "Invoice": {
+      "read_dtype": "str",
+      "semantic_type": "发票标识",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "whitespace_only_count": 0,
+      "unique_nonempty": 53628,
+      "top10": [
+        {
+          "value": "537434",
+          "count": 1350
+        },
+        {
+          "value": "538071",
+          "count": 1304
+        },
+        {
+          "value": "537638",
+          "count": 1202
+        },
+        {
+          "value": "537237",
+          "count": 1194
+        },
+        {
+          "value": "536876",
+          "count": 1186
+        },
+        {
+          "value": "536592",
+          "count": 1184
+        },
+        {
+          "value": "537823",
+          "count": 1182
+        },
+        {
+          "value": "537240",
+          "count": 1136
+        },
+        {
+          "value": "573585",
+          "count": 1114
+        },
+        {
+          "value": "537666",
+          "count": 1072
+        }
+      ]
+    },
+    "StockCode": {
+      "read_dtype": "str",
+      "semantic_type": "商品或业务编码",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "whitespace_only_count": 0,
+      "unique_nonempty": 5305,
+      "top10": [
+        {
+          "value": "85123A",
+          "count": 5829
+        },
+        {
+          "value": "22423",
+          "count": 4424
+        },
+        {
+          "value": "85099B",
+          "count": 4216
+        },
+        {
+          "value": "21212",
+          "count": 3318
+        },
+        {
+          "value": "20725",
+          "count": 3259
+        },
+        {
+          "value": "84879",
+          "count": 2960
+        },
+        {
+          "value": "47566",
+          "count": 2768
+        },
+        {
+          "value": "21232",
+          "count": 2747
+        },
+        {
+          "value": "22197",
+          "count": 2549
+        },
+        {
+          "value": "22383",
+          "count": 2540
+        }
+      ]
+    },
+    "Description": {
+      "read_dtype": "str",
+      "semantic_type": "描述文本",
+      "missing_count": 4382,
+      "missing_fraction": 0.0041054141437232225,
+      "whitespace_only_count": 0,
+      "unique_nonempty": 5698,
+      "top10": [
+        {
+          "value": "WHITE HANGING HEART T-LIGHT HOLDER",
+          "count": 5918
+        },
+        {
+          "value": "REGENCY CAKESTAND 3 TIER",
+          "count": 4412
+        },
+        {
+          "value": "JUMBO BAG RED RETROSPOT",
+          "count": 3469
+        },
+        {
+          "value": "ASSORTED COLOUR BIRD ORNAMENT",
+          "count": 2958
+        },
+        {
+          "value": "PARTY BUNTING",
+          "count": 2765
+        },
+        {
+          "value": "STRAWBERRY CERAMIC TRINKET BOX",
+          "count": 2613
+        },
+        {
+          "value": "LUNCH BAG  BLACK SKULL.",
+          "count": 2529
+        },
+        {
+          "value": "JUMBO STORAGE BAG SUKI",
+          "count": 2434
+        },
+        {
+          "value": "HEART OF WICKER SMALL",
+          "count": 2319
+        },
+        {
+          "value": "JUMBO SHOPPER VINTAGE RED PAISLEY",
+          "count": 2297
+        }
+      ]
+    },
+    "Quantity": {
+      "read_dtype": "str",
+      "semantic_type": "数量",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "whitespace_only_count": 0,
+      "numeric": {
+        "valid_count": 1067371,
+        "invalid_nonempty_count": 0,
+        "min": -80995.0,
+        "max": 80995.0,
+        "mean": 9.9388984711033,
+        "std": 172.7057940767534
+      }
+    },
+    "InvoiceDate": {
+      "read_dtype": "str",
+      "semantic_type": "日期时间（源文件未提供时区）",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "whitespace_only_count": 0,
+      "unique_nonempty": 47635,
+      "top10": [
+        {
+          "value": "2010-12-06 16:57:00",
+          "count": 1350
+        },
+        {
+          "value": "2010-12-09 14:09:00",
+          "count": 1304
+        },
+        {
+          "value": "2010-12-07 15:28:00",
+          "count": 1202
+        },
+        {
+          "value": "2010-12-06 09:58:00",
+          "count": 1194
+        },
+        {
+          "value": "2010-12-03 11:36:00",
+          "count": 1186
+        },
+        {
+          "value": "2010-12-01 17:06:00",
+          "count": 1184
+        },
+        {
+          "value": "2010-12-08 14:25:00",
+          "count": 1182
+        },
+        {
+          "value": "2010-12-06 10:08:00",
+          "count": 1136
+        },
+        {
+          "value": "2011-10-31 14:41:00",
+          "count": 1114
+        },
+        {
+          "value": "2010-12-07 18:36:00",
+          "count": 1072
+        }
+      ]
+    },
+    "Price": {
+      "read_dtype": "str",
+      "semantic_type": "单价",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "whitespace_only_count": 0,
+      "numeric": {
+        "valid_count": 1067371,
+        "invalid_nonempty_count": 0,
+        "min": -53594.36,
+        "max": 38970.0,
+        "mean": 4.64938772741624,
+        "std": 123.5530587214632
+      }
+    },
+    "Customer ID": {
+      "read_dtype": "str",
+      "semantic_type": "客户标识",
+      "missing_count": 243007,
+      "missing_fraction": 0.22766872999172733,
+      "whitespace_only_count": 0,
+      "unique_nonempty": 5942,
+      "top10": [
+        {
+          "value": "17841.0",
+          "count": 13097
+        },
+        {
+          "value": "14911.0",
+          "count": 11613
+        },
+        {
+          "value": "12748.0",
+          "count": 7307
+        },
+        {
+          "value": "14606.0",
+          "count": 6709
+        },
+        {
+          "value": "14096.0",
+          "count": 5128
+        },
+        {
+          "value": "15311.0",
+          "count": 4717
+        },
+        {
+          "value": "14156.0",
+          "count": 4130
+        },
+        {
+          "value": "14646.0",
+          "count": 3890
+        },
+        {
+          "value": "13089.0",
+          "count": 3438
+        },
+        {
+          "value": "16549.0",
+          "count": 3255
+        }
+      ]
+    },
+    "Country": {
+      "read_dtype": "str",
+      "semantic_type": "国家文本",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "whitespace_only_count": 0,
+      "unique_nonempty": 43,
+      "top10": [
+        {
+          "value": "United Kingdom",
+          "count": 981330
+        },
+        {
+          "value": "EIRE",
+          "count": 17866
+        },
+        {
+          "value": "Germany",
+          "count": 17624
+        },
+        {
+          "value": "France",
+          "count": 14330
+        },
+        {
+          "value": "Netherlands",
+          "count": 5140
+        },
+        {
+          "value": "Spain",
+          "count": 3811
+        },
+        {
+          "value": "Switzerland",
+          "count": 3189
+        },
+        {
+          "value": "Belgium",
+          "count": 3123
+        },
+        {
+          "value": "Portugal",
+          "count": 2620
+        },
+        {
+          "value": "Australia",
+          "count": 1913
+        }
+      ]
+    }
+  },
+  "dates": {
+    "valid_count": 1067371,
+    "invalid_nonempty_count": 0,
+    "min": "2009-12-01 07:45:00",
+    "max": "2011-12-09 12:50:00"
+  },
+  "diagnostics": {
+    "negative_quantity": 22950,
+    "zero_quantity": 0,
+    "large_absolute_quantity": 15,
+    "negative_price": 5,
+    "zero_price": 6202,
+    "non_numeric_invoice": 19500,
+    "unusual_stock_format": 6094,
+    "description_edge_whitespace": 213035,
+    "duplicate_extra_rows": 34335
+  },
+  "source": {
+    "handle": "mashlyn/online-retail-ii-uci/versions/3",
+    "sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9"
+  }
+}

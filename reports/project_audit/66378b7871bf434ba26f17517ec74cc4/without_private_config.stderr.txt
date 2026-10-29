@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-project-review-bg59b1f0/submitted/q2_sql_analysis/mysql_runtime.py", line 99, in <module>
+    print(json.dumps(ensure_mysql(),ensure_ascii=False))
+                     ^^^^^^^^^^^^^^
+  File "/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-project-review-bg59b1f0/submitted/q2_sql_analysis/mysql_runtime.py", line 95, in ensure_mysql
+    raise RuntimeError('MySQL 在等待窗口内未就绪；保留现有数据，需检查本机 Docker 状态')
+RuntimeError: MySQL 在等待窗口内未就绪；保留现有数据，需检查本机 Docker 状态
