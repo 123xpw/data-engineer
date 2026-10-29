@@ -1,9 +1,11 @@
-"""启动本项目独立的本地 MySQL；凭据仅保存在忽略的 .env 中。"""
+"""明确区分新建、复用和恢复本地 MySQL；不猜测或覆盖已有实例凭据。"""
 
 import json
 import os
 from pathlib import Path
+import re
 import secrets
+import socket
 import subprocess
 import sys
 import time
@@ -11,37 +13,42 @@ import time
 import pymysql
 
 ROOT=Path(__file__).resolve().parents[1]
-NAME='gekko-de-exam-mysql'
+NAME=os.environ.get('GEKKO_MYSQL_CONTAINER','gekko-de-exam-mysql')
+VOLUME=os.environ.get('GEKKO_MYSQL_VOLUME','gekko-de-exam-mysql-data')
+PORT=int(os.environ.get('GEKKO_MYSQL_PORT','3307'))
 LABEL='gekko.data-engineer.exam=managed'
 IMAGE='mysql:8.4@sha256:a0225d1ea6631c8bc2385dc4c2faba17bbf1834ecf369e1659a9a382bd8d5dd7'
 CONFIG=Path(os.environ.get('GEKKO_MYSQL_ENV_FILE',str(ROOT/'.env')))
-CA=ROOT/'.venv/mysql-ca.pem'
+CA=ROOT/'.venv'/('mysql-ca.pem' if NAME=='gekko-de-exam-mysql' else f'mysql-ca-{NAME}.pem')
 
 
 def command(args,timeout=60):
     r=subprocess.run(args,capture_output=True,text=True,timeout=timeout)
     if r.returncode:
-        # Docker inspect 和日志可能包含凭据，不把完整输出写入报告。
-        raise RuntimeError(f'{args[0]} {args[1]} 失败，退出码 {r.returncode}')
+        raise RuntimeError(f'{args[0]} {args[1]} 失败，退出码 {r.returncode}；不输出可能包含凭据的详情')
     return r.stdout
 
 
 def settings():
     if not CONFIG.exists():
-        raise RuntimeError('缺少本地 .env；先运行 mysql_runtime.py 初始化')
+        raise RuntimeError('缺少私有数据库配置；已有实例请用 GEKKO_MYSQL_ENV_FILE 显式指定原配置')
     values={}
     for line in CONFIG.read_text().splitlines():
         if line and not line.startswith('#'):
-            key,value=line.split('=',1);values[key]=value
-    required=['MYSQL_USER','MYSQL_PASSWORD','MYSQL_DATABASE','MYSQL_ROOT_PASSWORD']
-    if not all(key in values for key in required):
-        raise RuntimeError('已有 .env 缺少数据库配置；不覆盖现有文件')
+            if '=' not in line:
+                raise RuntimeError('私有配置格式错误，不覆盖现有文件')
+            key,value=line.split('=',1)
+            if key in values:
+                raise RuntimeError('私有配置含重复键，不覆盖现有文件')
+            values[key]=value
+    if not all(values.get(key) for key in ('MYSQL_USER','MYSQL_PASSWORD','MYSQL_DATABASE','MYSQL_ROOT_PASSWORD')):
+        raise RuntimeError('私有配置缺少非空数据库参数，不覆盖现有文件')
     return values
 
 
 def connect(database=True):
     s=settings()
-    return pymysql.connect(host='127.0.0.1',port=3307,user=s['MYSQL_USER'],password=s['MYSQL_PASSWORD'],
+    return pymysql.connect(host='127.0.0.1',port=PORT,user=s['MYSQL_USER'],password=s['MYSQL_PASSWORD'],
         database=s['MYSQL_DATABASE'] if database else None,charset='utf8mb4',collation='utf8mb4_0900_bin',
         ssl_ca=str(CA),ssl_verify_cert=True,ssl_verify_identity=False,
         autocommit=False,connect_timeout=5,read_timeout=120,write_timeout=120,
@@ -49,34 +56,58 @@ def connect(database=True):
 
 
 def ensure_mysql():
-    info=subprocess.run(['docker','info','--format','{{.ServerVersion}}'],capture_output=True,text=True)
+    if not all(re.fullmatch(r'[a-zA-Z0-9][a-zA-Z0-9_.-]*',v) for v in (NAME,VOLUME)) or not 1<=PORT<=65535:
+        raise RuntimeError('实例名、卷名或回环端口配置不合法')
+    info=subprocess.run(['docker','info','--format','{{.ServerVersion}}'],capture_output=True,text=True,timeout=15)
     if info.returncode:
         if any(word in info.stderr.lower() for word in ('permission denied','operation not permitted')):
             raise PermissionError('当前进程无权访问 Docker；不能据此认定服务未启动')
         if sys.platform=='darwin':
             command(['docker','desktop','start'],timeout=120)
         else:
-            raise RuntimeError('Docker 服务未启动；请先准备 Docker 或本地运行环境')
-    if not CONFIG.exists():
-        fd=os.open(CONFIG,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)
-        with os.fdopen(fd,'w') as stream:
-            stream.write('MYSQL_DATABASE=gekko_exam\nMYSQL_USER=gekko_exam\n')
-            stream.write('MYSQL_PASSWORD='+secrets.token_hex(24)+'\nMYSQL_ROOT_PASSWORD='+secrets.token_hex(24)+'\n')
-    settings()
-    inspected=subprocess.run(['docker','inspect',NAME],capture_output=True,text=True)
-    if inspected.returncode:
-        command(['docker','run','-d','--name',NAME,'--label',LABEL,'--env-file',str(CONFIG),
-                 '-p','127.0.0.1:3307:3306','--mount','type=volume,source=gekko-de-exam-mysql-data,target=/var/lib/mysql',
-                 IMAGE,'--character-set-server=utf8mb4','--collation-server=utf8mb4_0900_bin'],timeout=300)
-    else:
-        item=json.loads(inspected.stdout)[0]
+            raise RuntimeError('Docker 服务未启动，请先准备本机 Docker')
+    names=command(['docker','ps','-a','--format','{{.Names}}']).splitlines()
+    exists=NAME in names
+    item=json.loads(command(['docker','inspect',NAME]))[0] if exists else None
+    if exists:
         if item['Config'].get('Labels',{}).get('gekko.data-engineer.exam')!='managed':
             raise RuntimeError('同名容器不是本项目管理的实例，拒绝修改')
+        bindings=item['HostConfig'].get('PortBindings',{}).get('3306/tcp') or []
+        if not any(b['HostIp']=='127.0.0.1' and b['HostPort']==str(PORT) for b in bindings):
+            raise RuntimeError('已有实例端口不符，请显式设置 GEKKO_MYSQL_PORT；拒绝连接其他服务')
+        settings()
         if not item['State']['Running']:
             command(['docker','start',NAME])
+    else:
+        volumes=command(['docker','volume','ls','--format','{{.Name}}']).splitlines()
+        volume_exists=VOLUME in volumes
+        if volume_exists:
+            labels=json.loads(command(['docker','volume','inspect','--format','{{json .Labels}}',VOLUME])) or {}
+            if labels.get('gekko.data-engineer.exam')!='managed':
+                raise RuntimeError('存量卷没有本项目所有权标签，拒绝自动接管；请核实迁移方案')
+            settings()
+        elif CONFIG.exists():
+            settings()
+        with socket.socket() as probe:
+            # 允许已关闭连接的 TIME_WAIT 回收；仍不能抢占活跃监听端口。
+            probe.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
+            try:
+                probe.bind(('127.0.0.1',PORT))
+            except OSError as exc:
+                raise RuntimeError('回环端口已占用，请选择 GEKKO_MYSQL_PORT；未新建实例或凭据') from exc
+        if not CONFIG.exists():
+            fd=os.open(CONFIG,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)
+            with os.fdopen(fd,'w') as stream:
+                stream.write('MYSQL_DATABASE=gekko_exam\nMYSQL_USER=gekko_exam\n')
+                stream.write('MYSQL_PASSWORD='+secrets.token_hex(24)+'\nMYSQL_ROOT_PASSWORD='+secrets.token_hex(24)+'\n')
+        if not volume_exists:
+            command(['docker','volume','create','--label',LABEL,VOLUME])
+        command(['docker','run','-d','--name',NAME,'--label',LABEL,'--env-file',str(CONFIG),
+                 '-p',f'127.0.0.1:{PORT}:3306','--mount',f'type=volume,source={VOLUME},target=/var/lib/mysql',
+                 IMAGE,'--character-set-server=utf8mb4','--collation-server=utf8mb4_0900_bin'],timeout=300)
     CA.parent.mkdir(parents=True,exist_ok=True)
     for _ in range(90):
-        r=subprocess.run(['docker','cp',f'{NAME}:/var/lib/mysql/ca.pem',str(CA)],capture_output=True,text=True)
+        r=subprocess.run(['docker','cp',f'{NAME}:/var/lib/mysql/ca.pem',str(CA)],capture_output=True,text=True,timeout=15)
         if r.returncode==0:
             try:
                 with connect() as c,c.cursor() as cur:
@@ -88,12 +119,26 @@ def ensure_mysql():
                         raise RuntimeError('本地数据库 TLS 未建立')
                     image_id=command(['docker','inspect','--format','{{.Image}}',NAME]).strip()
                     return {'version':version,'sql_mode':mode,'collation':collation,'tls_cipher':cipher,'image_id':image_id,
-                            'endpoint':'127.0.0.1:3307','database':settings()['MYSQL_DATABASE']}
-            except (pymysql.Error,OSError):
+                            'endpoint':f'127.0.0.1:{PORT}','database':settings()['MYSQL_DATABASE'],
+                            'container':NAME,'volume':VOLUME,'configuration':'显式原配置或全新实例初始化；不输出凭据'}
+            except pymysql.Error as exc:
+                code=exc.args[0] if exc.args else None
+                if code in (1044,1045,1049):
+                    raise RuntimeError('数据库认证或库选择失败，请检查原私有配置；不会覆盖密码或重建数据') from None
+                if code not in (2002,2003,2006,2013):
+                    raise RuntimeError(f'MySQL 连接检查失败，错误代码 {code}；不是普通启动等待') from None
+            except OSError:
                 pass
         time.sleep(1)
-    raise RuntimeError('MySQL 在等待窗口内未就绪；保留现有数据，需检查本机 Docker 状态')
+    raise RuntimeError('MySQL 在等待窗口内未就绪；保留现有数据，请检查本机实例状态')
 
 
 if __name__=='__main__':
-    print(json.dumps(ensure_mysql(),ensure_ascii=False))
+    try:
+        print(json.dumps(ensure_mysql(),ensure_ascii=False))
+    except (RuntimeError,PermissionError) as exc:
+        print(str(exc),file=sys.stderr)
+        raise SystemExit(1)
+    except Exception as exc:
+        print(f'数据库初始化失败：{type(exc).__name__}',file=sys.stderr)
+        raise SystemExit(1)
