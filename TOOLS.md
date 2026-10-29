@@ -1,5 +1,15 @@
 # TOOLS.md - 工具与软件使用清单
 
+## Q2.1 使用情况
+
+- Docker Desktop 与 MySQL 官方固定摘要镜像：建立独立本地实例，实际服务器为 MySQL 8.4.13；替代方案是单独安装 MySQL 8.0+。没有用 SQLite 或模拟数据库代替。Docker 初始未启动及沙箱权限问题均真实发生，已记录修复与边界。
+- PyMySQL 1.1.2：参数化批量插入、流式读取、真实 SQL 与 TLS 连接，版本锁定在 requirements.txt；替代方案为 mysqlclient 或 MySQL Connector/Python。本轮不需要 SQLAlchemy，也未安装额外 cryptography，不能把模板中的工具当成已用工具。
+- pandas C 解析器、标准库 CSV/Decimal：从原始文件独立检查全部数据库字段、金额与翻译缺口；替代方式为另一执行引擎与独立人员复核。不同实现仍可能共用错误的业务假设。
+- MySQL 临时表与 Python 验收脚本：在真实引擎执行手算反例、严格模式错误、缺输入和未就绪守卫；替代方案是专门测试数据库。合成夹具不混入正式数据，不拿测试数量代表正确率。
+- 查阅 [MySQL LOAD DATA 文档](https://dev.mysql.com/doc/refman/8.4/en/load-data.html)、[二进制排序规则说明](https://dev.mysql.com/doc/refman/8.4/en/charset-binary-collations.html)及 [PyMySQL 连接文档](https://pymysql.readthedocs.io/en/latest/modules/connections.html)：核对警告、尾空格与连接参数；替代方案是实测引擎行为并查对应版本文档。本轮也用真实反例验证关键行为。
+
+---
+
 ## Q1.3 使用情况
 
 - Python 标准库：文档交付、字数统计、原始 CSV 个案追踪与 Decimal 金额；替代方式是人工按相同口径核对。未为文档增加业务依赖。

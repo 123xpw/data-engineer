@@ -25,7 +25,7 @@ def main():
             report_path.unlink(missing_ok=True)
             command = [sys.executable, str(ROOT / "run_all.py"), "--stage", stage,
                        "--data-dir", str(data_dir), "--report", str(report_path),
-                       "--q1-output-dir", str(temp / "q1-output")]
+                       "--q1-output-dir", str(temp / "q1-output"), "--q2-output-dir", str(temp / "q2-output")]
             if offline:
                 command.append("--offline")
             environment = os.environ.copy()
@@ -49,7 +49,7 @@ def main():
         original = ROOT / "data"
         before = {str(p.relative_to(original)): sha256(p) for p in original.rglob("*.csv")}
         evidence.check("G2/G3 全部真实 CSV 独立解析与离线重跑", lambda: check_cli(original, ["passed", "passed"], 0))
-        evidence.check("全流程未完成不能报告成功", lambda: check_cli(original, ["passed"] * 5 + ["not_implemented"] * 4, 2, stage="all"))
+        evidence.check("全流程未完成不能报告成功", lambda: check_cli(original, ["passed"] * 5 + ["partial"] + ["not_implemented"] * 3, 2, stage="all"))
         evidence.check("缺失输入失败", lambda: check_cli(temp / "empty", ["failed", "failed"], 1))
         damaged = temp / "damaged"
         shutil.copytree(original, damaged)

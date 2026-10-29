@@ -31,6 +31,9 @@ def main():
             if path.suffix == ".py" or path.name.startswith("ACCEPTANCE_") or path.name in ("cleaning_strategy.md", "strategy_review.md"):
                 shutil.copyfile(path, project / "q1_data_quality" / path.name)
         environment = os.environ.copy()
+        shutil.copytree(ROOT / "q2_sql_analysis", project / "q2_sql_analysis", ignore=shutil.ignore_patterns("__pycache__"))
+        # 全新 Python/下载环境；数据库为本机独立项目实例，明确不声称重建操作系统或服务器。
+        environment["GEKKO_MYSQL_ENV_FILE"] = os.environ.get("GEKKO_MYSQL_ENV_FILE", str(ROOT / ".env"))
         for key in ("PYTHONPATH", "PYTHONHOME", "VIRTUAL_ENV"):
             environment.pop(key, None)
         environment["PYTHONNOUSERSITE"] = "1"
@@ -43,7 +46,8 @@ def main():
             return result.stdout
         def create():
             command([sys.executable, "-m", "venv", str(root / "venv")])
-            return {"fresh_venv": True, "fresh_source_copy": True, "user_site_disabled": True}
+            return {"fresh_venv": True, "fresh_source_copy": True, "user_site_disabled": True,
+                    "mysql_scope": "使用本机项目实例和私有配置，重新导入；不声称是新建服务器"}
         if not evidence.check("创建空虚拟环境与源码副本", create):
             return 1
         python = str(root / "venv" / ("Scripts/python.exe" if os.name == "nt" else "bin/python"))
