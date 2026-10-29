@@ -8,7 +8,7 @@
     "endpoint": "127.0.0.1:3307",
     "database": "gekko_exam"
   },
-  "version": "1d7556d96627",
+  "version": "02018f3283e3",
   "tables": {
     "customers": {
       "rows": 99441,

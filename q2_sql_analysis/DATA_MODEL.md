@@ -16,7 +16,7 @@ python run_all.py --stage q2.1
 python scripts/verify_q2_1.py
 ```
 
-无 --skip-load 的 Q2.1 独立命令及总入口会重新导入。--stage q2 当前返回 partial/退出码 2，因 Q2.2–Q2.4 未完成；Q2.1 导入失败时查询标为 blocked_dependency，不能把旧批次查询当本次成功。
+无 --skip-load 的 Q2.1/Q2.2 独立命令及总入口会重新导入。--stage q2 当前返回 partial/退出码 2，因 Q2.3–Q2.4 未完成；导入失败时对应查询标为 blocked_dependency，不能把旧批次查询当本次成功。Q2.2 可用 `python run_all.py --stage q2.2` 独立运行，月度诊断与证据见 reports/q2_2_validation.md。
 
 ## 原始层与分析视图
 

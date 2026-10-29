@@ -1,8 +1,8 @@
 # 运行说明与阶段验收
 
-## 当前阶段：Q1 三题及 Q2.1 已实现，Q2 其余题目和 Q3–Q5 未完成
+## 当前阶段：Q1 三题、Q2.1 和 Q2.2 已实现，Q2 其余题目和 Q3–Q5 未完成
 
-Q1.1 的质量报告、Q1.2 的探索与补证、Q1.3 的清洗策略已接入独立入口；新增真实 MySQL 九表导入及 Q2.1 翻译缺口。Q2.2–Q2.4、Q3–Q5 尚未完成。Q2 本轮证据与限制见 reports/q2_1_validation.md，数据模型与 Docker 前置要求见 q2_sql_analysis/DATA_MODEL.md。
+Q1.1 的质量报告、Q1.2 的探索与补证、Q1.3 的清洗策略已接入独立入口；真实 MySQL 九表导入、Q2.1 翻译缺口和 Q2.2 月度成交已实现。Q2.3–Q2.4、Q3–Q5 尚未完成。Q2 本轮证据与限制见 reports/q2_2_validation.md，数据模型与 Docker 前置要求见 q2_sql_analysis/DATA_MODEL.md。
 
 ```bash
 python run_all.py --stage data
@@ -13,15 +13,18 @@ python run_all.py --stage q1
 python scripts/verify_q1_3.py
 python run_all.py --stage q2.1
 python scripts/verify_q2_1.py
+python run_all.py --stage q2.2
+python scripts/verify_q2_2.py
 ```
 
 - Q1.3 的独立命令为 `python q1_data_quality/q1_strategy.py`，只交付文档，不实施 ETL 或自动认证业务解释；其正文、规则审查表及口径见 q1_data_quality/。
-- `--stage q1` 完成三个题目的交付入口并返回 0；`--stage q2.1` 完成导入及查询后返回 0；`--stage q2` 返回 partial/退出码 2。完整 run_all 仍返回 2，当前 5 个阶段完成、Q2 部分完成、Q3–Q5 未实现。入口 passed 不表示业务规则已获批准。
+- `--stage q1` 完成三个题目的交付入口并返回 0；`--stage q2.1` 或 `--stage q2.2` 完成导入及对应查询后返回 0；`--stage q2` 返回 partial/退出码 2。完整 run_all 仍返回 2，当前 5 个阶段完成、Q2 部分完成、Q3–Q5 未实现。入口 passed 不表示业务规则已获批准。
 - Q1.3 验收核对文档与字数、隔离运行、缺件失败、真实反例，并回归此前计算检查。每轮条件见 ACCEPTANCE_*.md；机器报告在 reports/ 对应目录，历史证据保留。
 - Q1.2 补证单独运行 `python scripts/verify_q1_review.py`；逐记录归属仅写本地忽略目录 .venv/q1-review/。字节一致、独立复算和定向变异均有适用边界，不能替代业务审查。
 - Q1.3 新发现正向候选保留等额取消对应的正单，可能影响最近购买、频次和推荐偏好。策略因此要求核对订单事件；未实现或认证自动匹配。语义审查仍由同一 AI 完成。
 - 不提交 CSV，不改根 README、.gitignore 或冻结数据基准。新增 PyMySQL 1.1.2 已补全新 Python 环境安装、空缓存下载验证；该实验复用本机项目数据库，不是全新操作系统或全新 MySQL 实例。
 - Q2.1 独立入口 `python q2_sql_analysis/q2_1.py` 会重新导入；已有完整批次可加 `--skip-load`。从零执行先安装锁定依赖并准备 Docker；`python run_all.py` 包含数据下载和项目数据库初始化。尚未实现的后续阶段不会被伪装成功。
+- Q2.2 独立入口 `python q2_sql_analysis/q2_2.py` 同样支持 `--skip-load`，输出月度 JSON 和中文 Markdown；缺送达时间只退出时长分母。Q2.1 查询失败不会阻止共享导入成功后的 Q2.2 独立查询。
 
 以下是前期各轮的历史运行说明，不应覆盖本节的当前完成范围。
 

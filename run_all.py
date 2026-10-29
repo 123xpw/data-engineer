@@ -1,4 +1,4 @@
-"""分阶段执行入口：Q1 已交付，Q2 仅导入及 Q2.1 完成，其余如实标记。"""
+"""分阶段执行入口：Q1 已交付，Q2 已实现导入、Q2.1 与 Q2.2，其余如实标记。"""
 
 from __future__ import annotations
 
@@ -34,25 +34,31 @@ def q1_strategy(output_dir):
     return deliver_strategy(output_dir)
 
 
-def q2_scope(data_dir, output_dir, *, only_translation=False):
+def q2_scope(data_dir, output_dir, *, stage=None):
     """Q2 内部依赖显式处理，导入失败不拿旧批次冒充本次成功。"""
     from q2_sql_analysis.load_olist import load
-    from q2_sql_analysis.q2_1 import query
+    requested = [stage] if stage else ['q2.1', 'q2.2']
     details = []
     try:
         loaded = load(data_dir, output_dir / "load_report.json")
         details.append({"stage": "q2.load", "status": "passed", "detail": loaded})
     except Exception as exc:
         return {"stage_completion": "failed", "results": [{"stage": "q2.load", "status": "failed", "error": type(exc).__name__},
-                {"stage": "q2.1", "status": "blocked_dependency"}]}
-    try:
-        details.append({"stage": "q2.1", "status": "passed", "detail": query(output_dir)})
-    except Exception as exc:
-        details.append({"stage": "q2.1", "status": "failed", "error": type(exc).__name__})
+                *({"stage": name, "status": "blocked_dependency"} for name in requested)]}
+    for name in requested:
+        try:
+            if name == 'q2.1':
+                from q2_sql_analysis.q2_1 import query
+            else:
+                from q2_sql_analysis.q2_2 import query
+            details.append({"stage": name, "status": "passed", "detail": query(output_dir)})
+        except Exception as exc:
+            details.append({"stage": name, "status": "failed", "error": type(exc).__name__})
+    if any(item['status'] == 'failed' for item in details):
         return {"stage_completion": "failed", "results": details}
-    if only_translation:
-        return {"results": details, "scope": "仅九表导入与 Q2.1"}
-    details.extend({"stage": name, "status": "not_implemented"} for name in ("q2.2", "q2.3", "q2.4"))
+    if stage:
+        return {"results": details, "scope": f"仅九表导入与 {stage}"}
+    details.extend({"stage": name, "status": "not_implemented"} for name in ("q2.3", "q2.4"))
     return {"stage_completion": "partial", "results": details}
 
 
@@ -86,7 +92,7 @@ def run_steps(steps: list[tuple[str, Callable | None]]) -> tuple[list[dict], int
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--stage", choices=("all", "data", "q1", "q1.1", "q1.2", "q1.3", "q2", "q2.1", "q3", "q4", "q5"), default="all")
+    parser.add_argument("--stage", choices=("all", "data", "q1", "q1.1", "q1.2", "q1.3", "q2", "q2.1", "q2.2", "q3", "q4", "q5"), default="all")
     parser.add_argument("--offline", action="store_true", help="数据准备只校验本地文件")
     parser.add_argument("--data-dir", type=Path, default=ROOT / "data")
     parser.add_argument("--q1-output-dir", type=Path, default=ROOT / "q1_data_quality")
@@ -104,9 +110,9 @@ def main() -> int:
         steps.append(("q1.2", lambda: q1_findings(args.data_dir, args.q1_output_dir)))
     if args.stage in ("all", "q1", "q1.3"):
         steps.append(("q1.3", lambda: q1_strategy(args.q1_output_dir)))
-    if args.stage in ("all", "q2", "q2.1"):
-        name = "q2.1" if args.stage == "q2.1" else "q2"
-        steps.append((name, lambda: q2_scope(args.data_dir, args.q2_output_dir, only_translation=args.stage == "q2.1")))
+    if args.stage in ("all", "q2", "q2.1", "q2.2"):
+        selected = args.stage if args.stage in ('q2.1', 'q2.2') else None
+        steps.append((selected or 'q2', lambda: q2_scope(args.data_dir, args.q2_output_dir, stage=selected)))
     for name in ("q3", "q4", "q5"):
         if args.stage in ("all", name):
             steps.append((name, None))
