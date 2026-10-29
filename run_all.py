@@ -1,4 +1,4 @@
-"""分阶段执行入口：数据准备与 Q1 已接入，其余如实标为未完成。"""
+"""分阶段执行入口：Q1 已交付，Q2 仅导入及 Q2.1 完成，其余如实标记。"""
 
 from __future__ import annotations
 
@@ -34,6 +34,28 @@ def q1_strategy(output_dir):
     return deliver_strategy(output_dir)
 
 
+def q2_scope(data_dir, output_dir, *, only_translation=False):
+    """Q2 内部依赖显式处理，导入失败不拿旧批次冒充本次成功。"""
+    from q2_sql_analysis.load_olist import load
+    from q2_sql_analysis.q2_1 import query
+    details = []
+    try:
+        loaded = load(data_dir, output_dir / "load_report.json")
+        details.append({"stage": "q2.load", "status": "passed", "detail": loaded})
+    except Exception as exc:
+        return {"stage_completion": "failed", "results": [{"stage": "q2.load", "status": "failed", "error": type(exc).__name__},
+                {"stage": "q2.1", "status": "blocked_dependency"}]}
+    try:
+        details.append({"stage": "q2.1", "status": "passed", "detail": query(output_dir)})
+    except Exception as exc:
+        details.append({"stage": "q2.1", "status": "failed", "error": type(exc).__name__})
+        return {"stage_completion": "failed", "results": details}
+    if only_translation:
+        return {"results": details, "scope": "仅九表导入与 Q2.1"}
+    details.extend({"stage": name, "status": "not_implemented"} for name in ("q2.2", "q2.3", "q2.4"))
+    return {"stage_completion": "partial", "results": details}
+
+
 def run_steps(steps: list[tuple[str, Callable | None]]) -> tuple[list[dict], int]:
     """各阶段独立汇报；失败后继续其他独立阶段，最终仍返回失败码。"""
     results = []
@@ -44,7 +66,11 @@ def run_steps(steps: list[tuple[str, Callable | None]]) -> tuple[list[dict], int
             result.update(status="not_implemented", detail="尚未实现或接入；不算通过")
         else:
             try:
-                result.update(status="passed", detail=action())
+                detail = action()
+                status = detail.get("stage_completion", "passed") if isinstance(detail, dict) else "passed"
+                if status not in ("passed", "partial", "failed"):
+                    raise ValueError("阶段返回了未定义状态")
+                result.update(status=status, detail=detail)
             except Exception as exc:
                 detail = str(exc) if isinstance(exc, (DataValidationError, FileNotFoundError)) else type(exc).__name__
                 result.update(status="failed", detail=detail)
@@ -54,16 +80,17 @@ def run_steps(steps: list[tuple[str, Callable | None]]) -> tuple[list[dict], int
             LOG.error("%s", result["detail"])
         results.append(result)
     statuses = {item["status"] for item in results}
-    code = 1 if "failed" in statuses else 2 if "not_implemented" in statuses else 0
+    code = 1 if "failed" in statuses else 2 if statuses & {"not_implemented", "partial"} else 0
     return results, code
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--stage", choices=("all", "data", "q1", "q1.1", "q1.2", "q1.3", "q2", "q3", "q4", "q5"), default="all")
+    parser.add_argument("--stage", choices=("all", "data", "q1", "q1.1", "q1.2", "q1.3", "q2", "q2.1", "q3", "q4", "q5"), default="all")
     parser.add_argument("--offline", action="store_true", help="数据准备只校验本地文件")
     parser.add_argument("--data-dir", type=Path, default=ROOT / "data")
     parser.add_argument("--q1-output-dir", type=Path, default=ROOT / "q1_data_quality")
+    parser.add_argument("--q2-output-dir", type=Path, default=ROOT / "q2_sql_analysis")
     parser.add_argument("--report", type=Path, default=ROOT / "reports" / "latest_run.json")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
@@ -77,7 +104,10 @@ def main() -> int:
         steps.append(("q1.2", lambda: q1_findings(args.data_dir, args.q1_output_dir)))
     if args.stage in ("all", "q1", "q1.3"):
         steps.append(("q1.3", lambda: q1_strategy(args.q1_output_dir)))
-    for name in ("q2", "q3", "q4", "q5"):
+    if args.stage in ("all", "q2", "q2.1"):
+        name = "q2.1" if args.stage == "q2.1" else "q2"
+        steps.append((name, lambda: q2_scope(args.data_dir, args.q2_output_dir, only_translation=args.stage == "q2.1")))
+    for name in ("q3", "q4", "q5"):
         if args.stage in ("all", name):
             steps.append((name, None))
     results, code = run_steps(steps)

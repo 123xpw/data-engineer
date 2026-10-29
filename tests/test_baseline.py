@@ -120,6 +120,16 @@ class BaselineTests(unittest.TestCase):
         _, code = run_steps([("fixture", lambda: {"fixture": True})])
         self.assertEqual(code, 0)
 
+    def test_partial_module_is_not_complete(self):
+        results, code = run_steps([("partial", lambda: {"stage_completion": "partial"}), ("next", lambda: {})])
+        self.assertEqual(code, 2)
+        self.assertEqual([r["status"] for r in results], ["partial", "passed"])
+
+    def test_failed_nested_module_is_not_success(self):
+        results, code = run_steps([("failed", lambda: {"stage_completion": "failed"}), ("next", lambda: {})])
+        self.assertEqual(code, 1)
+        self.assertEqual([r["status"] for r in results], ["failed", "passed"])
+
 
 if __name__ == "__main__":
     unittest.main()

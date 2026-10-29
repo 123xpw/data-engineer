@@ -15,7 +15,7 @@ MUTATIONS = [
     ("少计一行", "download_data.py", '"rows": rows,', '"rows": rows - 1,'),
     ("跳过校验", "download_data.py", 'if actual[key] != expected[key]:', 'if False:'),
     ("失败报成功", "run_all.py", 'result.update(status="failed", detail=detail)', 'result.update(status="passed", detail=detail)'),
-    ("未执行就报成功", "run_all.py", 'result.update(status="passed", detail=action())', 'result.update(status="passed", detail={})'),
+    ("未执行就报成功", "run_all.py", 'detail = action()', 'detail = {}'),
 ]
 
 

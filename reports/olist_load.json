@@ -1,0 +1,60 @@
+{
+  "server": {
+    "version": "8.4.13",
+    "sql_mode": "STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION",
+    "collation": "utf8mb4_0900_bin",
+    "tls_cipher": "TLS_AES_256_GCM_SHA384",
+    "image_id": "sha256:a0225d1ea6631c8bc2385dc4c2faba17bbf1834ecf369e1659a9a382bd8d5dd7",
+    "endpoint": "127.0.0.1:3307",
+    "database": "gekko_exam"
+  },
+  "version": "1d7556d96627",
+  "tables": {
+    "customers": {
+      "rows": 99441,
+      "source_sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+      "decoded_cells_sha256": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746"
+    },
+    "geolocation": {
+      "rows": 1000163,
+      "source_sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6",
+      "decoded_cells_sha256": "13720b30af802ba4da0af1c8152d97cb783464b337e4d8bc310931a00c90dce5"
+    },
+    "order_items": {
+      "rows": 112650,
+      "source_sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+      "decoded_cells_sha256": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2"
+    },
+    "order_payments": {
+      "rows": 103886,
+      "source_sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
+      "decoded_cells_sha256": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460"
+    },
+    "order_reviews": {
+      "rows": 99224,
+      "source_sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+      "decoded_cells_sha256": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9"
+    },
+    "orders": {
+      "rows": 99441,
+      "source_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+      "decoded_cells_sha256": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db"
+    },
+    "products": {
+      "rows": 32951,
+      "source_sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc",
+      "decoded_cells_sha256": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050"
+    },
+    "sellers": {
+      "rows": 3095,
+      "source_sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e",
+      "decoded_cells_sha256": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25"
+    },
+    "product_category_name_translation": {
+      "rows": 71,
+      "source_sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278",
+      "decoded_cells_sha256": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59"
+    }
+  },
+  "scope": "原始暂存往返及显式类型视图，不做业务去重"
+}
