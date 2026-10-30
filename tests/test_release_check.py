@@ -26,6 +26,11 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError,'清单缺项'):
             gate.pending_items(rows[:-1])
 
+    def test_zero_exit_cannot_hide_missing_business_stage(self):
+        report={'requested_stage':'all','exit_code':0,'status':'passed','results':[{'stage':key,'status':'passed'} for key in ('data.retail','data.olist','q1.1','q1.2','q1.3','q2','q3','q5')]}
+        with self.assertRaisesRegex(AssertionError,'缺少必答阶段'):
+            gate.inspect_complete_execution(report)
+
     def test_dependency_lock_change_invalidates_installation_proof(self):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);report=root/'reports/hardening/clean_environment_latest.json'

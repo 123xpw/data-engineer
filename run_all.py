@@ -46,7 +46,7 @@ def q1_strategy(output_dir):
 def q2_scope(data_dir, output_dir, *, stage=None):
     """Q2 内部依赖显式处理，导入失败不拿旧批次冒充本次成功。"""
     run_id = RUN_ID.get() or uuid.uuid4().hex
-    requested = [stage] if stage else ['q2.1', 'q2.2']
+    requested = [stage] if stage else ['q2.1', 'q2.2', 'q2.3']
     details = []
     for name in requested:
         mark(output_dir, name, "running", run_id=run_id)
@@ -79,7 +79,6 @@ def q2_scope(data_dir, output_dir, *, stage=None):
         return {"stage_completion": "failed", "results": details}
     if stage:
         return {"results": details, "scope": f"仅九表导入与 {stage}"}
-    details.append({"stage": "q2.3", "status": "not_integrated", "detail": "独立 CLI 与 --stage q2.3 已实现，默认全入口待整合验收"})
     details.append({"stage": "q2.4", "status": "not_implemented"})
     return {"stage_completion": "partial", "results": details}
 

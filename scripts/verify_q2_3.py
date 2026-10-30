@@ -4,6 +4,7 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
+import uuid
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from scripts.verification_support import EvidenceRun,require,atomic_json
@@ -11,7 +12,7 @@ from scripts.check_q2_3_cases import check_cases
 from scripts.q2_3_reference import read_reference
 from q2_sql_analysis.q2_3 import query,execute,SQL
 from q2_sql_analysis.mysql_runtime import ensure_mysql,connect
-from artifact_manifest import validate_manifest,manifest_path
+from artifact_manifest import validate_manifest,manifest_path,publish,source_hashes,digest
 
 
 def command(args,expected=0,timeout=900):
@@ -37,27 +38,40 @@ def main():
                 'sensitivity_examples':ref['review_sensitivity'][:3],'top_seller':actual['sellers'][0]}
         if not e.check('全部真实卖家独立复算、金额及评价规则敏感性',real_data):return 1
         def entries():
-            with tempfile.TemporaryDirectory(prefix='gekko-q23-') as folder:
-                root=Path(folder);out=root/'out';report=root/'run.json'
-                command([ROOT/'run_all.py','--stage','q2.3','--q2-output-dir',out,'--report',report])
-                top=json.loads(report.read_text());validate_manifest(manifest_path(out,'q2.3'),top['run_id'])
-                combined=json.loads((out/'q2_3_results.json').read_text())
-                command([ROOT/'q2_sql_analysis/q2_3.py','--skip-load','--output-dir',root/'direct'])
-                direct=json.loads((root/'direct/q2_3_results.json').read_text());require(combined==direct,'独立入口与总入口不同')
-                command([ROOT/'run_all.py','--stage','q2.3','--data-dir',root/'missing','--q2-output-dir',out,'--report',report],1)
-                failed=json.loads(report.read_text());require(json.loads(manifest_path(out,'q2.3').read_text())['status']=='blocked_dependency','依赖失败未登记')
-                try:validate_manifest(manifest_path(out,'q2.3'),failed['run_id'])
-                except ValueError:pass
-                else:raise AssertionError('失败后旧产物仍被接受')
+            root=ROOT/'.venv/release-runs'/uuid.uuid4().hex
+            root.mkdir(parents=True)
+            out=root/'q2';report=ROOT/'reports/release_execution.json'
+            command([ROOT/'run_all.py','--offline','--q1-output-dir',root/'q1','--q2-output-dir',out,'--report',report],2)
+            top=json.loads(report.read_text())
+            stages={r['stage']:r for r in top['results']}
+            require(set(stages)=={'data.retail','data.olist','q1.1','q1.2','q1.3','q2','q3','q4','q5'},'全入口必答范围缺项')
+            require(stages['q2']['status']=='partial','Q2.4 未完成时不可报告 Q2 完成')
+            nested={r['stage']:r for r in stages['q2']['detail']['results']}
+            require(all(nested[k]['status']=='passed' for k in ['q2.load','q2.1','q2.2','q2.3']),'默认 Q2 没有完整执行已有题目')
+            require(nested['q2.4']['status']=='not_implemented','未完成 Q2.4 被误报成功')
+            validate_manifest(manifest_path(out,'q2.3'),top['run_id'])
+            combined=json.loads((out/'q2_3_results.json').read_text())
+            command([ROOT/'q2_sql_analysis/q2_3.py','--skip-load','--output-dir',root/'direct'])
+            direct=json.loads((root/'direct/q2_3_results.json').read_text());require(combined==direct,'独立入口与总入口不同')
+            # 缺输入故障使用另一个报告和目录，保留上面的发布候选。
+            failed_out=root/'failed'
+            command([ROOT/'run_all.py','--stage','q2.3','--data-dir',root/'missing','--q2-output-dir',failed_out,'--report',root/'failed.json'],1)
+            failed=json.loads((root/'failed.json').read_text());require(json.loads(manifest_path(failed_out,'q2.3').read_text())['status']=='blocked_dependency','依赖失败未登记')
+            try:validate_manifest(manifest_path(failed_out,'q2.3'),failed['run_id'])
+            except ValueError:pass
+            else:raise AssertionError('失败清单仍被接受')
             return {'direct_combined_equal':True,'failed_old_artifact_rejected':True}
-        if not e.check('本题正式入口与失败归属',entries):return 1
         def regression():
             command([ROOT/'scripts/verify_q2_2.py'],timeout=1800)
             old=json.loads((ROOT/'reports/q2_2/acceptance_latest.json').read_text())
             require(old['status']=='passed' and old['source_sha256']==e.report['source_sha256'],'旧业务回归不是当前源码')
-            query()
+            publish('q2.3',ROOT/'q2_sql_analysis',query)
             return {'run_id':old['run_id'],'scope':'包含 Q1、九表、Q2.1、Q2.2 当前源码回归'}
-        e.check('已有业务当前源码回归',regression)
+        if not e.check('已有业务当前源码回归',regression):return 1
+        if not e.check('本题正式入口与失败归属',entries):return 1
+        e.report.update(requirement_id='Q2.3',production_source_sha256=source_hashes(),review_scope='Q2.3 手算、全部卖家、默认全入口和独立 CLI；不认证业务权威性')
+        e.report['artifact_sha256']={str(p.relative_to(ROOT)):digest(p) for p in [ROOT/'q2_sql_analysis/q2_3_results.json',ROOT/'q2_sql_analysis/q2_3_findings.md',ROOT/'reports/q2_3_reference.json']}
+        e.save()
     return 0 if e.report['status']=='passed' else 1
 
 

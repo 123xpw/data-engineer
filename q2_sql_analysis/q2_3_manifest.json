@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "run_id": "0bd27d38d83446439fdd7abb268c2aab",
+  "run_id": "f792beae2d6f40d3a96515e317211ebb",
   "stage": "q2.3",
   "status": "passed",
-  "updated_utc": "2026-10-30T06:54:03.619531+00:00",
+  "updated_utc": "2026-10-30T08:19:33.068471+00:00",
   "artifacts": {
-    "q2_3_results.json": "e67f6994bf7b8e918aa2b96e09c01097c4b27373372890ca85e0f2319f51d2b6",
+    "q2_3_results.json": "fc97ef6c29ed78c1b704e7ec7ecdd7ee9b616ec5f0557ae3690d743c0d071972",
     "q2_3_findings.md": "54c0ac9c0eea3a6cd2aeb7188ae20af4133ba88e8e69d59ccc80b1371994916a"
   },
   "source_sha256": {
@@ -26,10 +26,10 @@
     "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
     "q2_sql_analysis/q2_3.py": "9481262c609328b197f30072fa7aa7ef6d4f7a237f746f58b36d97326397a979",
     "q2_sql_analysis/q2_3_top_sellers.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
-    "release_check.py": "83a120650dd3007b46d4fdc1a652111c9513ae30e78a1eb4b2e37a1f6da0e478",
+    "release_check.py": "fa19e847bad0d219f8d534f22af0a42b55be8ea29bcc6b09fe5e11ea0a392692",
     "requirements.txt": "dc84079cbbf1746fc870afd863b5e2cd64f3c92b772c5783a1151b1f1f1fa8f7",
-    "run_all.py": "9bef327d30ff2e12685d210d8eb7b155eb85f5b7486309f889a29bb85160da3d"
+    "run_all.py": "8a200e285abe6c74ff7cc4d1f1302105bb5d78d55a1f8deef1c46c058c01514a"
   },
   "input_sha256": {},
-  "load_version": "7e5284093b65"
+  "load_version": "4ede956aa487"
 }
