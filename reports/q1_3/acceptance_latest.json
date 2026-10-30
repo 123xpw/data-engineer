@@ -1,22 +1,22 @@
 {
-  "run_id": "f68683381c2e435fa77f896933e75374",
+  "run_id": "c896ee58ed0d416db25a755688d5f571",
   "status": "passed",
   "scope": "acceptance",
-  "started_utc": "2026-10-30T08:14:27.043738+00:00",
+  "started_utc": "2026-10-30T08:54:13.147813+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "pandas": "3.1.0",
-  "git_base": "b03d289e0063c3c29a88403819dac611d224e329",
+  "git_base": "407f9d4169bb2d4a1c1ce753f7c307a6307b63b7",
   "python_optimization_level": 0,
   "source_sha256": {
     "requirements.txt": "dc84079cbbf1746fc870afd863b5e2cd64f3c92b772c5783a1151b1f1f1fa8f7",
     "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
     "VALIDATION_GATES.md": "6198a51889e85992b5cb63f87cc0032463e7cb0682c7e94aaf25edb65f63413b",
-    "delivery_requirements.json": "7d30f7e9440ce9e05d74bd543be54639c21304fc816941bd060ccee71ad842ae",
-    "artifact_manifest.py": "b430bc1535477dd38ae4b1c3c6d9922c0bc55eee47ffbb0197dce46d6ed95730",
+    "delivery_requirements.json": "612c6c976fd453d2dbb9748efb594c92fb898b1a298ce8c320993c55c4571a5a",
+    "artifact_manifest.py": "1e1df6cd13a5166d4de90f0927489fc9bb25799e682e1bf88699f8d4350c824d",
     "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
-    "release_check.py": "fa19e847bad0d219f8d534f22af0a42b55be8ea29bcc6b09fe5e11ea0a392692",
-    "run_all.py": "8a200e285abe6c74ff7cc4d1f1302105bb5d78d55a1f8deef1c46c058c01514a",
+    "release_check.py": "9461efa7ed3ca3c8751f92871699bffda65fa0cdd641df7bf3ce9654143f5565",
+    "run_all.py": "cc763742449de328eedd80fbbdf5ded1a42b1ac360689a3acf5fbe50a3c5001c",
     "scripts/check_q2_1_cases.py": "b4f35cd1f2d7202b2598ef640e0899e04fdfd2e9168fcc2a2a29e4be53b217ea",
     "scripts/check_q2_2_cases.py": "bedeae1353e7fece57f71fea830a658c1d1d83b96455175e42752fc6fc3d6551",
     "scripts/check_q2_3_cases.py": "ee2a7e1bd044a4059dee36824cbdc27f9c7e84a19934eb4a2b6c6c03f5ee7ac1",
@@ -30,8 +30,9 @@
     "scripts/q1_review_experiments.py": "43fd4e749584edc25b48cea67ccdf75a6a02a8a04e4a96ef149eb8fef0651f70",
     "scripts/q2_2_reference.py": "6aa8595f88d7885ea82e9b384336916620c61d73bba8961743ff613dc944b508",
     "scripts/q2_3_reference.py": "adaeba688cb9eb57797b89cbcad9f6df0c36f1550089538ffe0f7a5b7ff53947",
-    "scripts/verification_support.py": "98a2e0ae8ee39ce3d844ee45ac7bb4e2fcfdd50c0bbd464f2078e549724ef2ec",
-    "scripts/verify_baseline.py": "d316e3f95ac93e080b6216ac0ab1f298cce98194760508aa939747828ef0d71a",
+    "scripts/q2_4_reference.py": "986258f2f6fa3142bf8ef0e20a69ba7a33a8cc2687c2c775cdb156ed7e021f50",
+    "scripts/verification_support.py": "31cc412541d504d74d7a3db19235991c6aef32785f4a8378f54c850342de3d56",
+    "scripts/verify_baseline.py": "4d0bc780ec4708c6d9ce9694019528d09b7865983f544000b2b42238ea943ee7",
     "scripts/verify_clean_environment.py": "8050bbbfb4857f043f2faec2da1b1a5d3e0e2bcb3313a5efa06c70149248c7e8",
     "scripts/verify_mutations.py": "fd6e1f1e187a9fdba4cbc0b6674e2404022836095a9ca9bc5005167bdeef90d4",
     "scripts/verify_q1_1.py": "5e2302f413967790df315883de3d3633ab532936bd3c5d89823bacc03cd56146",
@@ -39,10 +40,11 @@
     "scripts/verify_q1_3.py": "02b71cf2b9e84891c9ab4982cf07f66411ce906cfd2182e8803a28e235a0bc6c",
     "scripts/verify_q1_review.py": "bad11e861cd44307c7a70e8d2930593b7de4191dd7bb37425278546636d50f71",
     "scripts/verify_q2_1.py": "37b301ac6736b6b8ebfd1bc3d0281f0e6e187727ebd5c9947bc79efd04d44614",
-    "scripts/verify_q2_2.py": "bad60fd827e1a9c2dbdbf3eac4968b0132a447b8e8023a662e053a749199117f",
-    "scripts/verify_q2_3.py": "bfaf169beeb36f18c76f240394738ac58829aaa75374ce434a0b71e6d8c608fd",
+    "scripts/verify_q2_2.py": "eac925a9460f1509f06fe01f83a666e0df68869eb0b8f2a8503eda6c87c316fc",
+    "scripts/verify_q2_3.py": "867281e114d49d96425a25317911589bbd4ae1ba57290e1d348ec0410e90873c",
+    "scripts/verify_q2_4.py": "21c9b3ce2056b23bec8f8360d1d12733201dd94f3a41c825f59f4e0db3e8af8e",
     "scripts/verify_stage_gate.py": "d5bf59a49da6c81d06738fa65c3b6eca9fb5f71b40c28b04a947b010c2cfdd64",
-    "tests/test_artifact_manifest.py": "a25d7d465e97119352d0113ce7eaecf7b794c03b89f62e20f9750c0b864706c4",
+    "tests/test_artifact_manifest.py": "755849e1b24ab29a62e36cc7c703bf61db5e9c22cce9c7fcf202baf7fe8c61ca",
     "tests/test_baseline.py": "976372dafdf60d7559a709673fc491c6069a7bd3aae7c000276d87756075d567",
     "tests/test_q1_findings.py": "4868fa4f898375fd72c834a45d973ee4909e1a2b475a9ce715e089fba6790cbd",
     "tests/test_q1_profile.py": "c2a1e8a1b4b235a12ff3742386d2f849fed40d940e71eba870c4704188783488",
@@ -62,12 +64,19 @@
     "q2_sql_analysis/q2_1.py": "f9b33a5482a4de57cf03a954a25c9f912a200a6f06b74332aebdf261d2620ae8",
     "q2_sql_analysis/q2_2.py": "ffb51f75d9f5f44364ea34c55b4f486345047316e878f4aed35456f81d8d1d16",
     "q2_sql_analysis/q2_3.py": "9481262c609328b197f30072fa7aa7ef6d4f7a237f746f58b36d97326397a979",
+    "q2_sql_analysis/q2_4.py": "9309a0f00b8512f7f6c983c6a47992428b1c4cfed4d051fff9335d95e9845839",
     "q2_sql_analysis/q2_1_translation_gap.sql": "8ebd5dd6d6ab5b7d8d2848cefea7f606fea2b16e41816846e529745d4cd33b9a",
     "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
     "q2_sql_analysis/q2_3_top_sellers.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
+    "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
+    "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
+    "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
     "q2_sql_analysis/ACCEPTANCE_Q2_1.md": "95970638080de39def5bd8498366e43aaa5a5582d6485406acd91181ed659345",
     "q2_sql_analysis/ACCEPTANCE_Q2_2.md": "1051ef3ad09fce68f2393f3b84227408ae9003a94d8ff059c2a4a5f694dbbf4d",
-    "q2_sql_analysis/ACCEPTANCE_Q2_3.md": "ff4bd7e420e1b5728a548a9a04276b9460a2dfe532768ebf6556e46e12d3847e"
+    "q2_sql_analysis/ACCEPTANCE_Q2_3.md": "ff4bd7e420e1b5728a548a9a04276b9460a2dfe532768ebf6556e46e12d3847e",
+    "q2_sql_analysis/ACCEPTANCE_Q2_4.md": "5c468bd1ec8ec427596302f29cb3b614d4730539b75aa6bd619b62ec427364ac",
+    "audit/q2_4_experiment.py": "327db3c44b926e5d4bb8be9bb6e8b55b0ace0fb85f6d18432249d60471d90ca9",
+    "audit/verify_q2_4_experiment.py": "0a418a4c5d0fed11a00158c9804d398b40b40f3199ec3f450c7a5f17f35af873"
   },
   "checks": [
     {
@@ -103,7 +112,7 @@
       "name": "当前代码回归与 Q1 三阶段接线",
       "passed": true,
       "evidence": {
-        "q1_review_run": "445d6e7a40744a4f8877dded511dd458",
+        "q1_review_run": "8f689428ab2d407f9ee3d21efa8c901e",
         "q1_stage": "三个题目交付入口通过；不认证业务规则或宣称 Q2–Q5 完成"
       }
     }
@@ -118,5 +127,5 @@
     "business_approval": "未获得",
     "scope": "用途策略和反例讨论；没有自动证明自然语言解释正确"
   },
-  "finished_utc": "2026-10-30T08:17:50.193311+00:00"
+  "finished_utc": "2026-10-30T08:57:36.000246+00:00"
 }

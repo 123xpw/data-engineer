@@ -93,6 +93,7 @@ class EvidenceRun:
         files += sorted((ROOT / "q1_data_quality").glob("*.py")) + sorted((ROOT / "q1_data_quality").glob("ACCEPTANCE_*.md"))
         files += sorted((ROOT / "q2_sql_analysis").glob("*.py")) + sorted((ROOT / "q2_sql_analysis").glob("*.sql"))
         files += sorted((ROOT / "q2_sql_analysis").glob("ACCEPTANCE_*.md"))
+        files += [ROOT/'audit/q2_4_experiment.py', ROOT/'audit/verify_q2_4_experiment.py']
         git = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True)
         self.report = {"run_id": run_id, "status": "running", "scope": label,
                        "started_utc": datetime.now(timezone.utc).isoformat(),

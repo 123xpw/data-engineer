@@ -58,7 +58,7 @@ def inspect_execution():
         require(rows.get(stage,{}).get('status')=='passed',f'{stage} 未成功')
     require(rows.get('q2',{}).get('status') in ('passed','partial'),'Q2 已实现部分运行失败')
     nested={r['stage']:r for r in rows['q2']['detail']['results']}
-    for stage in ('q2.load','q2.1','q2.2','q2.3'):
+    for stage in ('q2.load','q2.1','q2.2','q2.3','q2.4'):
         require(nested.get(stage,{}).get('status')=='passed',f'{stage} 未成功')
     outputs=report['output_directories']; validated={}
     for stage in ARTIFACTS:
@@ -67,7 +67,7 @@ def inspect_execution():
         validated[stage]={'manifest_sha256':digest(manifest_path(folder,stage)),'artifacts':record['artifacts']}
     # 再执行产生新的数据库批次；只豁免随机批次号，所有业务字段必须相等。
     for group,name in [('q1','data_quality_metrics.json'),('q1','findings_metrics.json'),
-                       ('q2','q2_1_results.json'),('q2','q2_2_results.json'),('q2','q2_3_results.json')]:
+                       ('q2','q2_1_results.json'),('q2','q2_2_results.json'),('q2','q2_3_results.json'),('q2','q2_4_results.json')]:
         original=read(ROOT/('q1_data_quality' if group=='q1' else 'q2_sql_analysis')/name)
         actual=read(Path(outputs[group])/name)
         require({k:v for k,v in actual.items() if k!='load_version'}=={k:v for k,v in original.items() if k!='load_version'},f'独立回归结果与本轮正式 CLI 不一致：{name}')
@@ -126,12 +126,12 @@ def pending_items(items):
 
 
 def refresh():
-    result=subprocess.run([sys.executable,str(ROOT/'scripts/verify_q2_3.py')],cwd=ROOT,timeout=2400)
+    result=subprocess.run([sys.executable,str(ROOT/'scripts/verify_q2_4.py')],cwd=ROOT,timeout=2400)
     require(result.returncode==0,'当前源码完整回归失败，不生成新的发布候选')
     # Q2.3 验证器已实际运行默认全入口，检查同一候选，避免重复导入。
     report=read(PIPELINE)
     require(report.get('exit_code') in (0,2),'全入口发生运行失败')
-    return {'pipeline_exit_code':report['exit_code'],'scope':'当前 Q1、九表、Q2.1–Q2.3；缺题仍禁止完整提交'}
+    return {'pipeline_exit_code':report['exit_code'],'scope':'当前 Q1、九表、Q2.1–Q2.4；缺题仍禁止完整提交'}
 
 
 def main():
@@ -143,14 +143,15 @@ def main():
         if args.refresh and not e.check('重跑当前源码与全入口',refresh):
             return 1
         e.check('当前功能回归及代码、产物绑定',lambda:inspect_regression(read(REGRESSION),e.report['source_sha256']))
-        def seller_evidence():
-            proof=read(ROOT/'reports/q2_3/acceptance_latest.json')
-            require(proof.get('status')=='passed' and proof.get('source_sha256')==e.report['source_sha256'],'Q2.3 缺少当前源码通过证据')
-            require(proof.get('requirement_id')=='Q2.3','Q2.3 验收范围未声明')
+        def subquestion_evidence(stage):
+            proof=read(ROOT/('reports/'+stage.lower().replace('.','_')+'/acceptance_latest.json'))
+            require(proof.get('status')=='passed' and proof.get('source_sha256')==e.report['source_sha256'],stage+' 缺少当前源码通过证据')
+            require(proof.get('requirement_id')==stage,stage+' 验收范围未声明')
             for name,value in proof['artifact_sha256'].items():
-                require(digest(ROOT/name)==value,'Q2.3 产物已变化')
-            return {'run_id':proof['run_id'],'scope':'手算、独立全量及默认全入口'}
-        e.check('Q2.3 当前业务及默认入口',seller_evidence)
+                require(digest(ROOT/name)==value,stage+' 产物已变化')
+            return {'run_id':proof['run_id'],'scope':'当前子题、独立参考及默认全入口'}
+        for stage in ('Q2.3','Q2.4'):
+            e.check(stage+' 当前业务及默认入口',lambda name=stage:subquestion_evidence(name))
         e.check('锁定依赖安装证据及适用范围',inspect_dependencies)
         e.check('真实全入口及本轮产物归属',inspect_execution)
         e.check('数据库配置修复证据适用范围',inspect_runtime_repair)

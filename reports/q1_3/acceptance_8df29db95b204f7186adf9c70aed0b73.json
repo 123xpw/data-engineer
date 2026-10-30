@@ -1,0 +1,130 @@
+{
+  "run_id": "8df29db95b204f7186adf9c70aed0b73",
+  "status": "redacted_copy",
+  "scope": "acceptance",
+  "started_utc": "2026-10-30T08:41:19.012542+00:00",
+  "python": "3.12.13",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "pandas": "3.1.0",
+  "git_base": "407f9d4169bb2d4a1c1ce753f7c307a6307b63b7",
+  "python_optimization_level": 0,
+  "source_sha256": {
+    "requirements.txt": "dc84079cbbf1746fc870afd863b5e2cd64f3c92b772c5783a1151b1f1f1fa8f7",
+    "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
+    "VALIDATION_GATES.md": "6198a51889e85992b5cb63f87cc0032463e7cb0682c7e94aaf25edb65f63413b",
+    "delivery_requirements.json": "612c6c976fd453d2dbb9748efb594c92fb898b1a298ce8c320993c55c4571a5a",
+    "artifact_manifest.py": "1e1df6cd13a5166d4de90f0927489fc9bb25799e682e1bf88699f8d4350c824d",
+    "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
+    "release_check.py": "9461efa7ed3ca3c8751f92871699bffda65fa0cdd641df7bf3ce9654143f5565",
+    "run_all.py": "cc763742449de328eedd80fbbdf5ded1a42b1ac360689a3acf5fbe50a3c5001c",
+    "scripts/check_q2_1_cases.py": "b4f35cd1f2d7202b2598ef640e0899e04fdfd2e9168fcc2a2a29e4be53b217ea",
+    "scripts/check_q2_2_cases.py": "bedeae1353e7fece57f71fea830a658c1d1d83b96455175e42752fc6fc3d6551",
+    "scripts/check_q2_3_cases.py": "ee2a7e1bd044a4059dee36824cbdc27f9c7e84a19934eb4a2b6c6c03f5ee7ac1",
+    "scripts/check_q2_typed_values.py": "0637b8f4429cc89ee303205b2e4a4b8cbc4b95e506ac5694ed66ab3482c5858d",
+    "scripts/experiment_q1_2_sensitivity.py": "70c5bc0c19eab3ec6ae4cc89921e4e9fd52643eccd1e35cb099be2a101a7edf5",
+    "scripts/export_ai_log.py": "3d19d6954ef59a4801b5279565e500940ad75b0f99d62e9edc97bc18227bba59",
+    "scripts/probe_q1_3_rules.py": "454c4e668e2283fa7dd2a04112d9843ff429e697b920b0166bcde20562bda6bc",
+    "scripts/probe_q2_3.py": "681d6239f68474eb52301cf9a9350e142c52f5734d74ea51e2b5789cf9ff2c1d",
+    "scripts/q1_findings_reference.py": "716e57de471da0bf591526454796b2bf1ec30035f6c051b15c303f909e9017b6",
+    "scripts/q1_reference.py": "9b30a77c4c0d5458888dc94c472c2eae070c189604fb223e4339e533ac77f592",
+    "scripts/q1_review_experiments.py": "43fd4e749584edc25b48cea67ccdf75a6a02a8a04e4a96ef149eb8fef0651f70",
+    "scripts/q2_2_reference.py": "6aa8595f88d7885ea82e9b384336916620c61d73bba8961743ff613dc944b508",
+    "scripts/q2_3_reference.py": "adaeba688cb9eb57797b89cbcad9f6df0c36f1550089538ffe0f7a5b7ff53947",
+    "scripts/q2_4_reference.py": "986258f2f6fa3142bf8ef0e20a69ba7a33a8cc2687c2c775cdb156ed7e021f50",
+    "scripts/verification_support.py": "31cc412541d504d74d7a3db19235991c6aef32785f4a8378f54c850342de3d56",
+    "scripts/verify_baseline.py": "d316e3f95ac93e080b6216ac0ab1f298cce98194760508aa939747828ef0d71a",
+    "scripts/verify_clean_environment.py": "8050bbbfb4857f043f2faec2da1b1a5d3e0e2bcb3313a5efa06c70149248c7e8",
+    "scripts/verify_mutations.py": "fd6e1f1e187a9fdba4cbc0b6674e2404022836095a9ca9bc5005167bdeef90d4",
+    "scripts/verify_q1_1.py": "5e2302f413967790df315883de3d3633ab532936bd3c5d89823bacc03cd56146",
+    "scripts/verify_q1_2.py": "47f4c9cab39f47c64af4265ae799b3b98788264392f2e69837bdd776988677df",
+    "scripts/verify_q1_3.py": "02b71cf2b9e84891c9ab4982cf07f66411ce906cfd2182e8803a28e235a0bc6c",
+    "scripts/verify_q1_review.py": "bad11e861cd44307c7a70e8d2930593b7de4191dd7bb37425278546636d50f71",
+    "scripts/verify_q2_1.py": "37b301ac6736b6b8ebfd1bc3d0281f0e6e187727ebd5c9947bc79efd04d44614",
+    "scripts/verify_q2_2.py": "eac925a9460f1509f06fe01f83a666e0df68869eb0b8f2a8503eda6c87c316fc",
+    "scripts/verify_q2_3.py": "867281e114d49d96425a25317911589bbd4ae1ba57290e1d348ec0410e90873c",
+    "scripts/verify_q2_4.py": "21c9b3ce2056b23bec8f8360d1d12733201dd94f3a41c825f59f4e0db3e8af8e",
+    "scripts/verify_stage_gate.py": "d5bf59a49da6c81d06738fa65c3b6eca9fb5f71b40c28b04a947b010c2cfdd64",
+    "tests/test_artifact_manifest.py": "755849e1b24ab29a62e36cc7c703bf61db5e9c22cce9c7fcf202baf7fe8c61ca",
+    "tests/test_baseline.py": "976372dafdf60d7559a709673fc491c6069a7bd3aae7c000276d87756075d567",
+    "tests/test_q1_findings.py": "4868fa4f898375fd72c834a45d973ee4909e1a2b475a9ce715e089fba6790cbd",
+    "tests/test_q1_profile.py": "c2a1e8a1b4b235a12ff3742386d2f849fed40d940e71eba870c4704188783488",
+    "tests/test_q1_review.py": "7024092be87789b57551839b2a55b43341973790cf25566658cdeb5d9a30fddf",
+    "tests/test_release_check.py": "922b6e731cface6f6f3e32cb2bf23e38ad271221d69cc6e67aec43cb3b36270a",
+    "tests/test_verification.py": "af2b13c13e2516be411183abb46eb19817d388b615f3f0d98f8eef1a3eb6728f",
+    "q1_data_quality/q1_code.py": "3cefc9f09bf7603f032e19ef7dd7408ea92de90c423622c0e47ccb342b351817",
+    "q1_data_quality/q1_findings.py": "9510aa26166c43ab232ff93bb8c60f6fc27842fb0044f7bfc169b5ce8d70ddaf",
+    "q1_data_quality/q1_strategy.py": "06b4f770a0df565855320664afe708fa78fc07dc969c2744327dc30195e6b022",
+    "q1_data_quality/ACCEPTANCE_Q1_1.md": "be762634b9f7f6348c9c2610bcaf07ad0680a5cfe09fd5955681fcece11b5a88",
+    "q1_data_quality/ACCEPTANCE_Q1_2.md": "5f20dde95d38cd2dff8556937899ebbe72179cd8e5ffafebc5b7b1cad6c1f3c9",
+    "q1_data_quality/ACCEPTANCE_Q1_2_REVIEW.md": "34c3dfc6efdb859624d80267e168f325ab0762b8183f1438dc6d7ca2c59cbcec",
+    "q1_data_quality/ACCEPTANCE_Q1_3.md": "0c556690b80c49587c99f1f7f7397e6b695f61c813812f909e87d595cf09a929",
+    "q2_sql_analysis/catalog.py": "0108180bd105bb2dc977f7f42493e2ffbc30ec9fa7cc834007a5ce4d26174c30",
+    "q2_sql_analysis/load_olist.py": "d2cbc404f8ec4f9255a84756056ee27ff471a9965ba6550bfc0a6c6ac76fe7ba",
+    "q2_sql_analysis/mysql_runtime.py": "3ddd738b19bda77d44192937ff73b51b340b888881c47567b96c909e80e6f56c",
+    "q2_sql_analysis/q2_1.py": "f9b33a5482a4de57cf03a954a25c9f912a200a6f06b74332aebdf261d2620ae8",
+    "q2_sql_analysis/q2_2.py": "ffb51f75d9f5f44364ea34c55b4f486345047316e878f4aed35456f81d8d1d16",
+    "q2_sql_analysis/q2_3.py": "9481262c609328b197f30072fa7aa7ef6d4f7a237f746f58b36d97326397a979",
+    "q2_sql_analysis/q2_4.py": "9309a0f00b8512f7f6c983c6a47992428b1c4cfed4d051fff9335d95e9845839",
+    "q2_sql_analysis/q2_1_translation_gap.sql": "8ebd5dd6d6ab5b7d8d2848cefea7f606fea2b16e41816846e529745d4cd33b9a",
+    "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
+    "q2_sql_analysis/q2_3_top_sellers.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
+    "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
+    "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
+    "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
+    "q2_sql_analysis/ACCEPTANCE_Q2_1.md": "95970638080de39def5bd8498366e43aaa5a5582d6485406acd91181ed659345",
+    "q2_sql_analysis/ACCEPTANCE_Q2_2.md": "1051ef3ad09fce68f2393f3b84227408ae9003a94d8ff059c2a4a5f694dbbf4d",
+    "q2_sql_analysis/ACCEPTANCE_Q2_3.md": "ff4bd7e420e1b5728a548a9a04276b9460a2dfe532768ebf6556e46e12d3847e",
+    "q2_sql_analysis/ACCEPTANCE_Q2_4.md": "5c468bd1ec8ec427596302f29cb3b614d4730539b75aa6bd619b62ec427364ac",
+    "audit/q2_4_experiment.py": "327db3c44b926e5d4bb8be9bb6e8b55b0ace0fb85f6d18432249d60471d90ca9",
+    "audit/verify_q2_4_experiment.py": "0a418a4c5d0fed11a00158c9804d398b40b40f3199ec3f450c7a5f17f35af873"
+  },
+  "checks": [
+    {
+      "name": "独立/总入口文件一致且正文符合字数",
+      "passed": true,
+      "evidence": {
+        "nonwhitespace_characters": 462,
+        "han_characters": 408,
+        "scope": "仅交付协议及字数；语义审查见 strategy_review.md"
+      }
+    },
+    {
+      "name": "文档入口隔离、缺件和字数越界失败",
+      "passed": true,
+      "evidence": {
+        "no_data_or_other_q1_module_required": true,
+        "short_document_rejected": true,
+        "missing_review_rejected": true,
+        "limitation": "文件完整不代表内容经业务方认可"
+      }
+    },
+    {
+      "name": "真实个案由独立读取核验；净额守恒的反例",
+      "passed": true,
+      "evidence": {
+        "probe_sha256": "7dcd6195a2fb0d76103042dafa64dbb9db9be5dd2740c273f161f92a14f0a8e7",
+        "real_data_risk": "候选视图保留极值正单；条件性移除会改变金额、发票数和最近购买",
+        "synthetic_example_scope": "仅示例的算术与已声明假设，不是部分退货算法测试",
+        "matching_approval": "未确认，不把同客同品同价自动当成唯一原单"
+      }
+    },
+    {
+      "name": "当前代码回归与 Q1 三阶段接线",
+      "passed": false,
+      "error": "预期 0，实际 1：手算夹具与既有测试: PASS\n生成当前源码对应实验产物: PASS\n独立逐记录决策、金额分解与全部分层统计: PASS\n已有计算回归及输入不变: FAIL\n/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/q1_2/review_validation_0666ebe2116b4c1e90207235a9354743.json\n"
+    }
+  ],
+  "document_sha256": {
+    "cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
+    "strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208"
+  },
+  "semantic_review": {
+    "reviewer": "同一 Codex；非独立业务人员",
+    "document": "q1_data_quality/strategy_review.md",
+    "business_approval": "未获得",
+    "scope": "用途策略和反例讨论；没有自动证明自然语言解释正确"
+  },
+  "finished_utc": "2026-10-30T08:44:33.653131+00:00",
+  "recorded_status_before_history_redaction": "failed",
+  "_history_privacy_redaction_notice": "历史隐私脱敏阅读副本；指定身份/目录已替换，原始运行记录仅本地保存，不能据此认证原始回执。"
+}

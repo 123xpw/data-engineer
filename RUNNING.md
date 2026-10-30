@@ -4,9 +4,9 @@
 
 > 整项目仍不可完整交付。R1–R4 已完成本次已知缺陷修复和统一门槛验收；各轮标准、结果、失败记录见 [repairs/PROGRESS.md](repairs/PROGRESS.md)。原审查见 [audit/PROJECT_REVIEW.md](audit/PROJECT_REVIEW.md)，用于保留发现过程，不覆盖新的修复结果。
 
-## 当前阶段：Q1、Q2.1/Q2.2 已实现；Q2.3 已接入默认入口及当前门槛
+## 当前阶段：Q1 与 Q2 四题已实现并进入默认入口；Q3/Q5 正在推进
 
-Q1.1 的质量报告、Q1.2 的探索与补证、Q1.3 的清洗策略已接入独立入口；真实 MySQL 九表导入、Q2.1 翻译缺口和 Q2.2 月度成交已实现。Q2.3 独立 SQL/CLI、默认全入口与统一门槛已通过；Q2.4、Q3–Q5 尚未完成。Q2 本轮证据与限制见 reports/q2_2_validation.md，数据模型与 Docker 前置要求见 q2_sql_analysis/DATA_MODEL.md。
+Q1.1 的质量报告、Q1.2 的探索与补证、Q1.3 的清洗策略已接入独立入口；真实 MySQL 九表导入、Q2.1 翻译缺口和 Q2.2 月度成交已实现。Q2.3 独立 SQL/CLI、默认全入口与统一门槛已通过；Q2.4 已通过正式验收，Q3–Q5 的默认交付仍在推进。Q2 本轮证据与限制见 reports/q2_2_validation.md，数据模型与 Docker 前置要求见 q2_sql_analysis/DATA_MODEL.md。
 
 ```bash
 python run_all.py --stage data
@@ -152,3 +152,5 @@ python release_check.py
 默认 Q2/full 已执行 Q2.3；Q2.4 未完成，因此 Q2 仍为 partial。delivery_requirements.json 的 Q2.3 现由当前源码验收报告及产物指纹验证，不靠自填状态放行。已实现范围通过，完整项目因 Q2.4/Q3–Q5 等缺项仍不通过。
 
 本轮按下单时间选 2017，GMV 仅 delivered 且含运费，客户按 customer_unique_id；取消率和延迟率分母不同，见 JSON 诊断与 findings。评价选择是治理假设，尚无业务方认证。SQL 存在明显性能改进空间，此轮不声称完成查询优化。
+
+Q2.4 独立命令为 `python q2_sql_analysis/q2_4.py` 或总入口 `--stage q2.4`；支持 --skip-load。当前默认 Q2 四题成功后 passed，全项目仍因 Q3–Q5 等未完成退出 2。真实计划、未获得提速的实验与限制见 q2_sql_analysis/Q2_4_RESULT.md。
