@@ -14,7 +14,7 @@ from typing import Callable
 
 from download_data import ROOT, DataValidationError, load_sources, prepare_dataset
 
-from artifact_manifest import RUN_ID, atomic_json, mark, publish
+from artifact_manifest import RUN_ID, atomic_json, mark, publish, source_hashes
 
 LOG = logging.getLogger(__name__)
 
@@ -142,7 +142,9 @@ def main() -> int:
     report = {"run_id": run_id, "status": "passed" if code == 0 else "failed" if code == 1 else "partial",
               "timestamp_utc": datetime.now(timezone.utc).isoformat(),
               "python": platform.python_version(), "platform": platform.platform(),
-              "requested_stage": args.stage, "exit_code": code, "results": results}
+              "requested_stage": args.stage, "exit_code": code, "results": results,
+              "source_sha256": source_hashes(),
+              "output_directories": {"q1": str(args.q1_output_dir.resolve()), "q2": str(args.q2_output_dir.resolve())}}
     args.report.parent.mkdir(parents=True, exist_ok=True)
     atomic_json(args.report, report)
     LOG.info("报告：%s；退出码：%s", args.report, code)

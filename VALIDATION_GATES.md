@@ -1,5 +1,7 @@
 # 阶段门槛：先定义要求，再实现和验收
 
+当前入口为 `python release_check.py`（完整提交）和 `python release_check.py --scope implemented --refresh`（重跑已实现范围）。契约见 repairs/R4_ACCEPTANCE.md，额外必答与交付项见 delivery_requirements.json。旧 verify_stage_gate 已转发到此入口。以下 R0.1 记录保留历史含义，不再作为当前项目放行凭证。
+
 ## 本轮 R0.1：补强数据准备验证
 
 本轮不实现 Q1。以下条件在修改实现前确定；失败时保留证据，不更新数据清单来迁就结果。

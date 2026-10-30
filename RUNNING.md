@@ -1,6 +1,6 @@
 # 运行说明与阶段验收
 
-> 2026-10-29 整项目交付审查：当前不可按完整项目交付。阶段通过不能抵消缺少模块；本轮还发现验证器在 `-O` 下误报通过、数据库配置复现及旧产物归属问题。当前结论、真实实验和重新安排见 [audit/PROJECT_REVIEW.md](audit/PROJECT_REVIEW.md)。以下阶段运行说明仍可参考，但旧 stage_gate 不是当前整项目的交付凭证。
+> 整项目仍不可完整交付。R1–R4 已完成本次已知缺陷修复和统一门槛验收；各轮标准、结果、失败记录见 [repairs/PROGRESS.md](repairs/PROGRESS.md)。原审查见 [audit/PROJECT_REVIEW.md](audit/PROJECT_REVIEW.md)，用于保留发现过程，不覆盖新的修复结果。
 
 ## 当前阶段：Q1 三题、Q2.1 和 Q2.2 已实现，Q2 其余题目和 Q3–Q5 未完成
 
@@ -30,9 +30,9 @@ python scripts/verify_q2_2.py
 
 以下是前期各轮的历史运行说明，不应覆盖本节的当前完成范围。
 
-## R0.1：验证补强后的运行方法
+## 历史：R0.1 验证补强后的运行方法
 
-当前仍只实现数据准备；Q1–Q5 未接入。补强验证的具体门槛见 VALIDATION_GATES.md。
+当时仅实现数据准备；Q1–Q5 尚未接入。补强验证的具体门槛见 VALIDATION_GATES.md。
 新增 pandas C 引擎作为独立解析器，requirements.txt 已包含精确版本。
 
 ```bash
@@ -46,7 +46,7 @@ python scripts/verify_stage_gate.py
 
 - verify_baseline：从独立工作目录调用真实 CLI，再读取全部实际文件，不只相信成功状态。
 - verify_clean_environment：创建新虚拟环境和源码副本、无缓存安装锁定依赖、下载两份真实数据、执行测试和独立核验；需要网络。
-- verify_stage_gate：非零退出码表示禁止进入 Q1.1。任何被检查的代码、依赖、测试或门槛文件变化都会使旧报告失效，需要重跑相应验证。
+- verify_stage_gate：原 R0 行为已退役，现在转发到 release_check 默认的完整提交检查；历史报告不删除，也不再用于批准进入 Q1.1。
 - reports/hardening/ 下每次运行有唯一报告；*_latest.json 指向当前结果，包括 running/failed。历史失败保留，不用后续成功覆盖历史。
 - 指定错误变体被捕获只证明对应风险受到测试覆盖，不是整体正确率或完整覆盖率。
 - 干净虚拟环境不等于全新操作系统。当前没有其他人员独立审核，也没有跨平台兼容性结论。
@@ -54,14 +54,14 @@ python scripts/verify_stage_gate.py
 
 以下保留第一轮背景，原始第一轮报告不作为补强后的放行依据。
 
-## 当前范围（2026-10-28）
+## 历史：第一轮范围（2026-10-28）
 
 第一轮只完成原始数据准备和执行骨架。Q1–Q5 尚未实现，不代表整份笔试完成。
 原题 README.md 和 .gitignore 保持不变；待业务模块接入后再更新此说明。
 
 ## 环境和运行
 
-实测 Python 3.12.13。当前仅需 Kaggle 下载库及其锁定的间接依赖。
+实测 Python 3.12.13。第一轮仅需 Kaggle 下载库及其锁定的间接依赖。
 首次下载需要能访问 Kaggle 和其文件存储服务的网络；本轮指定的公开数据实测无需登录。
 如果未来服务要求认证，应按 Kaggle 官方流程在本机配置，不能用其他数据静默替换。
 
@@ -85,7 +85,7 @@ python scripts/verify_baseline.py --cold-download
 参数 `--data-dir` 指定数据目录；默认为脚本所在仓库的 data/，不依赖终端当前目录。
 `--offline` 不调用下载服务，缺失文件会失败。脚本不自动修复或覆盖损坏的现有输入。
 
-## 当前一键入口的真实行为
+## 历史：第一轮入口行为
 
 - `python run_all.py --stage data`：两份数据通过验证后返回 0。
 - `python run_all.py`：准备两份数据，再将 Q1–Q5 标记为 not_implemented，返回 2。
@@ -125,3 +125,20 @@ reports/ 只保存统计及校验元数据，不包含整份数据集。
 正式 Q1/Q2 CLI 会在输出目录生成 `q1_1_manifest.json`、`q2_2_manifest.json` 等清单。总入口的 `reports/latest_run.json` 包含本轮 `run_id`；各题共享此编号。独立入口有自身编号，见其清单。`passed` 表示约定文件已完整发布，不表示全部项目完成。
 
 消费端使用 `python artifact_manifest.py --manifest <清单路径> --run-id <本轮编号>` 校验。失败后旧 JSON/Markdown 可以留存供调查，但失败清单、错误编号或哈希不一致必须拒绝。不得只凭文件存在来验收。核心计算函数仍可用于测试，不等于正式发布入口。修复过程与边界见 repairs/R3_RESULT.md。
+
+
+## R4：当前统一验收入口
+
+```bash
+python release_check.py --scope implemented --refresh
+python release_check.py --scope implemented
+python release_check.py
+```
+
+第一条重跑当前源码的独立业务回归及正式全入口；新的候选输出保存在本地忽略目录 `.venv/release-runs/`，位置与本轮编号写入 `reports/release_execution.json`。后两条核对已有证据、源码指纹和实际文件；不冒充重新执行。复制到另一台机器后需重新 refresh，缺少本地候选文件应失败。
+
+- implemented 通过，只允许在已实现 Q1、九表、Q2.1/Q2.2 的基础上继续开发。不会批准整个笔试提交。
+- 默认 submission 检查额外逐项要求，见 delivery_requirements.json。完整全入口必须成功；缺题、材料或外部核验不足时不能通过。加分题不抵消必答缺项。
+- 退出 0 表示指定范围证据通过；1 表示已有范围证据失败或失效；2 表示已有范围通过但完整交付仍有缺项。
+- 相同 requirements 的历史安装证明只证明依赖曾在记录环境中安装成功；当前功能必须对应当前源码。数据库生命周期证明也只在对应运行时代码未变时复用。
+- 各轮门槛实验仍保留自己的范围。源码或锁定依赖变化后，旧“通过”不可直接沿用。机器检查不替代人工审阅、候选人理解、公开 Fork 访问和最终版本核验。

@@ -1,0 +1,161 @@
+{
+  "run_id": "da3eb02178494d26a4c014ac47ae98b5",
+  "status": "passed",
+  "scope": "implemented",
+  "started_utc": "2026-10-30T05:14:38.821743+00:00",
+  "python": "3.12.13",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "pandas": "3.1.0",
+  "git_base": "1f42b5e8581f801e07c1b12eed416037eeaff1b8",
+  "python_optimization_level": 0,
+  "source_sha256": {
+    "requirements.txt": "dc84079cbbf1746fc870afd863b5e2cd64f3c92b772c5783a1151b1f1f1fa8f7",
+    "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
+    "VALIDATION_GATES.md": "6198a51889e85992b5cb63f87cc0032463e7cb0682c7e94aaf25edb65f63413b",
+    "delivery_requirements.json": "204d206d39c51220c847e8681a20eb7e94a859fbc134b643c27b629924248dda",
+    "artifact_manifest.py": "3b75e5b0345b5a3d5d9136eff54b952e712739d2ff8d7bb94de4b76c6a6a826d",
+    "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
+    "release_check.py": "83a120650dd3007b46d4fdc1a652111c9513ae30e78a1eb4b2e37a1f6da0e478",
+    "run_all.py": "c0f4f34fcc80f4a4f9eb35dbe5a0609fc02444af0701b7514bd588c6061bc97a",
+    "scripts/check_q2_1_cases.py": "b4f35cd1f2d7202b2598ef640e0899e04fdfd2e9168fcc2a2a29e4be53b217ea",
+    "scripts/check_q2_2_cases.py": "bedeae1353e7fece57f71fea830a658c1d1d83b96455175e42752fc6fc3d6551",
+    "scripts/check_q2_typed_values.py": "0637b8f4429cc89ee303205b2e4a4b8cbc4b95e506ac5694ed66ab3482c5858d",
+    "scripts/experiment_q1_2_sensitivity.py": "70c5bc0c19eab3ec6ae4cc89921e4e9fd52643eccd1e35cb099be2a101a7edf5",
+    "scripts/export_ai_log.py": "3d19d6954ef59a4801b5279565e500940ad75b0f99d62e9edc97bc18227bba59",
+    "scripts/probe_q1_3_rules.py": "454c4e668e2283fa7dd2a04112d9843ff429e697b920b0166bcde20562bda6bc",
+    "scripts/q1_findings_reference.py": "716e57de471da0bf591526454796b2bf1ec30035f6c051b15c303f909e9017b6",
+    "scripts/q1_reference.py": "9b30a77c4c0d5458888dc94c472c2eae070c189604fb223e4339e533ac77f592",
+    "scripts/q1_review_experiments.py": "43fd4e749584edc25b48cea67ccdf75a6a02a8a04e4a96ef149eb8fef0651f70",
+    "scripts/q2_2_reference.py": "6aa8595f88d7885ea82e9b384336916620c61d73bba8961743ff613dc944b508",
+    "scripts/verification_support.py": "98a2e0ae8ee39ce3d844ee45ac7bb4e2fcfdd50c0bbd464f2078e549724ef2ec",
+    "scripts/verify_baseline.py": "d316e3f95ac93e080b6216ac0ab1f298cce98194760508aa939747828ef0d71a",
+    "scripts/verify_clean_environment.py": "8050bbbfb4857f043f2faec2da1b1a5d3e0e2bcb3313a5efa06c70149248c7e8",
+    "scripts/verify_mutations.py": "fd6e1f1e187a9fdba4cbc0b6674e2404022836095a9ca9bc5005167bdeef90d4",
+    "scripts/verify_q1_1.py": "5e2302f413967790df315883de3d3633ab532936bd3c5d89823bacc03cd56146",
+    "scripts/verify_q1_2.py": "47f4c9cab39f47c64af4265ae799b3b98788264392f2e69837bdd776988677df",
+    "scripts/verify_q1_3.py": "02b71cf2b9e84891c9ab4982cf07f66411ce906cfd2182e8803a28e235a0bc6c",
+    "scripts/verify_q1_review.py": "bad11e861cd44307c7a70e8d2930593b7de4191dd7bb37425278546636d50f71",
+    "scripts/verify_q2_1.py": "37b301ac6736b6b8ebfd1bc3d0281f0e6e187727ebd5c9947bc79efd04d44614",
+    "scripts/verify_q2_2.py": "f400c9ba9ffe7c277bc9be41e24f0f5032685b83c3e094737734bdb945169fb4",
+    "scripts/verify_stage_gate.py": "d5bf59a49da6c81d06738fa65c3b6eca9fb5f71b40c28b04a947b010c2cfdd64",
+    "tests/test_artifact_manifest.py": "ce83dc04b7c6aecbf31398eb04d969b62a55aa27a85534d158f63299a5289bb5",
+    "tests/test_baseline.py": "976372dafdf60d7559a709673fc491c6069a7bd3aae7c000276d87756075d567",
+    "tests/test_q1_findings.py": "4868fa4f898375fd72c834a45d973ee4909e1a2b475a9ce715e089fba6790cbd",
+    "tests/test_q1_profile.py": "c2a1e8a1b4b235a12ff3742386d2f849fed40d940e71eba870c4704188783488",
+    "tests/test_q1_review.py": "7024092be87789b57551839b2a55b43341973790cf25566658cdeb5d9a30fddf",
+    "tests/test_release_check.py": "7e90f5e8f928350d4e18108720e4f03d0c1585cd472e03277c2cfc976b105524",
+    "tests/test_verification.py": "af2b13c13e2516be411183abb46eb19817d388b615f3f0d98f8eef1a3eb6728f",
+    "q1_data_quality/q1_code.py": "3cefc9f09bf7603f032e19ef7dd7408ea92de90c423622c0e47ccb342b351817",
+    "q1_data_quality/q1_findings.py": "9510aa26166c43ab232ff93bb8c60f6fc27842fb0044f7bfc169b5ce8d70ddaf",
+    "q1_data_quality/q1_strategy.py": "06b4f770a0df565855320664afe708fa78fc07dc969c2744327dc30195e6b022",
+    "q1_data_quality/ACCEPTANCE_Q1_1.md": "be762634b9f7f6348c9c2610bcaf07ad0680a5cfe09fd5955681fcece11b5a88",
+    "q1_data_quality/ACCEPTANCE_Q1_2.md": "5f20dde95d38cd2dff8556937899ebbe72179cd8e5ffafebc5b7b1cad6c1f3c9",
+    "q1_data_quality/ACCEPTANCE_Q1_2_REVIEW.md": "34c3dfc6efdb859624d80267e168f325ab0762b8183f1438dc6d7ca2c59cbcec",
+    "q1_data_quality/ACCEPTANCE_Q1_3.md": "0c556690b80c49587c99f1f7f7397e6b695f61c813812f909e87d595cf09a929",
+    "q2_sql_analysis/catalog.py": "0108180bd105bb2dc977f7f42493e2ffbc30ec9fa7cc834007a5ce4d26174c30",
+    "q2_sql_analysis/load_olist.py": "d2cbc404f8ec4f9255a84756056ee27ff471a9965ba6550bfc0a6c6ac76fe7ba",
+    "q2_sql_analysis/mysql_runtime.py": "3ddd738b19bda77d44192937ff73b51b340b888881c47567b96c909e80e6f56c",
+    "q2_sql_analysis/q2_1.py": "f9b33a5482a4de57cf03a954a25c9f912a200a6f06b74332aebdf261d2620ae8",
+    "q2_sql_analysis/q2_2.py": "ffb51f75d9f5f44364ea34c55b4f486345047316e878f4aed35456f81d8d1d16",
+    "q2_sql_analysis/q2_1_translation_gap.sql": "8ebd5dd6d6ab5b7d8d2848cefea7f606fea2b16e41816846e529745d4cd33b9a",
+    "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
+    "q2_sql_analysis/ACCEPTANCE_Q2_1.md": "95970638080de39def5bd8498366e43aaa5a5582d6485406acd91181ed659345",
+    "q2_sql_analysis/ACCEPTANCE_Q2_2.md": "1051ef3ad09fce68f2393f3b84227408ae9003a94d8ff059c2a4a5f694dbbf4d"
+  },
+  "checks": [
+    {
+      "name": "当前功能回归及代码、产物绑定",
+      "passed": true,
+      "evidence": {
+        "run_id": "7ba2918a4fd245cda1c33f307dd8befd",
+        "report_sha256": "eacd56992fd26ee122cd65a66687c4a3525ea8bf67ae14d9f5bd551aa372ffd6",
+        "scope": "当前源码的 Q1、九表、Q2.1、Q2.2；不含未完成题"
+      }
+    },
+    {
+      "name": "锁定依赖安装证据及适用范围",
+      "passed": true,
+      "evidence": {
+        "run_id": "3cea0ca69a614db3a00bdc73798e26b9",
+        "report_sha256": "811aa53a3df9c4672654f48d568572624f1a98e606aec1163f06620a2cd4427c",
+        "scope": "仅复用相同 requirements 的安装证明；当前源码另跑功能回归",
+        "environment": {
+          "python": "3.12.13",
+          "platform": "macOS-26.6.2-arm64-arm-64bit"
+        }
+      }
+    },
+    {
+      "name": "真实全入口及本轮产物归属",
+      "passed": true,
+      "evidence": {
+        "run_id": "ad31e29ec6444612bb3fffe6304c1c94",
+        "exit_code": 2,
+        "report_sha256": "fc7ac2a90a58db14134d44dc66849a9f8de38c72d60463e3e4d84f3ed11445e3",
+        "manifests": {
+          "q1.1": {
+            "manifest_sha256": "4e4c3d073f34f9c91b30cbb5267945ce1773c154984d8c58cf2744b51b6065e0",
+            "artifacts": {
+              "data_quality_metrics.json": "382ce6c09ca40341650133f6b6085b328dc1f6700bcc2fc97f43ad98fce68a44",
+              "data_quality_report.md": "690a4117954f741c37f2cf0ff2e879ec39c175e5780599768320d680178a1a3d"
+            }
+          },
+          "q1.2": {
+            "manifest_sha256": "ed4915639db30b350a68a837ca62f8e69bdcf0a04915d21058ff61cc7634d418",
+            "artifacts": {
+              "findings_metrics.json": "28e62fa7611e25acce6f435efa10dd7a7cb461ec96b235d00cea8846944435b8",
+              "findings.md": "31b589432df894214acd7bcd5f9b3087d22d91b8c7670e441d348187f66c847f"
+            }
+          },
+          "q1.3": {
+            "manifest_sha256": "fff2e1b086f0f62e7e171fdd7f60afb242dfebadcd212f3c01eea4ec379629ad",
+            "artifacts": {
+              "cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
+              "strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208"
+            }
+          },
+          "q2.load": {
+            "manifest_sha256": "754ec27fb82cb9b5e14a9269a1c8a7364372e1adb0f2e25ea1638dd070839d76",
+            "artifacts": {
+              "load_report.json": "3379e5c193e689d212833ceed05e7aa0e5e7fa03494300a49081720ef47fdd0b"
+            }
+          },
+          "q2.1": {
+            "manifest_sha256": "3ea61ccf606e3e074b29954fa04d4f7d04fdc0facd4571349d28e7c42353a70f",
+            "artifacts": {
+              "q2_1_results.json": "9c812d4a9b83c632137b198e72d45d02deac333a3ab0e6eabd213f73745868f4",
+              "q2_1_findings.md": "4f7b36803fd3b4cccda2f6029747af30ec18654d93aea016bf9dbfb31326a6f3"
+            }
+          },
+          "q2.2": {
+            "manifest_sha256": "a098b0f2c7830c718c786a878afa5396b94d6104c56c3115f8dee4d5b0cec71f",
+            "artifacts": {
+              "q2_2_results.json": "6ce643604e26efbe1a95b4be6ded98975080f0603c33d3da1649797593bb07dd",
+              "q2_2_findings.md": "55f45c7cf0b9f8da15d9cde5e36ff57dcf2cb429052fc00964d70d34b06242f4"
+            }
+          }
+        },
+        "scope": "当前环境、已下载冻结输入；不是完整冷启动证明"
+      }
+    },
+    {
+      "name": "数据库配置修复证据适用范围",
+      "passed": true,
+      "evidence": {
+        "run_id": "2397ea7f75f84586bb214f45136a3078",
+        "scope": "仅复用未变 mysql_runtime 的本机生命周期实验；当前连接与业务仍另跑"
+      }
+    },
+    {
+      "name": "原题与数据提交约束",
+      "passed": true,
+      "evidence": {
+        "protected_unchanged": true,
+        "datasets_and_private_config_not_tracked": true
+      }
+    }
+  ],
+  "implemented_ready": true,
+  "decision": "implemented_ready",
+  "finished_utc": "2026-10-30T05:14:38.884471+00:00"
+}
