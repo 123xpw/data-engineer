@@ -58,7 +58,7 @@ def inspect_execution():
         require(rows.get(stage,{}).get('status')=='passed',f'{stage} 未成功')
     require(rows.get('q2',{}).get('status') in ('passed','partial'),'Q2 已实现部分运行失败')
     nested={r['stage']:r for r in rows['q2']['detail']['results']}
-    for stage in ('q2.load','q2.1','q2.2'):
+    for stage in ('q2.load','q2.1','q2.2','q2.3'):
         require(nested.get(stage,{}).get('status')=='passed',f'{stage} 未成功')
     outputs=report['output_directories']; validated={}
     for stage in ARTIFACTS:
@@ -67,7 +67,7 @@ def inspect_execution():
         validated[stage]={'manifest_sha256':digest(manifest_path(folder,stage)),'artifacts':record['artifacts']}
     # 再执行产生新的数据库批次；只豁免随机批次号，所有业务字段必须相等。
     for group,name in [('q1','data_quality_metrics.json'),('q1','findings_metrics.json'),
-                       ('q2','q2_1_results.json'),('q2','q2_2_results.json')]:
+                       ('q2','q2_1_results.json'),('q2','q2_2_results.json'),('q2','q2_3_results.json')]:
         original=read(ROOT/('q1_data_quality' if group=='q1' else 'q2_sql_analysis')/name)
         actual=read(Path(outputs[group])/name)
         require({k:v for k,v in actual.items() if k!='load_version'}=={k:v for k,v in original.items() if k!='load_version'},f'独立回归结果与本轮正式 CLI 不一致：{name}')
@@ -96,6 +96,16 @@ def inspect_protected():
     return {'protected_unchanged':True,'datasets_and_private_config_not_tracked':True}
 
 
+def inspect_complete_execution(report):
+    require(report.get('requested_stage')=='all' and report.get('exit_code')==0 and report.get('status')=='passed','完整全入口未通过')
+    rows={r['stage']:r for r in report.get('results',[])}
+    required={'data.retail','data.olist','q1.1','q1.2','q1.3','q2','q3','q4','q5'}
+    require(set(rows)==required and all(r.get('status')=='passed' for r in rows.values()),'完整入口缺少必答阶段或存在未通过阶段')
+    nested={r['stage']:r for r in rows['q2']['detail']['results']}
+    require(set(nested)=={'q2.load','q2.1','q2.2','q2.3','q2.4'} and all(r.get('status')=='passed' for r in nested.values()),'Q2 缺少必答题或未通过')
+    return True
+
+
 def pending_items(items):
     require({r['id'] for r in items}==REQUIRED_PENDING and len(items)==len(REQUIRED_PENDING),'提交清单缺项、重复或范围改变')
     pending=[]
@@ -106,7 +116,7 @@ def pending_items(items):
             continue
         proof=read(ROOT/row['evidence'])
         valid=(proof.get('requirement_id')==row['id'] and proof.get('status')=='passed'
-               and proof.get('source_sha256')==source_hashes() and bool(proof.get('artifact_sha256'))
+               and proof.get('production_source_sha256',proof.get('source_sha256'))==source_hashes() and bool(proof.get('artifact_sha256'))
                and bool(proof.get('review_scope')))
         if valid:
             valid=all((ROOT/path).is_file() and digest(ROOT/path)==value for path,value in proof['artifact_sha256'].items())
@@ -116,13 +126,12 @@ def pending_items(items):
 
 
 def refresh():
-    result=subprocess.run([sys.executable,str(ROOT/'scripts/verify_q2_2.py')],cwd=ROOT,timeout=1800)
+    result=subprocess.run([sys.executable,str(ROOT/'scripts/verify_q2_3.py')],cwd=ROOT,timeout=2400)
     require(result.returncode==0,'当前源码完整回归失败，不生成新的发布候选')
-    folder=ROOT/'.venv/release-runs'/uuid.uuid4().hex
-    result=subprocess.run([sys.executable,str(ROOT/'run_all.py'),'--offline',
-        '--q1-output-dir',str(folder/'q1'),'--q2-output-dir',str(folder/'q2'),'--report',str(PIPELINE)],cwd=ROOT,timeout=900)
-    require(result.returncode in (0,2),'全入口发生运行失败')
-    return {'pipeline_exit_code':result.returncode,'scope':'缺题返回 2 仅是观测结果，不等于完整交付'}
+    # Q2.3 验证器已实际运行默认全入口，检查同一候选，避免重复导入。
+    report=read(PIPELINE)
+    require(report.get('exit_code') in (0,2),'全入口发生运行失败')
+    return {'pipeline_exit_code':report['exit_code'],'scope':'当前 Q1、九表、Q2.1–Q2.3；缺题仍禁止完整提交'}
 
 
 def main():
@@ -134,6 +143,14 @@ def main():
         if args.refresh and not e.check('重跑当前源码与全入口',refresh):
             return 1
         e.check('当前功能回归及代码、产物绑定',lambda:inspect_regression(read(REGRESSION),e.report['source_sha256']))
+        def seller_evidence():
+            proof=read(ROOT/'reports/q2_3/acceptance_latest.json')
+            require(proof.get('status')=='passed' and proof.get('source_sha256')==e.report['source_sha256'],'Q2.3 缺少当前源码通过证据')
+            require(proof.get('requirement_id')=='Q2.3','Q2.3 验收范围未声明')
+            for name,value in proof['artifact_sha256'].items():
+                require(digest(ROOT/name)==value,'Q2.3 产物已变化')
+            return {'run_id':proof['run_id'],'scope':'手算、独立全量及默认全入口'}
+        e.check('Q2.3 当前业务及默认入口',seller_evidence)
         e.check('锁定依赖安装证据及适用范围',inspect_dependencies)
         e.check('真实全入口及本轮产物归属',inspect_execution)
         e.check('数据库配置修复证据适用范围',inspect_runtime_repair)
@@ -146,7 +163,7 @@ def main():
                 e.report['pending_requirements']=pending
                 require(not pending,'仍有未完成或未核实的必答题与提交材料')
                 execution=read(PIPELINE)
-                require(execution.get('exit_code')==0 and execution.get('status')=='passed','完整全入口未通过')
+                inspect_complete_execution(execution)
                 return {'mandatory_items_verified':True,'limit':'机器检查不能替代人工内容质量、理解与外部平台审查'}
             e.check('完整项目逐项交付条件',submission)
         e.report['decision']='implemented_ready' if args.scope=='implemented' and implemented else 'not_ready'

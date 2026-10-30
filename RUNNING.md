@@ -4,9 +4,9 @@
 
 > 整项目仍不可完整交付。R1–R4 已完成本次已知缺陷修复和统一门槛验收；各轮标准、结果、失败记录见 [repairs/PROGRESS.md](repairs/PROGRESS.md)。原审查见 [audit/PROJECT_REVIEW.md](audit/PROJECT_REVIEW.md)，用于保留发现过程，不覆盖新的修复结果。
 
-## 当前阶段：Q1、Q2.1/Q2.2 已实现；Q2.3 独立入口通过，默认整合待完成
+## 当前阶段：Q1、Q2.1/Q2.2 已实现；Q2.3 已接入默认入口及当前门槛
 
-Q1.1 的质量报告、Q1.2 的探索与补证、Q1.3 的清洗策略已接入独立入口；真实 MySQL 九表导入、Q2.1 翻译缺口和 Q2.2 月度成交已实现。Q2.3 独立 SQL/CLI 与单题入口已通过，默认全入口尚未整合；Q2.4、Q3–Q5 尚未完成。Q2 本轮证据与限制见 reports/q2_2_validation.md，数据模型与 Docker 前置要求见 q2_sql_analysis/DATA_MODEL.md。
+Q1.1 的质量报告、Q1.2 的探索与补证、Q1.3 的清洗策略已接入独立入口；真实 MySQL 九表导入、Q2.1 翻译缺口和 Q2.2 月度成交已实现。Q2.3 独立 SQL/CLI、默认全入口与统一门槛已通过；Q2.4、Q3–Q5 尚未完成。Q2 本轮证据与限制见 reports/q2_2_validation.md，数据模型与 Docker 前置要求见 q2_sql_analysis/DATA_MODEL.md。
 
 ```bash
 python run_all.py --stage data
@@ -145,10 +145,10 @@ python release_check.py
 - 相同 requirements 的历史安装证明只证明依赖曾在记录环境中安装成功；当前功能必须对应当前源码。数据库生命周期证明也只在对应运行时代码未变时复用。
 - 各轮门槛实验仍保留自己的范围。源码或锁定依赖变化后，旧“通过”不可直接沿用。机器检查不替代人工审阅、候选人理解、公开 Fork 访问和最终版本核验。
 
-## Q2.3 最小独立增量（整合待验收）
+## Q2.3 独立增量及默认整合
 
 `python q2_sql_analysis/q2_3.py` 下载后的九表重新导入再查询；已有 ready 批次可用 `--skip-load`。`python run_all.py --stage q2.3` 接通本题与产物清单。预定标准见 q2_sql_analysis/ACCEPTANCE_Q2_3.md，决策及面试追问见 Q2_3_DECISIONS.md，当前实际结果见 reports/q2_3/。
 
-默认 Q2/full 入口尚未整合本题，因此标记 not_integrated，Q2 仍为 partial。delivery_requirements.json 的 Q2.3 pending 指完整交付尚未验收，不能将单题 SQL/CLI 的完成解释为全入口已完成。源码变化已使前轮 release 报告失效；下一轮需扩展统一门槛后重跑，不沿用旧 passed。
+默认 Q2/full 已执行 Q2.3；Q2.4 未完成，因此 Q2 仍为 partial。delivery_requirements.json 的 Q2.3 现由当前源码验收报告及产物指纹验证，不靠自填状态放行。已实现范围通过，完整项目因 Q2.4/Q3–Q5 等缺项仍不通过。
 
 本轮按下单时间选 2017，GMV 仅 delivered 且含运费，客户按 customer_unique_id；取消率和延迟率分母不同，见 JSON 诊断与 findings。评价选择是治理假设，尚无业务方认证。SQL 存在明显性能改进空间，此轮不声称完成查询优化。

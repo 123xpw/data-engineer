@@ -3,9 +3,9 @@
   "requirements": [
     {
       "id": "Q2.3",
-      "status": "pending",
-      "reason": "卖家分析 SQL、去重/排名/延迟口径尚未实现",
-      "evidence": null
+      "status": "verified",
+      "reason": "独立与默认入口均需当前通过证据；过期或失败时仍阻止放行",
+      "evidence": "reports/q2_3/acceptance_latest.json"
     },
     {
       "id": "Q2.4",
