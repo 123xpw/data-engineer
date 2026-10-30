@@ -30,7 +30,7 @@ def main():
         for path in (ROOT / "q1_data_quality").iterdir():
             if path.suffix == ".py" or path.name.startswith("ACCEPTANCE_") or path.name in ("cleaning_strategy.md", "strategy_review.md"):
                 shutil.copyfile(path, project / "q1_data_quality" / path.name)
-        for name in ('q3_etl_pipeline','q5_system_design','audit'):
+        for name in ('q3_etl_pipeline','q4_llm_extraction','q5_system_design','audit'):
             shutil.copytree(ROOT/name,project/name,ignore=shutil.ignore_patterns('__pycache__','outputs','pipeline_log.txt'))
         environment = os.environ.copy()
         shutil.copytree(ROOT / "q2_sql_analysis", project / "q2_sql_analysis", ignore=shutil.ignore_patterns("__pycache__"))

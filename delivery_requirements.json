@@ -22,7 +22,7 @@
     {
       "id": "Q4.1",
       "status": "pending",
-      "reason": "抽取、实际费用/时长、人工标注及质量评估尚未完成",
+      "reason": "抽取工程已实现，R1 独立验收；真实服务/账单/全量时间及真人标注评估尚未完成",
       "evidence": null
     },
     {
@@ -34,7 +34,7 @@
     {
       "id": "DOCS",
       "status": "pending",
-      "reason": "三份必填文档尚有模板，逐题内容和候选人理解待审核",
+      "reason": "三份必填文档已填充；待 Q4 实测结果、最终覆盖范围与提交材料核验",
       "evidence": null
     },
     {
@@ -52,7 +52,7 @@
     {
       "id": "PUBLIC_FORK",
       "status": "pending",
-      "reason": "候选人公开 Fork 和评审访问尚未核实",
+      "reason": "公开 Fork、父仓库和候选分支已实际核验；最终冻结版本的访问及摘要证据待登记",
       "evidence": null
     },
     {

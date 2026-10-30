@@ -64,6 +64,14 @@ class ArtifactTests(unittest.TestCase):
             publish('q2.2', self.root, interrupt, run_id='first')
         self.assertEqual(json.loads(self.manifest.read_text())['status'], 'failed')
 
+    def test_partial_artifacts_are_not_success_and_require_explicit_inspection(self):
+        def partial(folder):
+            self.complete(folder)
+            return {'stage_completion':'partial'}
+        publish('q2.2',self.root,partial,run_id='partial')
+        with self.assertRaises(ValueError):validate_manifest(self.manifest,'partial')
+        self.assertEqual(validate_manifest(self.manifest,'partial',allow_partial=True)['status'],'partial')
+
     def test_independent_question_continues_after_failure(self):
         from run_all import q2_scope
         def load(data, report):

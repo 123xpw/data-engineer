@@ -22,6 +22,7 @@ ARTIFACTS = {
     'q2.3': ('q2_3_results.json', 'q2_3_findings.md'),
     'q2.4': ('q2_4_results.json', 'q2_4_query_optimization.md'),
     'q3': ('outputs/sales_facts.parquet','outputs/customer_features.parquet','outputs/returns_log.parquet','pipeline_log.txt','validation_metrics.json','validation_report.md'),
+    'q4': ('extracted_issues.json','run_metrics.json','annotation_blind.json','cost_report.md'),
     'q5': ('real_time_pipeline_design.md','design_metrics.json'),
 }
 
@@ -34,9 +35,10 @@ def digest(path):
 def source_hashes():
     """生产代码与规则声明；不将生成的业务报告混入源码指纹。"""
     files = list(ROOT.glob('*.py')) + [ROOT/'requirements.txt', ROOT/'data_sources.json']
-    for directory in ('q1_data_quality', 'q2_sql_analysis','q3_etl_pipeline','q5_system_design'):
+    for directory in ('q1_data_quality', 'q2_sql_analysis','q3_etl_pipeline','q4_llm_extraction','q5_system_design'):
         files += list((ROOT/directory).glob('*.py')) + list((ROOT/directory).glob('*.sql'))
     files += [ROOT/'q5_system_design/real_time_pipeline_design.md']
+    files += [ROOT/'q4_llm_extraction'/name for name in ('prompt_template.txt','pipeline_design.md','accuracy_evaluation.md','deepseek_config.json')]
     files += [ROOT/'q1_data_quality'/name for name in ('cleaning_strategy.md', 'strategy_review.md')]
     return {str(p.relative_to(ROOT)): digest(p) for p in sorted(set(files)) if p.is_file()}
 
@@ -77,6 +79,9 @@ def publish(stage, output_dir, action, *, inputs=(), run_id=None):
         with tempfile.TemporaryDirectory(dir=output_dir, prefix='.pending-') as folder:
             fresh = Path(folder)
             result = action(fresh)
+            completion = result.get('stage_completion', 'passed') if isinstance(result, dict) else 'passed'
+            if completion not in ('passed', 'partial'):
+                raise RuntimeError('阶段未通过，不发布成功产物')
             hashes = {name: digest(fresh/name) for name in ARTIFACTS[stage]}
             if record['source_sha256'] != source_hashes():
                 raise RuntimeError('运行中源码发生变化，不发布结果')
@@ -86,7 +91,7 @@ def publish(stage, output_dir, action, *, inputs=(), run_id=None):
             for name in ARTIFACTS[stage]:
                 (output_dir/name).parent.mkdir(parents=True,exist_ok=True)
                 os.replace(fresh/name, output_dir/name)
-            record.update(status='passed', artifacts=hashes)
+            record.update(status=completion, artifacts=hashes)
             if isinstance(result, dict) and 'load_version' in result:
                 record['load_version'] = result['load_version']
             if isinstance(result, dict) and 'output_dir' in result:
@@ -100,11 +105,12 @@ def publish(stage, output_dir, action, *, inputs=(), run_id=None):
         raise
 
 
-def validate_manifest(path, expected_run_id):
+def validate_manifest(path, expected_run_id, *, allow_partial=False):
     """调用者必须持有本轮编号；仅检查 latest 或文件存在不足以验收。"""
     path = Path(path)
     record = json.loads(path.read_text())
-    if not expected_run_id or record.get('run_id') != expected_run_id or record.get('status') != 'passed':
+    allowed = {'passed', 'partial'} if allow_partial else {'passed'}
+    if not expected_run_id or record.get('run_id') != expected_run_id or record.get('status') not in allowed:
         raise ValueError('清单不是指定运行的成功产物')
     stage = record.get('stage')
     if stage not in ARTIFACTS or set(record.get('artifacts', {})) != set(ARTIFACTS[stage]):

@@ -1,0 +1,11 @@
+{
+  "endpoint": "https://example.invalid/v1/chat/completions",
+  "model": "填写已确认支持 JSON mode 和 max_completion_tokens 的模型",
+  "input_usd_per_million": null,
+  "output_usd_per_million": null,
+  "context_window": 32768,
+  "max_completion_tokens": 1536,
+  "batch_size": 4,
+  "pricing_source": "https://example.invalid/填写实际价格来源",
+  "pricing_verified_utc": null
+}

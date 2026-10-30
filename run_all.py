@@ -1,4 +1,4 @@
-"""分阶段执行入口：Q1 已交付，Q2 已实现导入、Q2.1 与 Q2.2，其余如实标记。"""
+"""各模块独立执行；Q4 无服务时输出 partial，不用旧结果冒充完成。"""
 
 from __future__ import annotations
 
@@ -55,6 +55,16 @@ def q5_design(output_dir):
         from q5_system_design.design import deliver
         return deliver(fresh)
     return publish('q5',output_dir,action)
+
+
+def q4_extract(data_dir, output_dir, *, live=None, config_path=None):
+    from q4_llm_extraction.extract_reviews import run_pipeline, local_settings, configured_key
+    settings = local_settings()
+    enabled = settings.get('Q4_LIVE') == '1' if live is None else live
+    config = config_path or (Path(settings['Q4_CONFIG']) if enabled and settings.get('Q4_CONFIG') else ROOT/'q4_llm_extraction/deepseek_config.json')
+    input_path = data_dir/'olist/olist_order_reviews_dataset.csv'
+    return publish('q4', output_dir, lambda fresh: run_pipeline(input_path, fresh, live=enabled,
+                   config_path=config, api_key=configured_key(settings, config) if enabled else None), inputs=[input_path,*([config] if enabled else [])])
 
 
 def q2_scope(data_dir, output_dir, *, stage=None):
@@ -134,6 +144,12 @@ def main() -> int:
     parser.add_argument("--q1-output-dir", type=Path, default=ROOT / "q1_data_quality")
     parser.add_argument("--q2-output-dir", type=Path, default=ROOT / "q2_sql_analysis")
     parser.add_argument("--q3-output-dir",type=Path,default=ROOT/"q3_etl_pipeline")
+    parser.add_argument('--q4-output-dir', type=Path, default=ROOT/'q4_llm_extraction')
+    q4_mode = parser.add_mutually_exclusive_group()
+    q4_mode.add_argument('--q4-live', dest='q4_live', action='store_const', const=True)
+    q4_mode.add_argument('--q4-plan', dest='q4_live', action='store_const', const=False, help='强制无网络分流；验收使用此模式')
+    parser.set_defaults(q4_live=None)
+    parser.add_argument('--q4-config', type=Path)
     parser.add_argument("--q5-output-dir",type=Path,default=ROOT/"q5_system_design")
     parser.add_argument("--report", type=Path, default=ROOT / "reports" / "latest_run.json")
     args = parser.parse_args()
@@ -156,7 +172,7 @@ def main() -> int:
         steps.append((selected or 'q2', lambda: q2_scope(args.data_dir, args.q2_output_dir, stage=selected)))
     for name in ("q3", "q4", "q5"):
         if args.stage in ("all", name):
-            action=(lambda:q3_pipeline(args.data_dir,args.q3_output_dir)) if name=="q3" else (lambda:q5_design(args.q5_output_dir)) if name=="q5" else None
+            action=(lambda:q3_pipeline(args.data_dir,args.q3_output_dir)) if name=="q3" else (lambda:q5_design(args.q5_output_dir)) if name=="q5" else (lambda:q4_extract(args.data_dir,args.q4_output_dir,live=args.q4_live,config_path=args.q4_config))
             steps.append((name, action))
     results, code = run_steps(steps)
     report = {"run_id": run_id, "status": "passed" if code == 0 else "failed" if code == 1 else "partial",
@@ -164,7 +180,7 @@ def main() -> int:
               "python": platform.python_version(), "platform": platform.platform(),
               "requested_stage": args.stage, "exit_code": code, "results": results,
               "source_sha256": source_hashes(),
-              "output_directories": {"q1": str(args.q1_output_dir.resolve()), "q2": str(args.q2_output_dir.resolve()),"q3":str(args.q3_output_dir.resolve()),"q5":str(args.q5_output_dir.resolve())}}
+              "output_directories": {"q1": str(args.q1_output_dir.resolve()), "q2": str(args.q2_output_dir.resolve()),"q3":str(args.q3_output_dir.resolve()),"q4":str(args.q4_output_dir.resolve()),"q5":str(args.q5_output_dir.resolve())}}
     args.report.parent.mkdir(parents=True, exist_ok=True)
     atomic_json(args.report, report)
     LOG.info("报告：%s；退出码：%s", args.report, code)

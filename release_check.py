@@ -63,7 +63,9 @@ def inspect_execution():
     outputs=report['output_directories']; validated={}
     for stage in ARTIFACTS:
         folder=Path(outputs[stage.split('.')[0]])
-        record=validate_manifest(manifest_path(folder,stage),report['run_id'])
+        record=validate_manifest(manifest_path(folder,stage),report['run_id'],allow_partial=stage=='q4')
+        if stage=='q4':
+            require(record['status']==rows['q4']['status'],'Q4 清单与实际入口状态不一致')
         validated[stage]={'manifest_sha256':digest(manifest_path(folder,stage)),'artifacts':record['artifacts']}
     # 再执行产生新的数据库批次；只豁免随机批次号，所有业务字段必须相等。
     for group,name in [('q1','data_quality_metrics.json'),('q1','findings_metrics.json'),
@@ -133,6 +135,10 @@ def refresh():
     # Q2.3 验证器已实际运行默认全入口，检查同一候选，避免重复导入。
     design=subprocess.run([sys.executable,str(ROOT/'scripts/verify_q5.py')],cwd=ROOT,timeout=120)
     require(design.returncode==0,'Q5 文档交付验收失败')
+    engineering=subprocess.run([sys.executable,str(ROOT/'scripts/verify_q4.py')],cwd=ROOT,timeout=180)
+    require(engineering.returncode==0,'Q4 无网络工程验收失败')
+    bonus=subprocess.run([sys.executable,str(ROOT/'scripts/verify_bonus.py')],cwd=ROOT,timeout=120)
+    require(bonus.returncode==0,'已提供加分题的事实复算验收失败')
     report=read(PIPELINE)
     require(report.get('exit_code') in (0,2),'全入口发生运行失败')
     return {'pipeline_exit_code':report['exit_code'],'scope':'当前 Q1、九表、Q2.1–Q2.4、Q3 与 Q5 文档；Q4 及提交缺项仍禁止完整提交'}
@@ -148,14 +154,15 @@ def main():
             return 1
         e.check('当前功能回归及代码、产物绑定',lambda:inspect_regression(read(REGRESSION),e.report['source_sha256']))
         def subquestion_evidence(stage):
-            report_folder={'Q2.3':'q2_3','Q2.4':'q2_4','Q3.1':'q3','Q5.1':'q5'}[stage]
-            proof=read(ROOT/('reports/'+report_folder+'/acceptance_latest.json'))
+            report_folder={'Q2.3':'q2_3','Q2.4':'q2_4','Q3.1':'q3','Q4.R1':'q4','Q5.1':'q5','Q6':'bonus'}[stage]
+            name='engineering_latest.json' if stage=='Q4.R1' else 'acceptance_latest.json'
+            proof=read(ROOT/('reports/'+report_folder+'/'+name))
             require(proof.get('status')=='passed' and proof.get('source_sha256')==e.report['source_sha256'],stage+' 缺少当前源码通过证据')
             require(proof.get('requirement_id')==stage,stage+' 验收范围未声明')
             for name,value in proof['artifact_sha256'].items():
                 require(digest(ROOT/name)==value,stage+' 产物已变化')
             return {'run_id':proof['run_id'],'scope':'当前子题、独立参考及默认全入口'}
-        for stage in ('Q2.3','Q2.4','Q3.1','Q5.1'):
+        for stage in ('Q2.3','Q2.4','Q3.1','Q4.R1','Q5.1','Q6'):
             e.check(stage+' 当前业务及默认入口',lambda name=stage:subquestion_evidence(name))
         e.check('锁定依赖安装证据及适用范围',inspect_dependencies)
         e.check('真实全入口及本轮产物归属',inspect_execution)
