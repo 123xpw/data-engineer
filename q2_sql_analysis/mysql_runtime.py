@@ -8,7 +8,9 @@ import secrets
 import socket
 import subprocess
 import sys
+import tempfile
 import time
+from contextlib import contextmanager
 
 import pymysql
 
@@ -20,6 +22,7 @@ LABEL='gekko.data-engineer.exam=managed'
 IMAGE='mysql:8.4@sha256:a0225d1ea6631c8bc2385dc4c2faba17bbf1834ecf369e1659a9a382bd8d5dd7'
 CONFIG=Path(os.environ.get('GEKKO_MYSQL_ENV_FILE',str(ROOT/'.env')))
 CA=ROOT/'.venv'/('mysql-ca.pem' if NAME=='gekko-de-exam-mysql' else f'mysql-ca-{NAME}.pem')
+MYSQL_KEYS=('MYSQL_USER','MYSQL_PASSWORD','MYSQL_DATABASE','MYSQL_ROOT_PASSWORD')
 
 
 def command(args,timeout=60):
@@ -29,7 +32,7 @@ def command(args,timeout=60):
     return r.stdout
 
 
-def settings():
+def private_values():
     if not CONFIG.exists():
         raise RuntimeError('缺少私有数据库配置；已有实例请用 GEKKO_MYSQL_ENV_FILE 显式指定原配置')
     values={}
@@ -41,9 +44,24 @@ def settings():
             if key in values:
                 raise RuntimeError('私有配置含重复键，不覆盖现有文件')
             values[key]=value
-    if not all(values.get(key) for key in ('MYSQL_USER','MYSQL_PASSWORD','MYSQL_DATABASE','MYSQL_ROOT_PASSWORD')):
-        raise RuntimeError('私有配置缺少非空数据库参数，不覆盖现有文件')
     return values
+
+
+def settings():
+    values=private_values()
+    if not all(values.get(key) for key in MYSQL_KEYS):
+        raise RuntimeError('私有配置缺少非空数据库参数，不覆盖现有文件')
+    return {key:values[key] for key in MYSQL_KEYS}
+
+
+@contextmanager
+def mysql_env_file():
+    """共享 .env 中的模型密钥不得传入数据库容器；临时文件权限为 0600。"""
+    values=settings()
+    with tempfile.NamedTemporaryFile(mode='w',encoding='utf-8',prefix='gekko-mysql-',suffix='.env') as stream:
+        for key in MYSQL_KEYS:stream.write(key+'='+values[key]+'\n')
+        stream.flush()
+        yield stream.name
 
 
 def connect(database=True):
@@ -87,7 +105,8 @@ def ensure_mysql():
                 raise RuntimeError('存量卷没有本项目所有权标签，拒绝自动接管；请核实迁移方案')
             settings()
         elif CONFIG.exists():
-            settings()
+            values=private_values()
+            if any(key in values for key in MYSQL_KEYS):settings()
         with socket.socket() as probe:
             # 允许已关闭连接的 TIME_WAIT 回收；仍不能抢占活跃监听端口。
             probe.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
@@ -95,16 +114,21 @@ def ensure_mysql():
                 probe.bind(('127.0.0.1',PORT))
             except OSError as exc:
                 raise RuntimeError('回环端口已占用，请选择 GEKKO_MYSQL_PORT；未新建实例或凭据') from exc
-        if not CONFIG.exists():
-            fd=os.open(CONFIG,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)
+        exists_config=CONFIG.exists()
+        # 新实例/新卷允许向“只有模型配置”的文件追加全新数据库凭据；残缺 MYSQL 配置仍拒绝。
+        if not exists_config or not any(key in private_values() for key in MYSQL_KEYS):
+            fd=os.open(CONFIG,os.O_WRONLY|(os.O_APPEND if exists_config else os.O_CREAT|os.O_EXCL),0o600)
+            os.chmod(CONFIG,0o600)
             with os.fdopen(fd,'w') as stream:
+                if exists_config:stream.write('\n')
                 stream.write('MYSQL_DATABASE=gekko_exam\nMYSQL_USER=gekko_exam\n')
                 stream.write('MYSQL_PASSWORD='+secrets.token_hex(24)+'\nMYSQL_ROOT_PASSWORD='+secrets.token_hex(24)+'\n')
         if not volume_exists:
             command(['docker','volume','create','--label',LABEL,VOLUME])
-        command(['docker','run','-d','--name',NAME,'--label',LABEL,'--env-file',str(CONFIG),
-                 '-p',f'127.0.0.1:{PORT}:3306','--mount',f'type=volume,source={VOLUME},target=/var/lib/mysql',
-                 IMAGE,'--character-set-server=utf8mb4','--collation-server=utf8mb4_0900_bin'],timeout=300)
+        with mysql_env_file() as env_path:
+            command(['docker','run','-d','--name',NAME,'--label',LABEL,'--env-file',env_path,
+                     '-p',f'127.0.0.1:{PORT}:3306','--mount',f'type=volume,source={VOLUME},target=/var/lib/mysql',
+                     IMAGE,'--character-set-server=utf8mb4','--collation-server=utf8mb4_0900_bin'],timeout=300)
     CA.parent.mkdir(parents=True,exist_ok=True)
     for _ in range(90):
         r=subprocess.run(['docker','cp',f'{NAME}:/var/lib/mysql/ca.pem',str(CA)],capture_output=True,text=True,timeout=15)

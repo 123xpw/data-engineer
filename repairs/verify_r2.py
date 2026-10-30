@@ -38,6 +38,7 @@ def main():
             try:
                 with tempfile.TemporaryDirectory(prefix='gekko-r2-') as folder:
                     temp=Path(folder);config=temp/'private.env'
+                    config.write_text('DEEPSEEK_API_KEY=fixture-model-never-send\nQ4_LIVE=0\n');config.chmod(0o600)
                     with socket.socket() as sock:
                         sock.bind(('127.0.0.1',0));port=sock.getsockname()[1]
                     env={**os.environ,'GEKKO_MYSQL_CONTAINER':name,'GEKKO_MYSQL_VOLUME':volume,
@@ -54,10 +55,16 @@ def main():
                             require(fragment in r.stderr,f'{label} 缺明确诊断')
                         return json.loads(r.stdout) if not expected else None
                     first=invoke('全新受管实例')
+                    def no_model_environment():
+                        environment=json.loads(docker('inspect','--format','{{json .Config.Env}}',name))
+                        keys={v.split('=',1)[0] for v in environment}
+                        require(not {'DEEPSEEK_API_KEY','Q4_LIVE'}&keys,'模型变量被传入数据库容器')
+                    no_model_environment()
                     require(config.stat().st_mode & 0o777==0o600,'新配置权限不正确')
                     cfg_hash=sha256(config);second=invoke('同配置重跑')
                     require(sha256(config)==cfg_hash and first['image_id']==second['image_id'],'重跑改变配置或实例镜像')
-                    values=dict(line.split('=',1) for line in config.read_text().splitlines())
+                    values=dict(line.split('=',1) for line in config.read_text().splitlines() if line and not line.startswith('#'))
+                    require(values.get('DEEPSEEK_API_KEY')=='fixture-model-never-send','初始化覆盖了已有模型配置')
                     def test_connection():
                         return pymysql.connect(host='127.0.0.1',port=port,user=values['MYSQL_USER'],password=values['MYSQL_PASSWORD'],
                             database=values['MYSQL_DATABASE'],ssl_ca=str(ROOT/'.venv'/f'mysql-ca-{name}.pem'),ssl_verify_cert=True)
@@ -89,6 +96,7 @@ def main():
                     invoke('存量受管卷缺配置',1,{'GEKKO_MYSQL_ENV_FILE':str(absent)},fragment='缺少私有数据库配置')
                     require(not absent.exists(),'恢复场景生成新密码')
                     invoke('原配置恢复受管卷')
+                    no_model_environment()
                     with test_connection() as c,c.cursor() as cur:
                         cur.execute('SELECT value FROM recovery_marker WHERE id=1');restored=cur.fetchone()==(731,)
                     require(restored,'容器恢复后数据标记丢失')
@@ -108,6 +116,7 @@ def main():
                 cur.execute('SELECT COUNT(*) FROM products');require(cur.fetchone()[0]==before_count,'原项目产品行数变化')
             require(sha256(ROOT/'.env')==original_config,'原项目凭据变化')
             return {'cases':records,'restored_data_marker':restored,'original_project_unchanged':True,
+                    'model_only_configuration_bootstrapped':True,'model_keys_absent_from_container_environment':True,
                     'temporary_owned_container_and_volume_removed':True,'limitation':'本机 Docker 实测；不声明其它平台或远程数据库兼容'}
         e.check('独立实例生命周期与非破坏性失败实验',lifecycle)
     print(e.path)
