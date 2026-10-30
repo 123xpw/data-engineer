@@ -6,9 +6,12 @@
     "tls_cipher": "TLS_AES_256_GCM_SHA384",
     "image_id": "sha256:a0225d1ea6631c8bc2385dc4c2faba17bbf1834ecf369e1659a9a382bd8d5dd7",
     "endpoint": "127.0.0.1:3307",
-    "database": "gekko_exam"
+    "database": "gekko_exam",
+    "container": "gekko-de-exam-mysql",
+    "volume": "gekko-de-exam-mysql-data",
+    "configuration": "显式原配置或全新实例初始化；不输出凭据"
   },
-  "version": "86f104344a1f",
+  "version": "5ffe38a9d45c",
   "tables": {
     "customers": {
       "rows": 99441,

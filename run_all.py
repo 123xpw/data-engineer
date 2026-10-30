@@ -9,49 +9,68 @@ import logging
 from pathlib import Path
 import platform
 import time
+import uuid
 from typing import Callable
 
 from download_data import ROOT, DataValidationError, load_sources, prepare_dataset
+
+from artifact_manifest import RUN_ID, atomic_json, mark, publish
 
 LOG = logging.getLogger(__name__)
 
 
 def q1_profile(data_dir, output_dir):
     """按需导入，其他独立模块不受 Q1 依赖导入失败影响。"""
-    from q1_data_quality.q1_code import run_profile
-    return run_profile(data_dir / "online_retail_ii.csv", output_dir)
+    def action(fresh):
+        from q1_data_quality.q1_code import run_profile
+        return run_profile(data_dir / "online_retail_ii.csv", fresh)
+    return publish("q1.1", output_dir, action, inputs=[data_dir / "online_retail_ii.csv"])
 
 
 def q1_findings(data_dir, output_dir):
     """探索模块独立导入和运行，不依赖 Q1.1 的产物。"""
-    from q1_data_quality.q1_findings import run_findings
-    return run_findings(data_dir / "online_retail_ii.csv", output_dir)
+    def action(fresh):
+        from q1_data_quality.q1_findings import run_findings
+        return run_findings(data_dir / "online_retail_ii.csv", fresh)
+    return publish("q1.2", output_dir, action, inputs=[data_dir / "online_retail_ii.csv"])
 
 
 def q1_strategy(output_dir):
     """交付策略文档，不将文件检查冒充业务认证或 ETL 执行。"""
-    from q1_data_quality.q1_strategy import deliver_strategy
-    return deliver_strategy(output_dir)
+    def action(fresh):
+        from q1_data_quality.q1_strategy import deliver_strategy
+        return deliver_strategy(fresh)
+    return publish("q1.3", output_dir, action)
 
 
 def q2_scope(data_dir, output_dir, *, stage=None):
     """Q2 内部依赖显式处理，导入失败不拿旧批次冒充本次成功。"""
-    from q2_sql_analysis.load_olist import load
+    run_id = RUN_ID.get() or uuid.uuid4().hex
     requested = [stage] if stage else ['q2.1', 'q2.2']
     details = []
+    for name in requested:
+        mark(output_dir, name, "running", run_id=run_id)
     try:
-        loaded = load(data_dir, output_dir / "load_report.json")
+        def load_action(fresh):
+            from q2_sql_analysis.load_olist import load
+            return load(data_dir, fresh / "load_report.json")
+        loaded = publish("q2.load", output_dir, load_action, run_id=run_id)
         details.append({"stage": "q2.load", "status": "passed", "detail": loaded})
     except Exception as exc:
+        for name in requested:
+            mark(output_dir, name, "blocked_dependency", run_id=run_id, error=type(exc).__name__)
         return {"stage_completion": "failed", "results": [{"stage": "q2.load", "status": "failed", "error": type(exc).__name__},
                 *({"stage": name, "status": "blocked_dependency"} for name in requested)]}
     for name in requested:
         try:
-            if name == 'q2.1':
-                from q2_sql_analysis.q2_1 import query
-            else:
-                from q2_sql_analysis.q2_2 import query
-            details.append({"stage": name, "status": "passed", "detail": query(output_dir)})
+            def query_action(fresh):
+                if name == 'q2.1':
+                    from q2_sql_analysis.q2_1 import query
+                else:
+                    from q2_sql_analysis.q2_2 import query
+                return query(fresh)
+            result = publish(name, output_dir, query_action, inputs=[output_dir / "load_report.json"], run_id=run_id)
+            details.append({"stage": name, "status": "passed", "detail": result})
         except Exception as exc:
             details.append({"stage": name, "status": "failed", "error": type(exc).__name__})
     if any(item['status'] == 'failed' for item in details):
@@ -100,6 +119,9 @@ def main() -> int:
     parser.add_argument("--report", type=Path, default=ROOT / "reports" / "latest_run.json")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+    run_id = uuid.uuid4().hex
+    RUN_ID.set(run_id)
+    atomic_json(args.report, {"run_id": run_id, "status": "running", "requested_stage": args.stage})
     steps = []
     if args.stage in ("all", "data"):
         for name, spec in load_sources().items():
@@ -117,11 +139,12 @@ def main() -> int:
         if args.stage in ("all", name):
             steps.append((name, None))
     results, code = run_steps(steps)
-    report = {"timestamp_utc": datetime.now(timezone.utc).isoformat(),
+    report = {"run_id": run_id, "status": "passed" if code == 0 else "failed" if code == 1 else "partial",
+              "timestamp_utc": datetime.now(timezone.utc).isoformat(),
               "python": platform.python_version(), "platform": platform.platform(),
               "requested_stage": args.stage, "exit_code": code, "results": results}
     args.report.parent.mkdir(parents=True, exist_ok=True)
-    args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    atomic_json(args.report, report)
     LOG.info("报告：%s；退出码：%s", args.report, code)
     return code
 
