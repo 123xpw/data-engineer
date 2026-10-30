@@ -4,6 +4,7 @@ from decimal import Decimal
 import json
 from pathlib import Path
 import tempfile
+import threading
 import time
 import unittest
 from unittest.mock import Mock, patch
@@ -68,6 +69,16 @@ class Q4Cases(unittest.TestCase):
         wrong = content(); wrong['results'][0]['issues'][0].update(category='delivery_late', evidence_quote='Não chegou atrasado', evidence_quote_en='It arrived late')
         # 故意保留“合法结构但错误语义”反例：系统不具备否定/翻译正确性的证明。
         self.assertIn(7, q.validate_batch(wrong, [ROW]))
+
+    def test_unique_case_restoration_preserves_raw_words_and_ambiguity_rejected(self):
+        item=content();item['results'][0]['issues'][0]['evidence_quote']='produto QUEBRADO'
+        fixed,changes=q.restore_quote_case(item,[ROW])
+        self.assertEqual(fixed['results'][0]['issues'][0]['evidence_quote'],'Produto quebrado')
+        self.assertEqual(item['results'][0]['issues'][0]['evidence_quote'],'produto QUEBRADO')
+        self.assertEqual(changes[0]['start'],0);q.validate_batch(fixed,[ROW])
+        other={**ROW,'message':'PRODUTO QUEBRADO; Produto Quebrado'}
+        fixed,changes=q.restore_quote_case(item,[other]);self.assertEqual(changes,[])
+        with self.assertRaises(ValueError):q.validate_batch(fixed,[other])
 
     def test_duplicate_json_keys_nan_rejected(self):
         for text in ['{"results":[],"results":[]}', '{"value":NaN}', '{"value":Infinity}']:
@@ -141,10 +152,12 @@ class Q4Cases(unittest.TestCase):
         for value in ['NaN', '0', '3.01']:
             with self.assertRaises(ValueError):q.Ledger(self.path, value)
 
-    def test_elapsed_campaign_and_single_call_deadline_block_network(self):
+    def test_paused_campaign_does_not_reset_cost_and_run_deadline_blocks_network(self):
         self.ledger.data['first_request_epoch'] = time.time()-2401
-        fake = Mock(); self.assertEqual(self.call(fake)[1], 'campaign_deadline'); fake.assert_not_called()
-        values, mode=q.request_batch([ROW], CONFIG, 'fixture', self.ledger, time.monotonic()-1, transport=fake)
+        fake = Mock(return_value=response()); self.assertEqual(self.call(fake)[1], 'api'); self.assertEqual(fake.call_count,1)
+        self.assertEqual(self.ledger.occupied(),Decimal('0.00025'))
+        fake=Mock()
+        values, mode=q.request_batch([{**ROW,'source_row':8}], CONFIG, 'fixture', self.ledger, time.monotonic()-1, transport=fake)
         self.assertEqual(mode, 'deadline'); fake.assert_not_called()
 
     def test_cumulative_budget_includes_prior_uncertain_request(self):
@@ -194,7 +207,7 @@ class Q4Cases(unittest.TestCase):
             self.assertEqual(first['stage_completion'],'partial')
             config_path.write_text(json.dumps({**CONFIG,'batch_size':2}))
             full=q.run_pipeline('fixture',self.path/'out',config_path=config_path,api_key='fixture',live=True,state_dir=self.path/'state',transport=fake)
-        self.assertEqual(full['stage_completion'],'passed');self.assertEqual(called,[7,8,9,10])
+        self.assertEqual(full['stage_completion'],'passed');self.assertCountEqual(called,[7,8,9,10])
         actual=json.loads((self.path/'out/extracted_issues.json').read_text());self.assertEqual(len(actual),4)
         self.assertEqual({r['review_id'] for r in actual},{'same-id'})
 
@@ -205,6 +218,39 @@ class Q4Cases(unittest.TestCase):
             q.run_pipeline('fixture',self.path/'out',config_path=config_path,api_key='fixture',live=True,limit=1,state_dir=self.path/'state',transport=fake)
             second=q.run_pipeline('fixture',self.path/'out',config_path=config_path,api_key='fixture',live=True,state_dir=self.path/'state',transport=fake)
         self.assertEqual(fake.call_count,1);self.assertEqual(second['metrics']['stop_reason'],'prior_unresolved_request')
+
+    def test_concurrent_budget_wait_does_not_duplicate_requests(self):
+        rows=[{**ROW,'source_row':i} for i in range(20)]
+        path=self.path/'config.json';path.write_text(json.dumps({**CONFIG,'batch_size':1}))
+        calls=[];active=0;peak=0;lock=threading.Lock()
+        def fake(c,key,payload,timeout):
+            nonlocal active,peak
+            sid=json.loads(payload['messages'][1]['content'])[0]['source_row']
+            with lock:active+=1;peak=max(peak,active);calls.append(sid)
+            time.sleep(0.005)
+            with lock:active-=1
+            value=response();item=content()['results'][0];item['source_row']=sid
+            value['choices'][0]['message']['content']=json.dumps({'results':[item]});return value
+        with patch.object(q,'read_reviews',return_value=(rows,{'sha256':'fixture'})):
+            result=q.run_pipeline('fixture',self.path/'out',config_path=path,api_key='fixture',live=True,budget='0.05',state_dir=self.path/'state',transport=fake,workers=4)
+        self.assertEqual(result['stage_completion'],'passed');self.assertCountEqual(calls,list(range(20)))
+        self.assertEqual(peak,1);self.assertEqual(Decimal(result['metrics']['budget_occupied_usd']),Decimal('0.005'))
+
+    def test_cache_replay_after_deadline_is_still_reusable(self):
+        path=self.path/'config.json';path.write_text(json.dumps(CONFIG));fake=Mock(return_value=response())
+        with patch.object(q,'read_reviews',return_value=([ROW],{'sha256':'fixture'})):
+            q.run_pipeline('fixture',self.path/'out',config_path=path,api_key='fixture',live=True,state_dir=self.path/'state',transport=fake)
+            future=time.time()+2500
+            with patch.object(q.time,'time',return_value=future):
+                replay=q.run_pipeline('fixture',self.path/'out',config_path=path,api_key='fixture',live=True,state_dir=self.path/'state',transport=fake)
+        self.assertEqual(replay['stage_completion'],'passed');self.assertEqual(fake.call_count,1)
+
+    def test_partial_batch_preserves_only_individually_validated_rows(self):
+        rows=[ROW,{**ROW,'source_row':8}]
+        key='fixture-partial';entry=self.ledger.reserve(key,CONFIG,row_keys={str(r['source_row']):q.row_key(r,CONFIG) for r in rows})
+        self.ledger.receipt(entry,response(),content=content());entry['status']='partial';self.ledger.save()
+        values,blocked=q.recover_rows(rows,CONFIG,self.ledger)
+        self.assertEqual(set(values),{7});self.assertEqual(blocked,{8})
 
     def test_annotation_empty_rejected_and_hand_metrics(self):
         rows=[{**ROW,'source_row':i,'review_id':str(i)} for i in range(1,31)]

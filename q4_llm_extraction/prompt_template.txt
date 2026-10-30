@@ -13,3 +13,5 @@ sentiment_score 是 -1 到 1 的有限数值，0 表示无法辨别或中性；c
 actionable_for_seller 仅在有具体可跟进的问题时为 true；没有明确行动依据为 false。不输出 Markdown、解释或额外字段。
 示例输入：[{"source_row":1,"message":"Produto chegou quebrado, embalagem rasgada."},{"source_row":2,"message":"Não veio quebrado, chegou perfeito"}]
 示例输出：{"results":[{"source_row":1,"issues":[{"category":"quality_defect","severity":"high","evidence_quote":"Produto chegou quebrado","evidence_quote_en":"The product arrived broken"},{"category":"packaging","severity":"medium","evidence_quote":"embalagem rasgada","evidence_quote_en":"torn packaging"}],"sentiment_score":-0.9,"actionable_for_seller":true,"confidence":0.85},{"source_row":2,"issues":[],"sentiment_score":0.8,"actionable_for_seller":false,"confidence":0.8}]}
+重要反例：message="ESTA COMPRA ME DECEPCIONOU" 只有泛化失望，没有具体故障，应 issues=[]，sentiment_score=-0.6，actionable_for_seller=false，confidence=0.5；不得把“想知道怎么回事”归为 seller_communication，也不得将泛化不满硬塞到 other。
+大小写反例：message="A CAIXA CHEGOU ABERTA" 时引文必须为 "A CAIXA CHEGOU ABERTA"，不能写 "A caixa chegou aberta"。提交前逐字检查所有引文，保留原始拼写错误。

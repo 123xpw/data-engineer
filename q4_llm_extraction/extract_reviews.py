@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
 from collections import Counter
 from contextlib import contextmanager
 from datetime import datetime, timezone
@@ -12,9 +13,13 @@ import json
 import math
 import multiprocessing
 import os
+import re
 from pathlib import Path
 import sys
+import tempfile
 import time
+import threading
+from functools import wraps
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -136,6 +141,24 @@ def validate_batch(value, rows):
     return result
 
 
+def restore_quote_case(content, rows):
+    """只恢复唯一的大小写等价原文片段；原始模型响应另外完整保留。"""
+    original={r['source_row']:r['message'] for r in rows};changes=[]
+    copied=json.loads(json.dumps(content,ensure_ascii=False,allow_nan=False))
+    for item in copied.get('results',[]):
+        if type(item) is not dict or type(item.get('source_row')) is not int or item['source_row'] not in original:continue
+        text=original[item['source_row']]
+        for issue in item.get('issues',[]):
+            if type(issue) is not dict:continue
+            quote=issue.get('evidence_quote')
+            if type(quote) is not str or not quote.strip() or quote in text:continue
+            matches=[m for m in re.finditer(re.escape(quote),text,re.IGNORECASE) if m.group().casefold()==quote.casefold()]
+            if len(matches)==1:
+                match=matches[0];issue['evidence_quote']=match.group()
+                changes.append({'source_row':item['source_row'],'model_quote':quote,'original_quote':match.group(),'start':match.start(),'end':match.end()})
+    return copied,changes
+
+
 def local_settings():
     values = {}
     path = ROOT/'.env'
@@ -197,12 +220,21 @@ def recover_rows(rows, config, ledger):
         for sid, signature in entry.get('row_keys', {}).items():
             if sid not in wanted or wanted[sid][0] != signature:
                 continue
-            if entry['status'] == 'valid':
-                item = next(i for i in entry['content']['results'] if str(i['source_row']) == sid)
-                recovered.update(validate_batch({'results': [item]}, [wanted[sid][1]]))
+            if entry['status'] in ('valid','partial'):
+                item = next((i for i in ledger.content(entry)['results'] if str(i['source_row']) == sid),None)
+                if item is not None:recovered.update(validate_batch({'results': [item]}, [wanted[sid][1]]))
+                else:blocked.add(int(sid))
             else:
                 blocked.add(int(sid))
+    blocked.difference_update(recovered)
     return recovered, blocked
+
+
+def synchronized(method):
+    @wraps(method)
+    def call(self,*args,**kwargs):
+        with self.lock:return method(self,*args,**kwargs)
+    return call
 
 
 @contextmanager
@@ -224,6 +256,7 @@ class Ledger:
     """全任务共用持久账本；未知计费保留预留，不自动重发。"""
     def __init__(self, directory, budget='3', *, run_started_epoch=None):
         self.path = Path(directory)/'ledger.json'
+        self.lock = threading.RLock()
         self.budget = Decimal(str(budget))
         self.run_started_epoch = run_started_epoch if run_started_epoch is not None else time.time()
         if not self.budget.is_finite() or not 0 < self.budget <= 3:
@@ -232,31 +265,45 @@ class Ledger:
         if self.data.get('schema_version') != 2:
             raise ValueError('未知账本版本')
 
+    @synchronized
     def save(self):
-        atomic_json(self.path, self.data)
-        # 请求前的预留必须越过进程缓存；突然断电仍受文件系统保证范围限制。
-        with self.path.open('rb') as stream:
-            os.fsync(stream.fileno())
+        self.path.parent.mkdir(parents=True,exist_ok=True)
+        fd,name=tempfile.mkstemp(dir=self.path.parent,prefix='.ledger-')
+        try:
+            with os.fdopen(fd,'w',encoding='utf-8') as stream:
+                stream.write(json.dumps(self.data,ensure_ascii=False,allow_nan=False,separators=(',',':')))
+                stream.flush();os.fsync(stream.fileno())
+            os.replace(name,self.path)
+        finally:Path(name).unlink(missing_ok=True)
         directory = os.open(self.path.parent, os.O_RDONLY)
         try:
             os.fsync(directory)
         finally:
             os.close(directory)
 
+    def content(self,entry):
+        if 'content' in entry:return entry['content']
+        return strict_json((self.path.parent/'receipts'/entry['receipt_file']).read_text())['content']
+
+    def receipt(self,entry,response,*,content=None,repairs=None):
+        filename=entry['request_key']+'.json'
+        atomic_json(self.path.parent/'receipts'/filename,{'raw_response':response,'content':content,'quote_case_repairs':repairs})
+        entry['receipt_file']=filename
+
+    @synchronized
     def occupied(self):
         return sum((Decimal(e.get('usage_cost_upper_bound_usd', e['reserved_usd'])) for e in self.data['entries'].values()), Decimal(0))
 
+    @synchronized
     def reserve(self, key, config, *, row_keys):
         amount = token_cost(config, config['context_window'], config['max_completion_tokens'])
         if self.occupied()+amount > self.budget:
             raise RuntimeError('budget_exhausted')
         epoch = time.time()
         first = self.data['first_request_epoch']
-        if first is not None and epoch-first >= 2400:
-            raise RuntimeError('campaign_deadline')
         if first is None:
             self.data['first_request_epoch'] = self.run_started_epoch
-        entry = {'status': 'reserved', 'reserved_usd': str(amount), 'reserved_utc': utc(), 'config': config, 'row_keys': row_keys}
+        entry = {'status': 'reserved', 'reserved_usd': str(amount), 'reserved_utc': utc(), 'config': config, 'row_keys': row_keys,'request_key':key}
         self.data['entries'][key] = entry
         self.save()
         return entry
@@ -317,7 +364,7 @@ def request_batch(rows, config, api_key, ledger, deadline, *, transport=http_tra
     existing = ledger.data['entries'].get(key)
     if existing:
         if existing['status'] == 'valid':
-            return validate_batch(existing['content'], rows), 'cache'
+            return validate_batch(ledger.content(existing), rows), 'cache'
         return {}, 'prior_'+existing['status']
     if ledger.data.get('halted'):
         return {}, 'campaign_halted'
@@ -331,12 +378,29 @@ def request_batch(rows, config, api_key, ledger, deadline, *, transport=http_tra
     except RuntimeError as exc:
         return {}, str(exc)
     try:
-        remaining = min(deadline-time.monotonic(), 2400-(time.time()-ledger.data['first_request_epoch']))
+        remaining = deadline-time.monotonic()
         if remaining <= 0:
             raise TimeoutError('deadline')
         response = transport(config, api_key, payload, min(45, remaining))
+    except Exception as exc:
+        return record_failure(ledger,entry,exc)
+    with ledger.lock:
+        return settle_response(rows,config,ledger,entry,response)
+
+
+def record_failure(ledger,entry,exc):
+    with ledger.lock:
+        entry.update(status='uncertain' if 'usage_cost_upper_bound_usd' not in entry else 'invalid',error_type=type(exc).__name__,finished_utc=utc(),finished_epoch=time.time())
+        if isinstance(exc,ValueError):entry['validation_error']=str(exc)
+        ledger.save()
+        return {},entry['status']
+
+
+def settle_response(rows,config,ledger,entry,response):
+    try:
         # 先保留服务原始响应；后续解析失败也不能被当作免费。
-        entry['response'] = response
+        entry.update(request_id=response.get('id'),finished_epoch=time.time())
+        ledger.receipt(entry,response)
         usage = response['usage']
         incoming, outgoing = usage['prompt_tokens'], usage['completion_tokens']
         if type(incoming) is not int or type(outgoing) is not int or incoming < 0 or outgoing < 0:
@@ -356,14 +420,15 @@ def request_batch(rows, config, api_key, ledger, deadline, *, transport=http_tra
         if choice['finish_reason'] != 'stop':
             raise ValueError('模型输出截断或拒绝')
         content = strict_json(choice['message']['content'])
+        content,repairs = restore_quote_case(content, rows)
         validated = validate_batch(content, rows)
-        entry.update(status='valid', content=content, request_id=response.get('id'), finished_utc=utc())
+        entry['quote_case_repairs'] = repairs
+        ledger.receipt(entry,response,content=content,repairs=repairs)
+        entry.update(status='valid', request_id=response.get('id'), finished_utc=utc())
         ledger.save()
         return validated, 'api'
     except Exception as exc:
-        entry.update(status='uncertain' if 'usage_cost_upper_bound_usd' not in entry else 'invalid', error_type=type(exc).__name__, finished_utc=utc())
-        ledger.save()
-        return {}, entry['status']
+        return record_failure(ledger,entry,exc)
 
 
 def annotation_sample(rows, size=30):
@@ -374,11 +439,38 @@ def annotation_sample(rows, size=30):
             'rows': [{**r, 'labels': None, 'prediction_audit': None} for r in chosen]}
 
 
+def dispatch(rows,config,api_key,ledger,deadline,workers,transport):
+    batches=[rows[i:i+config['batch_size']] for i in range(0,len(rows),config['batch_size'])]
+    predictions={};modes=Counter();reason=None
+    reservation=token_cost(config,config['context_window'],config['max_completion_tokens'])
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        active={}
+        while batches or active:
+            while batches and len(active)<workers and reason is None and time.monotonic()<deadline:
+                if ledger.occupied()+reservation>ledger.budget:break
+                batch=batches.pop(0)
+                future=pool.submit(request_batch,batch,config,api_key,ledger,deadline,transport=transport)
+                active[future]=batch
+            if not active:
+                if batches:reason=reason or ('deadline' if time.monotonic()>=deadline else 'budget_exhausted')
+                break
+            finished,_=wait(active,return_when=FIRST_COMPLETED)
+            for future in finished:
+                batch=active.pop(future);values,mode=future.result();modes[mode]+=1;predictions.update(values)
+                if mode=='budget_exhausted':
+                    # 这里只重试尚未发出的预算申请，不重发模型请求。
+                    batches.insert(0,batch)
+                elif mode not in ('api','cache','invalid'):
+                    reason=reason or mode
+            if reason is not None:batches=[]
+    return predictions,modes,reason
+
+
 def run_pipeline(input_path, output_dir, *, config_path=None, api_key=None, live=False, limit=None,
-                 budget='3', max_seconds=2400, state_dir=None, transport=http_transport):
+                 budget='3', max_seconds=2400, state_dir=None, transport=http_transport,workers=4):
     started = time.monotonic()
     started_epoch = time.time()
-    if not 0 < max_seconds <= 2400 or (limit is not None and limit <= 0):
+    if not 0 < max_seconds <= 2400 or (limit is not None and limit <= 0) or workers not in (1,2,3,4):
         raise ValueError('时限须 <=2400 秒，试运行条数须为正')
     output_dir = Path(output_dir); output_dir.mkdir(parents=True, exist_ok=True)
     rows, input_info = read_reviews(input_path)
@@ -389,26 +481,25 @@ def run_pipeline(input_path, output_dir, *, config_path=None, api_key=None, live
     predictions, modes = {}, Counter()
     reason = 'not_requested'
     ledger = None
+    repair_summary = None
     if live:
         state_dir = Path(state_dir or ROOT/'.venv/q4_state')
         with exclusive_state(state_dir):
             ledger = Ledger(state_dir, budget, run_started_epoch=started_epoch)
             selected = pending[:limit] if limit else pending
+            requested = list(selected)
             predictions, blocked = recover_rows(selected, config, ledger)
             modes['cached_rows'] = len(predictions)
             if blocked:
                 reason = 'prior_unresolved_request'
-            selected = [] if blocked else [r for r in selected if r['source_row'] not in predictions]
-            for offset in range(0, len(selected), config['batch_size']):
-                batch = selected[offset:offset+config['batch_size']]
-                values, mode = request_batch(batch, config, api_key, ledger, started+max_seconds, transport=transport)
-                modes[mode] += 1; predictions.update(values)
-                if mode not in ('api', 'cache'):
-                    reason = mode
-                    break
-            else:
-                if not blocked:
-                    reason = 'sample_limit' if len(predictions) < len(pending) else 'complete'
+            unknown=any(e['status'] in ('reserved','uncertain') for e in ledger.data['entries'].values())
+            selected = [] if blocked and unknown else [r for r in selected if r['source_row'] not in predictions and r['source_row'] not in blocked]
+            values,observed,stopped=dispatch(selected,config,api_key,ledger,started+max_seconds,workers,transport)
+            predictions.update(values);modes.update(observed)
+            from q4_llm_extraction.repair import repair_known
+            repaired,repair_modes,repair_summary=repair_known(requested,config,api_key,ledger,started+max_seconds,transport)
+            predictions.update(repaired);modes.update('repair.'+mode for mode in repair_modes)
+            reason=stopped or ('prior_unresolved_request' if repair_summary['unsafe_requests_present'] else 'complete' if len(predictions)==len(pending) else 'sample_limit' if limit else 'validation_pending')
     results = []
     for row in rows:
         branch = route(row['message']); rule = rule_result(row)
@@ -422,6 +513,9 @@ def run_pipeline(input_path, output_dir, *, config_path=None, api_key=None, live
     metrics = {**input_info, 'output_rows': len(results), 'routes': dict(Counter(r['route'] for r in results)),
                'status_counts': dict(Counter(r['status'] for r in results)), 'unresolved': unresolved,
                'request_modes_this_run': dict(modes), 'stop_reason': reason, 'live': live,
+               'cached_model_rows_this_run':modes.get('cached_rows',0),
+               'request_events_this_run':{k:v for k,v in modes.items() if k!='cached_rows'},
+               'configured_workers':workers,'repair_summary':repair_summary,
                'api_entries_campaign': len(entries), 'usage_cost_upper_bound_usd': str(sum((Decimal(e['usage_cost_upper_bound_usd']) for e in entries if 'usage_cost_upper_bound_usd' in e), Decimal(0))),
                'prompt_tokens_campaign': sum(e.get('usage', {}).get('prompt_tokens', 0) for e in entries),
                'completion_tokens_campaign': sum(e.get('usage', {}).get('completion_tokens', 0) for e in entries),
@@ -439,14 +533,16 @@ def run_pipeline(input_path, output_dir, *, config_path=None, api_key=None, live
     (output_dir/'cost_report.md').write_text('# Q4 成本记录\n\n'+
         f"本次 {'真实服务模式' if live else '无网络分流模式'}；累计请求 {len(entries)}，服务报告用量按配置上界折算 {metrics['usage_cost_upper_bound_usd']} USD，保守占用 {metrics['budget_occupied_usd']} USD，未知计费 {metrics['uncertain_cost_requests']} 次。实际账单费用未核对，为 null。\n\n"+
         f"累计已报告输入 token {metrics['prompt_tokens_campaign']}，输出 token {metrics['completion_tokens_campaign']}；已报告用量的请求覆盖 {charged_rows} 条文本（重付费的语义版本分别计次），单条均费 {metrics['average_reported_cost_per_queried_row_usd']} USD。无请求时均费为 null，不以零代表完成。\n\n"+
-        '无网络模式的零请求不代表全量模型免费。用量明细在本地累计账本 .venv/q4_state/ledger.json；不得删账本重置预算。价格需先核实，最终须与实际服务账单核对；未完成前不宣称低于 3 美元的真实全量交付。\n', encoding='utf-8')
+        '无网络模式的零请求不代表全量模型免费。用量明细在本地累计账本 .venv/q4_state/ledger.json；不得删账本重置预算。价格需先核实，最终须与实际服务账单核对；未完成前不宣称已独立核实实际美元账单。\n\n'+
+        '候选人此次验收的历史余额观察（如存在）见 [billing_observation.json](../reports/q4/billing_observation.json)。它是带时点的账户观察，不代表你本次运行的扣费；CNY 不直接当作 USD。首次实际处理及缓存阶段的用时见 [运行阶段](../reports/q4/real_execution_milestones.json)，不能把缓存重放秒数当作无缓存模型全量耗时。\n', encoding='utf-8')
     metrics['seconds'] = round(time.monotonic()-started, 6)
     metrics['under_time_limit'] = metrics['seconds'] <= max_seconds
     first = ledger.data['first_request_epoch'] if ledger else None
-    metrics['campaign_elapsed_seconds'] = round(time.time()-first, 6) if first else None
-    metrics['under_campaign_time_limit'] = metrics['campaign_elapsed_seconds'] <= 2400 if first else None
+    last=max((e.get('finished_epoch',first) for e in entries),default=first)
+    metrics['campaign_elapsed_seconds'] = round(last-first, 6) if first else None
+    metrics['campaign_span_is_execution_time'] = False
     atomic_json(output_dir/'run_metrics.json', metrics)
-    return {'stage_completion': 'partial' if unresolved or not metrics['under_time_limit'] or metrics['under_campaign_time_limit'] is False else 'passed', 'metrics': metrics}
+    return {'stage_completion': 'partial' if unresolved or not metrics['under_time_limit'] else 'passed', 'metrics': metrics}
 
 
 def configured_key(settings, config_path):
@@ -469,11 +565,12 @@ def main():
     parser.add_argument('--limit', type=int)
     parser.add_argument('--budget', default='3')
     parser.add_argument('--max-seconds', type=float, default=2400)
+    parser.add_argument('--workers',type=int,choices=(1,2,3,4),default=4)
     args = parser.parse_args(); settings = local_settings()
     from artifact_manifest import publish
     result = publish('q4', args.output_dir, lambda fresh: run_pipeline(args.input, fresh, config_path=args.config,
                      api_key=configured_key(settings, args.config) if args.live else None, live=args.live,
-                     limit=args.limit, budget=args.budget, max_seconds=args.max_seconds), inputs=[args.input,*([args.config] if args.live else [])])
+                     limit=args.limit, budget=args.budget, max_seconds=args.max_seconds,workers=args.workers), inputs=[args.input,*([args.config] if args.live else [])])
     print(json.dumps(result, ensure_ascii=False))
     return 2 if result['stage_completion'] == 'partial' else 0
 

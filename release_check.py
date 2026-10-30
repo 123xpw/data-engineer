@@ -54,7 +54,7 @@ def inspect_execution():
     require(report.get('requested_stage')=='all','需要真实全入口执行记录')
     require(report.get('source_sha256')==source_hashes(),'全入口运行源码已变化')
     rows={r['stage']:r for r in report['results']}
-    for stage in ('data.retail','data.olist','q1.1','q1.2','q1.3','q3','q5'):
+    for stage in ('data.retail','data.olist','q1.1','q1.2','q1.3','q3','q4','q5'):
         require(rows.get(stage,{}).get('status')=='passed',f'{stage} 未成功')
     require(rows.get('q2',{}).get('status') in ('passed','partial'),'Q2 已实现部分运行失败')
     nested={r['stage']:r for r in rows['q2']['detail']['results']}
@@ -75,6 +75,7 @@ def inspect_execution():
         require({k:v for k,v in actual.items() if k!='load_version'}=={k:v for k,v in original.items() if k!='load_version'},f'独立回归结果与本轮正式 CLI 不一致：{name}')
     for name in ['sales_facts','customer_features','returns_log']:
         require(digest(Path(outputs['q3'])/'outputs'/(name+'.parquet'))==digest(ROOT/'q3_etl_pipeline/outputs'/(name+'.parquet')),'Q3 候选与独立复算版本不一致')
+    require(digest(Path(outputs['q4'])/'extracted_issues.json')==digest(ROOT/'q4_llm_extraction/extracted_issues.json'),'Q4 默认入口与真实验证结果不同')
     return {'run_id':report['run_id'],'exit_code':report['exit_code'],'report_sha256':digest(PIPELINE),'manifests':validated,
             'scope':'当前环境、已下载冻结输入；不是完整冷启动证明'}
 
@@ -139,9 +140,17 @@ def refresh():
     require(engineering.returncode==0,'Q4 无网络工程验收失败')
     bonus=subprocess.run([sys.executable,str(ROOT/'scripts/verify_bonus.py')],cwd=ROOT,timeout=120)
     require(bonus.returncode==0,'已提供加分题的事实复算验收失败')
+    processing=subprocess.run([sys.executable,str(ROOT/'scripts/verify_q4_live.py'),'--output-dir',str(ROOT/'q4_llm_extraction')],cwd=ROOT,timeout=180)
+    require(processing.returncode==0,'Q4 真实处理证据未通过，不生成完整执行候选')
+    # 先前各模块的故障回归强制无网络；此处在已验证的响应缓存上执行真实配置默认入口。
+    candidate=ROOT/'.venv/release-runs'/uuid.uuid4().hex
+    args=[sys.executable,str(ROOT/'run_all.py'),'--offline','--q4-live','--report',str(PIPELINE)]
+    for stage in ('q1','q2','q3','q4','q5'):args.extend(['--'+stage+'-output-dir',str(candidate/stage)])
+    execution=subprocess.run(args,cwd=ROOT,capture_output=True,text=True,timeout=1800)
+    require(execution.returncode==0,'最终全模块入口未成功；未用无网络分流冒充通过')
     report=read(PIPELINE)
-    require(report.get('exit_code') in (0,2),'全入口发生运行失败')
-    return {'pipeline_exit_code':report['exit_code'],'scope':'当前 Q1、九表、Q2.1–Q2.4、Q3 与 Q5 文档；Q4 及提交缺项仍禁止完整提交'}
+    require(report.get('exit_code')==0,'全入口发生运行失败')
+    return {'pipeline_exit_code':report['exit_code'],'scope':'当前 Q1–Q5 及加分题的程序/真实处理范围；Q4 语义与最终提交材料另行验收，不冒称无缓存全量调用'}
 
 
 def main():
@@ -154,15 +163,15 @@ def main():
             return 1
         e.check('当前功能回归及代码、产物绑定',lambda:inspect_regression(read(REGRESSION),e.report['source_sha256']))
         def subquestion_evidence(stage):
-            report_folder={'Q2.3':'q2_3','Q2.4':'q2_4','Q3.1':'q3','Q4.R1':'q4','Q5.1':'q5','Q6':'bonus'}[stage]
-            name='engineering_latest.json' if stage=='Q4.R1' else 'acceptance_latest.json'
+            report_folder={'Q2.3':'q2_3','Q2.4':'q2_4','Q3.1':'q3','Q4.R1':'q4','Q4.PROCESSING':'q4','Q5.1':'q5','Q6':'bonus'}[stage]
+            name='engineering_latest.json' if stage=='Q4.R1' else 'processing_latest.json' if stage=='Q4.PROCESSING' else 'acceptance_latest.json'
             proof=read(ROOT/('reports/'+report_folder+'/'+name))
             require(proof.get('status')=='passed' and proof.get('source_sha256')==e.report['source_sha256'],stage+' 缺少当前源码通过证据')
             require(proof.get('requirement_id')==stage,stage+' 验收范围未声明')
             for name,value in proof['artifact_sha256'].items():
                 require(digest(ROOT/name)==value,stage+' 产物已变化')
             return {'run_id':proof['run_id'],'scope':'当前子题、独立参考及默认全入口'}
-        for stage in ('Q2.3','Q2.4','Q3.1','Q4.R1','Q5.1','Q6'):
+        for stage in ('Q2.3','Q2.4','Q3.1','Q4.R1','Q4.PROCESSING','Q5.1','Q6'):
             e.check(stage+' 当前业务及默认入口',lambda name=stage:subquestion_evidence(name))
         e.check('锁定依赖安装证据及适用范围',inspect_dependencies)
         e.check('真实全入口及本轮产物归属',inspect_execution)

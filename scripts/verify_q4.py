@@ -52,7 +52,7 @@ def mutations():
 
 
 def real_plan():
-    output = ROOT/'q4_llm_extraction'
+    output = ROOT/'.venv/q4-engineering-output'
     report = ROOT/'.venv/q4-plan-execution.json'
     env = os.environ.copy(); env.update(Q4_LIVE='1', Q4_CONFIG='/does-not-exist/force-plan-must-ignore')
     with tempfile.TemporaryDirectory(prefix='gekko-q4-cli-') as folder:
@@ -86,7 +86,7 @@ def real_plan():
     require([r['source_row'] for r in sample['rows']]==sorted(scores,key=scores.get)[:30],'盲标样本来源不一致')
     rejected=subprocess.run([sys.executable,str(ROOT/'q4_llm_extraction/evaluate_annotations.py'),'--labels',str(output/'annotation_blind.json')],cwd=ROOT,capture_output=True,text=True,timeout=30)
     require(rejected.returncode!=0 and '拒绝报告准确率' in rejected.stderr,'空人工标注竟被当作通过')
-    body=''.join((output/'pipeline_design.md').read_text().splitlines()[2:]);count=len(''.join(body.split()))
+    body=''.join((ROOT/'q4_llm_extraction/pipeline_design.md').read_text().splitlines()[2:]);count=len(''.join(body.split()))
     require(300<=count<=500,'Q4 设计文档字数超出 300..500')
     return {'input_rows':total,'low_score_rows':len(expected),'routes':dict(routes),'duplicate_review_id_extra_rows':261,
             'pipeline_run_id':top['run_id'],'pipeline_design_nonwhitespace_chars':count,'blind_sample_source_rows':[r['source_row'] for r in sample['rows']],
@@ -95,13 +95,14 @@ def real_plan():
 
 def main():
     with EvidenceRun(ROOT/'reports/q4','engineering') as evidence:
-        evidence.check('预设反例、计费手算、恢复与墙钟进程终止',lambda:{'exit_code':execute(['-m','unittest','tests.test_q4','tests.test_artifact_manifest','-v']).returncode,'scope':'合成夹具与真实本地进程，无外部调用'})
+        evidence.check('预设反例、计费手算、恢复与墙钟进程终止',lambda:{'exit_code':execute(['-m','unittest','tests.test_q4','tests.test_q4_repair','tests.test_artifact_manifest','-v']).returncode,'scope':'合成夹具与真实本地进程，无外部调用'})
         evidence.check('定向变异必须由指定反例检出',mutations)
         evidence.check('全量冻结输入、独立分流、部分状态与空标注拒绝',real_plan)
         evidence.report.update(requirement_id='Q4.R1',production_source_sha256=source_hashes(),
                               review_scope='仅无凭据工程闭环；R2 真实服务/账单和 R3 真人语义评估仍待完成',
                               remaining=['真实小样本与全量调用','实际用量/账单核对及时间预算','真人盲标与语义错误分析'])
-        paths=['q4_llm_extraction/'+name for name in ['extracted_issues.json','run_metrics.json','annotation_blind.json','cost_report.md','pipeline_design.md','accuracy_evaluation.md']]
+        paths=['.venv/q4-engineering-output/'+name for name in ['extracted_issues.json','run_metrics.json','annotation_blind.json','cost_report.md']]
+        paths+=['q4_llm_extraction/pipeline_design.md','q4_llm_extraction/accuracy_evaluation.md']
         evidence.report['artifact_sha256']={p:digest(ROOT/p) for p in paths if (ROOT/p).is_file()};evidence.save()
     return 0 if evidence.report['status']=='passed' else 1
 
