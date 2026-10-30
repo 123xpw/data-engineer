@@ -1,0 +1,28 @@
+{
+  "sales_rows": 1037021,
+  "customers": 5852,
+  "returns": 19494,
+  "sales_amount_milli": 20110181017,
+  "sales_row_digest": "e32563bfd222e368deb2b14600dcc6d9392a1ffac09dcb98b487b87ab5db7ff6",
+  "all_customer_fields_compared": true,
+  "all_return_choices_compared": true,
+  "reason_counts": {
+    "retained": 1037021,
+    "nonproduct": 3764,
+    "cancel_event": 19494,
+    "nonpositive_quantity": 3457,
+    "pending_product": 884,
+    "nonpositive_price": 2745,
+    "non_numeric_invoice": 6
+  },
+  "match_reasons": {
+    "no_strictly_earlier_sale": 749,
+    "no_exact_quantity_candidate": 11485,
+    "candidate_matched": 6303,
+    "missing_customer": 749,
+    "eligible_candidates_consumed": 207,
+    "unexpected_nonnegative_cancel_quantity": 1
+  },
+  "seconds": 12.364174,
+  "limits": "政策例外清单由同一 Q1 解释导出，算法独立但业务政策仍需复核；参考性能不计入生产 120 秒"
+}

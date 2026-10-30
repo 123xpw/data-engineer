@@ -15,9 +15,9 @@
     },
     {
       "id": "Q3.1",
-      "status": "pending",
-      "reason": "ETL、三个输出、退货匹配和性能验收尚未实现",
-      "evidence": null
+      "status": "verified",
+      "reason": "精确数量/容量受限候选、三输出与独立复算由当前证据验证",
+      "evidence": "reports/q3/acceptance_latest.json"
     },
     {
       "id": "Q4.1",
@@ -27,9 +27,9 @@
     },
     {
       "id": "Q5.1",
-      "status": "pending",
-      "reason": "系统设计仍为模板，容量和成本论证未完成",
-      "evidence": null
+      "status": "verified",
+      "reason": "设计/公式/图与交付一致由当前证据验证，非压测认证",
+      "evidence": "reports/q5/acceptance_latest.json"
     },
     {
       "id": "DOCS",

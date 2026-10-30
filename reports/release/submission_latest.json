@@ -1,22 +1,22 @@
 {
-  "run_id": "21d955f0f3c14c7b8986e063ad22bba7",
+  "run_id": "c573fa7af501493db3e5ed8f7fbd4914",
   "status": "failed",
   "scope": "submission",
-  "started_utc": "2026-10-30T09:08:12.926171+00:00",
+  "started_utc": "2026-10-30T10:01:29.275852+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "pandas": "3.1.0",
-  "git_base": "407f9d4169bb2d4a1c1ce753f7c307a6307b63b7",
+  "git_base": "8cdd5b860783a507e207625e8698ddcc678b1e09",
   "python_optimization_level": 0,
   "source_sha256": {
-    "requirements.txt": "dc84079cbbf1746fc870afd863b5e2cd64f3c92b772c5783a1151b1f1f1fa8f7",
+    "requirements.txt": "61a813e12457bf169d82652a379d276acb0405658dc7070588aac83c73a3f157",
     "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
     "VALIDATION_GATES.md": "6198a51889e85992b5cb63f87cc0032463e7cb0682c7e94aaf25edb65f63413b",
-    "delivery_requirements.json": "612c6c976fd453d2dbb9748efb594c92fb898b1a298ce8c320993c55c4571a5a",
-    "artifact_manifest.py": "1e1df6cd13a5166d4de90f0927489fc9bb25799e682e1bf88699f8d4350c824d",
+    "delivery_requirements.json": "3b99fd884a9307872b0bc87c5aeb6a11f938980a5e2d449346369e75d262a72a",
+    "artifact_manifest.py": "26cd307ca6aefff22734f14d16994882d662b4aa2bcb701c141dd9e016c6a808",
     "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
-    "release_check.py": "9461efa7ed3ca3c8751f92871699bffda65fa0cdd641df7bf3ce9654143f5565",
-    "run_all.py": "cc763742449de328eedd80fbbdf5ded1a42b1ac360689a3acf5fbe50a3c5001c",
+    "release_check.py": "a3f97d2bb1783605279dc1db3db3961ec21c1f18c8d70d4fff981a1d7726c9d8",
+    "run_all.py": "fc6e8eb01140e914ae69f77786e4107e47abdf325b99b9260271d0df2ed8c655",
     "scripts/check_q2_1_cases.py": "b4f35cd1f2d7202b2598ef640e0899e04fdfd2e9168fcc2a2a29e4be53b217ea",
     "scripts/check_q2_2_cases.py": "bedeae1353e7fece57f71fea830a658c1d1d83b96455175e42752fc6fc3d6551",
     "scripts/check_q2_3_cases.py": "ee2a7e1bd044a4059dee36824cbdc27f9c7e84a19934eb4a2b6c6c03f5ee7ac1",
@@ -31,9 +31,9 @@
     "scripts/q2_2_reference.py": "6aa8595f88d7885ea82e9b384336916620c61d73bba8961743ff613dc944b508",
     "scripts/q2_3_reference.py": "adaeba688cb9eb57797b89cbcad9f6df0c36f1550089538ffe0f7a5b7ff53947",
     "scripts/q2_4_reference.py": "986258f2f6fa3142bf8ef0e20a69ba7a33a8cc2687c2c775cdb156ed7e021f50",
-    "scripts/verification_support.py": "31cc412541d504d74d7a3db19235991c6aef32785f4a8378f54c850342de3d56",
-    "scripts/verify_baseline.py": "4d0bc780ec4708c6d9ce9694019528d09b7865983f544000b2b42238ea943ee7",
-    "scripts/verify_clean_environment.py": "8050bbbfb4857f043f2faec2da1b1a5d3e0e2bcb3313a5efa06c70149248c7e8",
+    "scripts/verification_support.py": "36b4f0a467d4b4fb7150110c669172c2f3b8e89e27450ec55973cf6b0c8d9c47",
+    "scripts/verify_baseline.py": "17439d7ecd1ee320dff304f2bcd003005e8f94e5b148d0cdf42cee5448353bc2",
+    "scripts/verify_clean_environment.py": "fcd71c3d16963cd3a6c6e7f4b9b7b2464b71ac0f76837e54b3405b38a9bab717",
     "scripts/verify_mutations.py": "fd6e1f1e187a9fdba4cbc0b6674e2404022836095a9ca9bc5005167bdeef90d4",
     "scripts/verify_q1_1.py": "5e2302f413967790df315883de3d3633ab532936bd3c5d89823bacc03cd56146",
     "scripts/verify_q1_2.py": "47f4c9cab39f47c64af4265ae799b3b98788264392f2e69837bdd776988677df",
@@ -41,8 +41,10 @@
     "scripts/verify_q1_review.py": "bad11e861cd44307c7a70e8d2930593b7de4191dd7bb37425278546636d50f71",
     "scripts/verify_q2_1.py": "37b301ac6736b6b8ebfd1bc3d0281f0e6e187727ebd5c9947bc79efd04d44614",
     "scripts/verify_q2_2.py": "eac925a9460f1509f06fe01f83a666e0df68869eb0b8f2a8503eda6c87c316fc",
-    "scripts/verify_q2_3.py": "867281e114d49d96425a25317911589bbd4ae1ba57290e1d348ec0410e90873c",
+    "scripts/verify_q2_3.py": "3ad8e5206a101516e6550ec3d199643d9b218ba04bd4272fa4922160ce7c8e4e",
     "scripts/verify_q2_4.py": "21c9b3ce2056b23bec8f8360d1d12733201dd94f3a41c825f59f4e0db3e8af8e",
+    "scripts/verify_q3.py": "dc3148dbf0793a2c9ef8f9a7b43e6d185e4e521047d1c7506b9a2af2c761c2f6",
+    "scripts/verify_q5.py": "84c2d6f481f1aa44497a52b1a50fd7c0ac1998d9a918f841b3338cd597a07d31",
     "scripts/verify_stage_gate.py": "d5bf59a49da6c81d06738fa65c3b6eca9fb5f71b40c28b04a947b010c2cfdd64",
     "tests/test_artifact_manifest.py": "755849e1b24ab29a62e36cc7c703bf61db5e9c22cce9c7fcf202baf7fe8c61ca",
     "tests/test_baseline.py": "976372dafdf60d7559a709673fc491c6069a7bd3aae7c000276d87756075d567",
@@ -76,15 +78,22 @@
     "q2_sql_analysis/ACCEPTANCE_Q2_3.md": "ff4bd7e420e1b5728a548a9a04276b9460a2dfe532768ebf6556e46e12d3847e",
     "q2_sql_analysis/ACCEPTANCE_Q2_4.md": "5c468bd1ec8ec427596302f29cb3b614d4730539b75aa6bd619b62ec427364ac",
     "audit/q2_4_experiment.py": "327db3c44b926e5d4bb8be9bb6e8b55b0ace0fb85f6d18432249d60471d90ca9",
-    "audit/verify_q2_4_experiment.py": "0a418a4c5d0fed11a00158c9804d398b40b40f3199ec3f450c7a5f17f35af873"
+    "audit/verify_q2_4_experiment.py": "0a418a4c5d0fed11a00158c9804d398b40b40f3199ec3f450c7a5f17f35af873",
+    "q3_etl_pipeline/pipeline.py": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
+    "q3_etl_pipeline/reference_check.py": "c397a4617f9568b317e3dec7a58b0ed1f58bbd765db216fe4e5789cdbc293a71",
+    "q3_etl_pipeline/test_pipeline.py": "8857672d2627cf32e7c62fb9fbf80fdfd81dc5877c461af8f7f5a60175506452",
+    "q3_etl_pipeline/ACCEPTANCE.md": "7dff9ad124bfc5e2c13f201c862fa57c0e6d4c7117bdd6fef70c89a00aa4e506",
+    "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
+    "q5_system_design/ACCEPTANCE.md": "c8b8eb4ed4869103a168fba2c0d76fb0121672876b7b0076d3e79a7aa2bad03d",
+    "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750"
   },
   "checks": [
     {
       "name": "当前功能回归及代码、产物绑定",
       "passed": true,
       "evidence": {
-        "run_id": "cff7fa0b34074ba5b6ae681d10c47ab6",
-        "report_sha256": "90a3c2550d42f57343d5ed914e97a70fc5f6009fae7b8586df2dbc33c111861a",
+        "run_id": "b07184e9bb3e4a26b6aed2415e0abadc",
+        "report_sha256": "3cccb89d2ad27638784fdc6530d4003e12ed4e5dde29012463189ce3a4be938f",
         "scope": "当前源码的 Q1、九表、Q2.1、Q2.2；不含未完成题"
       }
     },
@@ -92,7 +101,7 @@
       "name": "Q2.3 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "7838ce5b0bc149ce96423493b2e4866d",
+        "run_id": "354a19d7616d4c0ba3f465aea9f46294",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -100,7 +109,23 @@
       "name": "Q2.4 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "cf4a89fe530d42c493ff78b6eb7c2b1f",
+        "run_id": "9f86c73a63d94aacb4690bf5ec3f6029",
+        "scope": "当前子题、独立参考及默认全入口"
+      }
+    },
+    {
+      "name": "Q3.1 当前业务及默认入口",
+      "passed": true,
+      "evidence": {
+        "run_id": "8d16e3746722486a870c33c82102928f",
+        "scope": "当前子题、独立参考及默认全入口"
+      }
+    },
+    {
+      "name": "Q5.1 当前业务及默认入口",
+      "passed": true,
+      "evidence": {
+        "run_id": "edd0279b78334b498ba7ac7d99e4bb9f",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -108,8 +133,8 @@
       "name": "锁定依赖安装证据及适用范围",
       "passed": true,
       "evidence": {
-        "run_id": "3cea0ca69a614db3a00bdc73798e26b9",
-        "report_sha256": "811aa53a3df9c4672654f48d568572624f1a98e606aec1163f06620a2cd4427c",
+        "run_id": "81cf098b9e0a4e8d974d18ef326bd1b1",
+        "report_sha256": "99ff30e22b3dd007f056d9f4a3e5beb7c8905499766679361df7439eb11cd0b0",
         "scope": "仅复用相同 requirements 的安装证明；当前源码另跑功能回归",
         "environment": {
           "python": "3.12.13",
@@ -121,63 +146,81 @@
       "name": "真实全入口及本轮产物归属",
       "passed": true,
       "evidence": {
-        "run_id": "368e8c3473bf45f4833136c8497e5f78",
+        "run_id": "b3a06517bb5143fd8316dfb7c7f0d4db",
         "exit_code": 2,
-        "report_sha256": "2e0ca5b9d44089b4c3cecb1a171ebaffe999a6841ca76bd415b73af5bdb5cea6",
+        "report_sha256": "bb59fe27b26410c0ebb710427c20220c8ea5bfa39347f6099ad3b1de84590016",
         "manifests": {
           "q1.1": {
-            "manifest_sha256": "236881f7f0f39dfbe173c4c9f73acbf324227f1401e388778e2d985353f41b62",
+            "manifest_sha256": "498a060c4ec1e4d8b3f5f381776e2f32500244a85599dacf17fed776d8504d72",
             "artifacts": {
               "data_quality_metrics.json": "382ce6c09ca40341650133f6b6085b328dc1f6700bcc2fc97f43ad98fce68a44",
               "data_quality_report.md": "690a4117954f741c37f2cf0ff2e879ec39c175e5780599768320d680178a1a3d"
             }
           },
           "q1.2": {
-            "manifest_sha256": "201e681bad6b4fb48c0a6eac0cf5cdfede8f6da09cf5c89320834173ecf5b822",
+            "manifest_sha256": "fc1c7f1cb5091f7feffbbc01dea905c07c4d4dac9865337d3a6333e2e0850ee6",
             "artifacts": {
               "findings_metrics.json": "28e62fa7611e25acce6f435efa10dd7a7cb461ec96b235d00cea8846944435b8",
               "findings.md": "31b589432df894214acd7bcd5f9b3087d22d91b8c7670e441d348187f66c847f"
             }
           },
           "q1.3": {
-            "manifest_sha256": "767c2471dfb74862974dc56c1c8cd149f992233f2efb286a8c25a392af9b394c",
+            "manifest_sha256": "f660e90f8d1ddefbf3e041133d592221c943430cb498e9f5c413a09e13c385e7",
             "artifacts": {
               "cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
               "strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208"
             }
           },
           "q2.load": {
-            "manifest_sha256": "43f0cf19b656a6f4a25bcc032f22c71351eba72ccaa0b7074808c3edab0bba70",
+            "manifest_sha256": "1eb3ea01e9c4fc504b9a335a94f9593ffa1b0bd885066b553df91e0f4fc6faf8",
             "artifacts": {
-              "load_report.json": "ad1a0caf3ae2ba74e0f2a5e64b7a8c36535fa7badff985a18fb3c671d0b7a5b8"
+              "load_report.json": "79828164f830746a07e0cf04e3ec5f3d27823425da6d34e5893bc8e0f1f72757"
             }
           },
           "q2.1": {
-            "manifest_sha256": "13c7f7a41b268a93549de96fe38230a86d0621c471d58d70bea8bc44721d6d8e",
+            "manifest_sha256": "dde4fcbb6a2834248b085ab290ffbe467a8ae0742eed76e297860d9e8adde501",
             "artifacts": {
-              "q2_1_results.json": "8ec2a28864d1099f69ee65deac6e0fecc3c1833bfdfbe4f0ebf178433b7e711c",
-              "q2_1_findings.md": "170fe6954b3c0e314f7712435668cbbe2c2ecfea97caa5a79cd2c7d1577c9ef8"
+              "q2_1_results.json": "cb454e08736a226c1de599fbad35163ffa02f7c915916c559d378b9730e88649",
+              "q2_1_findings.md": "14e1e477c31cacc41e119f1525f774208d1f769a1c5bc243905269a2ee48da2e"
             }
           },
           "q2.2": {
-            "manifest_sha256": "da694357e9756271628a184f18d8e2581a5b2b71ca225d01453b59953e21d5a6",
+            "manifest_sha256": "f7c446a4b7c5b28eccc5472f3c34d5888135914f954e134a88d9ffb3266ba7c0",
             "artifacts": {
-              "q2_2_results.json": "0f567a89dde4473b4de69caba81ff3feaaed5b5d8d6e6e658f101293bd104565",
-              "q2_2_findings.md": "97d4dbf7e9f136036d44a650d50cdf7ffa46ede21257e586e7b221547a04d86f"
+              "q2_2_results.json": "647c32755918a81738a5185f526b23c1301396eefd2502ca120882b6bdc5e220",
+              "q2_2_findings.md": "3ff5096638678d0724528bde52cdbdc2d6a7c6a90b487f9ff2d034924cb9fd7a"
             }
           },
           "q2.3": {
-            "manifest_sha256": "503037dde2d042a7dc54cd4ed03bdbd115a4697d53d6c5a4e9ed859bad11a6d5",
+            "manifest_sha256": "f582fbc2ca629dd4c13598e70a618983fc32581d6a762fc2408758cc69ff24f2",
             "artifacts": {
-              "q2_3_results.json": "7a62cce311e7ef94f375eac8cd6535aa8153a633af7fabe7241dd016b6483ba2",
+              "q2_3_results.json": "6e110f6fee1cf33b9399b125da01d0206e9b8ca950c3a95bbd479d64707fd237",
               "q2_3_findings.md": "54c0ac9c0eea3a6cd2aeb7188ae20af4133ba88e8e69d59ccc80b1371994916a"
             }
           },
           "q2.4": {
-            "manifest_sha256": "3d60c40c26ea85d1824f246a909145e52533c579f655ac40433e603098ca4be8",
+            "manifest_sha256": "7242fc09dd867c318a521d8e278b6ddb7ee4c7bcac3d417df8557dae28c203f2",
             "artifacts": {
-              "q2_4_results.json": "98a9984161d492089949b941f388dc4d5875a101cd08082856e043f501db2e4c",
-              "q2_4_query_optimization.md": "4c9ba514fea02695ffa4ca9563071ab3188fcaf6d9b7f77af973cf90049948c8"
+              "q2_4_results.json": "185da6731dd79f044bb6ce2114401cb6f5ffe161cd18bde7fd0fd4da0ff6d06d",
+              "q2_4_query_optimization.md": "f670b17448f65a7618df65b554651c02d650ba82f6230e6a9e7a119a8fcee251"
+            }
+          },
+          "q3": {
+            "manifest_sha256": "2c5811b8b3a90f931c60a8ac3076c1a6c3caa450ab519a64066f4b395b8bca42",
+            "artifacts": {
+              "outputs/sales_facts.parquet": "f40bb584a5ea698446ad11bb0c93c2fa919293263a1d06313db2404242244e65",
+              "outputs/customer_features.parquet": "51c6c7c9d823ddcca243552991a99165ff69d1839b3e4b1ab1755fd2986d7990",
+              "outputs/returns_log.parquet": "05b6c248cb61b85f78deef8712011b2e6dbbda02ffc6210d7a8742b97710a3fb",
+              "pipeline_log.txt": "75339849b09db08c4b64a7016602e8f9fd85bed5e94739c98f235296c680d383",
+              "validation_metrics.json": "238edce28a1d34d0824ac7c11fc4e18b58f800bb4a3a9b85bcc0e8e6dc468f01",
+              "validation_report.md": "8cfa92354ecda86d440d119a0bed29eb16e014deb2174f1055712b0052db3f3b"
+            }
+          },
+          "q5": {
+            "manifest_sha256": "36527f437721ef7be0a6756c21a3eacbefedce025065341979066ecbdf81f4df",
+            "artifacts": {
+              "real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
+              "design_metrics.json": "090227a3bafc35e7b96f0ea95df5ca7ea585fa311a96e97cdebb4c9023a94e94"
             }
           }
         },
@@ -209,16 +252,8 @@
   "implemented_ready": true,
   "pending_requirements": [
     {
-      "id": "Q3.1",
-      "reason": "ETL、三个输出、退货匹配和性能验收尚未实现"
-    },
-    {
       "id": "Q4.1",
       "reason": "抽取、实际费用/时长、人工标注及质量评估尚未完成"
-    },
-    {
-      "id": "Q5.1",
-      "reason": "系统设计仍为模板，容量和成本论证未完成"
     },
     {
       "id": "DOCS",
@@ -246,5 +281,5 @@
     }
   ],
   "decision": "not_ready",
-  "finished_utc": "2026-10-30T09:08:13.022379+00:00"
+  "finished_utc": "2026-10-30T10:01:29.373962+00:00"
 }

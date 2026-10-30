@@ -1,22 +1,22 @@
 {
-  "run_id": "c896ee58ed0d416db25a755688d5f571",
+  "run_id": "e0f6e86d38204073b960e2110af64d4c",
   "status": "passed",
   "scope": "acceptance",
-  "started_utc": "2026-10-30T08:54:13.147813+00:00",
+  "started_utc": "2026-10-30T09:46:52.681943+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "pandas": "3.1.0",
-  "git_base": "407f9d4169bb2d4a1c1ce753f7c307a6307b63b7",
+  "git_base": "8cdd5b860783a507e207625e8698ddcc678b1e09",
   "python_optimization_level": 0,
   "source_sha256": {
-    "requirements.txt": "dc84079cbbf1746fc870afd863b5e2cd64f3c92b772c5783a1151b1f1f1fa8f7",
+    "requirements.txt": "61a813e12457bf169d82652a379d276acb0405658dc7070588aac83c73a3f157",
     "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
     "VALIDATION_GATES.md": "6198a51889e85992b5cb63f87cc0032463e7cb0682c7e94aaf25edb65f63413b",
-    "delivery_requirements.json": "612c6c976fd453d2dbb9748efb594c92fb898b1a298ce8c320993c55c4571a5a",
-    "artifact_manifest.py": "1e1df6cd13a5166d4de90f0927489fc9bb25799e682e1bf88699f8d4350c824d",
+    "delivery_requirements.json": "3b99fd884a9307872b0bc87c5aeb6a11f938980a5e2d449346369e75d262a72a",
+    "artifact_manifest.py": "26cd307ca6aefff22734f14d16994882d662b4aa2bcb701c141dd9e016c6a808",
     "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
-    "release_check.py": "9461efa7ed3ca3c8751f92871699bffda65fa0cdd641df7bf3ce9654143f5565",
-    "run_all.py": "cc763742449de328eedd80fbbdf5ded1a42b1ac360689a3acf5fbe50a3c5001c",
+    "release_check.py": "a3f97d2bb1783605279dc1db3db3961ec21c1f18c8d70d4fff981a1d7726c9d8",
+    "run_all.py": "fc6e8eb01140e914ae69f77786e4107e47abdf325b99b9260271d0df2ed8c655",
     "scripts/check_q2_1_cases.py": "b4f35cd1f2d7202b2598ef640e0899e04fdfd2e9168fcc2a2a29e4be53b217ea",
     "scripts/check_q2_2_cases.py": "bedeae1353e7fece57f71fea830a658c1d1d83b96455175e42752fc6fc3d6551",
     "scripts/check_q2_3_cases.py": "ee2a7e1bd044a4059dee36824cbdc27f9c7e84a19934eb4a2b6c6c03f5ee7ac1",
@@ -31,9 +31,9 @@
     "scripts/q2_2_reference.py": "6aa8595f88d7885ea82e9b384336916620c61d73bba8961743ff613dc944b508",
     "scripts/q2_3_reference.py": "adaeba688cb9eb57797b89cbcad9f6df0c36f1550089538ffe0f7a5b7ff53947",
     "scripts/q2_4_reference.py": "986258f2f6fa3142bf8ef0e20a69ba7a33a8cc2687c2c775cdb156ed7e021f50",
-    "scripts/verification_support.py": "31cc412541d504d74d7a3db19235991c6aef32785f4a8378f54c850342de3d56",
-    "scripts/verify_baseline.py": "4d0bc780ec4708c6d9ce9694019528d09b7865983f544000b2b42238ea943ee7",
-    "scripts/verify_clean_environment.py": "8050bbbfb4857f043f2faec2da1b1a5d3e0e2bcb3313a5efa06c70149248c7e8",
+    "scripts/verification_support.py": "36b4f0a467d4b4fb7150110c669172c2f3b8e89e27450ec55973cf6b0c8d9c47",
+    "scripts/verify_baseline.py": "17439d7ecd1ee320dff304f2bcd003005e8f94e5b148d0cdf42cee5448353bc2",
+    "scripts/verify_clean_environment.py": "fcd71c3d16963cd3a6c6e7f4b9b7b2464b71ac0f76837e54b3405b38a9bab717",
     "scripts/verify_mutations.py": "fd6e1f1e187a9fdba4cbc0b6674e2404022836095a9ca9bc5005167bdeef90d4",
     "scripts/verify_q1_1.py": "5e2302f413967790df315883de3d3633ab532936bd3c5d89823bacc03cd56146",
     "scripts/verify_q1_2.py": "47f4c9cab39f47c64af4265ae799b3b98788264392f2e69837bdd776988677df",
@@ -41,8 +41,10 @@
     "scripts/verify_q1_review.py": "bad11e861cd44307c7a70e8d2930593b7de4191dd7bb37425278546636d50f71",
     "scripts/verify_q2_1.py": "37b301ac6736b6b8ebfd1bc3d0281f0e6e187727ebd5c9947bc79efd04d44614",
     "scripts/verify_q2_2.py": "eac925a9460f1509f06fe01f83a666e0df68869eb0b8f2a8503eda6c87c316fc",
-    "scripts/verify_q2_3.py": "867281e114d49d96425a25317911589bbd4ae1ba57290e1d348ec0410e90873c",
+    "scripts/verify_q2_3.py": "3ad8e5206a101516e6550ec3d199643d9b218ba04bd4272fa4922160ce7c8e4e",
     "scripts/verify_q2_4.py": "21c9b3ce2056b23bec8f8360d1d12733201dd94f3a41c825f59f4e0db3e8af8e",
+    "scripts/verify_q3.py": "dc3148dbf0793a2c9ef8f9a7b43e6d185e4e521047d1c7506b9a2af2c761c2f6",
+    "scripts/verify_q5.py": "84c2d6f481f1aa44497a52b1a50fd7c0ac1998d9a918f841b3338cd597a07d31",
     "scripts/verify_stage_gate.py": "d5bf59a49da6c81d06738fa65c3b6eca9fb5f71b40c28b04a947b010c2cfdd64",
     "tests/test_artifact_manifest.py": "755849e1b24ab29a62e36cc7c703bf61db5e9c22cce9c7fcf202baf7fe8c61ca",
     "tests/test_baseline.py": "976372dafdf60d7559a709673fc491c6069a7bd3aae7c000276d87756075d567",
@@ -76,7 +78,14 @@
     "q2_sql_analysis/ACCEPTANCE_Q2_3.md": "ff4bd7e420e1b5728a548a9a04276b9460a2dfe532768ebf6556e46e12d3847e",
     "q2_sql_analysis/ACCEPTANCE_Q2_4.md": "5c468bd1ec8ec427596302f29cb3b614d4730539b75aa6bd619b62ec427364ac",
     "audit/q2_4_experiment.py": "327db3c44b926e5d4bb8be9bb6e8b55b0ace0fb85f6d18432249d60471d90ca9",
-    "audit/verify_q2_4_experiment.py": "0a418a4c5d0fed11a00158c9804d398b40b40f3199ec3f450c7a5f17f35af873"
+    "audit/verify_q2_4_experiment.py": "0a418a4c5d0fed11a00158c9804d398b40b40f3199ec3f450c7a5f17f35af873",
+    "q3_etl_pipeline/pipeline.py": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
+    "q3_etl_pipeline/reference_check.py": "c397a4617f9568b317e3dec7a58b0ed1f58bbd765db216fe4e5789cdbc293a71",
+    "q3_etl_pipeline/test_pipeline.py": "8857672d2627cf32e7c62fb9fbf80fdfd81dc5877c461af8f7f5a60175506452",
+    "q3_etl_pipeline/ACCEPTANCE.md": "7dff9ad124bfc5e2c13f201c862fa57c0e6d4c7117bdd6fef70c89a00aa4e506",
+    "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
+    "q5_system_design/ACCEPTANCE.md": "c8b8eb4ed4869103a168fba2c0d76fb0121672876b7b0076d3e79a7aa2bad03d",
+    "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750"
   },
   "checks": [
     {
@@ -112,7 +121,7 @@
       "name": "当前代码回归与 Q1 三阶段接线",
       "passed": true,
       "evidence": {
-        "q1_review_run": "8f689428ab2d407f9ee3d21efa8c901e",
+        "q1_review_run": "80cae47cedcc4a70a1ecc64a1102860b",
         "q1_stage": "三个题目交付入口通过；不认证业务规则或宣称 Q2–Q5 完成"
       }
     }
@@ -127,5 +136,5 @@
     "business_approval": "未获得",
     "scope": "用途策略和反例讨论；没有自动证明自然语言解释正确"
   },
-  "finished_utc": "2026-10-30T08:57:36.000246+00:00"
+  "finished_utc": "2026-10-30T09:50:11.356195+00:00"
 }

@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "run_id": "e54fd2bc3a5d4b39ae573b47e99ab3ac",
+  "run_id": "98f0f0207c8241a38b4dd35c063d27ba",
   "stage": "q2.4",
   "status": "passed",
-  "updated_utc": "2026-10-30T09:03:16.678492+00:00",
+  "updated_utc": "2026-10-30T09:55:50.806332+00:00",
   "artifacts": {
-    "q2_4_results.json": "98a9984161d492089949b941f388dc4d5875a101cd08082856e043f501db2e4c",
-    "q2_4_query_optimization.md": "4c9ba514fea02695ffa4ca9563071ab3188fcaf6d9b7f77af973cf90049948c8"
+    "q2_4_results.json": "185da6731dd79f044bb6ce2114401cb6f5ffe161cd18bde7fd0fd4da0ff6d06d",
+    "q2_4_query_optimization.md": "f670b17448f65a7618df65b554651c02d650ba82f6230e6a9e7a119a8fcee251"
   },
   "source_sha256": {
-    "artifact_manifest.py": "1e1df6cd13a5166d4de90f0927489fc9bb25799e682e1bf88699f8d4350c824d",
+    "artifact_manifest.py": "26cd307ca6aefff22734f14d16994882d662b4aa2bcb701c141dd9e016c6a808",
     "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
     "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
     "q1_data_quality/cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
@@ -30,10 +30,15 @@
     "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
     "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
     "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
-    "release_check.py": "9461efa7ed3ca3c8751f92871699bffda65fa0cdd641df7bf3ce9654143f5565",
-    "requirements.txt": "dc84079cbbf1746fc870afd863b5e2cd64f3c92b772c5783a1151b1f1f1fa8f7",
-    "run_all.py": "cc763742449de328eedd80fbbdf5ded1a42b1ac360689a3acf5fbe50a3c5001c"
+    "q3_etl_pipeline/pipeline.py": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
+    "q3_etl_pipeline/reference_check.py": "c397a4617f9568b317e3dec7a58b0ed1f58bbd765db216fe4e5789cdbc293a71",
+    "q3_etl_pipeline/test_pipeline.py": "8857672d2627cf32e7c62fb9fbf80fdfd81dc5877c461af8f7f5a60175506452",
+    "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
+    "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
+    "release_check.py": "a3f97d2bb1783605279dc1db3db3961ec21c1f18c8d70d4fff981a1d7726c9d8",
+    "requirements.txt": "61a813e12457bf169d82652a379d276acb0405658dc7070588aac83c73a3f157",
+    "run_all.py": "fc6e8eb01140e914ae69f77786e4107e47abdf325b99b9260271d0df2ed8c655"
   },
   "input_sha256": {},
-  "load_version": "d95388cde65d"
+  "load_version": "084ea11e14be"
 }

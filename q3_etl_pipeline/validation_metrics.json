@@ -1,0 +1,130 @@
+{
+  "rows": 1067371,
+  "sales_rows": 1037021,
+  "customers": 5852,
+  "returns_rows": 19494,
+  "sales_amount_milli": 20110181017,
+  "reason_counts": {
+    "retained": 1037021,
+    "cancel_event": 19494,
+    "nonproduct": 3764,
+    "nonpositive_quantity": 3457,
+    "nonpositive_price": 2745,
+    "pending_product": 884,
+    "non_numeric_invoice": 6
+  },
+  "match_reasons": {
+    "no_exact_quantity_candidate": 11485,
+    "candidate_matched": 6303,
+    "no_strictly_earlier_sale": 749,
+    "missing_customer": 749,
+    "eligible_candidates_consumed": 207,
+    "unexpected_nonnegative_cancel_quantity": 1
+  },
+  "seconds": 2.790354,
+  "under_120_seconds": true,
+  "scope": "正向商品毛交易、毛购买 RFM、容量受限精确数量候选；非净退款认证",
+  "return_candidate_sensitivity": {
+    "assumption": "仅作如果全部匹配候选均确认退货的敏感性，不作为已证实退款",
+    "candidate_sales_rows": 6303,
+    "candidate_original_amount_milli": 611992031,
+    "customers_with_candidates": 1506,
+    "customers_disappearing_if_candidates_removed": 13,
+    "matched_price_mismatch_rows": 217,
+    "matching_coverage_fraction": 0.3233302554632195,
+    "limit": "覆盖率不是准确率；未匹配不等于无原单，毛购买 RFM 不能当净留存特征"
+  },
+  "reference_day": "2011-12-09 00:00:00",
+  "source_sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9",
+  "outputs": {
+    "sales_facts": {
+      "rows": 1037021,
+      "null_counts": {
+        "invoice_no": 0,
+        "stock_code": 0,
+        "description": 0,
+        "quantity": 0,
+        "unit_price": 0,
+        "total_amount": 0,
+        "invoice_datetime": 0,
+        "customer_id": 234370,
+        "country": 0,
+        "source_row": 0
+      },
+      "dtypes": {
+        "invoice_no": "string",
+        "stock_code": "string",
+        "description": "string",
+        "quantity": "int64",
+        "unit_price": "float64",
+        "total_amount": "float64",
+        "invoice_datetime": "datetime64[us]",
+        "customer_id": "string",
+        "country": "string",
+        "source_row": "int64"
+      }
+    },
+    "customer_features": {
+      "rows": 5852,
+      "null_counts": {
+        "customer_id": 0,
+        "recency_days": 0,
+        "frequency": 0,
+        "monetary": 0,
+        "first_purchase_date": 0,
+        "last_purchase_date": 0,
+        "unique_products": 0,
+        "country": 0,
+        "is_one_time_buyer": 0
+      },
+      "dtypes": {
+        "customer_id": "string",
+        "recency_days": "int64",
+        "frequency": "int64",
+        "monetary": "float64",
+        "first_purchase_date": "datetime64[us]",
+        "last_purchase_date": "datetime64[us]",
+        "unique_products": "int64",
+        "country": "string",
+        "is_one_time_buyer": "bool"
+      }
+    },
+    "returns_log": {
+      "rows": 19494,
+      "null_counts": {
+        "invoice_no": 0,
+        "stock_code": 0,
+        "description": 0,
+        "quantity": 0,
+        "unit_price": 0,
+        "total_amount": 0,
+        "invoice_datetime": 0,
+        "customer_id": 750,
+        "country": 0,
+        "source_row": 0,
+        "matched_original_invoice": 13191,
+        "matched_source_row": 13191,
+        "match_reason": 0,
+        "same_time_candidate_rows": 0,
+        "price_mismatch": 0
+      },
+      "dtypes": {
+        "invoice_no": "string",
+        "stock_code": "string",
+        "description": "string",
+        "quantity": "int64",
+        "unit_price": "float64",
+        "total_amount": "float64",
+        "invoice_datetime": "datetime64[us]",
+        "customer_id": "string",
+        "country": "string",
+        "source_row": "int64",
+        "matched_original_invoice": "string",
+        "matched_source_row": "Int64",
+        "match_reason": "string",
+        "same_time_candidate_rows": "int64",
+        "price_mismatch": "bool"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "body_nonwhitespace_characters": 1281,
+  "han_characters": 1015,
+  "scenario": {
+    "annual_all_review_cost_usd": "114975.0",
+    "annual_routed_cost_usd": "9198.000",
+    "average_orders_per_second": "11.57407407407407407407407407",
+    "assumed_peak_events_per_second": "1388.888888888888888888888888",
+    "scope": "输入/输出单价与比例均为压力情景假设，不是厂商报价或实际费用；未含基础设施/人工"
+  },
+  "scope": "文档交付、字数与数学情景；未部署、压测或独立人员审阅"
+}

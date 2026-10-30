@@ -41,7 +41,7 @@ def main():
             root=ROOT/'.venv/release-runs'/uuid.uuid4().hex
             root.mkdir(parents=True)
             out=root/'q2';report=ROOT/'reports/release_execution.json'
-            command([ROOT/'run_all.py','--offline','--q1-output-dir',root/'q1','--q2-output-dir',out,'--report',report],2)
+            command([ROOT/'run_all.py','--offline','--q1-output-dir',root/'q1','--q2-output-dir',out,'--q3-output-dir',root/'q3','--q5-output-dir',root/'q5','--report',report],2)
             top=json.loads(report.read_text())
             stages={r['stage']:r for r in top['results']}
             require(set(stages)=={'data.retail','data.olist','q1.1','q1.2','q1.3','q2','q3','q4','q5'},'全入口必答范围缺项')

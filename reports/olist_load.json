@@ -11,7 +11,7 @@
     "volume": "gekko-de-exam-mysql-data",
     "configuration": "显式原配置或全新实例初始化；不输出凭据"
   },
-  "version": "1bcf461c864d",
+  "version": "e11f20ebc7f7",
   "tables": {
     "customers": {
       "rows": 99441,
