@@ -1,0 +1,31 @@
+{
+  "status": "preflight_passed",
+  "scope": "独立预检环境，尚未正式默认入口验收；非全项目通过",
+  "python": "3.12",
+  "pyarrow": "26.0.0",
+  "pipeline_sha256": "afe1250bea7ade20355ae2d2d38c77c30a27891a768f7588777dafe2998b1f13",
+  "artifact_sha256": {
+    "returns_log.parquet": "05b6c248cb61b85f78deef8712011b2e6dbbda02ffc6210d7a8742b97710a3fb",
+    "customer_features.parquet": "51c6c7c9d823ddcca243552991a99165ff69d1839b3e4b1ab1755fd2986d7990",
+    "sales_facts.parquet": "f40bb584a5ea698446ad11bb0c93c2fa919293263a1d06313db2404242244e65"
+  },
+  "business_outputs_unchanged": true,
+  "production_seconds": 3.221027,
+  "independent_reference": {
+    "sales_rows": 1037021,
+    "customers": 5852,
+    "returns": 19494,
+    "sales_row_digest": "e32563bfd222e368deb2b14600dcc6d9392a1ffac09dcb98b487b87ab5db7ff6",
+    "scope": "实际运行 CSV/Decimal/列表删除参考得到的输出；非性能计时范围"
+  },
+  "sensitivity": {
+    "assumption": "仅作如果全部匹配候选均确认退货的敏感性，不作为已证实退款",
+    "candidate_sales_rows": 6303,
+    "candidate_original_amount_milli": 611992031,
+    "customers_with_candidates": 1506,
+    "customers_disappearing_if_candidates_removed": 13,
+    "matched_price_mismatch_rows": 217,
+    "matching_coverage_fraction": 0.3233302554632195,
+    "limit": "覆盖率不是准确率；未匹配不等于无原单，毛购买 RFM 不能当净留存特征"
+  }
+}
