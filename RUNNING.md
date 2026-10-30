@@ -1,10 +1,12 @@
 # 运行说明与阶段验收
 
+当前工作安排、时间上限和本人学习动作统一见 [PROJECT_CONTROL.md](PROJECT_CONTROL.md)。
+
 > 整项目仍不可完整交付。R1–R4 已完成本次已知缺陷修复和统一门槛验收；各轮标准、结果、失败记录见 [repairs/PROGRESS.md](repairs/PROGRESS.md)。原审查见 [audit/PROJECT_REVIEW.md](audit/PROJECT_REVIEW.md)，用于保留发现过程，不覆盖新的修复结果。
 
-## 当前阶段：Q1 三题、Q2.1 和 Q2.2 已实现，Q2 其余题目和 Q3–Q5 未完成
+## 当前阶段：Q1、Q2.1/Q2.2 已实现；Q2.3 独立入口通过，默认整合待完成
 
-Q1.1 的质量报告、Q1.2 的探索与补证、Q1.3 的清洗策略已接入独立入口；真实 MySQL 九表导入、Q2.1 翻译缺口和 Q2.2 月度成交已实现。Q2.3–Q2.4、Q3–Q5 尚未完成。Q2 本轮证据与限制见 reports/q2_2_validation.md，数据模型与 Docker 前置要求见 q2_sql_analysis/DATA_MODEL.md。
+Q1.1 的质量报告、Q1.2 的探索与补证、Q1.3 的清洗策略已接入独立入口；真实 MySQL 九表导入、Q2.1 翻译缺口和 Q2.2 月度成交已实现。Q2.3 独立 SQL/CLI 与单题入口已通过，默认全入口尚未整合；Q2.4、Q3–Q5 尚未完成。Q2 本轮证据与限制见 reports/q2_2_validation.md，数据模型与 Docker 前置要求见 q2_sql_analysis/DATA_MODEL.md。
 
 ```bash
 python run_all.py --stage data

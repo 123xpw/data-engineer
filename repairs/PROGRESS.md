@@ -9,6 +9,6 @@
 | R3 | 运行产物归属 | 已通过，见 R3_RESULT.md | 本轮编号、完整暂存发布和消费端拒绝旧产物已有实测 |
 | R4 | 当前验收清单及历史门槛分离 | 已通过，见 R4_RESULT.md | 当前局部通过、完整不可提交有统一判定和逐项阻塞清单 |
 
-整项目仍不可完整交付：Q2.3/Q2.4、Q3/Q4/Q5 和最终提交材料尚未完成。修复基础设施不能替代业务模块实现。
+截至 R4 的整项目结论是不可完整交付。其后 Q2.3 独立增量已通过，默认整合仍待完成；当前范围与下一步统一见 [PROJECT_CONTROL.md](../PROJECT_CONTROL.md)。Q2.4、Q3/Q4/Q5 和最终提交材料尚未完成。修复基础设施不能替代业务模块实现。
 
-当前验收命令：`python release_check.py --scope implemented` 检查已实现范围；`python release_check.py` 检查完整提交；代码变化后用 `--refresh` 重跑。报告不是永久凭证，必须对应源码和本轮文件。
+统一入口命令（源码变化后旧报告失效，Q2.3 整合尚待扩展）：`python release_check.py --scope implemented` 检查已实现范围；`python release_check.py` 检查完整提交；代码变化后用 `--refresh` 重跑。报告不是永久凭证，必须对应源码和本轮文件。
