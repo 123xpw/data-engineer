@@ -67,9 +67,12 @@ if __name__=='__main__':
     parser.add_argument('--skip-load',action='store_true')
     args=parser.parse_args()
     try:
-        if not args.skip_load:
-            load(args.data_dir)
-        print(json.dumps(query(args.output_dir),ensure_ascii=False))
+        from artifact_manifest import publish
+        def action(fresh):
+            if not args.skip_load:
+                load(args.data_dir, fresh/'load_report.json')
+            return query(fresh)
+        print(json.dumps(publish('q2.2', args.output_dir, action),ensure_ascii=False))
     except Exception as exc:
         print(f'Q2.2 失败：{type(exc).__name__}',file=sys.stderr)
         raise SystemExit(1)

@@ -54,10 +54,19 @@ def main():
         e.check('真实数据直接连接的偏差与独立敏感性',wrong_queries)
         def isolation():
             from run_all import q2_scope
-            with patch('q2_sql_analysis.load_olist.load',return_value={'test_only':True}), \
+            def fake_load(data_dir, report):
+                report.parent.mkdir(parents=True,exist_ok=True)
+                report.write_text('{"test_only": true}')
+                return {'test_only': True}
+            def fake_monthly(output):
+                (output/'q2_2_results.json').write_text('{"test_only": true}')
+                (output/'q2_2_findings.md').write_text('人工控制流夹具，不是业务证据')
+                return {'test_only': True}
+            with tempfile.TemporaryDirectory() as folder, \
+                 patch('q2_sql_analysis.load_olist.load',side_effect=fake_load), \
                  patch('q2_sql_analysis.q2_1.query',side_effect=RuntimeError('人工故障')), \
-                 patch('q2_sql_analysis.q2_2.query',return_value={'test_only':True}) as monthly:
-                report=q2_scope(ROOT/'data',ROOT/'q2_sql_analysis')
+                 patch('q2_sql_analysis.q2_2.query',side_effect=fake_monthly) as monthly:
+                report=q2_scope(ROOT/'data',Path(folder))
                 assert report['stage_completion']=='failed'
                 assert [(r['stage'],r['status']) for r in report['results']]==[('q2.load','passed'),('q2.1','failed'),('q2.2','passed')]
                 monthly.assert_called_once()

@@ -41,7 +41,7 @@ def main():
         e.check('独立/总入口文件一致且正文符合字数',documents)
         def isolation():
             copy=temp/'isolated';(copy/'q1_data_quality').mkdir(parents=True)
-            for name in ['run_all.py','download_data.py']:
+            for name in ['run_all.py','download_data.py','artifact_manifest.py']:
                 shutil.copyfile(ROOT/name,copy/name)
             for name in [*docs,'q1_strategy.py']:
                 shutil.copyfile(ROOT/'q1_data_quality'/name,copy/'q1_data_quality'/name)

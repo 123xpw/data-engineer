@@ -82,7 +82,7 @@ class VerificationTests(unittest.TestCase):
         repo = self.root / "repo"
         repo.mkdir()
         (repo / "data").mkdir()
-        for name in ("run_all.py", "download_data.py", "data_sources.json"):
+        for name in ("run_all.py", "download_data.py", "artifact_manifest.py", "data_sources.json"):
             shutil.copyfile(ROOT / name, repo / name)
         shutil.copytree(ROOT / "scripts", repo / "scripts", ignore=shutil.ignore_patterns("__pycache__"))
         reports = repo / "reports"

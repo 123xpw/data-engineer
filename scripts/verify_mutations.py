@@ -28,7 +28,7 @@ result = unittest.TextTestRunner(verbosity=0).run(suite)
 print(json.dumps({'tests':result.testsRun,'failures':[x.id() for x,_ in result.failures],
                   'errors':[x.id() for x,_ in result.errors]}))
 """
-    result = subprocess.run([sys.executable, "-c", code], cwd=directory, capture_output=True, text=True, timeout=30)
+    result = subprocess.run([sys.executable, "-B", "-c", code], cwd=directory, capture_output=True, text=True, timeout=30)
     if result.returncode != 0:
         raise AssertionError("测试进程异常退出，不能当作捕获变异")
     return json.loads(result.stdout.strip().splitlines()[-1])
@@ -50,10 +50,13 @@ def main():
             def probe():
                 with tempfile.TemporaryDirectory(prefix="gekko-mutant-") as directory:
                     target = Path(directory)
-                    for source in ("download_data.py", "run_all.py"):
+                    for source in ("download_data.py", "run_all.py", "artifact_manifest.py"):
                         shutil.copyfile(ROOT / source, target / source)
                     (target / "tests").mkdir()
                     shutil.copyfile(ROOT / "tests" / "test_baseline.py", target / "tests" / "test_baseline.py")
+                    control = run_suite(target)
+                    if control["failures"] or control["errors"]:
+                        raise AssertionError(f"未变异副本不通过，不能植入错误：{control}")
                     path = target / filename
                     source = path.read_text()
                     if source.count(before) != 1:
@@ -62,9 +65,17 @@ def main():
                     result = run_suite(target)
                     # 只把明确的断言失败计为捕获；其他测试异常保留在报告中但不计分。
                     # 语法/导入错误只有 errors、没有 failures，因此仍不能通过。
-                    if not result["failures"]:
+                    expected_test = {
+                        '字段顺序反转': 'test_multiline_is_one_record_and_preserves_identifier',
+                        '少计一行': 'test_multiline_is_one_record_and_preserves_identifier',
+                        '跳过校验': 'test_changed_content_with_same_size_and_rows_is_rejected',
+                        '失败报成功': 'test_failure_does_not_prevent_independent_step',
+                        '未执行就报成功': 'test_failure_does_not_prevent_independent_step',
+                    }[name]
+                    caught = any(item.endswith('.'+expected_test) for item in result['failures'])
+                    if not caught or any('_FailedTest' in item for item in result['errors']):
                         raise AssertionError(f"变异未被可靠捕获：{result}")
-                    return result
+                    return {"unmodified_copy": control, "mutant": result}
             evidence.check(name, probe)
     print(evidence.path)
     return 0 if evidence.report["status"] == "passed" else 1

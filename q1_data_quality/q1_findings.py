@@ -189,4 +189,5 @@ if __name__ == '__main__':
     parser.add_argument('--input', type=Path, default=ROOT / 'data/online_retail_ii.csv')
     parser.add_argument('--output-dir', type=Path, default=Path(__file__).resolve().parent)
     args = parser.parse_args()
-    print(json.dumps(run_findings(args.input, args.output_dir), ensure_ascii=False))
+    from artifact_manifest import publish
+    print(json.dumps(publish("q1.2", args.output_dir, lambda fresh: run_findings(args.input, fresh), inputs=[args.input]), ensure_ascii=False))

@@ -5,6 +5,11 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import sys
+
+ROOT=Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0,str(ROOT))
 
 SOURCE=Path(__file__).resolve().parent
 
@@ -34,4 +39,6 @@ def deliver_strategy(output_dir):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir',type=Path,default=SOURCE)
-    print(json.dumps(deliver_strategy(parser.parse_args().output_dir),ensure_ascii=False))
+    from artifact_manifest import publish
+    args=parser.parse_args()
+    print(json.dumps(publish('q1.3', args.output_dir, deliver_strategy),ensure_ascii=False))
