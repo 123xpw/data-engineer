@@ -1,5 +1,5 @@
 {
-  "load_version": "4ede956aa487",
+  "load_version": "160ff9513cb6",
   "year": 2017,
   "rate_unit": "百分数",
   "review_rule": "每订单按创建、回答、review_id、来源行降序取一条；不是权威性认证",

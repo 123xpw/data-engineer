@@ -66,16 +66,22 @@ def main():
                 (output/'q2_3_results.json').write_text('{"test_only": true}')
                 (output/'q2_3_findings.md').write_text('人工控制流夹具')
                 return {'test_only': True}
+            def fake_optimization(output):
+                (output/'q2_4_results.json').write_text('{"test_only":true}')
+                (output/'q2_4_query_optimization.md').write_text('人工控制流夹具')
+                return {'test_only': True}
             with tempfile.TemporaryDirectory() as folder, \
                  patch('q2_sql_analysis.load_olist.load',side_effect=fake_load), \
                  patch('q2_sql_analysis.q2_1.query',side_effect=RuntimeError('人工故障')), \
                  patch('q2_sql_analysis.q2_2.query',side_effect=fake_monthly) as monthly, \
-                 patch('q2_sql_analysis.q2_3.query',side_effect=fake_sellers) as sellers:
+                 patch('q2_sql_analysis.q2_3.query',side_effect=fake_sellers) as sellers, \
+                 patch('q2_sql_analysis.q2_4.query',side_effect=fake_optimization) as optimization:
                 report=q2_scope(ROOT/'data',Path(folder))
                 assert report['stage_completion']=='failed'
-                assert [(r['stage'],r['status']) for r in report['results']]==[('q2.load','passed'),('q2.1','failed'),('q2.2','passed'),('q2.3','passed')]
+                assert [(r['stage'],r['status']) for r in report['results']]==[('q2.load','passed'),('q2.1','failed'),('q2.2','passed'),('q2.3','passed'),('q2.4','passed')]
                 monthly.assert_called_once()
                 sellers.assert_called_once()
+                optimization.assert_called_once()
             return {'q21_failure_does_not_block_independent_q22':True,'mock_scope':'仅验证控制流；SQL 另有真实 MySQL 实验'}
         e.check('同模块独立题目失败隔离',isolation)
         def entrypoints():

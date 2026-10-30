@@ -9,9 +9,9 @@
     },
     {
       "id": "Q2.4",
-      "status": "pending",
-      "reason": "慢查询优化仍为模板，尚无当前实测计划及对账",
-      "evidence": null
+      "status": "verified",
+      "reason": "统计修正及默认入口由当前证据验证；未宣称候选实测提速",
+      "evidence": "reports/q2_4/acceptance_latest.json"
     },
     {
       "id": "Q3.1",

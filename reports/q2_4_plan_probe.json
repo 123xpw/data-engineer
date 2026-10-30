@@ -1,0 +1,475 @@
+{
+  "experiment_sha256": "1bb4374ed49eef2a96ee692abcb35dc32463bb2f63561e80a74032fdce68d85c",
+  "scope": "只读估计计划，不是实际计时或扫描行数；冻结原始 CSV 的显式键/金额转换假设",
+  "plans": {
+    "original": {
+      "query_block": {
+        "select_id": 1,
+        "cost_info": {
+          "query_cost": "1.0309818116325e+19"
+        },
+        "ordering_operation": {
+          "using_filesort": true,
+          "grouping_operation": {
+            "using_temporary_table": true,
+            "using_filesort": true,
+            "buffer_result": {
+              "using_temporary_table": true,
+              "nested_loop": [
+                {
+                  "table": {
+                    "table_name": "raw_orders",
+                    "access_type": "ALL",
+                    "rows_examined_per_scan": 98322,
+                    "rows_produced_per_join": 98322,
+                    "filtered": "100.00",
+                    "cost_info": {
+                      "read_cost": "344.75",
+                      "eval_cost": "9832.20",
+                      "prefix_cost": "10176.95",
+                      "data_read_per_join": "1G"
+                    },
+                    "used_columns": [
+                      "_source_row",
+                      "order_id",
+                      "customer_id",
+                      "order_status",
+                      "order_purchase_timestamp"
+                    ],
+                    "attached_condition": "((nullif(`gekko_exam`.`raw_orders`.`order_status`,'') = 'delivered') and (str_to_date(nullif(`gekko_exam`.`raw_orders`.`order_purchase_timestamp`,''),'%Y-%m-%d %H:%i:%s') >= '2017-01-01'))"
+                  }
+                },
+                {
+                  "table": {
+                    "table_name": "raw_customers",
+                    "access_type": "ALL",
+                    "rows_examined_per_scan": 98960,
+                    "rows_produced_per_join": 9729945120,
+                    "filtered": "100.00",
+                    "using_join_buffer": "hash join",
+                    "cost_info": {
+                      "read_cost": "616081.75",
+                      "eval_cost": "972994512.00",
+                      "prefix_cost": "973620770.70",
+                      "data_read_per_join": "90T"
+                    },
+                    "used_columns": [
+                      "_source_row",
+                      "customer_id",
+                      "customer_city",
+                      "customer_state"
+                    ],
+                    "attached_condition": "(<if>(found_match(raw_customers), (lower(nullif(`gekko_exam`.`raw_customers`.`customer_city`,'')) like '%sao%'), true) and <if>(is_not_null_compl(raw_customers), (nullif(`gekko_exam`.`raw_orders`.`customer_id`,'') = nullif(`gekko_exam`.`raw_customers`.`customer_id`,'')), true))"
+                  }
+                },
+                {
+                  "table": {
+                    "table_name": "raw_order_items",
+                    "access_type": "ALL",
+                    "rows_examined_per_scan": 107601,
+                    "rows_produced_per_join": 1046951824857120,
+                    "filtered": "100.00",
+                    "using_join_buffer": "hash join",
+                    "cost_info": {
+                      "read_cost": "166590392867.81",
+                      "eval_cost": "1.0469518248571e+14",
+                      "prefix_cost": "1.0486274649935e+14",
+                      "data_read_per_join": "13E"
+                    },
+                    "used_columns": [
+                      "_source_row",
+                      "order_id",
+                      "price"
+                    ],
+                    "attached_condition": "<if>(is_not_null_compl(raw_order_items), (nullif(`gekko_exam`.`raw_orders`.`order_id`,'') = nullif(`gekko_exam`.`raw_order_items`.`order_id`,'')), true)"
+                  }
+                },
+                {
+                  "table": {
+                    "table_name": "raw_order_reviews",
+                    "access_type": "ALL",
+                    "rows_examined_per_scan": 98276,
+                    "rows_produced_per_join": 18446744073709549568,
+                    "filtered": "100.00",
+                    "using_join_buffer": "hash join",
+                    "cost_info": {
+                      "read_cost": "2.0689499612953e+16",
+                      "eval_cost": "1.0289023753966e+19",
+                      "prefix_cost": "1.0309818116325e+19",
+                      "data_read_per_join": "1Y"
+                    },
+                    "used_columns": [
+                      "_source_row",
+                      "order_id",
+                      "review_score"
+                    ],
+                    "attached_condition": "<if>(is_not_null_compl(raw_order_reviews), (nullif(`gekko_exam`.`raw_orders`.`order_id`,'') = nullif(`gekko_exam`.`raw_order_reviews`.`order_id`,'')), true)"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "corrected": {
+      "query_block": {
+        "select_id": 1,
+        "cost_info": {
+          "query_cost": "5412805496.76"
+        },
+        "ordering_operation": {
+          "using_filesort": true,
+          "grouping_operation": {
+            "using_temporary_table": true,
+            "using_filesort": false,
+            "nested_loop": [
+              {
+                "table": {
+                  "table_name": "o",
+                  "access_type": "ALL",
+                  "possible_keys": [
+                    "idx_1"
+                  ],
+                  "rows_examined_per_scan": 98322,
+                  "rows_produced_per_join": 3277,
+                  "filtered": "3.33",
+                  "cost_info": {
+                    "read_cost": "9849.24",
+                    "eval_cost": "327.71",
+                    "prefix_cost": "10176.95",
+                    "data_read_per_join": "51M"
+                  },
+                  "used_columns": [
+                    "_source_row",
+                    "order_id",
+                    "customer_id",
+                    "order_status",
+                    "order_purchase_timestamp"
+                  ],
+                  "attached_condition": "((`gekko_exam`.`o`.`order_status` = 'delivered') and (`gekko_exam`.`o`.`order_purchase_timestamp` >= '2017-01-01'))"
+                }
+              },
+              {
+                "table": {
+                  "table_name": "c",
+                  "access_type": "ref",
+                  "possible_keys": [
+                    "idx_0"
+                  ],
+                  "key": "idx_0",
+                  "used_key_parts": [
+                    "customer_id"
+                  ],
+                  "key_length": "258",
+                  "ref": [
+                    "gekko_exam.o.customer_id"
+                  ],
+                  "rows_examined_per_scan": 1,
+                  "rows_produced_per_join": 3634,
+                  "filtered": "100.00",
+                  "cost_info": {
+                    "read_cost": "908.69",
+                    "eval_cost": "363.47",
+                    "prefix_cost": "11449.11",
+                    "data_read_per_join": "35M"
+                  },
+                  "used_columns": [
+                    "_source_row",
+                    "customer_id",
+                    "customer_city",
+                    "customer_state"
+                  ],
+                  "attached_condition": "((`gekko_exam`.`c`.`customer_id` = `gekko_exam`.`o`.`customer_id`) and (lower(`gekko_exam`.`c`.`customer_city`) like '%sao%'))"
+                }
+              },
+              {
+                "table": {
+                  "table_name": "i",
+                  "access_type": "ALL",
+                  "rows_examined_per_scan": 3924,
+                  "rows_produced_per_join": 14262733,
+                  "filtered": "100.00",
+                  "using_join_buffer": "hash join",
+                  "cost_info": {
+                    "read_cost": "10308.41",
+                    "eval_cost": "1426273.34",
+                    "prefix_cost": "1448030.86",
+                    "data_read_per_join": "27G"
+                  },
+                  "used_columns": [
+                    "order_id",
+                    "price_revenue",
+                    "invalid_price_items"
+                  ],
+                  "attached_condition": "<if>(is_not_null_compl(i), (`i`.`order_id` = `gekko_exam`.`o`.`order_id`), true)",
+                  "materialized_from_subquery": {
+                    "using_temporary_table": true,
+                    "dependent": false,
+                    "cacheable": true,
+                    "query_block": {
+                      "select_id": 3,
+                      "cost_info": {
+                        "query_cost": "12789.21"
+                      },
+                      "grouping_operation": {
+                        "using_temporary_table": true,
+                        "using_filesort": false,
+                        "nested_loop": [
+                          {
+                            "table": {
+                              "table_name": "o",
+                              "access_type": "ALL",
+                              "possible_keys": [
+                                "idx_0",
+                                "idx_1"
+                              ],
+                              "rows_examined_per_scan": 98322,
+                              "rows_produced_per_join": 3277,
+                              "filtered": "3.33",
+                              "cost_info": {
+                                "read_cost": "9849.24",
+                                "eval_cost": "327.71",
+                                "prefix_cost": "10176.95",
+                                "data_read_per_join": "51M"
+                              },
+                              "used_columns": [
+                                "_source_row",
+                                "order_id",
+                                "customer_id",
+                                "order_status",
+                                "order_purchase_timestamp"
+                              ],
+                              "attached_condition": "((`gekko_exam`.`o`.`order_status` = 'delivered') and (`gekko_exam`.`o`.`order_purchase_timestamp` >= '2017-01-01'))"
+                            }
+                          },
+                          {
+                            "table": {
+                              "table_name": "i",
+                              "access_type": "ref",
+                              "possible_keys": [
+                                "idx_0"
+                              ],
+                              "key": "idx_0",
+                              "used_key_parts": [
+                                "order_id"
+                              ],
+                              "key_length": "258",
+                              "ref": [
+                                "gekko_exam.o.order_id"
+                              ],
+                              "rows_examined_per_scan": 1,
+                              "rows_produced_per_join": 3538,
+                              "filtered": "100.00",
+                              "cost_info": {
+                                "read_cost": "884.67",
+                                "eval_cost": "353.87",
+                                "prefix_cost": "11415.49",
+                                "data_read_per_join": "48M"
+                              },
+                              "used_columns": [
+                                "_source_row",
+                                "order_id",
+                                "price"
+                              ],
+                              "attached_condition": "(`gekko_exam`.`i`.`order_id` = `gekko_exam`.`o`.`order_id`)"
+                            }
+                          },
+                          {
+                            "table": {
+                              "table_name": "c",
+                              "access_type": "ref",
+                              "possible_keys": [
+                                "idx_0"
+                              ],
+                              "key": "idx_0",
+                              "used_key_parts": [
+                                "customer_id"
+                              ],
+                              "key_length": "258",
+                              "ref": [
+                                "gekko_exam.o.customer_id"
+                              ],
+                              "rows_examined_per_scan": 1,
+                              "rows_produced_per_join": 3924,
+                              "filtered": "100.00",
+                              "cost_info": {
+                                "read_cost": "981.23",
+                                "eval_cost": "392.49",
+                                "prefix_cost": "12789.21",
+                                "data_read_per_join": "38M"
+                              },
+                              "used_columns": [
+                                "_source_row",
+                                "customer_id",
+                                "customer_city"
+                              ],
+                              "attached_condition": "((`gekko_exam`.`c`.`customer_id` = `gekko_exam`.`o`.`customer_id`) and (lower(`gekko_exam`.`c`.`customer_city`) like '%sao%'))"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "table": {
+                  "table_name": "r",
+                  "access_type": "ALL",
+                  "rows_examined_per_scan": 3763,
+                  "rows_produced_per_join": 53670665899,
+                  "filtered": "100.00",
+                  "using_join_buffer": "hash join",
+                  "cost_info": {
+                    "read_cost": "44290875.97",
+                    "eval_cost": "5367066589.93",
+                    "prefix_cost": "5412805496.77",
+                    "data_read_per_join": "101T"
+                  },
+                  "used_columns": [
+                    "order_id",
+                    "review_score",
+                    "choice"
+                  ],
+                  "attached_condition": "<if>(is_not_null_compl(r), ((`r`.`choice` = 1) and (`r`.`order_id` = `gekko_exam`.`o`.`order_id`)), true)",
+                  "materialized_from_subquery": {
+                    "using_temporary_table": true,
+                    "dependent": false,
+                    "cacheable": true,
+                    "query_block": {
+                      "select_id": 5,
+                      "cost_info": {
+                        "query_cost": "16445.46"
+                      },
+                      "windowing": {
+                        "windows": [
+                          {
+                            "name": "<unnamed window>",
+                            "using_filesort": true,
+                            "filesort_key": [
+                              "`order_id`",
+                              "`review_creation_date` desc",
+                              "`review_answer_timestamp` desc",
+                              "`review_id` desc",
+                              "`_source_row` desc"
+                            ],
+                            "functions": [
+                              "row_number"
+                            ]
+                          }
+                        ],
+                        "cost_info": {
+                          "sort_cost": "3763.61"
+                        },
+                        "buffer_result": {
+                          "using_temporary_table": true,
+                          "nested_loop": [
+                            {
+                              "table": {
+                                "table_name": "o",
+                                "access_type": "ALL",
+                                "possible_keys": [
+                                  "idx_0",
+                                  "idx_1"
+                                ],
+                                "rows_examined_per_scan": 98322,
+                                "rows_produced_per_join": 3277,
+                                "filtered": "3.33",
+                                "cost_info": {
+                                  "read_cost": "9849.24",
+                                  "eval_cost": "327.71",
+                                  "prefix_cost": "10176.95",
+                                  "data_read_per_join": "51M"
+                                },
+                                "used_columns": [
+                                  "_source_row",
+                                  "order_id",
+                                  "customer_id",
+                                  "order_status",
+                                  "order_purchase_timestamp"
+                                ],
+                                "attached_condition": "((`gekko_exam`.`o`.`order_status` = 'delivered') and (`gekko_exam`.`o`.`order_purchase_timestamp` >= '2017-01-01'))"
+                              }
+                            },
+                            {
+                              "table": {
+                                "table_name": "r",
+                                "access_type": "ref",
+                                "possible_keys": [
+                                  "idx_1"
+                                ],
+                                "key": "idx_1",
+                                "used_key_parts": [
+                                  "order_id"
+                                ],
+                                "key_length": "258",
+                                "ref": [
+                                  "gekko_exam.o.order_id"
+                                ],
+                                "rows_examined_per_scan": 1,
+                                "rows_produced_per_join": 3393,
+                                "filtered": "100.00",
+                                "cost_info": {
+                                  "read_cost": "848.31",
+                                  "eval_cost": "339.33",
+                                  "prefix_cost": "11364.59",
+                                  "data_read_per_join": "46M"
+                                },
+                                "used_columns": [
+                                  "_source_row",
+                                  "review_id",
+                                  "order_id",
+                                  "review_score",
+                                  "review_creation_date",
+                                  "review_answer_timestamp"
+                                ],
+                                "attached_condition": "(`gekko_exam`.`r`.`order_id` = `gekko_exam`.`o`.`order_id`)"
+                              }
+                            },
+                            {
+                              "table": {
+                                "table_name": "c",
+                                "access_type": "ref",
+                                "possible_keys": [
+                                  "idx_0"
+                                ],
+                                "key": "idx_0",
+                                "used_key_parts": [
+                                  "customer_id"
+                                ],
+                                "key_length": "258",
+                                "ref": [
+                                  "gekko_exam.o.customer_id"
+                                ],
+                                "rows_examined_per_scan": 1,
+                                "rows_produced_per_join": 3763,
+                                "filtered": "100.00",
+                                "cost_info": {
+                                  "read_cost": "940.90",
+                                  "eval_cost": "376.36",
+                                  "prefix_cost": "12681.85",
+                                  "data_read_per_join": "36M"
+                                },
+                                "used_columns": [
+                                  "_source_row",
+                                  "customer_id",
+                                  "customer_city"
+                                ],
+                                "attached_condition": "((`gekko_exam`.`c`.`customer_id` = `gekko_exam`.`o`.`customer_id`) and (lower(`gekko_exam`.`c`.`customer_city`) like '%sao%'))"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

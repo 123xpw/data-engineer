@@ -1,0 +1,1017 @@
+{
+  "version": "f7d8c85e9921",
+  "target_orders": 20367,
+  "states": 22,
+  "observations": [
+    {
+      "query": "original",
+      "round": "warmup",
+      "seconds": 0.248627,
+      "status": "passed",
+      "states": 22
+    },
+    {
+      "query": "equivalent",
+      "round": "warmup",
+      "seconds": 0.399335,
+      "status": "passed",
+      "states": 22
+    },
+    {
+      "query": "corrected",
+      "round": "warmup",
+      "seconds": 0.278236,
+      "status": "passed",
+      "states": 22
+    },
+    {
+      "query": "original",
+      "round": 1,
+      "seconds": 0.205667,
+      "status": "passed",
+      "states": 22
+    },
+    {
+      "query": "equivalent",
+      "round": 1,
+      "seconds": 0.236406,
+      "status": "passed",
+      "states": 22
+    },
+    {
+      "query": "corrected",
+      "round": 1,
+      "seconds": 0.268669,
+      "status": "passed",
+      "states": 22
+    },
+    {
+      "query": "corrected",
+      "round": 2,
+      "seconds": 0.269226,
+      "status": "passed",
+      "states": 22
+    },
+    {
+      "query": "equivalent",
+      "round": 2,
+      "seconds": 0.220803,
+      "status": "passed",
+      "states": 22
+    },
+    {
+      "query": "original",
+      "round": 2,
+      "seconds": 0.206245,
+      "status": "passed",
+      "states": 22
+    },
+    {
+      "query": "original",
+      "round": 3,
+      "seconds": 0.208118,
+      "status": "passed",
+      "states": 22
+    },
+    {
+      "query": "equivalent",
+      "round": 3,
+      "seconds": 0.222269,
+      "status": "passed",
+      "states": 22
+    },
+    {
+      "query": "corrected",
+      "round": 3,
+      "seconds": 0.269597,
+      "status": "passed",
+      "states": 22
+    }
+  ],
+  "median_seconds": {
+    "original": 0.206245,
+    "equivalent": 0.222269,
+    "corrected": 0.269226
+  },
+  "equivalent_speedup": 0.927907175539549,
+  "original_reference": [
+    {
+      "customer_state": "SP",
+      "orders": 17990,
+      "revenue": "2229221.290",
+      "avg_score": "4.1829"
+    },
+    {
+      "customer_state": "RJ",
+      "orders": 648,
+      "revenue": "84319.420",
+      "avg_score": "3.7588"
+    },
+    {
+      "customer_state": "MA",
+      "orders": 370,
+      "revenue": "55288.950",
+      "avg_score": "3.7143"
+    },
+    {
+      "customer_state": "SC",
+      "orders": 319,
+      "revenue": "40204.810",
+      "avg_score": "3.8162"
+    },
+    {
+      "customer_state": "MG",
+      "orders": 302,
+      "revenue": "39517.820",
+      "avg_score": "4.0645"
+    },
+    {
+      "customer_state": "RS",
+      "orders": 242,
+      "revenue": "28419.660",
+      "avg_score": "4.2000"
+    },
+    {
+      "customer_state": "PR",
+      "orders": 185,
+      "revenue": "21026.520",
+      "avg_score": "4.2562"
+    },
+    {
+      "customer_state": "ES",
+      "orders": 90,
+      "revenue": "11054.680",
+      "avg_score": "4.2604"
+    },
+    {
+      "customer_state": "PE",
+      "orders": 32,
+      "revenue": "5260.170",
+      "avg_score": "4.1176"
+    },
+    {
+      "customer_state": "PI",
+      "orders": 18,
+      "revenue": "5102.570",
+      "avg_score": "4.1739"
+    },
+    {
+      "customer_state": "RN",
+      "orders": 27,
+      "revenue": "4172.610",
+      "avg_score": "4.2414"
+    },
+    {
+      "customer_state": "BA",
+      "orders": 33,
+      "revenue": "4151.220",
+      "avg_score": "4.2105"
+    },
+    {
+      "customer_state": "GO",
+      "orders": 21,
+      "revenue": "3948.430",
+      "avg_score": "4.5600"
+    },
+    {
+      "customer_state": "SE",
+      "orders": 15,
+      "revenue": "3758.480",
+      "avg_score": "4.1250"
+    },
+    {
+      "customer_state": "AL",
+      "orders": 11,
+      "revenue": "3728.320",
+      "avg_score": "4.5333"
+    },
+    {
+      "customer_state": "PA",
+      "orders": 18,
+      "revenue": "3278.280",
+      "avg_score": "4.1667"
+    },
+    {
+      "customer_state": "CE",
+      "orders": 12,
+      "revenue": "1398.850",
+      "avg_score": "4.4286"
+    },
+    {
+      "customer_state": "PB",
+      "orders": 7,
+      "revenue": "969.890",
+      "avg_score": "4.8571"
+    },
+    {
+      "customer_state": "MT",
+      "orders": 9,
+      "revenue": "965.690",
+      "avg_score": "4.6000"
+    },
+    {
+      "customer_state": "TO",
+      "orders": 5,
+      "revenue": "699.990",
+      "avg_score": "4.4000"
+    },
+    {
+      "customer_state": "RO",
+      "orders": 6,
+      "revenue": "684.340",
+      "avg_score": "4.0000"
+    },
+    {
+      "customer_state": "MS",
+      "orders": 7,
+      "revenue": "526.720",
+      "avg_score": "3.1111"
+    }
+  ],
+  "corrected_reference": [
+    {
+      "customer_state": "SP",
+      "orders": 17990,
+      "price_revenue": "2217437.430",
+      "avg_score": "4.246310",
+      "reviewed_orders": 17884,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "RJ",
+      "orders": 648,
+      "price_revenue": "84171.420",
+      "avg_score": "3.848200",
+      "reviewed_orders": 639,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "MA",
+      "orders": 370,
+      "price_revenue": "55224.970",
+      "avg_score": "3.782016",
+      "reviewed_orders": 367,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "SC",
+      "orders": 319,
+      "price_revenue": "40035.010",
+      "avg_score": "3.939873",
+      "reviewed_orders": 316,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "MG",
+      "orders": 302,
+      "price_revenue": "39457.830",
+      "avg_score": "4.219595",
+      "reviewed_orders": 296,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "RS",
+      "orders": 242,
+      "price_revenue": "28419.660",
+      "avg_score": "4.202479",
+      "reviewed_orders": 242,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "PR",
+      "orders": 185,
+      "price_revenue": "20937.220",
+      "avg_score": "4.273224",
+      "reviewed_orders": 183,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "ES",
+      "orders": 90,
+      "price_revenue": "10984.790",
+      "avg_score": "4.266667",
+      "reviewed_orders": 90,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "PE",
+      "orders": 32,
+      "price_revenue": "5260.170",
+      "avg_score": "4.062500",
+      "reviewed_orders": 32,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "PI",
+      "orders": 18,
+      "price_revenue": "5102.570",
+      "avg_score": "4.235294",
+      "reviewed_orders": 17,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "RN",
+      "orders": 27,
+      "price_revenue": "4172.610",
+      "avg_score": "4.333333",
+      "reviewed_orders": 27,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "BA",
+      "orders": 33,
+      "price_revenue": "4151.220",
+      "avg_score": "4.303030",
+      "reviewed_orders": 33,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "GO",
+      "orders": 21,
+      "price_revenue": "3948.430",
+      "avg_score": "4.571429",
+      "reviewed_orders": 21,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "SE",
+      "orders": 15,
+      "price_revenue": "3758.480",
+      "avg_score": "4.066667",
+      "reviewed_orders": 15,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "AL",
+      "orders": 11,
+      "price_revenue": "3728.320",
+      "avg_score": "4.363636",
+      "reviewed_orders": 11,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "PA",
+      "orders": 18,
+      "price_revenue": "3278.280",
+      "avg_score": "4.117647",
+      "reviewed_orders": 17,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "CE",
+      "orders": 12,
+      "price_revenue": "1398.850",
+      "avg_score": "4.333333",
+      "reviewed_orders": 12,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "PB",
+      "orders": 7,
+      "price_revenue": "969.890",
+      "avg_score": "4.857143",
+      "reviewed_orders": 7,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "MT",
+      "orders": 9,
+      "price_revenue": "965.690",
+      "avg_score": "4.555556",
+      "reviewed_orders": 9,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "TO",
+      "orders": 5,
+      "price_revenue": "699.990",
+      "avg_score": "4.400000",
+      "reviewed_orders": 5,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "RO",
+      "orders": 6,
+      "price_revenue": "684.340",
+      "avg_score": "3.833333",
+      "reviewed_orders": 6,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "MS",
+      "orders": 7,
+      "price_revenue": "526.720",
+      "avg_score": "3.714286",
+      "reviewed_orders": 7,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    }
+  ],
+  "estimated_plans": {
+    "original": {
+      "query_block": {
+        "select_id": 1,
+        "cost_info": {
+          "query_cost": "1.0686479720288e+19"
+        },
+        "ordering_operation": {
+          "using_filesort": true,
+          "grouping_operation": {
+            "using_temporary_table": true,
+            "using_filesort": true,
+            "buffer_result": {
+              "using_temporary_table": true,
+              "nested_loop": [
+                {
+                  "table": {
+                    "table_name": "raw_orders",
+                    "access_type": "ALL",
+                    "rows_examined_per_scan": 98190,
+                    "rows_produced_per_join": 98190,
+                    "filtered": "100.00",
+                    "cost_info": {
+                      "read_cost": "344.75",
+                      "eval_cost": "9819.00",
+                      "prefix_cost": "10163.75",
+                      "data_read_per_join": "1G"
+                    },
+                    "used_columns": [
+                      "_source_row",
+                      "order_id",
+                      "customer_id",
+                      "order_status",
+                      "order_purchase_timestamp"
+                    ],
+                    "attached_condition": "((nullif(`gekko_exam`.`raw_orders`.`order_status`,'') = 'delivered') and (str_to_date(nullif(`gekko_exam`.`raw_orders`.`order_purchase_timestamp`,''),'%Y-%m-%d %H:%i:%s') >= '2017-01-01'))"
+                  }
+                },
+                {
+                  "table": {
+                    "table_name": "raw_customers",
+                    "access_type": "ALL",
+                    "rows_examined_per_scan": 98997,
+                    "rows_produced_per_join": 9720515430,
+                    "filtered": "100.00",
+                    "using_join_buffer": "hash join",
+                    "cost_info": {
+                      "read_cost": "615254.91",
+                      "eval_cost": "972051543.00",
+                      "prefix_cost": "972676961.66",
+                      "data_read_per_join": "90T"
+                    },
+                    "used_columns": [
+                      "_source_row",
+                      "customer_id",
+                      "customer_city",
+                      "customer_state"
+                    ],
+                    "attached_condition": "(<if>(found_match(raw_customers), (lower(nullif(`gekko_exam`.`raw_customers`.`customer_city`,'')) like '%sao%'), true) and <if>(is_not_null_compl(raw_customers), (nullif(`gekko_exam`.`raw_orders`.`customer_id`,'') = nullif(`gekko_exam`.`raw_customers`.`customer_id`,'')), true))"
+                  }
+                },
+                {
+                  "table": {
+                    "table_name": "raw_order_items",
+                    "access_type": "ALL",
+                    "rows_examined_per_scan": 111578,
+                    "rows_produced_per_join": 1084595670648540,
+                    "filtered": "100.00",
+                    "using_join_buffer": "hash join",
+                    "cost_info": {
+                      "read_cost": "166428943266.67",
+                      "eval_cost": "1.0845956706485e+14",
+                      "prefix_cost": "1.0862696868508e+14",
+                      "data_read_per_join": "13E"
+                    },
+                    "used_columns": [
+                      "_source_row",
+                      "order_id",
+                      "price"
+                    ],
+                    "attached_condition": "<if>(is_not_null_compl(raw_order_items), (nullif(`gekko_exam`.`raw_orders`.`order_id`,'') = nullif(`gekko_exam`.`raw_order_items`.`order_id`,'')), true)"
+                  }
+                },
+                {
+                  "table": {
+                    "table_name": "raw_order_reviews",
+                    "access_type": "ALL",
+                    "rows_examined_per_scan": 98331,
+                    "rows_produced_per_join": 18446744073709549568,
+                    "filtered": "100.00",
+                    "using_join_buffer": "hash join",
+                    "cost_info": {
+                      "read_cost": "2.1433404264954e+16",
+                      "eval_cost": "1.0664937689054e+19",
+                      "prefix_cost": "1.0686479720288e+19",
+                      "data_read_per_join": "1Y"
+                    },
+                    "used_columns": [
+                      "_source_row",
+                      "order_id",
+                      "review_score"
+                    ],
+                    "attached_condition": "<if>(is_not_null_compl(raw_order_reviews), (nullif(`gekko_exam`.`raw_orders`.`order_id`,'') = nullif(`gekko_exam`.`raw_order_reviews`.`order_id`,'')), true)"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "equivalent": {
+      "query_block": {
+        "select_id": 1,
+        "cost_info": {
+          "query_cost": "13921.36"
+        },
+        "ordering_operation": {
+          "using_filesort": true,
+          "grouping_operation": {
+            "using_temporary_table": true,
+            "using_filesort": true,
+            "buffer_result": {
+              "using_temporary_table": true,
+              "nested_loop": [
+                {
+                  "table": {
+                    "table_name": "o",
+                    "access_type": "ALL",
+                    "possible_keys": [
+                      "idx_1"
+                    ],
+                    "rows_examined_per_scan": 98190,
+                    "rows_produced_per_join": 3272,
+                    "filtered": "3.33",
+                    "cost_info": {
+                      "read_cost": "9836.48",
+                      "eval_cost": "327.27",
+                      "prefix_cost": "10163.75",
+                      "data_read_per_join": "51M"
+                    },
+                    "used_columns": [
+                      "_source_row",
+                      "order_id",
+                      "customer_id",
+                      "order_status",
+                      "order_purchase_timestamp"
+                    ],
+                    "attached_condition": "((`gekko_exam`.`o`.`order_status` = 'delivered') and (`gekko_exam`.`o`.`order_purchase_timestamp` >= '2017-01-01'))"
+                  }
+                },
+                {
+                  "table": {
+                    "table_name": "c",
+                    "access_type": "ref",
+                    "possible_keys": [
+                      "idx_0"
+                    ],
+                    "key": "idx_0",
+                    "used_key_parts": [
+                      "customer_id"
+                    ],
+                    "key_length": "258",
+                    "ref": [
+                      "gekko_exam.o.customer_id"
+                    ],
+                    "rows_examined_per_scan": 1,
+                    "rows_produced_per_join": 3272,
+                    "filtered": "100.00",
+                    "cost_info": {
+                      "read_cost": "818.17",
+                      "eval_cost": "327.27",
+                      "prefix_cost": "11309.19",
+                      "data_read_per_join": "32M"
+                    },
+                    "used_columns": [
+                      "_source_row",
+                      "customer_id",
+                      "customer_city",
+                      "customer_state"
+                    ],
+                    "attached_condition": "((`gekko_exam`.`c`.`customer_id` = `gekko_exam`.`o`.`customer_id`) and (lower(`gekko_exam`.`c`.`customer_city`) like '%sao%'))"
+                  }
+                },
+                {
+                  "table": {
+                    "table_name": "oi",
+                    "access_type": "ref",
+                    "possible_keys": [
+                      "idx_0"
+                    ],
+                    "key": "idx_0",
+                    "used_key_parts": [
+                      "order_id"
+                    ],
+                    "key_length": "258",
+                    "ref": [
+                      "gekko_exam.o.order_id"
+                    ],
+                    "rows_examined_per_scan": 1,
+                    "rows_produced_per_join": 3714,
+                    "filtered": "100.00",
+                    "cost_info": {
+                      "read_cost": "928.67",
+                      "eval_cost": "371.47",
+                      "prefix_cost": "12609.33",
+                      "data_read_per_join": "50M"
+                    },
+                    "used_columns": [
+                      "_source_row",
+                      "order_id",
+                      "price"
+                    ],
+                    "attached_condition": "<if>(is_not_null_compl(oi), (`gekko_exam`.`oi`.`order_id` = `gekko_exam`.`o`.`order_id`), true)"
+                  }
+                },
+                {
+                  "table": {
+                    "table_name": "r",
+                    "access_type": "ref",
+                    "possible_keys": [
+                      "idx_1"
+                    ],
+                    "key": "idx_1",
+                    "used_key_parts": [
+                      "order_id"
+                    ],
+                    "key_length": "258",
+                    "ref": [
+                      "gekko_exam.o.order_id"
+                    ],
+                    "rows_examined_per_scan": 1,
+                    "rows_produced_per_join": 3748,
+                    "filtered": "100.00",
+                    "cost_info": {
+                      "read_cost": "937.17",
+                      "eval_cost": "374.87",
+                      "prefix_cost": "13921.36",
+                      "data_read_per_join": "51M"
+                    },
+                    "used_columns": [
+                      "_source_row",
+                      "order_id",
+                      "review_score"
+                    ],
+                    "attached_condition": "<if>(is_not_null_compl(r), (`gekko_exam`.`r`.`order_id` = `gekko_exam`.`o`.`order_id`), true)"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "corrected": {
+      "query_block": {
+        "select_id": 1,
+        "cost_info": {
+          "query_cost": "4024123724.58"
+        },
+        "ordering_operation": {
+          "using_filesort": true,
+          "grouping_operation": {
+            "using_temporary_table": true,
+            "using_filesort": false,
+            "nested_loop": [
+              {
+                "table": {
+                  "table_name": "t",
+                  "access_type": "ALL",
+                  "rows_examined_per_scan": 3272,
+                  "rows_produced_per_join": 3272,
+                  "filtered": "100.00",
+                  "cost_info": {
+                    "read_cost": "43.40",
+                    "eval_cost": "327.20",
+                    "prefix_cost": "370.60",
+                    "data_read_per_join": "12M"
+                  },
+                  "used_columns": [
+                    "order_id",
+                    "customer_state"
+                  ],
+                  "materialized_from_subquery": {
+                    "using_temporary_table": true,
+                    "dependent": false,
+                    "cacheable": true,
+                    "query_block": {
+                      "select_id": 2,
+                      "cost_info": {
+                        "query_cost": "11309.18"
+                      },
+                      "duplicates_removal": {
+                        "using_temporary_table": true,
+                        "using_filesort": false,
+                        "nested_loop": [
+                          {
+                            "table": {
+                              "table_name": "o",
+                              "access_type": "ALL",
+                              "possible_keys": [
+                                "idx_1"
+                              ],
+                              "rows_examined_per_scan": 98190,
+                              "rows_produced_per_join": 3272,
+                              "filtered": "3.33",
+                              "cost_info": {
+                                "read_cost": "9836.48",
+                                "eval_cost": "327.27",
+                                "prefix_cost": "10163.75",
+                                "data_read_per_join": "51M"
+                              },
+                              "used_columns": [
+                                "_source_row",
+                                "order_id",
+                                "customer_id",
+                                "order_status",
+                                "order_purchase_timestamp"
+                              ],
+                              "attached_condition": "((`gekko_exam`.`o`.`order_status` = 'delivered') and (`gekko_exam`.`o`.`order_purchase_timestamp` >= '2017-01-01'))"
+                            }
+                          },
+                          {
+                            "table": {
+                              "table_name": "c",
+                              "access_type": "ref",
+                              "possible_keys": [
+                                "idx_0"
+                              ],
+                              "key": "idx_0",
+                              "used_key_parts": [
+                                "customer_id"
+                              ],
+                              "key_length": "258",
+                              "ref": [
+                                "gekko_exam.o.customer_id"
+                              ],
+                              "rows_examined_per_scan": 1,
+                              "rows_produced_per_join": 3272,
+                              "filtered": "100.00",
+                              "cost_info": {
+                                "read_cost": "818.17",
+                                "eval_cost": "327.27",
+                                "prefix_cost": "11309.19",
+                                "data_read_per_join": "32M"
+                              },
+                              "used_columns": [
+                                "_source_row",
+                                "customer_id",
+                                "customer_city",
+                                "customer_state"
+                              ],
+                              "attached_condition": "((`gekko_exam`.`c`.`customer_id` = `gekko_exam`.`o`.`customer_id`) and (lower(`gekko_exam`.`c`.`customer_city`) like '%sao%'))"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "table": {
+                  "table_name": "i",
+                  "access_type": "ALL",
+                  "rows_examined_per_scan": 3713,
+                  "rows_produced_per_join": 12148936,
+                  "filtered": "100.00",
+                  "using_join_buffer": "hash join",
+                  "cost_info": {
+                    "read_cost": "2552.62",
+                    "eval_cost": "1214893.60",
+                    "prefix_cost": "1217816.82",
+                    "data_read_per_join": "23G"
+                  },
+                  "used_columns": [
+                    "order_id",
+                    "price_revenue",
+                    "invalid_price_items"
+                  ],
+                  "attached_condition": "<if>(is_not_null_compl(i), (`i`.`order_id` = `t`.`order_id`), true)",
+                  "materialized_from_subquery": {
+                    "using_temporary_table": true,
+                    "dependent": false,
+                    "cacheable": true,
+                    "query_block": {
+                      "select_id": 3,
+                      "cost_info": {
+                        "query_cost": "1670.48"
+                      },
+                      "grouping_operation": {
+                        "using_temporary_table": true,
+                        "using_filesort": false,
+                        "nested_loop": [
+                          {
+                            "table": {
+                              "table_name": "t",
+                              "access_type": "ALL",
+                              "rows_examined_per_scan": 3272,
+                              "rows_produced_per_join": 3272,
+                              "filtered": "100.00",
+                              "cost_info": {
+                                "read_cost": "43.40",
+                                "eval_cost": "327.20",
+                                "prefix_cost": "370.60",
+                                "data_read_per_join": "12M"
+                              },
+                              "used_columns": [
+                                "order_id",
+                                "customer_state"
+                              ],
+                              "materialized_from_subquery": {
+                                "sharing_temporary_table_with": {
+                                  "select_id": 2
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "table": {
+                              "table_name": "i",
+                              "access_type": "ref",
+                              "possible_keys": [
+                                "idx_0"
+                              ],
+                              "key": "idx_0",
+                              "used_key_parts": [
+                                "order_id"
+                              ],
+                              "key_length": "258",
+                              "ref": [
+                                "t.order_id"
+                              ],
+                              "rows_examined_per_scan": 1,
+                              "rows_produced_per_join": 3713,
+                              "filtered": "100.00",
+                              "cost_info": {
+                                "read_cost": "928.48",
+                                "eval_cost": "371.39",
+                                "prefix_cost": "1670.48",
+                                "data_read_per_join": "50M"
+                              },
+                              "used_columns": [
+                                "_source_row",
+                                "order_id",
+                                "price"
+                              ],
+                              "attached_condition": "(`gekko_exam`.`i`.`order_id` = `t`.`order_id`)"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "table": {
+                  "table_name": "r",
+                  "access_type": "ALL",
+                  "rows_examined_per_scan": 3301,
+                  "rows_produced_per_join": 40103637736,
+                  "filtered": "100.00",
+                  "using_join_buffer": "hash join",
+                  "cost_info": {
+                    "read_cost": "12542134.17",
+                    "eval_cost": "4010363773.60",
+                    "prefix_cost": "4024123724.59",
+                    "data_read_per_join": "75T"
+                  },
+                  "used_columns": [
+                    "order_id",
+                    "review_score",
+                    "choice"
+                  ],
+                  "attached_condition": "<if>(is_not_null_compl(r), ((`r`.`choice` = 1) and (`r`.`order_id` = `t`.`order_id`)), true)",
+                  "materialized_from_subquery": {
+                    "using_temporary_table": true,
+                    "dependent": false,
+                    "cacheable": true,
+                    "query_block": {
+                      "select_id": 5,
+                      "cost_info": {
+                        "query_cost": "4828.19"
+                      },
+                      "windowing": {
+                        "windows": [
+                          {
+                            "name": "<unnamed window>",
+                            "using_filesort": true,
+                            "filesort_key": [
+                              "`order_id`",
+                              "`review_creation_date` desc",
+                              "`review_answer_timestamp` desc",
+                              "`review_id` desc",
+                              "`_source_row` desc"
+                            ],
+                            "functions": [
+                              "row_number"
+                            ]
+                          }
+                        ],
+                        "cost_info": {
+                          "sort_cost": "3301.92"
+                        },
+                        "buffer_result": {
+                          "using_temporary_table": true,
+                          "nested_loop": [
+                            {
+                              "table": {
+                                "table_name": "t",
+                                "access_type": "ALL",
+                                "rows_examined_per_scan": 3272,
+                                "rows_produced_per_join": 3272,
+                                "filtered": "100.00",
+                                "cost_info": {
+                                  "read_cost": "43.40",
+                                  "eval_cost": "327.20",
+                                  "prefix_cost": "370.60",
+                                  "data_read_per_join": "12M"
+                                },
+                                "used_columns": [
+                                  "order_id",
+                                  "customer_state"
+                                ],
+                                "materialized_from_subquery": {
+                                  "sharing_temporary_table_with": {
+                                    "select_id": 2
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "table": {
+                                "table_name": "r",
+                                "access_type": "ref",
+                                "possible_keys": [
+                                  "idx_1"
+                                ],
+                                "key": "idx_1",
+                                "used_key_parts": [
+                                  "order_id"
+                                ],
+                                "key_length": "258",
+                                "ref": [
+                                  "t.order_id"
+                                ],
+                                "rows_examined_per_scan": 1,
+                                "rows_produced_per_join": 3301,
+                                "filtered": "100.00",
+                                "cost_info": {
+                                  "read_cost": "825.48",
+                                  "eval_cost": "330.19",
+                                  "prefix_cost": "1526.27",
+                                  "data_read_per_join": "45M"
+                                },
+                                "used_columns": [
+                                  "_source_row",
+                                  "review_id",
+                                  "order_id",
+                                  "review_score",
+                                  "review_creation_date",
+                                  "review_answer_timestamp"
+                                ],
+                                "attached_condition": "(`gekko_exam`.`r`.`order_id` = `t`.`order_id`)"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "actual_iterator_plans": {
+    "original": "-> Sort: revenue DESC  (actual time=227..227 rows=22 loops=1)\n    -> Stream results  (actual time=211..227 rows=22 loops=1)\n        -> Group aggregate: count(distinct order_id), sum(price), avg(review_score)  (actual time=211..223 rows=22 loops=1)\n            -> Sort: c.customer_state  (actual time=211..212 rows=23568 loops=1)\n                -> Stream results  (cost=10.7e+18 rows=107e+18) (actual time=112..208 rows=23568 loops=1)\n                    -> Left hash join (<hash>(nullif(raw_orders.order_id,''))=<hash>(nullif(raw_order_reviews.order_id,''))), extra conditions: (nullif(raw_orders.order_id,'') = nullif(raw_order_reviews.order_id,''))  (cost=10.7e+18 rows=107e+18) (actual time=112..203 rows=23568 loops=1)\n                        -> Left hash join (<hash>(nullif(raw_orders.order_id,''))=<hash>(nullif(raw_order_items.order_id,''))), extra conditions: (nullif(raw_orders.order_id,'') = nullif(raw_order_items.order_id,''))  (cost=109e+12 rows=1.08e+15) (actual time=48.2..158 rows=23418 loops=1)\n                            -> Filter: (lower(nullif(raw_customers.customer_city,'')) like '%sao%')  (cost=973e+6 rows=9.72e+9) (actual time=22.9..109 rows=20367 loops=1)\n                                -> Left hash join (<hash>(nullif(raw_orders.customer_id,''))=<hash>(nullif(raw_customers.customer_id,''))), extra conditions: (nullif(raw_orders.customer_id,'') = nullif(raw_customers.customer_id,''))  (cost=973e+6 rows=9.72e+9) (actual time=22.9..103 rows=96211 loops=1)\n                                    -> Filter: ((nullif(raw_orders.order_status,'') = 'delivered') and (str_to_date(nullif(raw_orders.order_purchase_timestamp,''),'%Y-%m-%d %H:%i:%s') >= '2017-01-01'))  (cost=10164 rows=98190) (actual time=0.013..21.1 rows=96211 loops=1)\n                                        -> Table scan on raw_orders  (cost=10164 rows=98190) (actual time=0.0104..10.6 rows=99441 loops=1)\n                                    -> Hash\n                                        -> Table scan on raw_customers  (cost=6.37 rows=98997) (actual time=0.00508..8.71 rows=99441 loops=1)\n                            -> Hash\n                                -> Table scan on raw_order_items  (cost=17.1 rows=111578) (actual time=0.00525..9.16 rows=112650 loops=1)\n                        -> Hash\n                            -> Table scan on raw_order_reviews  (cost=19.8 rows=98331) (actual time=0.00608..7.93 rows=99224 loops=1)\n",
+    "equivalent": "-> Sort: revenue DESC  (actual time=252..252 rows=22 loops=1)\n    -> Stream results  (actual time=236..252 rows=22 loops=1)\n        -> Group aggregate: count(distinct raw_orders.order_id), sum(tmp_field), avg(tmp_field)  (actual time=236..247 rows=22 loops=1)\n            -> Sort: c.customer_state  (actual time=236..237 rows=23568 loops=1)\n                -> Stream results  (cost=13921 rows=3749) (actual time=0.0495..233 rows=23568 loops=1)\n                    -> Nested loop left join  (cost=13921 rows=3749) (actual time=0.0477..228 rows=23568 loops=1)\n                        -> Nested loop left join  (cost=12609 rows=3715) (actual time=0.0374..187 rows=23418 loops=1)\n                            -> Nested loop inner join  (cost=11309 rows=3273) (actual time=0.0315..149 rows=20367 loops=1)\n                                -> Filter: ((o.order_status = 'delivered') and (o.order_purchase_timestamp >= '2017-01-01'))  (cost=10164 rows=3273) (actual time=0.0184..16.3 rows=96211 loops=1)\n                                    -> Table scan on o  (cost=10164 rows=98190) (actual time=0.0178..11.5 rows=99441 loops=1)\n                                -> Filter: ((c.customer_id = o.customer_id) and (lower(c.customer_city) like '%sao%'))  (cost=0.25 rows=1) (actual time=0.0013..0.00133 rows=0.212 loops=96211)\n                                    -> Index lookup on c using idx_0 (customer_id=o.customer_id)  (cost=0.25 rows=1) (actual time=0.00108..0.00119 rows=1 loops=96211)\n                            -> Filter: (oi.order_id = o.order_id)  (cost=0.284 rows=1.14) (actual time=0.00161..0.00177 rows=1.15 loops=20367)\n                                -> Index lookup on oi using idx_0 (order_id=o.order_id)  (cost=0.284 rows=1.14) (actual time=0.00153..0.00165 rows=1.15 loops=20367)\n                        -> Filter: (r.order_id = o.order_id)  (cost=0.252 rows=1.01) (actual time=0.00152..0.00165 rows=0.999 loops=23418)\n                            -> Index lookup on r using idx_1 (order_id=o.order_id)  (cost=0.252 rows=1.01) (actual time=0.00144..0.00154 rows=0.999 loops=23418)\n",
+    "corrected": "-> Sort: price_revenue DESC, t.customer_state  (actual time=319..319 rows=22 loops=1)\n    -> Table scan on <temporary>  (actual time=316..316 rows=22 loops=1)\n        -> Aggregate using temporary table  (actual time=316..316 rows=22 loops=1)\n            -> Left hash join (<hash>(r.order_id)=<hash>(t.order_id)), extra conditions: (r.order_id = t.order_id)  (cost=12.5e+6 rows=0) (actual time=258..311 rows=20367 loops=1)\n                -> Left hash join (<hash>(i.order_id)=<hash>(t.order_id)), extra conditions: (i.order_id = t.order_id)  (cost=2555 rows=0) (actual time=204..231 rows=20367 loops=1)\n                    -> Table scan on t  (cost=12007..12051 rows=3273) (actual time=155..156 rows=20367 loops=1)\n                        -> Materialize CTE target_orders if needed  (cost=12007..12007 rows=3273) (actual time=155..155 rows=20367 loops=1)\n                            -> Table scan on <temporary>  (cost=11636..11680 rows=3273) (actual time=153..154 rows=20367 loops=1)\n                                -> Temporary table with deduplication  (cost=11636..11636 rows=3273) (actual time=153..153 rows=20367 loops=1)\n                                    -> Nested loop inner join  (cost=11309 rows=3273) (actual time=0.0235..146 rows=20367 loops=1)\n                                        -> Filter: ((o.order_status = 'delivered') and (o.order_purchase_timestamp >= '2017-01-01'))  (cost=10164 rows=3273) (actual time=0.0137..16.3 rows=96211 loops=1)\n                                            -> Table scan on o  (cost=10164 rows=98190) (actual time=0.0129..11.5 rows=99441 loops=1)\n                                        -> Filter: ((c.customer_id = o.customer_id) and (lower(c.customer_city) like '%sao%'))  (cost=0.25 rows=1) (actual time=0.00126..0.00129 rows=0.212 loops=96211)\n                                            -> Index lookup on c using idx_0 (customer_id=o.customer_id)  (cost=0.25 rows=1) (actual time=0.00104..0.00114 rows=1 loops=96211)\n                    -> Hash\n                        -> Table scan on i  (cost=2.5..2.5 rows=0) (actual time=45.4..46.6 rows=20367 loops=1)\n                            -> Materialize CTE item_totals  (cost=0..0 rows=0) (actual time=45.4..45.4 rows=20367 loops=1)\n                                -> Table scan on <temporary>  (actual time=43.1..44.2 rows=20367 loops=1)\n                                    -> Aggregate using temporary table  (actual time=43.1..43.1 rows=20367 loops=1)\n                                        -> Nested loop inner join  (cost=13350 rows=3715) (actual time=0.00904..32.8 rows=23418 loops=1)\n                                            -> Table scan on t  (cost=12007..12051 rows=3273) (actual time=875e-6..1.38 rows=20367 loops=1)\n                                                -> Materialize CTE target_orders if needed (query plan printed elsewhere)  (cost=12007..12007 rows=3273) (never executed)\n                                            -> Filter: (i.order_id = t.order_id)  (cost=0.284 rows=1.14) (actual time=0.00131..0.00145 rows=1.15 loops=20367)\n                                                -> Index lookup on i using idx_0 (order_id=t.order_id)  (cost=0.284 rows=1.14) (actual time=0.00123..0.00134 rows=1.15 loops=20367)\n                -> Hash\n                    -> Filter: (r.choice = 1)  (cost=2.5..2.5 rows=0) (actual time=49.6..51.4 rows=20236 loops=1)\n                        -> Table scan on r  (cost=2.5..2.5 rows=0) (actual time=49.6..50.7 rows=20350 loops=1)\n                            -> Materialize CTE review_candidates  (cost=0..0 rows=0) (actual time=49.6..49.6 rows=20350 loops=1)\n                                -> Window aggregate: row_number() OVER (PARTITION BY r.order_id ORDER BY r.review_creation_date desc,r.review_answer_timestamp desc,r.review_id desc,r._source_row desc )   (actual time=41.8..45.6 rows=20350 loops=1)\n                                    -> Sort: r.order_id, r.review_creation_date DESC, r.review_answer_timestamp DESC, r.review_id DESC, r._source_row DESC  (actual time=41.8..42.4 rows=20350 loops=1)\n                                        -> Stream results  (cost=13206 rows=3303) (actual time=0.0181..35.3 rows=20350 loops=1)\n                                            -> Nested loop inner join  (cost=13206 rows=3303) (actual time=0.0149..32.2 rows=20350 loops=1)\n                                                -> Table scan on t  (cost=12007..12051 rows=3273) (actual time=0.00288..1.38 rows=20367 loops=1)\n                                                    -> Materialize CTE target_orders if needed (query plan printed elsewhere)  (cost=12007..12007 rows=3273) (never executed)\n                                                -> Filter: (r.order_id = t.order_id)  (cost=0.252 rows=1.01) (actual time=0.0013..0.00143 rows=0.999 loops=20367)\n                                                    -> Index lookup on r using idx_1 (order_id=t.order_id)  (cost=0.252 rows=1.01) (actual time=0.00122..0.00132 rows=0.999 loops=20367)\n"
+  },
+  "limits": "当前本机与冻结规模，暖缓存交替顺序、各三轮；非冷启动、非百倍数据。估计计划不是实际扫描行数。修正版改变评分/金额语义，不用于纯优化倍数。"
+}

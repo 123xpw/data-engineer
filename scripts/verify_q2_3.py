@@ -45,10 +45,9 @@ def main():
             top=json.loads(report.read_text())
             stages={r['stage']:r for r in top['results']}
             require(set(stages)=={'data.retail','data.olist','q1.1','q1.2','q1.3','q2','q3','q4','q5'},'全入口必答范围缺项')
-            require(stages['q2']['status']=='partial','Q2.4 未完成时不可报告 Q2 完成')
+            require(stages['q2']['status']=='passed','Q2 四题未完成默认执行')
             nested={r['stage']:r for r in stages['q2']['detail']['results']}
-            require(all(nested[k]['status']=='passed' for k in ['q2.load','q2.1','q2.2','q2.3']),'默认 Q2 没有完整执行已有题目')
-            require(nested['q2.4']['status']=='not_implemented','未完成 Q2.4 被误报成功')
+            require(all(nested[k]['status']=='passed' for k in ['q2.load','q2.1','q2.2','q2.3','q2.4']),'默认 Q2 没有完整执行已有题目')
             validate_manifest(manifest_path(out,'q2.3'),top['run_id'])
             combined=json.loads((out/'q2_3_results.json').read_text())
             command([ROOT/'q2_sql_analysis/q2_3.py','--skip-load','--output-dir',root/'direct'])

@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "experiment_sha256": "f0047f45adf1fbf31129e417d36c6d15e6d1f3eee7b35883a1293e039965b3e2",
+  "prior_observed_failures": [
+    {
+      "mysql_error": 1137,
+      "reason": "同一临时原始表在 CTE 中重复打开，未算作捕获统计错误"
+    }
+  ],
+  "evidence": {
+    "original": [
+      {
+        "customer_state": "SP",
+        "orders": 2,
+        "revenue": "100.000",
+        "avg_score": "3.2000"
+      }
+    ],
+    "corrected": [
+      {
+        "customer_state": "SP",
+        "orders": 2,
+        "price_revenue": "70.000",
+        "avg_score": "4.500000",
+        "reviewed_orders": 2,
+        "missing_item_orders": 0,
+        "invalid_price_items": 0
+      }
+    ],
+    "exact_city_mutant": [
+      {
+        "customer_state": "SP",
+        "orders": 1,
+        "price_revenue": "30.000",
+        "avg_score": "5.000000",
+        "reviewed_orders": 1,
+        "missing_item_orders": 0,
+        "invalid_price_items": 0
+      }
+    ],
+    "scope": "固定人工数据；包含大小写、重音、2016 排除与 2018 保留"
+  }
+}

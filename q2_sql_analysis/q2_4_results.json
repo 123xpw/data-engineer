@@ -1,0 +1,204 @@
+{
+  "load_version": "d95388cde65d",
+  "scope": "原题筛选；商品价格不含运费/退款，评分每订单最新一条等权；不是净收入审计",
+  "states": [
+    {
+      "customer_state": "SP",
+      "orders": 17990,
+      "price_revenue": "2217437.430",
+      "avg_score": "4.246310",
+      "reviewed_orders": 17884,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "RJ",
+      "orders": 648,
+      "price_revenue": "84171.420",
+      "avg_score": "3.848200",
+      "reviewed_orders": 639,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "MA",
+      "orders": 370,
+      "price_revenue": "55224.970",
+      "avg_score": "3.782016",
+      "reviewed_orders": 367,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "SC",
+      "orders": 319,
+      "price_revenue": "40035.010",
+      "avg_score": "3.939873",
+      "reviewed_orders": 316,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "MG",
+      "orders": 302,
+      "price_revenue": "39457.830",
+      "avg_score": "4.219595",
+      "reviewed_orders": 296,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "RS",
+      "orders": 242,
+      "price_revenue": "28419.660",
+      "avg_score": "4.202479",
+      "reviewed_orders": 242,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "PR",
+      "orders": 185,
+      "price_revenue": "20937.220",
+      "avg_score": "4.273224",
+      "reviewed_orders": 183,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "ES",
+      "orders": 90,
+      "price_revenue": "10984.790",
+      "avg_score": "4.266667",
+      "reviewed_orders": 90,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "PE",
+      "orders": 32,
+      "price_revenue": "5260.170",
+      "avg_score": "4.062500",
+      "reviewed_orders": 32,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "PI",
+      "orders": 18,
+      "price_revenue": "5102.570",
+      "avg_score": "4.235294",
+      "reviewed_orders": 17,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "RN",
+      "orders": 27,
+      "price_revenue": "4172.610",
+      "avg_score": "4.333333",
+      "reviewed_orders": 27,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "BA",
+      "orders": 33,
+      "price_revenue": "4151.220",
+      "avg_score": "4.303030",
+      "reviewed_orders": 33,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "GO",
+      "orders": 21,
+      "price_revenue": "3948.430",
+      "avg_score": "4.571429",
+      "reviewed_orders": 21,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "SE",
+      "orders": 15,
+      "price_revenue": "3758.480",
+      "avg_score": "4.066667",
+      "reviewed_orders": 15,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "AL",
+      "orders": 11,
+      "price_revenue": "3728.320",
+      "avg_score": "4.363636",
+      "reviewed_orders": 11,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "PA",
+      "orders": 18,
+      "price_revenue": "3278.280",
+      "avg_score": "4.117647",
+      "reviewed_orders": 17,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "CE",
+      "orders": 12,
+      "price_revenue": "1398.850",
+      "avg_score": "4.333333",
+      "reviewed_orders": 12,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "PB",
+      "orders": 7,
+      "price_revenue": "969.890",
+      "avg_score": "4.857143",
+      "reviewed_orders": 7,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "MT",
+      "orders": 9,
+      "price_revenue": "965.690",
+      "avg_score": "4.555556",
+      "reviewed_orders": 9,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "TO",
+      "orders": 5,
+      "price_revenue": "699.990",
+      "avg_score": "4.400000",
+      "reviewed_orders": 5,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "RO",
+      "orders": 6,
+      "price_revenue": "684.340",
+      "avg_score": "3.833333",
+      "reviewed_orders": 6,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    },
+    {
+      "customer_state": "MS",
+      "orders": 7,
+      "price_revenue": "526.720",
+      "avg_score": "3.714286",
+      "reviewed_orders": 7,
+      "missing_item_orders": 0,
+      "invalid_price_items": 0
+    }
+  ]
+}

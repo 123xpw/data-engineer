@@ -73,12 +73,17 @@ class ArtifactTests(unittest.TestCase):
             for name in ARTIFACTS['q2.3']:
                 (output/name).write_text('人工控制流夹具')
             return {'test_only': True}
+        def optimization(output):
+            for name in ARTIFACTS['q2.4']:
+                (output/name).write_text('人工控制流夹具')
+            return {'test_only': True}
         with patch('q2_sql_analysis.load_olist.load', side_effect=load), \
              patch('q2_sql_analysis.q2_1.query', side_effect=RuntimeError('人工故障')), \
              patch('q2_sql_analysis.q2_2.query', side_effect=self.complete), \
-             patch('q2_sql_analysis.q2_3.query', side_effect=seller):
+             patch('q2_sql_analysis.q2_3.query', side_effect=seller), \
+             patch('q2_sql_analysis.q2_4.query', side_effect=optimization):
             result = q2_scope(self.root, self.root)
-        self.assertEqual([r['status'] for r in result['results']], ['passed', 'failed', 'passed', 'passed'])
+        self.assertEqual([r['status'] for r in result['results']], ['passed', 'failed', 'passed', 'passed', 'passed'])
         q21 = json.loads(manifest_path(self.root, 'q2.1').read_text())
         q22 = json.loads(self.manifest.read_text())
         self.assertEqual(q21['run_id'], q22['run_id'])

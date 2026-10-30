@@ -1,7 +1,7 @@
 {
-  "run_id": "f4d2d98ab02a481ebd15f45fdfc7cf6e",
+  "run_id": "368e8c3473bf45f4833136c8497e5f78",
   "status": "partial",
-  "timestamp_utc": "2026-10-30T08:21:50.740357+00:00",
+  "timestamp_utc": "2026-10-30T09:01:34.928156+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "requested_stage": "all",
@@ -32,7 +32,7 @@
           }
         ]
       },
-      "seconds": 0.5293
+      "seconds": 0.5436
     },
     {
       "stage": "data.olist",
@@ -175,7 +175,7 @@
           }
         ]
       },
-      "seconds": 0.6622
+      "seconds": 0.679
     },
     {
       "stage": "q1.1",
@@ -184,9 +184,9 @@
         "rows": 1067371,
         "observations": 10,
         "scope": "仅 Q1.1",
-        "output_dir": "/Users/quokka/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/dd7ab41b35204470973b46c7a44fa7c2/q1"
+        "output_dir": "/Users/quokka/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/6c3c995820df448d9301c420b91dd018/q1"
       },
-      "seconds": 2.6645
+      "seconds": 2.6696
     },
     {
       "stage": "q1.2",
@@ -194,9 +194,9 @@
       "detail": {
         "rows": 1067371,
         "scope": "仅 Q1.2",
-        "output_dir": "/Users/quokka/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/dd7ab41b35204470973b46c7a44fa7c2/q1"
+        "output_dir": "/Users/quokka/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/6c3c995820df448d9301c420b91dd018/q1"
       },
-      "seconds": 4.1546
+      "seconds": 4.1737
     },
     {
       "stage": "q1.3",
@@ -212,19 +212,18 @@
         "business_approval": "未获得；见规则假设和待确认范围",
         "validation_limit": "程序只核验交付文件和长度；不是自动业务语义审查"
       },
-      "seconds": 0.0039
+      "seconds": 0.0041
     },
     {
       "stage": "q2",
-      "status": "partial",
+      "status": "passed",
       "detail": {
-        "stage_completion": "partial",
         "results": [
           {
             "stage": "q2.load",
             "status": "passed",
             "detail": {
-              "version": "f7d8c85e9921",
+              "version": "d95388cde65d",
               "tables": {
                 "customers": 99441,
                 "geolocation": 1000163,
@@ -236,7 +235,7 @@
                 "sellers": 3095,
                 "product_category_name_translation": 71
               },
-              "report": "/Users/quokka/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/dd7ab41b35204470973b46c7a44fa7c2/q2/.pending-sz4dgc5s/load_report.json"
+              "report": "/Users/quokka/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/6c3c995820df448d9301c420b91dd018/q2/.pending-35o4vhfj/load_report.json"
             }
           },
           {
@@ -244,7 +243,7 @@
             "status": "passed",
             "detail": {
               "server_version": "8.4.13",
-              "load_version": "f7d8c85e9921",
+              "load_version": "d95388cde65d",
               "total_products": 32951,
               "unknown_category_products": 610,
               "named_translation_gaps": [
@@ -266,7 +265,7 @@
             "status": "passed",
             "detail": {
               "server_version": "8.4.13",
-              "load_version": "f7d8c85e9921",
+              "load_version": "d95388cde65d",
               "cancel_rate_unit": "百分数",
               "delivery_days": "有效 delivered 订单等权，秒/86400，六位小数；NULL 排除并披露",
               "months": [
@@ -627,7 +626,7 @@
             "stage": "q2.3",
             "status": "passed",
             "detail": {
-              "load_version": "f7d8c85e9921",
+              "load_version": "d95388cde65d",
               "year": 2017,
               "rate_unit": "百分数",
               "review_rule": "每订单按创建、回答、review_id、来源行降序取一条；不是权威性认证",
@@ -999,11 +998,216 @@
           },
           {
             "stage": "q2.4",
-            "status": "not_implemented"
+            "status": "passed",
+            "detail": {
+              "load_version": "d95388cde65d",
+              "scope": "原题筛选；商品价格不含运费/退款，评分每订单最新一条等权；不是净收入审计",
+              "states": [
+                {
+                  "customer_state": "SP",
+                  "orders": 17990,
+                  "price_revenue": "2217437.430",
+                  "avg_score": "4.246310",
+                  "reviewed_orders": 17884,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "RJ",
+                  "orders": 648,
+                  "price_revenue": "84171.420",
+                  "avg_score": "3.848200",
+                  "reviewed_orders": 639,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "MA",
+                  "orders": 370,
+                  "price_revenue": "55224.970",
+                  "avg_score": "3.782016",
+                  "reviewed_orders": 367,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "SC",
+                  "orders": 319,
+                  "price_revenue": "40035.010",
+                  "avg_score": "3.939873",
+                  "reviewed_orders": 316,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "MG",
+                  "orders": 302,
+                  "price_revenue": "39457.830",
+                  "avg_score": "4.219595",
+                  "reviewed_orders": 296,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "RS",
+                  "orders": 242,
+                  "price_revenue": "28419.660",
+                  "avg_score": "4.202479",
+                  "reviewed_orders": 242,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "PR",
+                  "orders": 185,
+                  "price_revenue": "20937.220",
+                  "avg_score": "4.273224",
+                  "reviewed_orders": 183,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "ES",
+                  "orders": 90,
+                  "price_revenue": "10984.790",
+                  "avg_score": "4.266667",
+                  "reviewed_orders": 90,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "PE",
+                  "orders": 32,
+                  "price_revenue": "5260.170",
+                  "avg_score": "4.062500",
+                  "reviewed_orders": 32,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "PI",
+                  "orders": 18,
+                  "price_revenue": "5102.570",
+                  "avg_score": "4.235294",
+                  "reviewed_orders": 17,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "RN",
+                  "orders": 27,
+                  "price_revenue": "4172.610",
+                  "avg_score": "4.333333",
+                  "reviewed_orders": 27,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "BA",
+                  "orders": 33,
+                  "price_revenue": "4151.220",
+                  "avg_score": "4.303030",
+                  "reviewed_orders": 33,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "GO",
+                  "orders": 21,
+                  "price_revenue": "3948.430",
+                  "avg_score": "4.571429",
+                  "reviewed_orders": 21,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "SE",
+                  "orders": 15,
+                  "price_revenue": "3758.480",
+                  "avg_score": "4.066667",
+                  "reviewed_orders": 15,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "AL",
+                  "orders": 11,
+                  "price_revenue": "3728.320",
+                  "avg_score": "4.363636",
+                  "reviewed_orders": 11,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "PA",
+                  "orders": 18,
+                  "price_revenue": "3278.280",
+                  "avg_score": "4.117647",
+                  "reviewed_orders": 17,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "CE",
+                  "orders": 12,
+                  "price_revenue": "1398.850",
+                  "avg_score": "4.333333",
+                  "reviewed_orders": 12,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "PB",
+                  "orders": 7,
+                  "price_revenue": "969.890",
+                  "avg_score": "4.857143",
+                  "reviewed_orders": 7,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "MT",
+                  "orders": 9,
+                  "price_revenue": "965.690",
+                  "avg_score": "4.555556",
+                  "reviewed_orders": 9,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "TO",
+                  "orders": 5,
+                  "price_revenue": "699.990",
+                  "avg_score": "4.400000",
+                  "reviewed_orders": 5,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "RO",
+                  "orders": 6,
+                  "price_revenue": "684.340",
+                  "avg_score": "3.833333",
+                  "reviewed_orders": 6,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "MS",
+                  "orders": 7,
+                  "price_revenue": "526.720",
+                  "avg_score": "3.714286",
+                  "reviewed_orders": 7,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                }
+              ]
+            }
           }
-        ]
+        ],
+        "scope": "九表与 Q2.1–Q2.4"
       },
-      "seconds": 129.5853
+      "seconds": 127.9467
     },
     {
       "stage": "q3",
@@ -1025,7 +1229,7 @@
     }
   ],
   "source_sha256": {
-    "artifact_manifest.py": "b430bc1535477dd38ae4b1c3c6d9922c0bc55eee47ffbb0197dce46d6ed95730",
+    "artifact_manifest.py": "1e1df6cd13a5166d4de90f0927489fc9bb25799e682e1bf88699f8d4350c824d",
     "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
     "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
     "q1_data_quality/cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
@@ -1042,12 +1246,16 @@
     "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
     "q2_sql_analysis/q2_3.py": "9481262c609328b197f30072fa7aa7ef6d4f7a237f746f58b36d97326397a979",
     "q2_sql_analysis/q2_3_top_sellers.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
-    "release_check.py": "fa19e847bad0d219f8d534f22af0a42b55be8ea29bcc6b09fe5e11ea0a392692",
+    "q2_sql_analysis/q2_4.py": "9309a0f00b8512f7f6c983c6a47992428b1c4cfed4d051fff9335d95e9845839",
+    "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
+    "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
+    "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
+    "release_check.py": "9461efa7ed3ca3c8751f92871699bffda65fa0cdd641df7bf3ce9654143f5565",
     "requirements.txt": "dc84079cbbf1746fc870afd863b5e2cd64f3c92b772c5783a1151b1f1f1fa8f7",
-    "run_all.py": "8a200e285abe6c74ff7cc4d1f1302105bb5d78d55a1f8deef1c46c058c01514a"
+    "run_all.py": "cc763742449de328eedd80fbbdf5ded1a42b1ac360689a3acf5fbe50a3c5001c"
   },
   "output_directories": {
-    "q1": "/Users/quokka/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/dd7ab41b35204470973b46c7a44fa7c2/q1",
-    "q2": "/Users/quokka/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/dd7ab41b35204470973b46c7a44fa7c2/q2"
+    "q1": "/Users/quokka/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/6c3c995820df448d9301c420b91dd018/q1",
+    "q2": "/Users/quokka/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/6c3c995820df448d9301c420b91dd018/q2"
   }
 }
