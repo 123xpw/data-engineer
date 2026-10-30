@@ -66,8 +66,10 @@ def q2_scope(data_dir, output_dir, *, stage=None):
             def query_action(fresh):
                 if name == 'q2.1':
                     from q2_sql_analysis.q2_1 import query
-                else:
+                elif name == 'q2.2':
                     from q2_sql_analysis.q2_2 import query
+                else:
+                    from q2_sql_analysis.q2_3 import query
                 return query(fresh)
             result = publish(name, output_dir, query_action, inputs=[output_dir / "load_report.json"], run_id=run_id)
             details.append({"stage": name, "status": "passed", "detail": result})
@@ -77,7 +79,8 @@ def q2_scope(data_dir, output_dir, *, stage=None):
         return {"stage_completion": "failed", "results": details}
     if stage:
         return {"results": details, "scope": f"仅九表导入与 {stage}"}
-    details.extend({"stage": name, "status": "not_implemented"} for name in ("q2.3", "q2.4"))
+    details.append({"stage": "q2.3", "status": "not_integrated", "detail": "独立 CLI 与 --stage q2.3 已实现，默认全入口待整合验收"})
+    details.append({"stage": "q2.4", "status": "not_implemented"})
     return {"stage_completion": "partial", "results": details}
 
 
@@ -111,7 +114,7 @@ def run_steps(steps: list[tuple[str, Callable | None]]) -> tuple[list[dict], int
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--stage", choices=("all", "data", "q1", "q1.1", "q1.2", "q1.3", "q2", "q2.1", "q2.2", "q3", "q4", "q5"), default="all")
+    parser.add_argument("--stage", choices=("all", "data", "q1", "q1.1", "q1.2", "q1.3", "q2", "q2.1", "q2.2", "q2.3", "q3", "q4", "q5"), default="all")
     parser.add_argument("--offline", action="store_true", help="数据准备只校验本地文件")
     parser.add_argument("--data-dir", type=Path, default=ROOT / "data")
     parser.add_argument("--q1-output-dir", type=Path, default=ROOT / "q1_data_quality")
@@ -132,8 +135,8 @@ def main() -> int:
         steps.append(("q1.2", lambda: q1_findings(args.data_dir, args.q1_output_dir)))
     if args.stage in ("all", "q1", "q1.3"):
         steps.append(("q1.3", lambda: q1_strategy(args.q1_output_dir)))
-    if args.stage in ("all", "q2", "q2.1", "q2.2"):
-        selected = args.stage if args.stage in ('q2.1', 'q2.2') else None
+    if args.stage in ("all", "q2", "q2.1", "q2.2", "q2.3"):
+        selected = args.stage if args.stage in ('q2.1', 'q2.2', 'q2.3') else None
         steps.append((selected or 'q2', lambda: q2_scope(args.data_dir, args.q2_output_dir, stage=selected)))
     for name in ("q3", "q4", "q5"):
         if args.stage in ("all", name):

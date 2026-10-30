@@ -19,6 +19,7 @@ ARTIFACTS = {
     'q2.load': ('load_report.json',),
     'q2.1': ('q2_1_results.json', 'q2_1_findings.md'),
     'q2.2': ('q2_2_results.json', 'q2_2_findings.md'),
+    'q2.3': ('q2_3_results.json', 'q2_3_findings.md'),
 }
 
 

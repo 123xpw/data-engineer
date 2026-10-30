@@ -1,32 +1,35 @@
 {
-  "run_id": "7ba2918a4fd245cda1c33f307dd8befd",
+  "run_id": "4198d68dc05744bcaefa44459769b631",
   "status": "passed",
   "scope": "仅 Q2.2 明示口径；不声明全项目、并发恢复或业务认证完成",
-  "started_utc": "2026-10-30T05:10:43.119128+00:00",
+  "started_utc": "2026-10-30T06:41:24.976292+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "pandas": "3.1.0",
-  "git_base": "1f42b5e8581f801e07c1b12eed416037eeaff1b8",
+  "git_base": "b3d476fb60c11e85df5629cccc30b07b4df9e4bc",
   "python_optimization_level": 0,
   "source_sha256": {
     "requirements.txt": "dc84079cbbf1746fc870afd863b5e2cd64f3c92b772c5783a1151b1f1f1fa8f7",
     "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
     "VALIDATION_GATES.md": "6198a51889e85992b5cb63f87cc0032463e7cb0682c7e94aaf25edb65f63413b",
     "delivery_requirements.json": "204d206d39c51220c847e8681a20eb7e94a859fbc134b643c27b629924248dda",
-    "artifact_manifest.py": "3b75e5b0345b5a3d5d9136eff54b952e712739d2ff8d7bb94de4b76c6a6a826d",
+    "artifact_manifest.py": "b430bc1535477dd38ae4b1c3c6d9922c0bc55eee47ffbb0197dce46d6ed95730",
     "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
     "release_check.py": "83a120650dd3007b46d4fdc1a652111c9513ae30e78a1eb4b2e37a1f6da0e478",
-    "run_all.py": "c0f4f34fcc80f4a4f9eb35dbe5a0609fc02444af0701b7514bd588c6061bc97a",
+    "run_all.py": "9bef327d30ff2e12685d210d8eb7b155eb85f5b7486309f889a29bb85160da3d",
     "scripts/check_q2_1_cases.py": "b4f35cd1f2d7202b2598ef640e0899e04fdfd2e9168fcc2a2a29e4be53b217ea",
     "scripts/check_q2_2_cases.py": "bedeae1353e7fece57f71fea830a658c1d1d83b96455175e42752fc6fc3d6551",
+    "scripts/check_q2_3_cases.py": "ee2a7e1bd044a4059dee36824cbdc27f9c7e84a19934eb4a2b6c6c03f5ee7ac1",
     "scripts/check_q2_typed_values.py": "0637b8f4429cc89ee303205b2e4a4b8cbc4b95e506ac5694ed66ab3482c5858d",
     "scripts/experiment_q1_2_sensitivity.py": "70c5bc0c19eab3ec6ae4cc89921e4e9fd52643eccd1e35cb099be2a101a7edf5",
     "scripts/export_ai_log.py": "3d19d6954ef59a4801b5279565e500940ad75b0f99d62e9edc97bc18227bba59",
     "scripts/probe_q1_3_rules.py": "454c4e668e2283fa7dd2a04112d9843ff429e697b920b0166bcde20562bda6bc",
+    "scripts/probe_q2_3.py": "681d6239f68474eb52301cf9a9350e142c52f5734d74ea51e2b5789cf9ff2c1d",
     "scripts/q1_findings_reference.py": "716e57de471da0bf591526454796b2bf1ec30035f6c051b15c303f909e9017b6",
     "scripts/q1_reference.py": "9b30a77c4c0d5458888dc94c472c2eae070c189604fb223e4339e533ac77f592",
     "scripts/q1_review_experiments.py": "43fd4e749584edc25b48cea67ccdf75a6a02a8a04e4a96ef149eb8fef0651f70",
     "scripts/q2_2_reference.py": "6aa8595f88d7885ea82e9b384336916620c61d73bba8961743ff613dc944b508",
+    "scripts/q2_3_reference.py": "adaeba688cb9eb57797b89cbcad9f6df0c36f1550089538ffe0f7a5b7ff53947",
     "scripts/verification_support.py": "98a2e0ae8ee39ce3d844ee45ac7bb4e2fcfdd50c0bbd464f2078e549724ef2ec",
     "scripts/verify_baseline.py": "d316e3f95ac93e080b6216ac0ab1f298cce98194760508aa939747828ef0d71a",
     "scripts/verify_clean_environment.py": "8050bbbfb4857f043f2faec2da1b1a5d3e0e2bcb3313a5efa06c70149248c7e8",
@@ -37,6 +40,7 @@
     "scripts/verify_q1_review.py": "bad11e861cd44307c7a70e8d2930593b7de4191dd7bb37425278546636d50f71",
     "scripts/verify_q2_1.py": "37b301ac6736b6b8ebfd1bc3d0281f0e6e187727ebd5c9947bc79efd04d44614",
     "scripts/verify_q2_2.py": "f400c9ba9ffe7c277bc9be41e24f0f5032685b83c3e094737734bdb945169fb4",
+    "scripts/verify_q2_3.py": "de8b299a487808cb2e85bf0f9f3fee3a3b5882351bdf2bcb292d81aba0f00b5c",
     "scripts/verify_stage_gate.py": "d5bf59a49da6c81d06738fa65c3b6eca9fb5f71b40c28b04a947b010c2cfdd64",
     "tests/test_artifact_manifest.py": "ce83dc04b7c6aecbf31398eb04d969b62a55aa27a85534d158f63299a5289bb5",
     "tests/test_baseline.py": "976372dafdf60d7559a709673fc491c6069a7bd3aae7c000276d87756075d567",
@@ -57,10 +61,13 @@
     "q2_sql_analysis/mysql_runtime.py": "3ddd738b19bda77d44192937ff73b51b340b888881c47567b96c909e80e6f56c",
     "q2_sql_analysis/q2_1.py": "f9b33a5482a4de57cf03a954a25c9f912a200a6f06b74332aebdf261d2620ae8",
     "q2_sql_analysis/q2_2.py": "ffb51f75d9f5f44364ea34c55b4f486345047316e878f4aed35456f81d8d1d16",
+    "q2_sql_analysis/q2_3.py": "9481262c609328b197f30072fa7aa7ef6d4f7a237f746f58b36d97326397a979",
     "q2_sql_analysis/q2_1_translation_gap.sql": "8ebd5dd6d6ab5b7d8d2848cefea7f606fea2b16e41816846e529745d4cd33b9a",
     "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
+    "q2_sql_analysis/q2_3_top_sellers.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
     "q2_sql_analysis/ACCEPTANCE_Q2_1.md": "95970638080de39def5bd8498366e43aaa5a5582d6485406acd91181ed659345",
-    "q2_sql_analysis/ACCEPTANCE_Q2_2.md": "1051ef3ad09fce68f2393f3b84227408ae9003a94d8ff059c2a4a5f694dbbf4d"
+    "q2_sql_analysis/ACCEPTANCE_Q2_2.md": "1051ef3ad09fce68f2393f3b84227408ae9003a94d8ff059c2a4a5f694dbbf4d",
+    "q2_sql_analysis/ACCEPTANCE_Q2_3.md": "fe7c89501ae332157ace61bd2036165b6aaa4d09accecf3e89b8a3fc5488e8b4"
   },
   "checks": [
     {
@@ -459,16 +466,16 @@
       "name": "九表/Q2.1/Q1 当前源码回归与最终批次复算",
       "passed": true,
       "evidence": {
-        "q21_full_run": "d24c4d83a1794e149eba8d23b475625c",
+        "q21_full_run": "16e4e89ee2fb4486a28048749513dc66",
         "includes_q1_regression": true,
         "fresh_environment": "无新依赖，复用锁定依赖安装证明；本轮新代码在当前环境执行"
       }
     }
   ],
   "artifact_sha256": {
-    "q2_sql_analysis/q2_2_results.json": "458b8ba33e5b1b024a761da6a11c2133b4e77d038106ef498c518d95978ecd4e",
-    "q2_sql_analysis/q2_2_findings.md": "a02d3d97e9e25c31b8abc988d4ff945397d6e04ea4ab2b172ddb91520bab1efd",
+    "q2_sql_analysis/q2_2_results.json": "5897c02836f6290a5ea13b2ba6efa568477baa77f58638348b30a1c4f2597f60",
+    "q2_sql_analysis/q2_2_findings.md": "be0aa3b981a8baf5a7d85caf31fdee2b1fb71b2412bb12403e21f592979d4a19",
     "reports/q2_2_reference.json": "41651b00c4ef90b701f3fadea4efce30dbe9c1f482742c4aa3cde03cc40eb54f"
   },
-  "finished_utc": "2026-10-30T05:14:03.476505+00:00"
+  "finished_utc": "2026-10-30T06:44:44.347189+00:00"
 }
