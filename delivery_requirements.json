@@ -1,0 +1,71 @@
+{
+  "scope": "完整提交额外门槛；Q1/九表/Q2.1/Q2.2 由当前功能链验证；加分题不抵消必答缺项",
+  "requirements": [
+    {
+      "id": "Q2.3",
+      "status": "pending",
+      "reason": "卖家分析 SQL、去重/排名/延迟口径尚未实现",
+      "evidence": null
+    },
+    {
+      "id": "Q2.4",
+      "status": "pending",
+      "reason": "慢查询优化仍为模板，尚无当前实测计划及对账",
+      "evidence": null
+    },
+    {
+      "id": "Q3.1",
+      "status": "pending",
+      "reason": "ETL、三个输出、退货匹配和性能验收尚未实现",
+      "evidence": null
+    },
+    {
+      "id": "Q4.1",
+      "status": "pending",
+      "reason": "抽取、实际费用/时长、人工标注及质量评估尚未完成",
+      "evidence": null
+    },
+    {
+      "id": "Q5.1",
+      "status": "pending",
+      "reason": "系统设计仍为模板，容量和成本论证未完成",
+      "evidence": null
+    },
+    {
+      "id": "DOCS",
+      "status": "pending",
+      "reason": "三份必填文档尚有模板，逐题内容和候选人理解待审核",
+      "evidence": null
+    },
+    {
+      "id": "AI_LOG",
+      "status": "pending",
+      "reason": "已有原文导出；需最终完整性复核，不能用摘要替代",
+      "evidence": null
+    },
+    {
+      "id": "COLD_START",
+      "status": "pending",
+      "reason": "已有依赖安装和 R2 独立 MySQL 证明；完整最终源码从零运行尚未验收",
+      "evidence": null
+    },
+    {
+      "id": "PUBLIC_FORK",
+      "status": "pending",
+      "reason": "候选人公开 Fork 和评审访问尚未核实",
+      "evidence": null
+    },
+    {
+      "id": "FINAL_COMMIT",
+      "status": "pending",
+      "reason": "最终提交版本与公开远端一致性尚未核实",
+      "evidence": null
+    },
+    {
+      "id": "HUMAN_REVIEW",
+      "status": "pending",
+      "reason": "设计解释、数据口径、本人理解及提交内容尚待人工复核",
+      "evidence": null
+    }
+  ]
+}

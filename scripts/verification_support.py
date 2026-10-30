@@ -88,7 +88,7 @@ class EvidenceRun:
         run_id = uuid.uuid4().hex
         self.path = Path(report_dir) / f"{label}_{run_id}.json"
         self.latest = Path(report_dir) / f"{label}_latest.json"
-        files = [ROOT / "requirements.txt", ROOT / "data_sources.json", ROOT / "VALIDATION_GATES.md"]
+        files = [ROOT / "requirements.txt", ROOT / "data_sources.json", ROOT / "VALIDATION_GATES.md", ROOT / "delivery_requirements.json"]
         files += sorted(ROOT.glob("*.py")) + sorted((ROOT / "scripts").glob("*.py")) + sorted((ROOT / "tests").glob("*.py"))
         files += sorted((ROOT / "q1_data_quality").glob("*.py")) + sorted((ROOT / "q1_data_quality").glob("ACCEPTANCE_*.md"))
         files += sorted((ROOT / "q2_sql_analysis").glob("*.py")) + sorted((ROOT / "q2_sql_analysis").glob("*.sql"))

@@ -1,0 +1,683 @@
+{
+  "run_id": "ad31e29ec6444612bb3fffe6304c1c94",
+  "status": "redacted_copy",
+  "timestamp_utc": "2026-10-30T05:14:37.730815+00:00",
+  "python": "3.12.13",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "requested_stage": "all",
+  "exit_code": 2,
+  "results": [
+    {
+      "stage": "data.retail",
+      "status": "passed",
+      "detail": {
+        "source": "mashlyn/online-retail-ii-uci/versions/3",
+        "files": [
+          {
+            "path": "online_retail_ii.csv",
+            "action": "verified_existing",
+            "sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9",
+            "bytes": 94850204,
+            "rows": 1067371,
+            "columns": [
+              "Invoice",
+              "StockCode",
+              "Description",
+              "Quantity",
+              "InvoiceDate",
+              "Price",
+              "Customer ID",
+              "Country"
+            ]
+          }
+        ]
+      },
+      "seconds": 0.5
+    },
+    {
+      "stage": "data.olist",
+      "status": "passed",
+      "detail": {
+        "source": "olistbr/brazilian-ecommerce/versions/2",
+        "files": [
+          {
+            "path": "olist/olist_customers_dataset.csv",
+            "action": "verified_existing",
+            "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+            "bytes": 9033957,
+            "rows": 99441,
+            "columns": [
+              "customer_id",
+              "customer_unique_id",
+              "customer_zip_code_prefix",
+              "customer_city",
+              "customer_state"
+            ]
+          },
+          {
+            "path": "olist/olist_geolocation_dataset.csv",
+            "action": "verified_existing",
+            "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6",
+            "bytes": 61273883,
+            "rows": 1000163,
+            "columns": [
+              "geolocation_zip_code_prefix",
+              "geolocation_lat",
+              "geolocation_lng",
+              "geolocation_city",
+              "geolocation_state"
+            ]
+          },
+          {
+            "path": "olist/olist_order_items_dataset.csv",
+            "action": "verified_existing",
+            "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+            "bytes": 15438671,
+            "rows": 112650,
+            "columns": [
+              "order_id",
+              "order_item_id",
+              "product_id",
+              "seller_id",
+              "shipping_limit_date",
+              "price",
+              "freight_value"
+            ]
+          },
+          {
+            "path": "olist/olist_order_payments_dataset.csv",
+            "action": "verified_existing",
+            "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
+            "bytes": 5777138,
+            "rows": 103886,
+            "columns": [
+              "order_id",
+              "payment_sequential",
+              "payment_type",
+              "payment_installments",
+              "payment_value"
+            ]
+          },
+          {
+            "path": "olist/olist_order_reviews_dataset.csv",
+            "action": "verified_existing",
+            "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+            "bytes": 14451670,
+            "rows": 99224,
+            "columns": [
+              "review_id",
+              "order_id",
+              "review_score",
+              "review_comment_title",
+              "review_comment_message",
+              "review_creation_date",
+              "review_answer_timestamp"
+            ]
+          },
+          {
+            "path": "olist/olist_orders_dataset.csv",
+            "action": "verified_existing",
+            "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+            "bytes": 17654914,
+            "rows": 99441,
+            "columns": [
+              "order_id",
+              "customer_id",
+              "order_status",
+              "order_purchase_timestamp",
+              "order_approved_at",
+              "order_delivered_carrier_date",
+              "order_delivered_customer_date",
+              "order_estimated_delivery_date"
+            ]
+          },
+          {
+            "path": "olist/olist_products_dataset.csv",
+            "action": "verified_existing",
+            "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc",
+            "bytes": 2379446,
+            "rows": 32951,
+            "columns": [
+              "product_id",
+              "product_category_name",
+              "product_name_lenght",
+              "product_description_lenght",
+              "product_photos_qty",
+              "product_weight_g",
+              "product_length_cm",
+              "product_height_cm",
+              "product_width_cm"
+            ]
+          },
+          {
+            "path": "olist/olist_sellers_dataset.csv",
+            "action": "verified_existing",
+            "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e",
+            "bytes": 174703,
+            "rows": 3095,
+            "columns": [
+              "seller_id",
+              "seller_zip_code_prefix",
+              "seller_city",
+              "seller_state"
+            ]
+          },
+          {
+            "path": "olist/product_category_name_translation.csv",
+            "action": "verified_existing",
+            "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278",
+            "bytes": 2613,
+            "rows": 71,
+            "columns": [
+              "product_category_name",
+              "product_category_name_english"
+            ]
+          }
+        ]
+      },
+      "seconds": 0.6419
+    },
+    {
+      "stage": "q1.1",
+      "status": "passed",
+      "detail": {
+        "rows": 1067371,
+        "observations": 10,
+        "scope": "仅 Q1.1",
+        "output_dir": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/f7410fbc5f8045578ae5318c56d35e8d/q1"
+      },
+      "seconds": 2.5625
+    },
+    {
+      "stage": "q1.2",
+      "status": "passed",
+      "detail": {
+        "rows": 1067371,
+        "scope": "仅 Q1.2",
+        "output_dir": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/f7410fbc5f8045578ae5318c56d35e8d/q1"
+      },
+      "seconds": 4.1921
+    },
+    {
+      "stage": "q1.3",
+      "status": "passed",
+      "detail": {
+        "scope": "Q1.3 策略文档交付；未实施 ETL",
+        "nonwhitespace_characters": 462,
+        "han_characters": 408,
+        "artifact_sha256": {
+          "cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
+          "strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208"
+        },
+        "business_approval": "未获得；见规则假设和待确认范围",
+        "validation_limit": "程序只核验交付文件和长度；不是自动业务语义审查"
+      },
+      "seconds": 0.0034
+    },
+    {
+      "stage": "q2",
+      "status": "partial",
+      "detail": {
+        "stage_completion": "partial",
+        "results": [
+          {
+            "stage": "q2.load",
+            "status": "passed",
+            "detail": {
+              "version": "d0768a1b1e54",
+              "tables": {
+                "customers": 99441,
+                "geolocation": 1000163,
+                "order_items": 112650,
+                "order_payments": 103886,
+                "order_reviews": 99224,
+                "orders": 99441,
+                "products": 32951,
+                "sellers": 3095,
+                "product_category_name_translation": 71
+              },
+              "report": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/f7410fbc5f8045578ae5318c56d35e8d/q2/.pending-i5stoq0b/load_report.json"
+            }
+          },
+          {
+            "stage": "q2.1",
+            "status": "passed",
+            "detail": {
+              "server_version": "8.4.13",
+              "load_version": "d0768a1b1e54",
+              "total_products": 32951,
+              "unknown_category_products": 610,
+              "named_translation_gaps": [
+                {
+                  "category": "pc_gamer",
+                  "products": 3
+                },
+                {
+                  "category": "portateis_cozinha_e_preparadores_de_alimentos",
+                  "products": 10
+                }
+              ],
+              "named_gap_products": 13,
+              "scope": "精确类别名反连接；空类别单列，不猜测补译"
+            }
+          },
+          {
+            "stage": "q2.2",
+            "status": "passed",
+            "detail": {
+              "server_version": "8.4.13",
+              "load_version": "d0768a1b1e54",
+              "cancel_rate_unit": "百分数",
+              "delivery_days": "有效 delivered 订单等权，秒/86400，六位小数；NULL 排除并披露",
+              "months": [
+                {
+                  "month": "2016-09",
+                  "total_orders": 4,
+                  "delivered_orders": 1,
+                  "canceled_orders": 2,
+                  "cancel_rate": "50.00",
+                  "delivered_gmv": "143.460",
+                  "avg_delivery_days": "54.813194",
+                  "valid_delivery_orders": 1,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2016-10",
+                  "total_orders": 324,
+                  "delivered_orders": 265,
+                  "canceled_orders": 24,
+                  "cancel_rate": "7.41",
+                  "delivered_gmv": "46490.660",
+                  "avg_delivery_days": "19.600559",
+                  "valid_delivery_orders": 265,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2016-12",
+                  "total_orders": 1,
+                  "delivered_orders": 1,
+                  "canceled_orders": 0,
+                  "cancel_rate": "0.00",
+                  "delivered_gmv": "19.620",
+                  "avg_delivery_days": "4.693021",
+                  "valid_delivery_orders": 1,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-01",
+                  "total_orders": 800,
+                  "delivered_orders": 750,
+                  "canceled_orders": 3,
+                  "cancel_rate": "0.38",
+                  "delivered_gmv": "127482.370",
+                  "avg_delivery_days": "12.647044",
+                  "valid_delivery_orders": 750,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-02",
+                  "total_orders": 1780,
+                  "delivered_orders": 1653,
+                  "canceled_orders": 17,
+                  "cancel_rate": "0.96",
+                  "delivered_gmv": "271239.320",
+                  "avg_delivery_days": "13.168825",
+                  "valid_delivery_orders": 1653,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-03",
+                  "total_orders": 2682,
+                  "delivered_orders": 2546,
+                  "canceled_orders": 33,
+                  "cancel_rate": "1.23",
+                  "delivered_gmv": "414330.950",
+                  "avg_delivery_days": "12.951184",
+                  "valid_delivery_orders": 2546,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-04",
+                  "total_orders": 2404,
+                  "delivered_orders": 2303,
+                  "canceled_orders": 18,
+                  "cancel_rate": "0.75",
+                  "delivered_gmv": "390812.400",
+                  "avg_delivery_days": "14.917913",
+                  "valid_delivery_orders": 2303,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-05",
+                  "total_orders": 3700,
+                  "delivered_orders": 3546,
+                  "canceled_orders": 29,
+                  "cancel_rate": "0.78",
+                  "delivered_gmv": "566851.400",
+                  "avg_delivery_days": "11.322363",
+                  "valid_delivery_orders": 3545,
+                  "missing_delivery_time_orders": 1,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-06",
+                  "total_orders": 3245,
+                  "delivered_orders": 3135,
+                  "canceled_orders": 16,
+                  "cancel_rate": "0.49",
+                  "delivered_gmv": "490050.370",
+                  "avg_delivery_days": "12.011573",
+                  "valid_delivery_orders": 3135,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-07",
+                  "total_orders": 4026,
+                  "delivered_orders": 3872,
+                  "canceled_orders": 28,
+                  "cancel_rate": "0.70",
+                  "delivered_gmv": "566299.080",
+                  "avg_delivery_days": "11.592732",
+                  "valid_delivery_orders": 3872,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-08",
+                  "total_orders": 4331,
+                  "delivered_orders": 4193,
+                  "canceled_orders": 27,
+                  "cancel_rate": "0.62",
+                  "delivered_gmv": "645832.360",
+                  "avg_delivery_days": "11.147125",
+                  "valid_delivery_orders": 4193,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-09",
+                  "total_orders": 4285,
+                  "delivered_orders": 4150,
+                  "canceled_orders": 20,
+                  "cancel_rate": "0.47",
+                  "delivered_gmv": "701077.490",
+                  "avg_delivery_days": "11.851007",
+                  "valid_delivery_orders": 4150,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-10",
+                  "total_orders": 4631,
+                  "delivered_orders": 4478,
+                  "canceled_orders": 26,
+                  "cancel_rate": "0.56",
+                  "delivered_gmv": "751117.010",
+                  "avg_delivery_days": "11.856700",
+                  "valid_delivery_orders": 4478,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-11",
+                  "total_orders": 7544,
+                  "delivered_orders": 7289,
+                  "canceled_orders": 37,
+                  "cancel_rate": "0.49",
+                  "delivered_gmv": "1153364.200",
+                  "avg_delivery_days": "15.161132",
+                  "valid_delivery_orders": 7288,
+                  "missing_delivery_time_orders": 1,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-12",
+                  "total_orders": 5673,
+                  "delivered_orders": 5513,
+                  "canceled_orders": 11,
+                  "cancel_rate": "0.19",
+                  "delivered_gmv": "843078.290",
+                  "avg_delivery_days": "15.394919",
+                  "valid_delivery_orders": 5513,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-01",
+                  "total_orders": 7269,
+                  "delivered_orders": 7069,
+                  "canceled_orders": 34,
+                  "cancel_rate": "0.47",
+                  "delivered_gmv": "1077887.460",
+                  "avg_delivery_days": "14.080563",
+                  "valid_delivery_orders": 7069,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-02",
+                  "total_orders": 6728,
+                  "delivered_orders": 6555,
+                  "canceled_orders": 73,
+                  "cancel_rate": "1.09",
+                  "delivered_gmv": "966168.410",
+                  "avg_delivery_days": "16.945138",
+                  "valid_delivery_orders": 6555,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-03",
+                  "total_orders": 7211,
+                  "delivered_orders": 7003,
+                  "canceled_orders": 26,
+                  "cancel_rate": "0.36",
+                  "delivered_gmv": "1120598.240",
+                  "avg_delivery_days": "16.301410",
+                  "valid_delivery_orders": 7003,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-04",
+                  "total_orders": 6939,
+                  "delivered_orders": 6798,
+                  "canceled_orders": 15,
+                  "cancel_rate": "0.22",
+                  "delivered_gmv": "1132878.930",
+                  "avg_delivery_days": "11.499241",
+                  "valid_delivery_orders": 6798,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-05",
+                  "total_orders": 6873,
+                  "delivered_orders": 6749,
+                  "canceled_orders": 24,
+                  "cancel_rate": "0.35",
+                  "delivered_gmv": "1128774.520",
+                  "avg_delivery_days": "11.419029",
+                  "valid_delivery_orders": 6749,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-06",
+                  "total_orders": 6167,
+                  "delivered_orders": 6099,
+                  "canceled_orders": 18,
+                  "cancel_rate": "0.29",
+                  "delivered_gmv": "1011978.290",
+                  "avg_delivery_days": "9.239216",
+                  "valid_delivery_orders": 6096,
+                  "missing_delivery_time_orders": 3,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-07",
+                  "total_orders": 6292,
+                  "delivered_orders": 6159,
+                  "canceled_orders": 41,
+                  "cancel_rate": "0.65",
+                  "delivered_gmv": "1027807.280",
+                  "avg_delivery_days": "8.958636",
+                  "valid_delivery_orders": 6156,
+                  "missing_delivery_time_orders": 3,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-08",
+                  "total_orders": 6512,
+                  "delivered_orders": 6351,
+                  "canceled_orders": 84,
+                  "cancel_rate": "1.29",
+                  "delivered_gmv": "985491.640",
+                  "avg_delivery_days": "7.732780",
+                  "valid_delivery_orders": 6351,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-09",
+                  "total_orders": 16,
+                  "delivered_orders": 0,
+                  "canceled_orders": 15,
+                  "cancel_rate": "93.75",
+                  "delivered_gmv": "0.000",
+                  "avg_delivery_days": null,
+                  "valid_delivery_orders": 0,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-10",
+                  "total_orders": 4,
+                  "delivered_orders": 0,
+                  "canceled_orders": 4,
+                  "cancel_rate": "100.00",
+                  "delivered_gmv": "0.000",
+                  "avg_delivery_days": null,
+                  "valid_delivery_orders": 0,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                }
+              ]
+            }
+          },
+          {
+            "stage": "q2.3",
+            "status": "not_implemented"
+          },
+          {
+            "stage": "q2.4",
+            "status": "not_implemented"
+          }
+        ]
+      },
+      "seconds": 26.2914
+    },
+    {
+      "stage": "q3",
+      "status": "not_implemented",
+      "detail": "尚未实现或接入；不算通过",
+      "seconds": 0.0
+    },
+    {
+      "stage": "q4",
+      "status": "not_implemented",
+      "detail": "尚未实现或接入；不算通过",
+      "seconds": 0.0
+    },
+    {
+      "stage": "q5",
+      "status": "not_implemented",
+      "detail": "尚未实现或接入；不算通过",
+      "seconds": 0.0
+    }
+  ],
+  "source_sha256": {
+    "artifact_manifest.py": "3b75e5b0345b5a3d5d9136eff54b952e712739d2ff8d7bb94de4b76c6a6a826d",
+    "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
+    "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
+    "q1_data_quality/cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
+    "q1_data_quality/q1_code.py": "3cefc9f09bf7603f032e19ef7dd7408ea92de90c423622c0e47ccb342b351817",
+    "q1_data_quality/q1_findings.py": "9510aa26166c43ab232ff93bb8c60f6fc27842fb0044f7bfc169b5ce8d70ddaf",
+    "q1_data_quality/q1_strategy.py": "06b4f770a0df565855320664afe708fa78fc07dc969c2744327dc30195e6b022",
+    "q1_data_quality/strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208",
+    "q2_sql_analysis/catalog.py": "0108180bd105bb2dc977f7f42493e2ffbc30ec9fa7cc834007a5ce4d26174c30",
+    "q2_sql_analysis/load_olist.py": "d2cbc404f8ec4f9255a84756056ee27ff471a9965ba6550bfc0a6c6ac76fe7ba",
+    "q2_sql_analysis/mysql_runtime.py": "3ddd738b19bda77d44192937ff73b51b340b888881c47567b96c909e80e6f56c",
+    "q2_sql_analysis/q2_1.py": "f9b33a5482a4de57cf03a954a25c9f912a200a6f06b74332aebdf261d2620ae8",
+    "q2_sql_analysis/q2_1_translation_gap.sql": "8ebd5dd6d6ab5b7d8d2848cefea7f606fea2b16e41816846e529745d4cd33b9a",
+    "q2_sql_analysis/q2_2.py": "ffb51f75d9f5f44364ea34c55b4f486345047316e878f4aed35456f81d8d1d16",
+    "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
+    "release_check.py": "83a120650dd3007b46d4fdc1a652111c9513ae30e78a1eb4b2e37a1f6da0e478",
+    "requirements.txt": "dc84079cbbf1746fc870afd863b5e2cd64f3c92b772c5783a1151b1f1f1fa8f7",
+    "run_all.py": "c0f4f34fcc80f4a4f9eb35dbe5a0609fc02444af0701b7514bd588c6061bc97a"
+  },
+  "output_directories": {
+    "q1": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/f7410fbc5f8045578ae5318c56d35e8d/q1",
+    "q2": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/f7410fbc5f8045578ae5318c56d35e8d/q2"
+  },
+  "recorded_status_before_history_redaction": "partial",
+  "_history_privacy_redaction_notice": "历史隐私脱敏阅读副本；指定身份/目录已替换，原始运行记录仅本地保存，不能据此认证原始回执。"
+}
