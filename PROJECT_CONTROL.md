@@ -12,7 +12,7 @@
 | Q5 | 正文、图、情景计算、独立/默认交付通过 | 不冒称集群部署、SLO 压测或真实厂商报价 |
 | 新依赖环境 | 已验证 | 空环境/安装/下载，复用本机数据库，不是新 OS 或新服务器 |
 | Q4 | 用户选择服务配置稍后处理 | 未完成真实抽取、费用/时长与人工评估；不以预查冒充通过 |
-| GitHub | 公开 Fork 已建立并确认父仓库 | 候选发布分支 codex/verified-baseline，远端版本需核验 |
+| GitHub | 公开 Fork/父仓库/候选分支已核验 | 已推送、设为默认分支并验证匿名访问；回执见 reports/github_fork_metadata.json |
 | 完整提交 | 仍未通过 | Q4、最终文档/对话冻结、最终版本与本人复核尚未闭环 |
 
 最新已实现门槛：reports/release/implemented_latest.json。完整提交门槛：reports/release/submission_latest.json。报告必须匹配源码和实际产物；历史报告不覆盖当前状态。当前从零入口已实际执行，因 Q4 未完成退出 2，不能宣称全项目从零成功。

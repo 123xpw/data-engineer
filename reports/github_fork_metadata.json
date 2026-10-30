@@ -7,5 +7,11 @@
   "parent": "Jay-gekko/data-engineer",
   "default_branch_at_initial_verification": "main",
   "candidate_branch": "codex/verified-baseline",
-  "candidate_publication": "待实际 push 后核验；不是最终邮件提交"
+  "candidate_publication": "实际 push 成功，并通过不携带 GitHub 凭据的公开 API 读取核验；不是最终邮件提交",
+  "publication_verified_utc": "2026-10-30T12:15:29.421253+00:00",
+  "default_branch": "codex/verified-baseline",
+  "published_code_commit": "b99f9652116a3e9962e8529ba1525a6bcee26fb9",
+  "anonymous_commit_url": "https://github.com/123xpw/data-engineer/commit/b99f9652116a3e9962e8529ba1525a6bcee26fb9",
+  "anonymous_access": "passed",
+  "scope": "记录该代码提交的发布回执；后续文档提交以远端 HEAD 为准，不构成最终交付认证"
 }

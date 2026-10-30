@@ -43,4 +43,4 @@ python release_check.py
 
 Q4 未做真实模型抽取/用量核算/人工 30 条评估，不能填写假结果。Q5 延迟和年度费用为设计目标及假设情景，未部署压测。Q3 商品政策、评价选择、退货关系仍有未获业务确认的部分。并发发布、断电恢复、跨平台及完整最终版本冷启动仍需审查。
 
-公开 Fork：https://github.com/123xpw/data-engineer ，来源 Jay-gekko/data-engineer。候选分支为 codex/verified-baseline；以实际远端提交为准。当前尚非最终邮件提交版本，后续补齐 Q4 时仍会正常追加提交，保留历史，不 force push。
+公开 Fork：https://github.com/123xpw/data-engineer ，来源 Jay-gekko/data-engineer。候选分支为 codex/verified-baseline，已推送并设为默认分支，匿名访问和代码提交一致性已核验（见 reports/github_fork_metadata.json）；以实际远端提交为准。当前尚非最终邮件提交版本，后续补齐 Q4 时仍会正常追加提交，保留历史，不 force push。
