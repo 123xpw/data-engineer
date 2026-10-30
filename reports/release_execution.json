@@ -1,7 +1,7 @@
 {
-  "run_id": "368e8c3473bf45f4833136c8497e5f78",
+  "run_id": "b3a06517bb5143fd8316dfb7c7f0d4db",
   "status": "redacted_copy",
-  "timestamp_utc": "2026-10-30T09:01:34.928156+00:00",
+  "timestamp_utc": "2026-10-30T09:54:09.900073+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "requested_stage": "all",
@@ -32,7 +32,7 @@
           }
         ]
       },
-      "seconds": 0.5436
+      "seconds": 0.5217
     },
     {
       "stage": "data.olist",
@@ -175,7 +175,7 @@
           }
         ]
       },
-      "seconds": 0.679
+      "seconds": 0.6633
     },
     {
       "stage": "q1.1",
@@ -184,9 +184,9 @@
         "rows": 1067371,
         "observations": 10,
         "scope": "仅 Q1.1",
-        "output_dir": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/6c3c995820df448d9301c420b91dd018/q1"
+        "output_dir": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/9c99050fa9864297abd9331a86a37ae7/q1"
       },
-      "seconds": 2.6696
+      "seconds": 1.8363
     },
     {
       "stage": "q1.2",
@@ -194,9 +194,9 @@
       "detail": {
         "rows": 1067371,
         "scope": "仅 Q1.2",
-        "output_dir": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/6c3c995820df448d9301c420b91dd018/q1"
+        "output_dir": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/9c99050fa9864297abd9331a86a37ae7/q1"
       },
-      "seconds": 4.1737
+      "seconds": 3.7586
     },
     {
       "stage": "q1.3",
@@ -212,7 +212,7 @@
         "business_approval": "未获得；见规则假设和待确认范围",
         "validation_limit": "程序只核验交付文件和长度；不是自动业务语义审查"
       },
-      "seconds": 0.0041
+      "seconds": 0.0046
     },
     {
       "stage": "q2",
@@ -223,7 +223,7 @@
             "stage": "q2.load",
             "status": "passed",
             "detail": {
-              "version": "d95388cde65d",
+              "version": "084ea11e14be",
               "tables": {
                 "customers": 99441,
                 "geolocation": 1000163,
@@ -235,7 +235,7 @@
                 "sellers": 3095,
                 "product_category_name_translation": 71
               },
-              "report": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/6c3c995820df448d9301c420b91dd018/q2/.pending-35o4vhfj/load_report.json"
+              "report": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/9c99050fa9864297abd9331a86a37ae7/q2/.pending-9s3af6nr/load_report.json"
             }
           },
           {
@@ -243,7 +243,7 @@
             "status": "passed",
             "detail": {
               "server_version": "8.4.13",
-              "load_version": "d95388cde65d",
+              "load_version": "084ea11e14be",
               "total_products": 32951,
               "unknown_category_products": 610,
               "named_translation_gaps": [
@@ -265,7 +265,7 @@
             "status": "passed",
             "detail": {
               "server_version": "8.4.13",
-              "load_version": "d95388cde65d",
+              "load_version": "084ea11e14be",
               "cancel_rate_unit": "百分数",
               "delivery_days": "有效 delivered 订单等权，秒/86400，六位小数；NULL 排除并披露",
               "months": [
@@ -626,7 +626,7 @@
             "stage": "q2.3",
             "status": "passed",
             "detail": {
-              "load_version": "d95388cde65d",
+              "load_version": "084ea11e14be",
               "year": 2017,
               "rate_unit": "百分数",
               "review_rule": "每订单按创建、回答、review_id、来源行降序取一条；不是权威性认证",
@@ -1000,7 +1000,7 @@
             "stage": "q2.4",
             "status": "passed",
             "detail": {
-              "load_version": "d95388cde65d",
+              "load_version": "084ea11e14be",
               "scope": "原题筛选；商品价格不含运费/退款，评分每订单最新一条等权；不是净收入审计",
               "states": [
                 {
@@ -1207,13 +1207,142 @@
         ],
         "scope": "九表与 Q2.1–Q2.4"
       },
-      "seconds": 127.9467
+      "seconds": 127.1114
     },
     {
       "stage": "q3",
-      "status": "not_implemented",
-      "detail": "尚未实现或接入；不算通过",
-      "seconds": 0.0
+      "status": "passed",
+      "detail": {
+        "rows": 1067371,
+        "sales_rows": 1037021,
+        "customers": 5852,
+        "returns_rows": 19494,
+        "sales_amount_milli": 20110181017,
+        "reason_counts": {
+          "retained": 1037021,
+          "cancel_event": 19494,
+          "nonproduct": 3764,
+          "nonpositive_quantity": 3457,
+          "nonpositive_price": 2745,
+          "pending_product": 884,
+          "non_numeric_invoice": 6
+        },
+        "match_reasons": {
+          "no_exact_quantity_candidate": 11485,
+          "candidate_matched": 6303,
+          "no_strictly_earlier_sale": 749,
+          "missing_customer": 749,
+          "eligible_candidates_consumed": 207,
+          "unexpected_nonnegative_cancel_quantity": 1
+        },
+        "seconds": 2.974864,
+        "under_120_seconds": true,
+        "scope": "正向商品毛交易、毛购买 RFM、容量受限精确数量候选；非净退款认证",
+        "return_candidate_sensitivity": {
+          "assumption": "仅作如果全部匹配候选均确认退货的敏感性，不作为已证实退款",
+          "candidate_sales_rows": 6303,
+          "candidate_original_amount_milli": 611992031,
+          "customers_with_candidates": 1506,
+          "customers_disappearing_if_candidates_removed": 13,
+          "matched_price_mismatch_rows": 217,
+          "matching_coverage_fraction": 0.3233302554632195,
+          "limit": "覆盖率不是准确率；未匹配不等于无原单，毛购买 RFM 不能当净留存特征"
+        },
+        "reference_day": "2011-12-09 00:00:00",
+        "source_sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9",
+        "outputs": {
+          "sales_facts": {
+            "rows": 1037021,
+            "null_counts": {
+              "invoice_no": 0,
+              "stock_code": 0,
+              "description": 0,
+              "quantity": 0,
+              "unit_price": 0,
+              "total_amount": 0,
+              "invoice_datetime": 0,
+              "customer_id": 234370,
+              "country": 0,
+              "source_row": 0
+            },
+            "dtypes": {
+              "invoice_no": "string",
+              "stock_code": "string",
+              "description": "string",
+              "quantity": "int64",
+              "unit_price": "float64",
+              "total_amount": "float64",
+              "invoice_datetime": "datetime64[us]",
+              "customer_id": "string",
+              "country": "string",
+              "source_row": "int64"
+            }
+          },
+          "customer_features": {
+            "rows": 5852,
+            "null_counts": {
+              "customer_id": 0,
+              "recency_days": 0,
+              "frequency": 0,
+              "monetary": 0,
+              "first_purchase_date": 0,
+              "last_purchase_date": 0,
+              "unique_products": 0,
+              "country": 0,
+              "is_one_time_buyer": 0
+            },
+            "dtypes": {
+              "customer_id": "string",
+              "recency_days": "int64",
+              "frequency": "int64",
+              "monetary": "float64",
+              "first_purchase_date": "datetime64[us]",
+              "last_purchase_date": "datetime64[us]",
+              "unique_products": "int64",
+              "country": "string",
+              "is_one_time_buyer": "bool"
+            }
+          },
+          "returns_log": {
+            "rows": 19494,
+            "null_counts": {
+              "invoice_no": 0,
+              "stock_code": 0,
+              "description": 0,
+              "quantity": 0,
+              "unit_price": 0,
+              "total_amount": 0,
+              "invoice_datetime": 0,
+              "customer_id": 750,
+              "country": 0,
+              "source_row": 0,
+              "matched_original_invoice": 13191,
+              "matched_source_row": 13191,
+              "match_reason": 0,
+              "same_time_candidate_rows": 0,
+              "price_mismatch": 0
+            },
+            "dtypes": {
+              "invoice_no": "string",
+              "stock_code": "string",
+              "description": "string",
+              "quantity": "int64",
+              "unit_price": "float64",
+              "total_amount": "float64",
+              "invoice_datetime": "datetime64[us]",
+              "customer_id": "string",
+              "country": "string",
+              "source_row": "int64",
+              "matched_original_invoice": "string",
+              "matched_source_row": "Int64",
+              "match_reason": "string",
+              "same_time_candidate_rows": "int64",
+              "price_mismatch": "bool"
+            }
+          }
+        }
+      },
+      "seconds": 3.0793
     },
     {
       "stage": "q4",
@@ -1223,13 +1352,24 @@
     },
     {
       "stage": "q5",
-      "status": "not_implemented",
-      "detail": "尚未实现或接入；不算通过",
-      "seconds": 0.0
+      "status": "passed",
+      "detail": {
+        "body_nonwhitespace_characters": 1281,
+        "han_characters": 1015,
+        "scenario": {
+          "annual_all_review_cost_usd": "114975.0",
+          "annual_routed_cost_usd": "9198.000",
+          "average_orders_per_second": "11.57407407407407407407407407",
+          "assumed_peak_events_per_second": "1388.888888888888888888888888",
+          "scope": "输入/输出单价与比例均为压力情景假设，不是厂商报价或实际费用；未含基础设施/人工"
+        },
+        "scope": "文档交付、字数与数学情景；未部署、压测或独立人员审阅"
+      },
+      "seconds": 0.0039
     }
   ],
   "source_sha256": {
-    "artifact_manifest.py": "1e1df6cd13a5166d4de90f0927489fc9bb25799e682e1bf88699f8d4350c824d",
+    "artifact_manifest.py": "26cd307ca6aefff22734f14d16994882d662b4aa2bcb701c141dd9e016c6a808",
     "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
     "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
     "q1_data_quality/cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
@@ -1250,13 +1390,20 @@
     "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
     "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
     "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
-    "release_check.py": "9461efa7ed3ca3c8751f92871699bffda65fa0cdd641df7bf3ce9654143f5565",
-    "requirements.txt": "dc84079cbbf1746fc870afd863b5e2cd64f3c92b772c5783a1151b1f1f1fa8f7",
-    "run_all.py": "cc763742449de328eedd80fbbdf5ded1a42b1ac360689a3acf5fbe50a3c5001c"
+    "q3_etl_pipeline/pipeline.py": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
+    "q3_etl_pipeline/reference_check.py": "c397a4617f9568b317e3dec7a58b0ed1f58bbd765db216fe4e5789cdbc293a71",
+    "q3_etl_pipeline/test_pipeline.py": "8857672d2627cf32e7c62fb9fbf80fdfd81dc5877c461af8f7f5a60175506452",
+    "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
+    "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
+    "release_check.py": "a3f97d2bb1783605279dc1db3db3961ec21c1f18c8d70d4fff981a1d7726c9d8",
+    "requirements.txt": "61a813e12457bf169d82652a379d276acb0405658dc7070588aac83c73a3f157",
+    "run_all.py": "fc6e8eb01140e914ae69f77786e4107e47abdf325b99b9260271d0df2ed8c655"
   },
   "output_directories": {
-    "q1": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/6c3c995820df448d9301c420b91dd018/q1",
-    "q2": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/6c3c995820df448d9301c420b91dd018/q2"
+    "q1": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/9c99050fa9864297abd9331a86a37ae7/q1",
+    "q2": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/9c99050fa9864297abd9331a86a37ae7/q2",
+    "q3": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/9c99050fa9864297abd9331a86a37ae7/q3",
+    "q5": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/.venv/release-runs/9c99050fa9864297abd9331a86a37ae7/q5"
   },
   "recorded_status_before_history_redaction": "partial",
   "_history_privacy_redaction_notice": "历史隐私脱敏阅读副本；指定身份/目录已替换，原始运行记录仅本地保存，不能据此认证原始回执。"

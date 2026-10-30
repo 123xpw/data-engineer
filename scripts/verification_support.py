@@ -94,6 +94,9 @@ class EvidenceRun:
         files += sorted((ROOT / "q2_sql_analysis").glob("*.py")) + sorted((ROOT / "q2_sql_analysis").glob("*.sql"))
         files += sorted((ROOT / "q2_sql_analysis").glob("ACCEPTANCE_*.md"))
         files += [ROOT/'audit/q2_4_experiment.py', ROOT/'audit/verify_q2_4_experiment.py']
+        for directory in ('q3_etl_pipeline','q5_system_design'):
+            files += sorted((ROOT/directory).glob('*.py'))+sorted((ROOT/directory).glob('ACCEPTANCE*.md'))
+        files += [ROOT/'q5_system_design/real_time_pipeline_design.md']
         git = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True)
         self.report = {"run_id": run_id, "status": "running", "scope": label,
                        "started_utc": datetime.now(timezone.utc).isoformat(),

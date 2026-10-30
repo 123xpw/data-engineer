@@ -22,7 +22,7 @@ def main():
         project.mkdir()
         for path in ROOT.glob("*.py"):
             shutil.copyfile(path, project / path.name)
-        for name in ("requirements.txt", "data_sources.json", "VALIDATION_GATES.md"):
+        for name in ("requirements.txt", "data_sources.json", "VALIDATION_GATES.md", "delivery_requirements.json"):
             shutil.copyfile(ROOT / name, project / name)
         for name in ("scripts", "tests"):
             shutil.copytree(ROOT / name, project / name, ignore=shutil.ignore_patterns("__pycache__"))
@@ -30,6 +30,8 @@ def main():
         for path in (ROOT / "q1_data_quality").iterdir():
             if path.suffix == ".py" or path.name.startswith("ACCEPTANCE_") or path.name in ("cleaning_strategy.md", "strategy_review.md"):
                 shutil.copyfile(path, project / "q1_data_quality" / path.name)
+        for name in ('q3_etl_pipeline','q5_system_design','audit'):
+            shutil.copytree(ROOT/name,project/name,ignore=shutil.ignore_patterns('__pycache__','outputs','pipeline_log.txt'))
         environment = os.environ.copy()
         shutil.copytree(ROOT / "q2_sql_analysis", project / "q2_sql_analysis", ignore=shutil.ignore_patterns("__pycache__"))
         # 全新 Python/下载环境；数据库为本机独立项目实例，明确不声称重建操作系统或服务器。

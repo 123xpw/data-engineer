@@ -21,6 +21,8 @@ ARTIFACTS = {
     'q2.2': ('q2_2_results.json', 'q2_2_findings.md'),
     'q2.3': ('q2_3_results.json', 'q2_3_findings.md'),
     'q2.4': ('q2_4_results.json', 'q2_4_query_optimization.md'),
+    'q3': ('outputs/sales_facts.parquet','outputs/customer_features.parquet','outputs/returns_log.parquet','pipeline_log.txt','validation_metrics.json','validation_report.md'),
+    'q5': ('real_time_pipeline_design.md','design_metrics.json'),
 }
 
 
@@ -32,8 +34,9 @@ def digest(path):
 def source_hashes():
     """生产代码与规则声明；不将生成的业务报告混入源码指纹。"""
     files = list(ROOT.glob('*.py')) + [ROOT/'requirements.txt', ROOT/'data_sources.json']
-    for directory in ('q1_data_quality', 'q2_sql_analysis'):
+    for directory in ('q1_data_quality', 'q2_sql_analysis','q3_etl_pipeline','q5_system_design'):
         files += list((ROOT/directory).glob('*.py')) + list((ROOT/directory).glob('*.sql'))
+    files += [ROOT/'q5_system_design/real_time_pipeline_design.md']
     files += [ROOT/'q1_data_quality'/name for name in ('cleaning_strategy.md', 'strategy_review.md')]
     return {str(p.relative_to(ROOT)): digest(p) for p in sorted(set(files)) if p.is_file()}
 
@@ -81,6 +84,7 @@ def publish(stage, output_dir, action, *, inputs=(), run_id=None):
                 raise RuntimeError('运行中输入发生变化，不发布结果')
             # 清单最后发布；中途异常时即使文件部分更新，也没有可读取的成功清单。
             for name in ARTIFACTS[stage]:
+                (output_dir/name).parent.mkdir(parents=True,exist_ok=True)
                 os.replace(fresh/name, output_dir/name)
             record.update(status='passed', artifacts=hashes)
             if isinstance(result, dict) and 'load_version' in result:

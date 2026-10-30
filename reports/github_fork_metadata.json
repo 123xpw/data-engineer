@@ -1,0 +1,11 @@
+{
+  "verified_utc": "2026-10-30T10:29:17.477395+00:00",
+  "verification": "实际 gh api GET repos/123xpw/data-engineer，返回字段经核对",
+  "url": "https://github.com/123xpw/data-engineer",
+  "fork": true,
+  "private": false,
+  "parent": "Jay-gekko/data-engineer",
+  "default_branch_at_initial_verification": "main",
+  "candidate_branch": "codex/verified-baseline",
+  "candidate_publication": "待实际 push 后核验；不是最终邮件提交"
+}

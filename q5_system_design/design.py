@@ -35,4 +35,6 @@ def deliver(output_dir):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output-dir',type=Path,default=SOURCE.parent)
-    print(json.dumps(deliver(parser.parse_args().output_dir),ensure_ascii=False))
+    from artifact_manifest import publish
+    args=parser.parse_args()
+    print(json.dumps(publish('q5',args.output_dir,deliver),ensure_ascii=False))

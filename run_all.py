@@ -43,6 +43,20 @@ def q1_strategy(output_dir):
     return publish("q1.3", output_dir, action)
 
 
+def q3_pipeline(data_dir,output_dir):
+    def action(fresh):
+        from q3_etl_pipeline.pipeline import run_pipeline
+        return run_pipeline(data_dir/'online_retail_ii.csv',fresh)
+    return publish('q3',output_dir,action,inputs=[data_dir/'online_retail_ii.csv'])
+
+
+def q5_design(output_dir):
+    def action(fresh):
+        from q5_system_design.design import deliver
+        return deliver(fresh)
+    return publish('q5',output_dir,action)
+
+
 def q2_scope(data_dir, output_dir, *, stage=None):
     """Q2 内部依赖显式处理，导入失败不拿旧批次冒充本次成功。"""
     run_id = RUN_ID.get() or uuid.uuid4().hex
@@ -119,6 +133,8 @@ def main() -> int:
     parser.add_argument("--data-dir", type=Path, default=ROOT / "data")
     parser.add_argument("--q1-output-dir", type=Path, default=ROOT / "q1_data_quality")
     parser.add_argument("--q2-output-dir", type=Path, default=ROOT / "q2_sql_analysis")
+    parser.add_argument("--q3-output-dir",type=Path,default=ROOT/"q3_etl_pipeline")
+    parser.add_argument("--q5-output-dir",type=Path,default=ROOT/"q5_system_design")
     parser.add_argument("--report", type=Path, default=ROOT / "reports" / "latest_run.json")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
@@ -140,14 +156,15 @@ def main() -> int:
         steps.append((selected or 'q2', lambda: q2_scope(args.data_dir, args.q2_output_dir, stage=selected)))
     for name in ("q3", "q4", "q5"):
         if args.stage in ("all", name):
-            steps.append((name, None))
+            action=(lambda:q3_pipeline(args.data_dir,args.q3_output_dir)) if name=="q3" else (lambda:q5_design(args.q5_output_dir)) if name=="q5" else None
+            steps.append((name, action))
     results, code = run_steps(steps)
     report = {"run_id": run_id, "status": "passed" if code == 0 else "failed" if code == 1 else "partial",
               "timestamp_utc": datetime.now(timezone.utc).isoformat(),
               "python": platform.python_version(), "platform": platform.platform(),
               "requested_stage": args.stage, "exit_code": code, "results": results,
               "source_sha256": source_hashes(),
-              "output_directories": {"q1": str(args.q1_output_dir.resolve()), "q2": str(args.q2_output_dir.resolve())}}
+              "output_directories": {"q1": str(args.q1_output_dir.resolve()), "q2": str(args.q2_output_dir.resolve()),"q3":str(args.q3_output_dir.resolve()),"q5":str(args.q5_output_dir.resolve())}}
     args.report.parent.mkdir(parents=True, exist_ok=True)
     atomic_json(args.report, report)
     LOG.info("报告：%s；退出码：%s", args.report, code)
