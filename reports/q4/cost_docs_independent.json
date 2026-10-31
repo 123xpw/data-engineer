@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "scope": "真实账本逐请求用量/配置费率、CSV低分分母和原产物来源行独立核验；不是实际账单或真人准确率认证",
+  "requests": 912,
+  "prompt_tokens": 1220873,
+  "completion_tokens": 1166834,
+  "cost_upper_usd": "1.7664627",
+  "denominators": {
+    "charged_text_versions": 14344,
+    "resolved_model_source_rows": 14294,
+    "low_score_source_rows": 22754
+  },
+  "averages_usd": {
+    "14344": "0.0001231499372559955382041271612",
+    "14294": "0.0001235807121869315796837834056",
+    "22754": "0.00007763306231871319328469719610"
+  },
+  "fixed_synthetic_single_usd": "0.01824",
+  "fixed_synthetic_batch_usd": "0.009252",
+  "controls": [
+    {
+      "name": "混用唯一模型与计费文本版本分母",
+      "fixture_only": true,
+      "rejected": true
+    },
+    {
+      "name": "合成费用算错",
+      "fixture_only": true,
+      "rejected": true
+    },
+    {
+      "name": "虚构单条实测",
+      "fixture_only": true,
+      "rejected": true
+    }
+  ],
+  "design_nonwhitespace_characters": 456,
+  "ledger_unchanged": true,
+  "model_results_unchanged": true,
+  "report_sha256": "3eedf87240f40ad76611c5fa67284bc940e19a5916d908f9731205bc2b1c3ec9",
+  "actual_bill_verified": false,
+  "new_model_requests": 0,
+  "final_pipeline_cost_report_bytes_equal": true,
+  "final_pipeline_run_id": "ccb9fa631c6d46bda700317e5e8d0277"
+}

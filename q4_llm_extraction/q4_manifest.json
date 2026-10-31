@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "run_id": "7b4df0594ff1499ab8a7e28ca6a55e43",
+  "run_id": "c1ad4e2f38904139b65cc5a664a497e0",
   "stage": "q4",
   "status": "redacted_copy",
-  "updated_utc": "2026-10-31T09:53:17.956749+00:00",
+  "updated_utc": "2026-10-31T14:20:52.380059+00:00",
   "artifacts": {
     "extracted_issues.json": "42ffbb7c6b9e051839e49d34edb4ac0f9a841766124ebe13fa4a3c29a3d36a6c",
-    "run_metrics.json": "499f372fbf13508a56699fb67b96e6a013c7555ca40cb08f5a0c048e1e4a29fb",
+    "run_metrics.json": "e5d6835947e15ff7c721b9f047bd5566b434e5e4e3839e8b7462899f6a037656",
     "annotation_blind.json": "ccf216cc111f0e97715af6505f227afc111e49c41508c8730f0c9db92ca22696",
-    "cost_report.md": "82229a760290c5e35aa1f63a15a13ece808db7114e6d5c0e07eb7c6669294d00"
+    "cost_report.md": "3eedf87240f40ad76611c5fa67284bc940e19a5916d908f9731205bc2b1c3ec9"
   },
   "source_sha256": {
     "artifact_manifest.py": "e15c63eb82cf6c77e93b2ec537733aad8dd0f14020decf99b6144a1b7ae59c97",
@@ -38,8 +38,8 @@
     "q4_llm_extraction/accuracy_evaluation.md": "baa643b26e2eb685fe962fc069652ac6e2ac766adabaa1b175c8366da89e9767",
     "q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
     "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
-    "q4_llm_extraction/extract_reviews.py": "8c8c1be79f9cbc6995e3d5280b9b2ac8a690d6a1f1bdff1a30506f1dc90fd006",
-    "q4_llm_extraction/pipeline_design.md": "a986b3902edca56a050b1145a14a41533a1b6cd973e956f8d5bdddb63466526c",
+    "q4_llm_extraction/extract_reviews.py": "07781558871b134352a4cf8a84756e965c8b5bfeaed4b4947e4e4c71101791be",
+    "q4_llm_extraction/pipeline_design.md": "07cbfef8d3a1f81e857821f66823499f581595fbda969140053ef0c2e53d019e",
     "q4_llm_extraction/prompt_template.txt": "c659c828cbc9ae2c8862fce6a715b350663d7ae972ef8e813af72f281cd68bfd",
     "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
     "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
@@ -55,8 +55,8 @@
   "recorded_status_before_redaction": "passed",
   "publication_redaction": {
     "classification": "个人目录已脱敏的阅读副本，不作为机器验收通过输入；运行后生成新的实际回执",
-    "original_file_sha256": "168b38ee7b8054293928624cf0f415fe0700ed9c613553c57533f477b162171f",
-    "source_commit": "81cd7f671f775af1a268dc1c419c0e5babcf0fee",
+    "original_file_sha256": "515fd411130de7ed0b7c7ee72e96eb72e09c97df15cc5885f674677c0c58653c",
+    "source_commit": "2c809470f15e33a91cd52d6b3a90aec791c01bd1",
     "redacted_category": "本地用户目录",
     "original_unredacted_file_in_public_package": false
   }

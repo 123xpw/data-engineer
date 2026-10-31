@@ -2,36 +2,27 @@
 
 # 当前验收入口
 
-**当前源码的程序范围通过；同一次默认入口的空数据下载及完整缓存执行也通过。完整提交仍有明确缺项，本轮候选未推送。** 本轮修复验收器误放行风险，源码冻结后重新验证全部模块，并另做新虚拟环境与空缓存真实数据下载。
+**Q4成本对照及设计次数两项缺口已修复并验收；当前程序范围通过，完整提交仍未闭环。按候选人决定暂不发布。**
 
-最新一轮：[交付复现演练、真实回执及个人信息边界](DELIVERY_REHEARSAL_RESULT.md)。此前未填写真人盲标；当前只交付脱敏日志，已发现既有公开历史含个人信息，处理选择待确认。
+## 本轮完整依据
 
-## 当前结果与完整依据
+- [执行前标准](ACCEPTANCE_Q4_COST_DOCS.md) 与 [修改、先红后绿、实测和限制](Q4_COST_DOCS_RESULT.md)。
+- [独立账本/CSV复算及损坏拒绝](../reports/q4/cost_docs_independent.json)：912个请求、14344计费文本版本/14294模型来源行/22754低分来源行，三分母不混用；实际账单仍未知。
+- [成本报告](../q4_llm_extraction/cost_report.md)：真实用量、上界分摊与合成情景分开；未进行全量单条实测，不声称测得节省。
+- [5项专项](../reports/q4/cost_docs_green.json)、[108项常规套件](../reports/q4/cost_docs_units.json)、[旧接口缺失输出](../reports/q4/cost_docs_red.json)：原始文本无损封装，不以数量认证没有未知问题。Q3专项9项随完整链通过。
+- [完整当前源码重放](../reports/release/q4_cost_docs_replay.json)：全模块刷新356.843秒，14294模型行缓存完整，新增请求零，账本/抽取结果/原配置未变。
+- [程序范围判定](../reports/release/implemented_latest.json)：27a5fb2921e042cc9db2bd83c7b51a39，passed/implemented_ready。
+- [当前完整入口](../reports/release_execution.json)：ccb9fa631c6d46bda700317e5e8d0277，passed/exit0，Q1–Q5九个必答阶段及Q2五子阶段均通过。
+- [完整提交实际拒绝](../reports/release/submission_latest.json)：b93d238bda104f37b91b463c9b868611，not_ready/退出2，未替人工与外部材料放行。
 
-- [本轮预先确定的标准](ACCEPTANCE_RELEASE_AUDIT.md)：通过/拒绝条件、源码冻结及实验边界。
-- [实际修复、实验、问题与后续](RELEASE_AUDIT_RESULT.md)：旧实现先失败，修复后结果，以及证据不能说明的能力。
-- [逐项要求与证据矩阵](REQUIREMENT_EVIDENCE_MATRIX.md)：逐题、运行、文档和Git条件；区别原题要求与自加实验。
-- [真实正控制8项及损坏拒绝15项](../reports/release/gate_audit_controls.json)：正式报告摘要前后不变；不是以数量证明无未知问题。
-- [修复后103项单元原始输出](../reports/release/gate_audit_green.json)、[旧验收器失败原始输出](../reports/release/gate_audit_red.json)：JSON保留捕获文本和UTF-8摘要。
-- [新环境5组实测](../reports/hardening/clean_environment_latest.json)：全新venv/依赖、空缓存数据下载、独立核对及故障流程；复用本机MySQL、无付费模型调用。
-- [本轮完整重放与保护条件](../reports/release/gate_audit_replay.json)：全部刷新352.780秒，完整真实缓存覆盖，新增模型请求零，原私有配置/账本与抽取结果未变。
-- [程序范围判定](../reports/release/implemented_latest.json)：c2b6dd534f134a548dfbba3bc7681e7b，passed / implemented_ready。
-- [完整默认入口](../reports/release_execution.json)：47ddf6a85ad44155b6ffe1a052f422f2，passed / exit 0，Q1–Q5全部必答阶段通过。
-- [完整提交的实际拒绝](../reports/release/submission_latest.json)：abaf99c3170a4345a47d2081cae5e04b，not_ready / 退出2，未完成原因逐项保留。
+## 本轮没有改动的业务与证据范围
 
-## 已关闭的前轮问题
+模型提示、配置、分流/修复算法和按行缓存键未改，只有报告生成及设计叙述修正。依赖与下载机制未改；[此前新Git目录/新venv/空下载缓存同次运行](DELIVERY_REHEARSAL_RESULT.md)按未变范围引用，不冒称本轮再次执行了当前源码的新机器无缓存模型生成。
 
-Q3 price_mismatch 已保留未知NULL/同价False/异价True；真实19,494取消行中13,191未知、6,086候选同价、217候选异价。旧版销售/RFM字节、退货其他列与6,303候选不变量、原生Parquet布尔空值和独立损坏拒绝随本轮回归通过。[前轮说明](../q3_etl_pipeline/NULLABLE_PRICE_RESULT.md)、[当前Q3证据](../reports/q3/acceptance_latest.json)。
+[Q3三态与旧版不变量](../q3_etl_pipeline/NULLABLE_PRICE_RESULT.md)、[Q2.3暖缓存性能及局限](../q2_sql_analysis/q2_3_performance.md)保留，本轮适用性与功能链复核通过。[前轮验收器自身审查](RELEASE_AUDIT_RESULT.md)及[要求矩阵](REQUIREMENT_EVIDENCE_MATRIX.md)说明不同实验不能合并夸大。
 
-Q2.3冻结性能证据适用性通过；原本机暖缓存完整卖家查询三轮中位99.875974→2.360676秒，不是本轮重新计时，也不是Q2.4或整个项目加速比。[对照与限制](../q2_sql_analysis/q2_3_performance.md)。
+## 尚未闭环
 
-## 仍未闭环
+真人语义标签与解盲审阅尚无；实际账单未知（Q4子README明确会查，但不要求公开账户余额）；脱敏日志与完整原文要求存在未确认例外；旧公开历史的个人信息尚未清理。最终公开Fork中的版本、远端hash、邮件及本人复核亦未完成。
 
-1. 真人30条语义标签与错误分析：原本地 .venv/q4_labels.json 未填，准确率未知，未由AI代填。
-2. 独立实际账单：公开费用为真实usage按官方费率的上界，不能充当实际扣款。
-3. 完整AI原文与最终覆盖：公开副本有明确脱敏，不满足原文要求；私有原文留本地，提交方式待定。
-4. 最终材料/本人复核、公开候选推送、最终远端hash及邮件提交。没有推送或发邮件。
-
-此前自加的“最终模型完全无缓存重跑”项仍未闭环；它不是原题要求每轮重复付费。当前新环境下载与完整缓存入口是两组真实实验，不冒称同一次最终全冷。细节及后续方向以矩阵为准。
-
-本轮回执 git_base 为运行开始的9b20de1；当前适用性核对生产和验证源码摘要、真实输入及输出字节，不依赖文字版本号。最终本地提交在仓库外登记，完整提交仍不因一次本地commit自动放行。
+最终交付终点是本人公开Fork的可访问版本和邮件中的准确hash，ZIP只是辅助快照。暂不push、不强推、不改历史、不发邮件；当前文件脱敏不能移除旧祖先历史。

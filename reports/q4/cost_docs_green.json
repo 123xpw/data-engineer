@@ -1,0 +1,5 @@
+{
+  "scope": "原始测试捕获；合成手算不是实际付费或真人标签，旧版缺报告接口的失败不是旧账单算错证明",
+  "captured_output": "test_denominators_and_non_measured_single_cost_are_explicit (tests.test_q4_cost_report.CostReportTests.test_denominators_and_non_measured_single_cost_are_explicit) ... ok\ntest_fixed_token_hand_calculation (tests.test_q4_cost_report.CostReportTests.test_fixed_token_hand_calculation) ... ok\ntest_partial_or_no_network_does_not_report_full_sample_averages (tests.test_q4_cost_report.CostReportTests.test_partial_or_no_network_does_not_report_full_sample_averages) ... ok\ntest_pipeline_regenerates_report_instead_of_manual_patch (tests.test_q4_cost_report.CostReportTests.test_pipeline_regenerates_report_instead_of_manual_patch) ... ok\ntest_repair_can_reverse_saving_and_bad_inputs_are_rejected (tests.test_q4_cost_report.CostReportTests.test_repair_can_reverse_saving_and_bad_inputs_are_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.002s\n\nOK\n",
+  "sha256_utf8": "98e95ccda14554a65cd6ed95c57108f7afd076e4936a53c4f5bf48bd3142d3af"
+}

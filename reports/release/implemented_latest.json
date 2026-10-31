@@ -1,17 +1,18 @@
 {
-  "run_id": "c2b6dd534f134a548dfbba3bc7681e7b",
+  "run_id": "27a5fb2921e042cc9db2bd83c7b51a39",
   "status": "passed",
   "scope": "implemented",
-  "started_utc": "2026-10-31T13:14:55.506233+00:00",
+  "started_utc": "2026-10-31T14:20:53.293477+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "pandas": "3.1.0",
-  "git_base": "8a4e4034c0089339027d9b771f18e5c522cd63dc",
+  "git_base": "8ff16e445bf3e41d2e94b33d6fffd36cf812e818",
   "python_optimization_level": 0,
   "source_sha256": {
     "VALIDATION_GATES.md": "6198a51889e85992b5cb63f87cc0032463e7cb0682c7e94aaf25edb65f63413b",
     "artifact_manifest.py": "e15c63eb82cf6c77e93b2ec537733aad8dd0f14020decf99b6144a1b7ae59c97",
     "audit/ACCEPTANCE_Q2_3_PERFORMANCE.md": "5de992576135f88deda338be837e73619c0931a1ade47a54f180e80e1e38dfc7",
+    "audit/ACCEPTANCE_Q4_COST_DOCS.md": "5725e1130e44dbe9847fd7dc4c65890a0cddd638d349f99f2e2e9c4a0f49ed72",
     "audit/ACCEPTANCE_RELEASE_AUDIT.md": "bf7cb9e41724153190fcc180e3daaa26300459ead8de282e625351cb2b2cc2f0",
     "audit/fixtures/q2_3_baseline_0f40889.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
     "audit/fixtures/q2_3_materialized_candidate.sql": "3debb31b7bb42395e8eaf70e708b2e1594e33c71fab5525d2e0dc763447bee94",
@@ -55,8 +56,8 @@
     "q4_llm_extraction/config.example.json": "93c9cfc88cac1f8b2f2bbb91a3fa95116212211cdb8c2c64eded7fb13dd3a6ea",
     "q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
     "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
-    "q4_llm_extraction/extract_reviews.py": "8c8c1be79f9cbc6995e3d5280b9b2ac8a690d6a1f1bdff1a30506f1dc90fd006",
-    "q4_llm_extraction/pipeline_design.md": "a986b3902edca56a050b1145a14a41533a1b6cd973e956f8d5bdddb63466526c",
+    "q4_llm_extraction/extract_reviews.py": "07781558871b134352a4cf8a84756e965c8b5bfeaed4b4947e4e4c71101791be",
+    "q4_llm_extraction/pipeline_design.md": "07cbfef8d3a1f81e857821f66823499f581595fbda969140053ef0c2e53d019e",
     "q4_llm_extraction/prompt_template.txt": "c659c828cbc9ae2c8862fce6a715b350663d7ae972ef8e813af72f281cd68bfd",
     "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
     "q5_system_design/ACCEPTANCE.md": "c8b8eb4ed4869103a168fba2c0d76fb0121672876b7b0076d3e79a7aa2bad03d",
@@ -80,7 +81,7 @@
     "scripts/q2_3_reference.py": "adaeba688cb9eb57797b89cbcad9f6df0c36f1550089538ffe0f7a5b7ff53947",
     "scripts/q2_4_reference.py": "986258f2f6fa3142bf8ef0e20a69ba7a33a8cc2687c2c775cdb156ed7e021f50",
     "scripts/repair_q4.py": "745eb0a649804ce249692d0618e6959069e8410207716099c9a7387b90e6eccd",
-    "scripts/verification_support.py": "ea2bb493960d077fc6e5b32d4c6174194a87562dfaee94e8423fefdfd03a340f",
+    "scripts/verification_support.py": "7bdb36c4878b12a4febcc9469d469c7556a1af20258d10d1d3cd8ac4398ea666",
     "scripts/verify_baseline.py": "0c227cc127188be03e7f3f6359e40bbb3ea0c9b58f33b1a484a3503a3e3bd8da",
     "scripts/verify_bonus.py": "256e00aa3b394604baae097cac3cc81d4087a469246ee3971f35b2ef10f3ce62",
     "scripts/verify_clean_environment.py": "8948917dfad74ae04d303483f7d4595563c8be7e689c40342ced8b78ccf3c45f",
@@ -94,7 +95,7 @@
     "scripts/verify_q2_3.py": "ff718e6aeb504bd24a9f5ad0216330f858ff677bc4a495f94b3ce9020cd8b1ce",
     "scripts/verify_q2_4.py": "c1bec1ebec3ea4b8d187108618f90a9b3461eb2938fe32ebf05b191be5ca6358",
     "scripts/verify_q3.py": "bfe4b70f54e2b478df0c25200eba490251bbef17a49bba8b3f9b32375cdf9b32",
-    "scripts/verify_q4.py": "9981028db1fc8c3d9468a376870edcb07142c3adf845f1d874013f03bd8eb376",
+    "scripts/verify_q4.py": "dde8fd74fa472242061efb594603eb8825b85bbfb435f463e93b82364771d345",
     "scripts/verify_q4_live.py": "8de7953cf0a298440967e221ebae06eb8160fc9811f9337c77a60972ef87d790",
     "scripts/verify_q5.py": "84c2d6f481f1aa44497a52b1a50fd7c0ac1998d9a918f841b3338cd597a07d31",
     "scripts/verify_stage_gate.py": "d5bf59a49da6c81d06738fa65c3b6eca9fb5f71b40c28b04a947b010c2cfdd64",
@@ -106,17 +107,26 @@
     "tests/test_q1_review.py": "7024092be87789b57551839b2a55b43341973790cf25566658cdeb5d9a30fddf",
     "tests/test_q2_3_performance.py": "57c860e8128a1919661791e087d9b33cf6fc7444d0bc2296e9e38ded76e345f2",
     "tests/test_q4.py": "0127932e11e7eefb3a192596823114aa14da0701ae03609735300f9e00ba4b90",
+    "tests/test_q4_cost_report.py": "e21c7f96380b63b35fe8797b4bf950bea683e9ac9b11f31c3f5d8182f3712ab9",
     "tests/test_q4_repair.py": "1be8107bf411188ebbab71e4b17a33251472010e5e67eec07ea0b45990dc60f2",
     "tests/test_release_check.py": "010ec05b04dfaaa7c729a9838c47813861fa1f41d6a3c03f86d1e85809712cdc",
     "tests/test_verification.py": "af2b13c13e2516be411183abb46eb19817d388b615f3f0d98f8eef1a3eb6728f"
   },
   "checks": [
     {
+      "name": "重跑当前源码与全入口",
+      "passed": true,
+      "evidence": {
+        "pipeline_exit_code": 0,
+        "scope": "当前 Q1–Q5 及加分题的程序/真实处理范围；Q4 语义与最终提交材料另行验收，不冒称无缓存全量调用"
+      }
+    },
+    {
       "name": "当前功能回归及代码、产物绑定",
       "passed": true,
       "evidence": {
-        "run_id": "7d0d3752caf744a0a9976e5bb01d1c27",
-        "report_sha256": "6117adf481c70620ab0db9d73a4855deb323554ad1ca4ce861c9017b7a18d6ca",
+        "run_id": "dd529821f3704bbbae65e04a70aee90d",
+        "report_sha256": "2ea5a545d3238799c126a35e5e02135c94ad7eaf8f369d445f067b43f30df00f",
         "scope": "当前源码的 Q1、九表、Q2.1、Q2.2；不含未完成题"
       }
     },
@@ -139,7 +149,7 @@
       "name": "Q2.3 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "a5a3397196854e8c8205bc3413e2d318",
+        "run_id": "14d5654f27234462b84ed592fc23459a",
         "scope": "具备全部必需检查、限定产物、当前源码及实际字节的程序证据"
       }
     },
@@ -147,7 +157,7 @@
       "name": "Q2.4 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "a353a2bb3d2e48978c64daf585497319",
+        "run_id": "60fadd61fc5f41889953dd331a8153a4",
         "scope": "具备全部必需检查、限定产物、当前源码及实际字节的程序证据"
       }
     },
@@ -155,7 +165,7 @@
       "name": "Q3.1 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "4c1af5417eda4c679af096805b2b1a18",
+        "run_id": "4108aa5b7e174eeabc9f840e92085286",
         "scope": "具备全部必需检查、限定产物、当前源码及实际字节的程序证据"
       }
     },
@@ -163,7 +173,7 @@
       "name": "Q4.R1 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "64891180b82d49f1bfe4e9d9512c97bb",
+        "run_id": "bebf5344707d45e480385e8b59530277",
         "scope": "具备全部必需检查、限定产物、当前源码及实际字节的程序证据"
       }
     },
@@ -171,7 +181,7 @@
       "name": "Q4.PROCESSING 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "cf4614e5b30a4deaba282680f48a8c02",
+        "run_id": "a836ad30b7354f6899023b7090de7593",
         "scope": "具备全部必需检查、限定产物、当前源码及实际字节的程序证据"
       }
     },
@@ -179,7 +189,7 @@
       "name": "Q5.1 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "b962851ef200434199c0f32613a15832",
+        "run_id": "7abbec84b8d7428189a44ae9d0e46dca",
         "scope": "具备全部必需检查、限定产物、当前源码及实际字节的程序证据"
       }
     },
@@ -187,7 +197,7 @@
       "name": "Q6 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "9f2c6bb85687446e80be0f6274e0fa9d",
+        "run_id": "3248b52cd16c451981225da96dc4fc52",
         "scope": "具备全部必需检查、限定产物、当前源码及实际字节的程序证据"
       }
     },
@@ -208,87 +218,87 @@
       "name": "真实全入口及本轮产物归属",
       "passed": true,
       "evidence": {
-        "run_id": "47ddf6a85ad44155b6ffe1a052f422f2",
+        "run_id": "ccb9fa631c6d46bda700317e5e8d0277",
         "exit_code": 0,
-        "report_sha256": "fce7ab5633c9af7d780d5db3b5f05ce58878dbd4057a4a97a48b3a851a644dd4",
+        "report_sha256": "ba4a18f5725a986af8f904c365d45a0380fee2737250c26196ebace60e472091",
         "manifests": {
           "q1.1": {
-            "manifest_sha256": "3e30ae4d4acf6bc183a9ea981186d35cb06bd3179adcf2060bafa6afaf66d270",
+            "manifest_sha256": "7b20953c21982a3a3c49c4025710a16919fc3e101080b5eb719aec18d820359b",
             "artifacts": {
               "data_quality_metrics.json": "382ce6c09ca40341650133f6b6085b328dc1f6700bcc2fc97f43ad98fce68a44",
               "data_quality_report.md": "690a4117954f741c37f2cf0ff2e879ec39c175e5780599768320d680178a1a3d"
             }
           },
           "q1.2": {
-            "manifest_sha256": "9a1f222c8604aa9f8b35ce2bbcb962c148f0ecbb71e51aade4f20ae0fa070693",
+            "manifest_sha256": "c9ccc11369da09f48c8d1c4a04b2ddb24ec31aa4c644ce91c024613f05981cd8",
             "artifacts": {
               "findings_metrics.json": "28e62fa7611e25acce6f435efa10dd7a7cb461ec96b235d00cea8846944435b8",
               "findings.md": "31b589432df894214acd7bcd5f9b3087d22d91b8c7670e441d348187f66c847f"
             }
           },
           "q1.3": {
-            "manifest_sha256": "7263f2a95f847379d9a6789261227f17af8b9895620d9952bf55a54bd64bd1d4",
+            "manifest_sha256": "5d6f82b12c73859bd22b2b19a65315651699e92a293f4accd3483d38bb385e56",
             "artifacts": {
               "cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
               "strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208"
             }
           },
           "q2.load": {
-            "manifest_sha256": "f547aed64e2fd976037848567030f37d16e447326b7e7272a43046258e58d81f",
+            "manifest_sha256": "3ec9f4b9d0f08bb5432e9c994d97e6ea99a6598f2fc8e3f1ea4d930b12b47ce3",
             "artifacts": {
-              "load_report.json": "2cd8802f28bc4901a24d2299431464d8ca3d45fb80376634c2ee4be031b29113"
+              "load_report.json": "3cf707053dc2c38d3faa4fd1d77c967f6f725c54fe159fd2b89d3e3d8a5fd850"
             }
           },
           "q2.1": {
-            "manifest_sha256": "c7b40a0dc82b8f123ddeffa3d0b4659fd9bc26f81484898ed9635184b09a4d76",
+            "manifest_sha256": "76fb629bea7630ab7004fd466d3fb1647a7a30fa8f0d3b75b937d1ab3cb18b1c",
             "artifacts": {
-              "q2_1_results.json": "fa1920b95bffccc234d2cc4344765d951b6f710f5a63b3589af77ce7eef9a6ea",
-              "q2_1_findings.md": "3ee38a67cb14fa4f8cd764ae05022f11a96474d3ba6ef2b454f957b0d3464c33"
+              "q2_1_results.json": "a8b09a75a21d208dd63c35c6aaea9c1e34942fec6f5134e8f499b30ee75c10f8",
+              "q2_1_findings.md": "dd845c16c50744b8e28ef4ad0f463f0a05ab36615b67ea7598121ce3fc6e0305"
             }
           },
           "q2.2": {
-            "manifest_sha256": "85000c0720eba057b8f17ae4ff068663b384421360ea0ac9f47e938f129168c2",
+            "manifest_sha256": "7d94a4835eddfece209c0375837959b93ce7e36ebffe4149d15e78234047102d",
             "artifacts": {
-              "q2_2_results.json": "944764d42212ac5f01527885d97c1010d4d855e18ab126d47f4cede9c8d406d7",
-              "q2_2_findings.md": "9464aa78a259b23475d80852e4e5ef55d6a0cd3c7270ada2c7084f130bdf22fb"
+              "q2_2_results.json": "9920b2ea09e4b607381b69d62ff7d155aab53366dba734f8cb552e3e3d30747d",
+              "q2_2_findings.md": "5c7eb1bb1a28fac9dc75e0f44f09c7e7046a88ce9bdfdba3629e91fc03acbf18"
             }
           },
           "q2.3": {
-            "manifest_sha256": "24c075c7f0d4a42e1895a17a3826e4d5d8e5113f3cf77c8b074ca717acde42c3",
+            "manifest_sha256": "6ed27672abae6fb4fbd4bb4edaab1d46faa2af78d330eed80c5d0553d16f881b",
             "artifacts": {
-              "q2_3_results.json": "2ba3601e383f29c8eea2734b14bfa2b807cf8322eeff3c67fb4c436b418db073",
+              "q2_3_results.json": "3542949bd155f8e9b6282f417331a1cfa678b83890ecf0e1b2692f723ae9b014",
               "q2_3_findings.md": "54c0ac9c0eea3a6cd2aeb7188ae20af4133ba88e8e69d59ccc80b1371994916a"
             }
           },
           "q2.4": {
-            "manifest_sha256": "b11d8c0f6075331888748a89b8d16e4d4d5469031f950fa967f9b4c6238d3f41",
+            "manifest_sha256": "a87705d32954809fad01763c19f0783e4feeaa64f2015417534f98baa8d7bb3a",
             "artifacts": {
-              "q2_4_results.json": "e550f73d1f8eb52b25ec5253dfe900e68f6551502eefb0f2ed482cb361afefd8",
+              "q2_4_results.json": "cc7a245ec6871c98059c8897c1a7c8be4e040291bb26747793cf74ddbc0fee7b",
               "q2_4_query_optimization.md": "f670b17448f65a7618df65b554651c02d650ba82f6230e6a9e7a119a8fcee251"
             }
           },
           "q3": {
-            "manifest_sha256": "c8b4e48960942b9eb0d009afab375294f210a5db1bf5581396564a166d9a639e",
+            "manifest_sha256": "e471bfbce6fa933e495758f5e1beba1b84826fa706622604697ec1295b2e51da",
             "artifacts": {
               "outputs/sales_facts.parquet": "f40bb584a5ea698446ad11bb0c93c2fa919293263a1d06313db2404242244e65",
               "outputs/customer_features.parquet": "51c6c7c9d823ddcca243552991a99165ff69d1839b3e4b1ab1755fd2986d7990",
               "outputs/returns_log.parquet": "a12fa6a9e9cd8afb595b881bc3049ed536665673fb995032d0e77c172144f1fd",
-              "pipeline_log.txt": "e104902bc1baaae140a2df875269e7cbae126389bbe3c4bf9ad5b3efc4c9b26f",
-              "validation_metrics.json": "8cc1b17b6a8c2c93a0ff7be26cb64b0082ea60c66312d990d174046b209d626e",
-              "validation_report.md": "ed84540b18bdba3e10b474e8ed2a0723e4b422ca2cdcd8a6f3dfbeb73b49452d"
+              "pipeline_log.txt": "6f2ffdf714e3bb449ebd76501668c39b631922bdd393acb4e9d42454137a5153",
+              "validation_metrics.json": "1d01513c14b76c002a97563dd8bc6d1a611eec21908b960eecc5fc34e0e01998",
+              "validation_report.md": "796c789c5f1719c2f39f78bc68e659100671c2ba90ccebd63e73c5ccd4423c53"
             }
           },
           "q4": {
-            "manifest_sha256": "75d2b89183ad2f063ff7a809ab6a717c1e84fc3b1618dd4b7ac6dc03fda2f0bd",
+            "manifest_sha256": "73f926bdc8594bf067d762b17aae2826027e7a2403bd32f3c262a5edb2dc72c3",
             "artifacts": {
               "extracted_issues.json": "42ffbb7c6b9e051839e49d34edb4ac0f9a841766124ebe13fa4a3c29a3d36a6c",
-              "run_metrics.json": "9bb3d51ce047a2aa083b5e6e1a28beb5c6132ef93f322553fc381a17d135c1f7",
+              "run_metrics.json": "c15c657c8a0452b711fd3b277812a5cadb9f7cc44d462d33f76cd4cb110a9da8",
               "annotation_blind.json": "ccf216cc111f0e97715af6505f227afc111e49c41508c8730f0c9db92ca22696",
-              "cost_report.md": "82229a760290c5e35aa1f63a15a13ece808db7114e6d5c0e07eb7c6669294d00"
+              "cost_report.md": "3eedf87240f40ad76611c5fa67284bc940e19a5916d908f9731205bc2b1c3ec9"
             }
           },
           "q5": {
-            "manifest_sha256": "09d35f6133d196041954de7b16a2afb7736de52f6532ff6c5f02b5e48f7c28c0",
+            "manifest_sha256": "daf9c4d9a8ee3d6165bd582eba1d5f9d66774f5e15fcb063e0b6795192ff7447",
             "artifacts": {
               "real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
               "design_metrics.json": "090227a3bafc35e7b96f0ea95df5ca7ea585fa311a96e97cdebb4c9023a94e94"
@@ -321,5 +331,5 @@
   ],
   "implemented_ready": true,
   "decision": "implemented_ready",
-  "finished_utc": "2026-10-31T13:14:55.801637+00:00"
+  "finished_utc": "2026-10-31T14:26:49.865185+00:00"
 }

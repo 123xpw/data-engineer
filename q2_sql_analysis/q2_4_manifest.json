@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "run_id": "004174814c784c7b94cbfaf3b122526b",
+  "run_id": "5d33e67d057245029f9a3689c5c826d0",
   "stage": "q2.4",
   "status": "passed",
-  "updated_utc": "2026-10-31T09:57:36.661002+00:00",
+  "updated_utc": "2026-10-31T14:25:13.198878+00:00",
   "artifacts": {
-    "q2_4_results.json": "b85a7859b9478403f3e7be57e590ebb1546fc1086c030c59f26e9a994df54a6a",
+    "q2_4_results.json": "c561017220472ca03b220b34307a69124cea74527488b2aae2275c138e99885c",
     "q2_4_query_optimization.md": "f670b17448f65a7618df65b554651c02d650ba82f6230e6a9e7a119a8fcee251"
   },
   "source_sha256": {
@@ -36,8 +36,8 @@
     "q4_llm_extraction/accuracy_evaluation.md": "baa643b26e2eb685fe962fc069652ac6e2ac766adabaa1b175c8366da89e9767",
     "q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
     "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
-    "q4_llm_extraction/extract_reviews.py": "8c8c1be79f9cbc6995e3d5280b9b2ac8a690d6a1f1bdff1a30506f1dc90fd006",
-    "q4_llm_extraction/pipeline_design.md": "a986b3902edca56a050b1145a14a41533a1b6cd973e956f8d5bdddb63466526c",
+    "q4_llm_extraction/extract_reviews.py": "07781558871b134352a4cf8a84756e965c8b5bfeaed4b4947e4e4c71101791be",
+    "q4_llm_extraction/pipeline_design.md": "07cbfef8d3a1f81e857821f66823499f581595fbda969140053ef0c2e53d019e",
     "q4_llm_extraction/prompt_template.txt": "c659c828cbc9ae2c8862fce6a715b350663d7ae972ef8e813af72f281cd68bfd",
     "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
     "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
@@ -47,5 +47,5 @@
     "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f"
   },
   "input_sha256": {},
-  "load_version": "a190a25bb291"
+  "load_version": "425ee56e3b13"
 }

@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "run_id": "66c40d596756404ebd1251303070ee68",
+  "run_id": "7fed316717044a3bb2ce0eb02c71db5d",
   "stage": "q3",
   "status": "redacted_copy",
-  "updated_utc": "2026-10-31T09:57:52.949139+00:00",
+  "updated_utc": "2026-10-31T14:25:29.814096+00:00",
   "artifacts": {
     "outputs/sales_facts.parquet": "f40bb584a5ea698446ad11bb0c93c2fa919293263a1d06313db2404242244e65",
     "outputs/customer_features.parquet": "51c6c7c9d823ddcca243552991a99165ff69d1839b3e4b1ab1755fd2986d7990",
     "outputs/returns_log.parquet": "a12fa6a9e9cd8afb595b881bc3049ed536665673fb995032d0e77c172144f1fd",
-    "pipeline_log.txt": "f8a9d78c7092d96e418cad07b9d13a31b9e0da4ea474c1dadf47f81d984c884e",
-    "validation_metrics.json": "c214fb1ef30049bf5b0997fedfcabe8f3a47a2090ed2478a96c1a046074258cf",
-    "validation_report.md": "c36611b3b0c7b7de7f4211ff800855c97673be62734e2f6feffc9afcddf90484"
+    "pipeline_log.txt": "c2e1ef1a5b553559eaad359c608ace4f0d6094ffe665c07d6df823495c43c5d5",
+    "validation_metrics.json": "694eac2027ce515cbccf6f966581346b7cfd42496cf32f31e164e9dc819ce28f",
+    "validation_report.md": "91b2c21a3722c5be486c8b382f19708abc2311b080286033bc5717f6979f994a"
   },
   "source_sha256": {
     "artifact_manifest.py": "e15c63eb82cf6c77e93b2ec537733aad8dd0f14020decf99b6144a1b7ae59c97",
@@ -40,8 +40,8 @@
     "q4_llm_extraction/accuracy_evaluation.md": "baa643b26e2eb685fe962fc069652ac6e2ac766adabaa1b175c8366da89e9767",
     "q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
     "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
-    "q4_llm_extraction/extract_reviews.py": "8c8c1be79f9cbc6995e3d5280b9b2ac8a690d6a1f1bdff1a30506f1dc90fd006",
-    "q4_llm_extraction/pipeline_design.md": "a986b3902edca56a050b1145a14a41533a1b6cd973e956f8d5bdddb63466526c",
+    "q4_llm_extraction/extract_reviews.py": "07781558871b134352a4cf8a84756e965c8b5bfeaed4b4947e4e4c71101791be",
+    "q4_llm_extraction/pipeline_design.md": "07cbfef8d3a1f81e857821f66823499f581595fbda969140053ef0c2e53d019e",
     "q4_llm_extraction/prompt_template.txt": "c659c828cbc9ae2c8862fce6a715b350663d7ae972ef8e813af72f281cd68bfd",
     "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
     "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
@@ -56,8 +56,8 @@
   "recorded_status_before_redaction": "passed",
   "publication_redaction": {
     "classification": "个人目录已脱敏的阅读副本，不作为机器验收通过输入；运行后生成新的实际回执",
-    "original_file_sha256": "8d6de79323b134bc3b8a778e8bdef9240303ad271cfd57b6593709dee59393b4",
-    "source_commit": "81cd7f671f775af1a268dc1c419c0e5babcf0fee",
+    "original_file_sha256": "8f17895dc458a1a67f577c90a6d3b21ea99606909a9568d114c721070aae9e28",
+    "source_commit": "2c809470f15e33a91cd52d6b3a90aec791c01bd1",
     "redacted_category": "本地用户目录",
     "original_unredacted_file_in_public_package": false
   }

@@ -21,7 +21,7 @@
     "eligible_candidates_consumed": 207,
     "unexpected_nonnegative_cancel_quantity": 1
   },
-  "seconds": 2.80378,
+  "seconds": 2.903882,
   "under_120_seconds": true,
   "scope": "正向商品毛交易、毛购买 RFM、容量受限精确数量候选；非净退款认证",
   "return_candidate_sensitivity": {

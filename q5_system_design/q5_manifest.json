@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "run_id": "df97e1e4932f49a481e2ed45ecb7ffcc",
+  "run_id": "e495fa26eccf4db7ac6eb4d137444483",
   "stage": "q5",
   "status": "passed",
-  "updated_utc": "2026-10-31T09:58:20.527009+00:00",
+  "updated_utc": "2026-10-31T14:25:58.255110+00:00",
   "artifacts": {
     "real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
     "design_metrics.json": "090227a3bafc35e7b96f0ea95df5ca7ea585fa311a96e97cdebb4c9023a94e94"
@@ -36,8 +36,8 @@
     "q4_llm_extraction/accuracy_evaluation.md": "baa643b26e2eb685fe962fc069652ac6e2ac766adabaa1b175c8366da89e9767",
     "q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
     "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
-    "q4_llm_extraction/extract_reviews.py": "8c8c1be79f9cbc6995e3d5280b9b2ac8a690d6a1f1bdff1a30506f1dc90fd006",
-    "q4_llm_extraction/pipeline_design.md": "a986b3902edca56a050b1145a14a41533a1b6cd973e956f8d5bdddb63466526c",
+    "q4_llm_extraction/extract_reviews.py": "07781558871b134352a4cf8a84756e965c8b5bfeaed4b4947e4e4c71101791be",
+    "q4_llm_extraction/pipeline_design.md": "07cbfef8d3a1f81e857821f66823499f581595fbda969140053ef0c2e53d019e",
     "q4_llm_extraction/prompt_template.txt": "c659c828cbc9ae2c8862fce6a715b350663d7ae972ef8e813af72f281cd68bfd",
     "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
     "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",

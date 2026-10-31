@@ -95,7 +95,7 @@ def real_plan():
 
 def main():
     with EvidenceRun(ROOT/'reports/q4','engineering') as evidence:
-        evidence.check('预设反例、计费手算、恢复与墙钟进程终止',lambda:{'exit_code':execute(['-m','unittest','tests.test_q4','tests.test_q4_repair','tests.test_artifact_manifest','-v']).returncode,'scope':'合成夹具与真实本地进程，无外部调用'})
+        evidence.check('预设反例、计费手算、恢复与墙钟进程终止',lambda:{'exit_code':execute(['-m','unittest','tests.test_q4','tests.test_q4_cost_report','tests.test_q4_repair','tests.test_artifact_manifest','-v']).returncode,'scope':'合成夹具与真实本地进程，无外部调用'})
         evidence.check('定向变异必须由指定反例检出',mutations)
         evidence.check('全量冻结输入、独立分流、部分状态与空标注拒绝',real_plan)
         evidence.report.update(requirement_id='Q4.R1',production_source_sha256=source_hashes(),

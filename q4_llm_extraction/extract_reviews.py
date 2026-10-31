@@ -207,6 +207,64 @@ def token_cost(config, input_tokens, output_tokens):
             Decimal(output_tokens)*Decimal(str(config['output_usd_per_million'])))/Decimal(1_000_000)
 
 
+def compare_batch_cost(config, *, count, batch_size, fixed_prompt_tokens, text_tokens,
+                       single_output_tokens, batch_output_tokens, per_batch_overhead_tokens=0,
+                       single_repair_usd='0', batch_repair_usd='0'):
+    """显式假设的token情景计算；不把未运行的单条实验说成实测。"""
+    integers=(count,batch_size,fixed_prompt_tokens,text_tokens,single_output_tokens,
+              batch_output_tokens,per_batch_overhead_tokens)
+    if any(type(n) is not int or n<0 for n in integers) or count==0 or batch_size==0:
+        raise ValueError('情景条数/批大小须为正整数，token须为非负整数')
+    repairs=[Decimal(str(v)) for v in (single_repair_usd,batch_repair_usd)]
+    if any(not v.is_finite() or v<0 for v in repairs):
+        raise ValueError('情景修复费用须为非负有限USD')
+    batches=(count+batch_size-1)//batch_size
+    single_input=count*fixed_prompt_tokens+text_tokens
+    batch_input=batches*(fixed_prompt_tokens+per_batch_overhead_tokens)+text_tokens
+    single=token_cost(config,single_input,single_output_tokens)+repairs[0]
+    batch=token_cost(config,batch_input,batch_output_tokens)+repairs[1]
+    return {'batches':batches,'single_input_tokens':single_input,'batch_input_tokens':batch_input,
+            'single_scenario_usd':str(single),'batch_scenario_usd':str(batch),
+            'single_minus_batch_usd':str(single-batch)}
+
+
+def render_cost_report(metrics, config):
+    """每次入口重建报告；真实usage、分摊和合成对照分别声明。"""
+    cost=Decimal(metrics['usage_cost_upper_bound_usd'])
+    versions=metrics['usage_reported_text_rows_campaign']
+    parts=['# Q4 成本记录\n\n',
+        f"本次 {'真实服务模式' if metrics['live'] else '无网络分流模式'}；累计请求 {metrics['api_entries_campaign']}，真实usage按记录时点配置费率折算上界 {cost} USD，保守占用 {metrics['budget_occupied_usd']} USD，未知计费 {metrics['uncertain_cost_requests']} 次。实际账单费用未核对，为 null。这是费用上界，不是实际账单。\n\n",
+        f"累计输入 token {metrics['prompt_tokens_campaign']}，输出 token {metrics['completion_tokens_campaign']}。试验、失败和修复费用已包含在累计费用中，不能再重复叠加。记录用量不证明类别/翻译正确。\n\n",
+        '## 单条平均成本：分母和适用范围\n\n',
+        '| 分母 | 来源行/版本数 | 累计费用上界分摊 USD/条 |\n|---|---:|---:|\n']
+    average=str(cost/versions) if versions else 'null（无计费分母）'
+    parts.append(f'| 计费用量已报告的文本版本 | {versions} | {average} |\n')
+    if metrics['live'] and metrics['unresolved']==0 and versions:
+        for title,n in [('完整模型来源行',metrics['routes'].get('llm',0)),
+                        ('全部低分来源行',metrics['output_rows'])]:
+            parts.append(f"| {title} | {n} | {str(cost/n) if n else 'null（无分母）'} |\n")
+    parts.extend(['\n文本版本按每次计费请求计数，重试/不同语义版本可重复，不是唯一评价数。模型来源行按source_row区分，重复review_id不覆盖；全部低分行含无文本和规则分流。后两行仅在真实响应完整时展示，且是含研发/修复的累计分摊，不是一次推理的边际价格。无网络或partial不报告完整模型/全低分分摊；零请求不代表全量模型免费。\n\n',
+        '## 单条与批量的同口径对照\n\n',
+        '实际已采用批处理及有界修复，累计usage见上方；未进行全量单条实测，因此不能给出实际单条总价或声称测得节省比例。批处理是一次请求容纳多条，不等于已获得异步Batch折扣。\n\n',
+        '令N为评论数、B为批大小、P为每次固定提示token、T为评论文本输入token总量、H为每批额外包装token；I/O为输入/输出USD每百万token，O1/OB为两策略输出token总量，R1/RB为修复额外USD。相同文本T是对照假设，实际分词/包装可能变化。\n\n',
+        '```text\nC_single = (I * (N*P + T) + O * O1) / 1000000 + R1\nC_batch  = (I * (ceil(N/B)*(P+H) + T) + O * OB) / 1000000 + RB\n```\n\n',
+        '共享提示的节省必须抵消包装、输出差异、截断与修复费用；批量可能更贵，不能默认两种策略质量相同。累计真实费用已含修复，公式R仅用于明确假设的情景，不再加到真实累计值上。\n\n'])
+    if config is not None:
+        size=config['batch_size']
+        example=compare_batch_cost(config,count=32,batch_size=size,fixed_prompt_tokens=1000,
+                    text_tokens=3200,single_output_tokens=6400,batch_output_tokens=6400,
+                    per_batch_overhead_tokens=20)
+        parts.extend(['### 合成情景：不是单条实测，也不外推实际节省\n\n',
+            f"假设32条评论、P=1000、T=3200、O1=OB=6400、H=20、R1=RB=0，B={size}。费率采用本次配置输入 {config['input_usd_per_million']}、输出 {config['output_usd_per_million']} USD/百万token；这些假设token不是对本项目真实提示长度的测量。\n\n",
+            '| 合成策略 | 请求数 | 输入token | 输出token | 假设费用USD |\n|---|---:|---:|---:|---:|\n',
+            f"| 单条 | 32 | {example['single_input_tokens']} | 6400 | {example['single_scenario_usd']} |\n",
+            f"| 批量 | {example['batches']} | {example['batch_input_tokens']} | 6400 | {example['batch_scenario_usd']} |\n",
+            f"\n仅在这组假设下差额为 {example['single_minus_batch_usd']} USD；未计入实际差异的修复/输出/缓存命中，不作为测得收益。\n\n"])
+    else:parts.append('未提供真实服务配置，本次不填合成情景的USD单价或费用。\n\n')
+    parts.append('## 账单与运行证据\n\n用量明细在本地累计账本 .venv/q4_state/ledger.json，不得删除重置预算。调用前核对费率，实际账单尚未独立核验；不公开余额/身份或密钥来代替费用归因。首次真实处理和缓存阶段见 [运行阶段](../reports/q4/real_execution_milestones.json)，缓存重放耗时不冒充无缓存模型全量性能。\n')
+    return ''.join(parts)
+
+
 def row_key(row, config):
     return fingerprint({'config': {k: v for k, v in config.items() if k != 'batch_size'}, 'prompt_sha256': digest(PROMPT),
                         'source_row': row['source_row'], 'message': row['message']})
@@ -530,11 +588,7 @@ def run_pipeline(input_path, output_dir, *, config_path=None, api_key=None, live
     atomic_json(output_dir/'extracted_issues.json', results)
     atomic_json(output_dir/'run_metrics.json', metrics)
     atomic_json(output_dir/'annotation_blind.json', annotation_sample(rows))
-    (output_dir/'cost_report.md').write_text('# Q4 成本记录\n\n'+
-        f"本次 {'真实服务模式' if live else '无网络分流模式'}；累计请求 {len(entries)}，服务报告用量按配置上界折算 {metrics['usage_cost_upper_bound_usd']} USD，保守占用 {metrics['budget_occupied_usd']} USD，未知计费 {metrics['uncertain_cost_requests']} 次。实际账单费用未核对，为 null。\n\n"+
-        f"累计已报告输入 token {metrics['prompt_tokens_campaign']}，输出 token {metrics['completion_tokens_campaign']}；已报告用量的请求覆盖 {charged_rows} 条文本（重付费的语义版本分别计次），单条均费 {metrics['average_reported_cost_per_queried_row_usd']} USD。无请求时均费为 null，不以零代表完成。\n\n"+
-        '无网络模式的零请求不代表全量模型免费。用量明细在本地累计账本 .venv/q4_state/ledger.json；不得删账本重置预算。价格需先核实，最终须与实际服务账单核对；未完成前不宣称已独立核实实际美元账单。\n\n'+
-        '公开材料仅展示实际模型用量和官方费率计算的费用上界，独立实际账单尚未核验。首次实际处理及缓存阶段的用时见 [运行阶段](../reports/q4/real_execution_milestones.json)，不能把缓存重放秒数当作无缓存模型全量耗时。\n', encoding='utf-8')
+    (output_dir/'cost_report.md').write_text(render_cost_report(metrics,config), encoding='utf-8')
     metrics['seconds'] = round(time.monotonic()-started, 6)
     metrics['under_time_limit'] = metrics['seconds'] <= max_seconds
     first = ledger.data['first_request_epoch'] if ledger else None
