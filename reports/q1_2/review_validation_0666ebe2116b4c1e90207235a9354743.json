@@ -111,7 +111,7 @@
     {
       "name": "已有计算回归及输入不变",
       "passed": false,
-      "error": "Q12-1 手算反例、置换不变性、成对冲销及回归: PASS\nQ12-3 故意植错：错误取绝对金额: PASS\nQ12-3 故意植错：价格先舍入到分: PASS\nQ12-3 故意植错：把明细行数当订单数: PASS\nQ12-3 故意植错：编码静默去空格: PASS\nQ12-3 故意植错：商品频次误按明细行数: PASS\nQ12-4 独立入口/总入口/交付产物逐字节相同: PASS\nQ12-2 全量独立复算与分组守恒: PASS\nQ12-5 报告关键解释前提与完整覆盖: PASS\nQ12-新增实验 单条件消融手算、全量运行及首尾交叉核对: PASS\nQ12-4/6 当前源码的 Q1.1、骨架和旧变异回归: FAIL\n/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/q1_2/acceptance_22776e5de114421cb918efe452f0daf4.json\nQ1.2 计算检查未通过，禁止据此放行\n"
+      "error": "Q12-1 手算反例、置换不变性、成对冲销及回归: PASS\nQ12-3 故意植错：错误取绝对金额: PASS\nQ12-3 故意植错：价格先舍入到分: PASS\nQ12-3 故意植错：把明细行数当订单数: PASS\nQ12-3 故意植错：编码静默去空格: PASS\nQ12-3 故意植错：商品频次误按明细行数: PASS\nQ12-4 独立入口/总入口/交付产物逐字节相同: PASS\nQ12-2 全量独立复算与分组守恒: PASS\nQ12-5 报告关键解释前提与完整覆盖: PASS\nQ12-新增实验 单条件消融手算、全量运行及首尾交叉核对: PASS\nQ12-4/6 当前源码的 Q1.1、骨架和旧变异回归: FAIL\n[本地用户目录]/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/q1_2/acceptance_22776e5de114421cb918efe452f0daf4.json\nQ1.2 计算检查未通过，禁止据此放行\n"
     }
   ],
   "business_release": "pending_evidence",
@@ -120,6 +120,12 @@
     "reports/q1_2_review_results.md": "8e6fb85a83a6bd036e6d01614d7e0381561c0b910216e5f84ece013730f8be78"
   },
   "finished_utc": "2026-10-30T08:44:33.623327+00:00",
-  "recorded_status_before_history_redaction": "failed",
-  "_history_privacy_redaction_notice": "历史隐私脱敏阅读副本；指定身份/目录已替换，原始运行记录仅本地保存，不能据此认证原始回执。"
+  "recorded_status_before_redaction": "failed",
+  "publication_redaction": {
+    "classification": "个人目录已脱敏的阅读副本，不作为机器验收通过输入；运行后生成新的实际回执",
+    "original_file_sha256": "10d07de0be666a291ff50635c82ba10144a40008dfb6976233116ff8ee693332",
+    "source_commit": "81cd7f671f775af1a268dc1c419c0e5babcf0fee",
+    "redacted_category": "本地用户目录",
+    "original_unredacted_file_in_public_package": false
+  }
 }

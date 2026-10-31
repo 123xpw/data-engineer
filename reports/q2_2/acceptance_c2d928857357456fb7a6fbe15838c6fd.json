@@ -455,7 +455,7 @@
     {
       "name": "九表/Q2.1/Q1 当前源码回归与最终批次复算",
       "passed": false,
-      "error": "真实 MySQL 环境: PASS\ncustomers: 99441 条暂存及全字段往返通过\ngeolocation: 1000163 条暂存及全字段往返通过\norder_items: 112650 条暂存及全字段往返通过\norder_payments: 103886 条暂存及全字段往返通过\norder_reviews: 99224 条暂存及全字段往返通过\norders: 99441 条暂存及全字段往返通过\nproducts: 32951 条暂存及全字段往返通过\nsellers: 3095 条暂存及全字段往返通过\nproduct_category_name_translation: 71 条暂存及全字段往返通过\n九表重新导入并整批发布: PASS\n独立全字段往返、类型缺失、金额、键与关系: PASS\n真实 MySQL 手算 SQL 反例: PASS\n保留汇总数的日期偏移和金额错配实验: PASS\n真实 Q2.1 结果独立复算: PASS\n失败守卫与无损边界: PASS\nQ2.1 总入口及依赖失败隔离: PASS\n新依赖干净环境及全部既有计算回归: FAIL\n/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/q2_1/acceptance_c14ca3683a4444189f00bc89f0d4c81a.json\n"
+      "error": "真实 MySQL 环境: PASS\ncustomers: 99441 条暂存及全字段往返通过\ngeolocation: 1000163 条暂存及全字段往返通过\norder_items: 112650 条暂存及全字段往返通过\norder_payments: 103886 条暂存及全字段往返通过\norder_reviews: 99224 条暂存及全字段往返通过\norders: 99441 条暂存及全字段往返通过\nproducts: 32951 条暂存及全字段往返通过\nsellers: 3095 条暂存及全字段往返通过\nproduct_category_name_translation: 71 条暂存及全字段往返通过\n九表重新导入并整批发布: PASS\n独立全字段往返、类型缺失、金额、键与关系: PASS\n真实 MySQL 手算 SQL 反例: PASS\n保留汇总数的日期偏移和金额错配实验: PASS\n真实 Q2.1 结果独立复算: PASS\n失败守卫与无损边界: PASS\nQ2.1 总入口及依赖失败隔离: PASS\n新依赖干净环境及全部既有计算回归: FAIL\n[本地用户目录]/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/q2_1/acceptance_c14ca3683a4444189f00bc89f0d4c81a.json\n"
     }
   ],
   "artifact_sha256": {
@@ -464,6 +464,12 @@
     "reports/q2_2_reference.json": "41651b00c4ef90b701f3fadea4efce30dbe9c1f482742c4aa3cde03cc40eb54f"
   },
   "finished_utc": "2026-10-29T15:57:03.502354+00:00",
-  "recorded_status_before_history_redaction": "failed",
-  "_history_privacy_redaction_notice": "历史隐私脱敏阅读副本；指定身份/目录已替换，原始运行记录仅本地保存，不能据此认证原始回执。"
+  "recorded_status_before_redaction": "failed",
+  "publication_redaction": {
+    "classification": "个人目录已脱敏的阅读副本，不作为机器验收通过输入；运行后生成新的实际回执",
+    "original_file_sha256": "c449fafdcae8fe86b43845c5709cee990789a9337d0c1677e07cfa54996bf40c",
+    "source_commit": "81cd7f671f775af1a268dc1c419c0e5babcf0fee",
+    "redacted_category": "本地用户目录",
+    "original_unredacted_file_in_public_package": false
+  }
 }

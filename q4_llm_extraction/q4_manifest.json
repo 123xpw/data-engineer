@@ -49,9 +49,15 @@
     "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f"
   },
   "input_sha256": {
-    "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/data/olist/olist_order_reviews_dataset.csv": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
-    "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa"
+    "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/data/olist/olist_order_reviews_dataset.csv": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+    "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa"
   },
-  "recorded_status_before_history_redaction": "passed",
-  "_history_privacy_redaction_notice": "历史隐私脱敏阅读副本；指定身份/目录已替换，原始运行记录仅本地保存，不能据此认证原始回执。"
+  "recorded_status_before_redaction": "passed",
+  "publication_redaction": {
+    "classification": "个人目录已脱敏的阅读副本，不作为机器验收通过输入；运行后生成新的实际回执",
+    "original_file_sha256": "168b38ee7b8054293928624cf0f415fe0700ed9c613553c57533f477b162171f",
+    "source_commit": "81cd7f671f775af1a268dc1c419c0e5babcf0fee",
+    "redacted_category": "本地用户目录",
+    "original_unredacted_file_in_public_package": false
+  }
 }

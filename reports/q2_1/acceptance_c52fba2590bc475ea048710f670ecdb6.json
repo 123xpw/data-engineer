@@ -136,7 +136,7 @@
           "sellers": 3095,
           "product_category_name_translation": 71
         },
-        "report": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/olist_load.json"
+        "report": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/olist_load.json"
       }
     },
     {
@@ -436,6 +436,12 @@
     "q2_sql_analysis/q2_1_findings.md": "d6d9945c7e6f458d50806d50997041ae8046bb24a6ec385845ae77d4bd5bb165"
   },
   "finished_utc": "2026-10-30T15:47:39.416790+00:00",
-  "recorded_status_before_history_redaction": "passed",
-  "_history_privacy_redaction_notice": "历史隐私脱敏阅读副本；指定身份/目录已替换，原始运行记录仅本地保存，不能据此认证原始回执。"
+  "recorded_status_before_redaction": "passed",
+  "publication_redaction": {
+    "classification": "个人目录已脱敏的阅读副本，不作为机器验收通过输入；运行后生成新的实际回执",
+    "original_file_sha256": "de2d9e0cfe758eac97e8965ccd9a25a464d77393c2b95f5a4ff3e09a7b6a6310",
+    "source_commit": "81cd7f671f775af1a268dc1c419c0e5babcf0fee",
+    "redacted_category": "本地用户目录",
+    "original_unredacted_file_in_public_package": false
+  }
 }

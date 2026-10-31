@@ -111,7 +111,7 @@
           "sellers": 3095,
           "product_category_name_translation": 71
         },
-        "report": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/olist_load.json"
+        "report": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/olist_load.json"
       }
     },
     {
@@ -398,7 +398,7 @@
     {
       "name": "新依赖干净环境及全部既有计算回归",
       "passed": false,
-      "error": "独立/总入口文件一致且正文符合字数: PASS\n文档入口隔离、缺件和字数越界失败: PASS\n真实个案由独立读取核验；净额守恒的反例: PASS\n当前代码回归与 Q1 三阶段接线: FAIL\n/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/q1_3/acceptance_8df29db95b204f7186adf9c70aed0b73.json\n"
+      "error": "独立/总入口文件一致且正文符合字数: PASS\n文档入口隔离、缺件和字数越界失败: PASS\n真实个案由独立读取核验；净额守恒的反例: PASS\n当前代码回归与 Q1 三阶段接线: FAIL\n[本地用户目录]/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/q1_3/acceptance_8df29db95b204f7186adf9c70aed0b73.json\n"
     }
   ],
   "business_scope": "仅无损暂存与 Q2.1 明示语义，不认证全部原始数据或后续分析",
@@ -407,6 +407,12 @@
     "q2_sql_analysis/q2_1_findings.md": "20c0ac421fc5430e7df41c40c7d56fb22eefcdb65b942b425f7bec6ed1f88192"
   },
   "finished_utc": "2026-10-30T08:44:33.681741+00:00",
-  "recorded_status_before_history_redaction": "failed",
-  "_history_privacy_redaction_notice": "历史隐私脱敏阅读副本；指定身份/目录已替换，原始运行记录仅本地保存，不能据此认证原始回执。"
+  "recorded_status_before_redaction": "failed",
+  "publication_redaction": {
+    "classification": "个人目录已脱敏的阅读副本，不作为机器验收通过输入；运行后生成新的实际回执",
+    "original_file_sha256": "b74e8edb996ee4f54a799843aed01d546c0e92db28523d74e5605b4407c2c3ca",
+    "source_commit": "81cd7f671f775af1a268dc1c419c0e5babcf0fee",
+    "redacted_category": "本地用户目录",
+    "original_unredacted_file_in_public_package": false
+  }
 }

@@ -92,7 +92,7 @@
     {
       "name": "当前代码回归与 Q1 三阶段接线",
       "passed": false,
-      "error": "预期 0，实际 1：手算夹具与既有测试: PASS\n生成当前源码对应实验产物: PASS\n独立逐记录决策、金额分解与全部分层统计: PASS\n已有计算回归及输入不变: FAIL\n/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/q1_2/review_validation_72526ebe879f4feaab539a27dbf4cb58.json\n"
+      "error": "预期 0，实际 1：手算夹具与既有测试: PASS\n生成当前源码对应实验产物: PASS\n独立逐记录决策、金额分解与全部分层统计: PASS\n已有计算回归及输入不变: FAIL\n[本地用户目录]/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/q1_2/review_validation_72526ebe879f4feaab539a27dbf4cb58.json\n"
     }
   ],
   "document_sha256": {
@@ -106,6 +106,12 @@
     "scope": "用途策略和反例讨论；没有自动证明自然语言解释正确"
   },
   "finished_utc": "2026-10-29T15:57:03.448114+00:00",
-  "recorded_status_before_history_redaction": "failed",
-  "_history_privacy_redaction_notice": "历史隐私脱敏阅读副本；指定身份/目录已替换，原始运行记录仅本地保存，不能据此认证原始回执。"
+  "recorded_status_before_redaction": "failed",
+  "publication_redaction": {
+    "classification": "个人目录已脱敏的阅读副本，不作为机器验收通过输入；运行后生成新的实际回执",
+    "original_file_sha256": "ee4bcfd13d4fefc4f438f4186bd4858df251558bf9be3ff78b1f6a11da278e61",
+    "source_commit": "81cd7f671f775af1a268dc1c419c0e5babcf0fee",
+    "redacted_category": "本地用户目录",
+    "original_unredacted_file_in_public_package": false
+  }
 }

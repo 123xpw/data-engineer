@@ -1,7 +1,8 @@
+[脱敏阅读副本：本地用户目录已遮盖，原始输出未公开；原文件SHA256 5075830026bdae1173625f462c22210b51fb3ee58404d0450b3f2b199dad7bda]
 G1/G4/G5 固定答案、异常处理、验证器自检: PASS
 G2–G7 baseline 报告有效且对应当前源码: PASS
 G2–G7 mutations 报告有效且对应当前源码: PASS
 G2–G7 clean_environment 报告有效且对应当前源码: FAIL
 G8 原题、忽略规则和数据基准未改动: PASS
-/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/hardening/stage_gate_3510163687554c04837604df085bfd3f.json
+[本地用户目录]/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/hardening/stage_gate_3510163687554c04837604df085bfd3f.json
 禁止进入下一轮：请查看失败门槛

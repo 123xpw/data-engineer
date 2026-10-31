@@ -201,10 +201,16 @@
     {
       "name": "Q12-4/6 当前源码的 Q1.1、骨架和旧变异回归",
       "passed": false,
-      "error": "进程未通过，退出码 1，末尾输出：Q11-B 手算样本、独立参考实现及现有回归: PASS\nQ11-F 漏计一行: PASS\nQ11-F 错误使用总体标准差: PASS\nQ11-F 静默裁剪字符串: PASS\nQ11-F 并列排序错误: PASS\nQ11-F 缺失率分母错误: PASS\nQ11-G 独立入口、总入口与交付产物一致: PASS\nQ11-A/C/D 全量独立复算与守恒: PASS\nQ11-E 报告至少五个现象且对应统计证据: PASS\nQ11-G 骨架真实流程与原有变异回归: FAIL\nQ11-A/H 原始证据不变及环境适用范围: PASS\n/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/q1_1/acceptance_ba0ba286cff44025ac2e11f7013db2f4.json\n禁止进入 Q1.2：存在未通过项\n"
+      "error": "进程未通过，退出码 1，末尾输出：Q11-B 手算样本、独立参考实现及现有回归: PASS\nQ11-F 漏计一行: PASS\nQ11-F 错误使用总体标准差: PASS\nQ11-F 静默裁剪字符串: PASS\nQ11-F 并列排序错误: PASS\nQ11-F 缺失率分母错误: PASS\nQ11-G 独立入口、总入口与交付产物一致: PASS\nQ11-A/C/D 全量独立复算与守恒: PASS\nQ11-E 报告至少五个现象且对应统计证据: PASS\nQ11-G 骨架真实流程与原有变异回归: FAIL\nQ11-A/H 原始证据不变及环境适用范围: PASS\n[本地用户目录]/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/q1_1/acceptance_ba0ba286cff44025ac2e11f7013db2f4.json\n禁止进入 Q1.2：存在未通过项\n"
     }
   ],
   "finished_utc": "2026-10-30T08:44:33.594681+00:00",
-  "recorded_status_before_history_redaction": "failed",
-  "_history_privacy_redaction_notice": "历史隐私脱敏阅读副本；指定身份/目录已替换，原始运行记录仅本地保存，不能据此认证原始回执。"
+  "recorded_status_before_redaction": "failed",
+  "publication_redaction": {
+    "classification": "个人目录已脱敏的阅读副本，不作为机器验收通过输入；运行后生成新的实际回执",
+    "original_file_sha256": "76863ec8714faf81607bfe122d20dd292ad255f80e879f0ec2d71dfed4562953",
+    "source_commit": "81cd7f671f775af1a268dc1c419c0e5babcf0fee",
+    "redacted_category": "本地用户目录",
+    "original_unredacted_file_in_public_package": false
+  }
 }

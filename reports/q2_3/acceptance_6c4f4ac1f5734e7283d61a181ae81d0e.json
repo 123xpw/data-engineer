@@ -268,10 +268,16 @@
     {
       "name": "已有业务当前源码回归",
       "passed": false,
-      "error": "进程退出 1，预期 0：真实 MySQL 与本地项目环境: PASS\n独立参考校准、手算、变换、错误注入与边界: PASS\n真实全部月份及诊断列独立复算: PASS\n真实数据直接连接的偏差与独立敏感性: PASS\n同模块独立题目失败隔离: PASS\n独立/总入口与真实缺输入故障: PASS\n九表/Q2.1/Q1 当前源码回归与最终批次复算: FAIL\n/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/q2_2/acceptance_42bd8aea4b1e47b298f3c63a7457c935.json\n "
+      "error": "进程退出 1，预期 0：真实 MySQL 与本地项目环境: PASS\n独立参考校准、手算、变换、错误注入与边界: PASS\n真实全部月份及诊断列独立复算: PASS\n真实数据直接连接的偏差与独立敏感性: PASS\n同模块独立题目失败隔离: PASS\n独立/总入口与真实缺输入故障: PASS\n九表/Q2.1/Q1 当前源码回归与最终批次复算: FAIL\n[本地用户目录]/Documents/ChatGPT/实习笔试10-26/data-engineer/reports/q2_2/acceptance_42bd8aea4b1e47b298f3c63a7457c935.json\n "
     }
   ],
   "finished_utc": "2026-10-30T08:44:33.749462+00:00",
-  "recorded_status_before_history_redaction": "failed",
-  "_history_privacy_redaction_notice": "历史隐私脱敏阅读副本；指定身份/目录已替换，原始运行记录仅本地保存，不能据此认证原始回执。"
+  "recorded_status_before_redaction": "failed",
+  "publication_redaction": {
+    "classification": "个人目录已脱敏的阅读副本，不作为机器验收通过输入；运行后生成新的实际回执",
+    "original_file_sha256": "00bee581e3b064e4b6eea4151e2a64f14a2b8fac1844d06a63dd99f32ba6dc28",
+    "source_commit": "81cd7f671f775af1a268dc1c419c0e5babcf0fee",
+    "redacted_category": "本地用户目录",
+    "original_unredacted_file_in_public_package": false
+  }
 }
