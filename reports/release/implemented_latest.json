@@ -1,12 +1,12 @@
 {
-  "run_id": "bede3e43317246e1837950f56d8cac1f",
+  "run_id": "7e6b3d5ffd904033966da9ab757b98f6",
   "status": "passed",
   "scope": "implemented",
-  "started_utc": "2026-10-31T06:19:04.213591+00:00",
+  "started_utc": "2026-10-31T08:39:53.781564+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "pandas": "3.1.0",
-  "git_base": "0f4088994a531209dc3aeaec7732cef83566fdd8",
+  "git_base": "1b32c881ee3d3c605b1b10b7d2f8f39b3feb8072",
   "python_optimization_level": 0,
   "source_sha256": {
     "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
@@ -45,7 +45,7 @@
     "scripts/verify_q2_2.py": "eac925a9460f1509f06fe01f83a666e0df68869eb0b8f2a8503eda6c87c316fc",
     "scripts/verify_q2_3.py": "ff718e6aeb504bd24a9f5ad0216330f858ff677bc4a495f94b3ce9020cd8b1ce",
     "scripts/verify_q2_4.py": "c1bec1ebec3ea4b8d187108618f90a9b3461eb2938fe32ebf05b191be5ca6358",
-    "scripts/verify_q3.py": "dc3148dbf0793a2c9ef8f9a7b43e6d185e4e521047d1c7506b9a2af2c761c2f6",
+    "scripts/verify_q3.py": "bfe4b70f54e2b478df0c25200eba490251bbef17a49bba8b3f9b32375cdf9b32",
     "scripts/verify_q4.py": "9981028db1fc8c3d9468a376870edcb07142c3adf845f1d874013f03bd8eb376",
     "scripts/verify_q4_live.py": "04edddef993205b70a0de4aa20f51eb4156b68c0a833ad09216e88ad9c8e4b40",
     "scripts/verify_q5.py": "84c2d6f481f1aa44497a52b1a50fd7c0ac1998d9a918f841b3338cd597a07d31",
@@ -91,10 +91,11 @@
     "audit/ACCEPTANCE_Q2_3_PERFORMANCE.md": "5de992576135f88deda338be837e73619c0931a1ade47a54f180e80e1e38dfc7",
     "audit/fixtures/q2_3_baseline_0f40889.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
     "audit/fixtures/q2_3_materialized_candidate.sql": "3debb31b7bb42395e8eaf70e708b2e1594e33c71fab5525d2e0dc763447bee94",
-    "q3_etl_pipeline/pipeline.py": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
-    "q3_etl_pipeline/reference_check.py": "c397a4617f9568b317e3dec7a58b0ed1f58bbd765db216fe4e5789cdbc293a71",
-    "q3_etl_pipeline/test_pipeline.py": "8857672d2627cf32e7c62fb9fbf80fdfd81dc5877c461af8f7f5a60175506452",
+    "q3_etl_pipeline/pipeline.py": "342cd437efbf8e7ad0d384994dadcb721c5f08a794fcd0a6008635b3f9692d80",
+    "q3_etl_pipeline/reference_check.py": "8cd116e7c3ed9760c39589e6327f759bd3e98a134de3571fdb50c55b658978e1",
+    "q3_etl_pipeline/test_pipeline.py": "440d0b3ca8168c37f7f69a6d279a97521d5a76572bc7fcd049c8a2d0566da0c5",
     "q3_etl_pipeline/ACCEPTANCE.md": "7dff9ad124bfc5e2c13f201c862fa57c0e6d4c7117bdd6fef70c89a00aa4e506",
+    "q3_etl_pipeline/ACCEPTANCE_NULLABLE_PRICE.md": "32ede43fca2f104b55204525ac249ee2f341c03a83d67070f8df388977cc5b20",
     "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
     "q4_llm_extraction/extract_reviews.py": "8c8c1be79f9cbc6995e3d5280b9b2ac8a690d6a1f1bdff1a30506f1dc90fd006",
     "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
@@ -121,8 +122,8 @@
       "name": "当前功能回归及代码、产物绑定",
       "passed": true,
       "evidence": {
-        "run_id": "0e871b61352c40da9e91ec2b1bbac099",
-        "report_sha256": "5fb8fa98e7c6af0e468b34bcfb580292c4934982e7ca17965ed90d2c735478fd",
+        "run_id": "623a5746998140e387c2643c8c0c300e",
+        "report_sha256": "6ba8240fb6fcb040b308a5c59d5538b490637da898d2368e7059a72a6aec94dd",
         "scope": "当前源码的 Q1、九表、Q2.1、Q2.2；不含未完成题"
       }
     },
@@ -145,7 +146,7 @@
       "name": "Q2.3 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "147f0e3e1e5b491a89954e4cbc557f10",
+        "run_id": "7ad321f2f6a9490a8a60d0f7accaedde",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -153,7 +154,7 @@
       "name": "Q2.4 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "5bcfca3f4ef64d9b800bfafad6267fb1",
+        "run_id": "953e514a064640f4b88058bc4306f3e3",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -161,7 +162,7 @@
       "name": "Q3.1 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "0dfdc1b38914438b831dacdda740678a",
+        "run_id": "b51d47e40f6347ef94c35338787621bd",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -169,7 +170,7 @@
       "name": "Q4.R1 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "034589093ef9499ea747858bf4c6a6bf",
+        "run_id": "abe73086360340868c1922586ba9d0ae",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -177,7 +178,7 @@
       "name": "Q4.PROCESSING 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "b0d9345140ac4760958748282b49de26",
+        "run_id": "f6a2bcc93ae2497f8647ab36b72b48c2",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -185,7 +186,7 @@
       "name": "Q5.1 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "e3ce926ab1dd422a950599d05a57f52f",
+        "run_id": "baf018697efb4f19a4790779a7ca8e2b",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -193,7 +194,7 @@
       "name": "Q6 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "18560987c1804195bb3ed5aaaef64a13",
+        "run_id": "00b761275e7147399b6b955bb4a17f26",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -214,87 +215,87 @@
       "name": "真实全入口及本轮产物归属",
       "passed": true,
       "evidence": {
-        "run_id": "8bc4abf58a6f4d9ca58a5f4a00f6fa04",
+        "run_id": "57a3b51283764371b6f87598a019ea3f",
         "exit_code": 0,
-        "report_sha256": "63c568f1801f4e982701b4d57c628b73e0e52b3a1da988361b499ff47c3c9568",
+        "report_sha256": "6d0a65ff32aeb78c05b76090689de6778f4f277caec228cb0343788805130574",
         "manifests": {
           "q1.1": {
-            "manifest_sha256": "c936e8c4c8f4c8f7638184216fd38f8c6d48263a67661fd27ec03230655bb14b",
+            "manifest_sha256": "e014c07f0529dfa6773638edaf33eab57e7928c39b9126645803494dd0bde936",
             "artifacts": {
               "data_quality_metrics.json": "382ce6c09ca40341650133f6b6085b328dc1f6700bcc2fc97f43ad98fce68a44",
               "data_quality_report.md": "690a4117954f741c37f2cf0ff2e879ec39c175e5780599768320d680178a1a3d"
             }
           },
           "q1.2": {
-            "manifest_sha256": "87e94003edadba8f7c36b0ff95d20189ffabdc2d43e00c73274e36398946e92e",
+            "manifest_sha256": "2ce81df344bff18637119e57d2529396e53be105f9f8f8dc796257646cb1adbf",
             "artifacts": {
               "findings_metrics.json": "28e62fa7611e25acce6f435efa10dd7a7cb461ec96b235d00cea8846944435b8",
               "findings.md": "31b589432df894214acd7bcd5f9b3087d22d91b8c7670e441d348187f66c847f"
             }
           },
           "q1.3": {
-            "manifest_sha256": "4f1917b624a430096d42196ff93c34adab9fdd1414bc972b7e23ce8dbfb7837f",
+            "manifest_sha256": "d3629c51790f4add476f74f7b89e4e9d9c686108c17f8e59eb2e8d9f524217de",
             "artifacts": {
               "cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
               "strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208"
             }
           },
           "q2.load": {
-            "manifest_sha256": "1094d858dc4633586eb04144a221060f5cee0a314500e82dcaba7cab77399bf8",
+            "manifest_sha256": "f5313d227a9b711621c8d6ac8e609c55a11544659573a1eb014f321def78cac6",
             "artifacts": {
-              "load_report.json": "0cc3fe3cbe59b6b89b4b39ff02cd3d5691211988be656c25e78be57e1358d268"
+              "load_report.json": "bd698fefafa2f5fa384065eccd9783e20c165a7c918ad06e37b83f55ac2d3c84"
             }
           },
           "q2.1": {
-            "manifest_sha256": "4ba8295e1374816d4891f7eeb0c7b2ec0a8b66f8ecb72658217ae364ac6ac42d",
+            "manifest_sha256": "90f8b2592905f753886ad777e184894c7e82f5651e0c15ef6b6ff9b9199649c7",
             "artifacts": {
-              "q2_1_results.json": "c47f67f331b3dd5abd63901c567e135e0fff0356d40addc25f0311da5f1767d2",
-              "q2_1_findings.md": "d81822239c4ccb35884ef49f2f0545c3f297be212eb1e6aa0550512a9e4756e3"
+              "q2_1_results.json": "446630b9006c0252e4bed2b59a1e6d08ddd529b8ea851af5188178381716c0de",
+              "q2_1_findings.md": "a0ca3ac1f171f0e558353b22404b32df9b068c32e991952201c75dc5ab72845f"
             }
           },
           "q2.2": {
-            "manifest_sha256": "e1c7baa73dab616e5403b8a709d286dd8ace2e4156ff9f88b35755f8f5558f46",
+            "manifest_sha256": "5a653250692109ee5c872733ffaf57763ca38f4b986f6b56fb5e898597e07085",
             "artifacts": {
-              "q2_2_results.json": "4f50ffe051ec174f6187003f11343bad0916562ee66aebc00543741df39cddf8",
-              "q2_2_findings.md": "8d5fe5c78698b7473c642631df16eceb8a50cb38bd0090b8b49eaef30049adee"
+              "q2_2_results.json": "c72ecec0eec23379a8c9930e6849cfbfd16c12ae20335add837cd812045777a4",
+              "q2_2_findings.md": "a77295c6aa166dc817dffd892db6568055ff943fd27a1dd5e8312905d074e593"
             }
           },
           "q2.3": {
-            "manifest_sha256": "b615d44b72898ec14ab55e9a33fd736bd99da5b3aceb886aa40b5298009f0bc6",
+            "manifest_sha256": "4f184442bfa8754353c5e951ea4b56ae91c328a98ac4c1c91993b2948939ad63",
             "artifacts": {
-              "q2_3_results.json": "9fc28c237c013774df2925f9e51a0f0d228a9e25f8b3ec4beef849a242fdf55a",
+              "q2_3_results.json": "a87c22fd3cb89945d5b84bbfc618ed0cf5b352e93cdd9dacc676655fe73023cc",
               "q2_3_findings.md": "54c0ac9c0eea3a6cd2aeb7188ae20af4133ba88e8e69d59ccc80b1371994916a"
             }
           },
           "q2.4": {
-            "manifest_sha256": "61b59d7edb1fd708b504d344af4e57015f6cfd7565d27dcf09056a15993bd3b0",
+            "manifest_sha256": "01595209537be6620d4e5f0e2d91942549a6272c5892ea2428654b5c7fc8fe1e",
             "artifacts": {
-              "q2_4_results.json": "e2e20612e1acd6588949079aa6307442a0736df40516cac4575378e3fc860c29",
+              "q2_4_results.json": "60afcca3b45b58fac50cd04e23c2383d09edb6f1c7dfb05da876bf7f9aae947b",
               "q2_4_query_optimization.md": "f670b17448f65a7618df65b554651c02d650ba82f6230e6a9e7a119a8fcee251"
             }
           },
           "q3": {
-            "manifest_sha256": "ba637186c28f0e2cf7f95c7ba6a3fc9f85e73d36c149a1b2c92ee5fde0638157",
+            "manifest_sha256": "6c8b4376c9f9718eb702f0623112b2af1af6c92c7922494c52e9e1b3e2f7ebf6",
             "artifacts": {
               "outputs/sales_facts.parquet": "f40bb584a5ea698446ad11bb0c93c2fa919293263a1d06313db2404242244e65",
               "outputs/customer_features.parquet": "51c6c7c9d823ddcca243552991a99165ff69d1839b3e4b1ab1755fd2986d7990",
-              "outputs/returns_log.parquet": "05b6c248cb61b85f78deef8712011b2e6dbbda02ffc6210d7a8742b97710a3fb",
-              "pipeline_log.txt": "1d1a1e0fad1e97657670ac000abdb732cd92cb34ba00741cb8c69d09a6d02cba",
-              "validation_metrics.json": "7ba0ff6e9cf597faf4b18be9435f9f1a3901dcf1bfc3cdc7c6c16a88494cb6ec",
-              "validation_report.md": "c089f33c5cf971c275dc180ac7012b204a313254814bc84e2e019d80c0abbbce"
+              "outputs/returns_log.parquet": "a12fa6a9e9cd8afb595b881bc3049ed536665673fb995032d0e77c172144f1fd",
+              "pipeline_log.txt": "deafb2b27d3b2947204e8efd6d8737e10d327aedd705f73cf5989d244bc839de",
+              "validation_metrics.json": "d87d40c92f7a69b6a6f4460de7beb55b39ca4531e43035145d63d5a391491f5e",
+              "validation_report.md": "d10973c732f315b93732b69936856e84b82582910615fcbdc89a5e6152982244"
             }
           },
           "q4": {
-            "manifest_sha256": "b1b4e7df9ea9cff3a394982c53c9e2bf57df2e097deb0f976a95b46b0cda841c",
+            "manifest_sha256": "8edfeaa51f89742734f3fc3433316aad03223ec3a76f5600717429ccaa1f0784",
             "artifacts": {
               "extracted_issues.json": "42ffbb7c6b9e051839e49d34edb4ac0f9a841766124ebe13fa4a3c29a3d36a6c",
-              "run_metrics.json": "2c898907550e418df52c66f73c7cf9292113821710cc2641b5a4aa07711b867f",
+              "run_metrics.json": "3749ad62ef311f06fbdebfd5d3c3adee97f5aac4d343a53a8d2c9180e2ba87d5",
               "annotation_blind.json": "ccf216cc111f0e97715af6505f227afc111e49c41508c8730f0c9db92ca22696",
               "cost_report.md": "82229a760290c5e35aa1f63a15a13ece808db7114e6d5c0e07eb7c6669294d00"
             }
           },
           "q5": {
-            "manifest_sha256": "d8ae7d219d312f0fccebaef752ca2016f872447b1a8b75928df3c016267fd17b",
+            "manifest_sha256": "888f74e137cd2267d8ce3b6a31bcf3fdf2242e3adf39cdb422dfa909b195c439",
             "artifacts": {
               "real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
               "design_metrics.json": "090227a3bafc35e7b96f0ea95df5ca7ea585fa311a96e97cdebb4c9023a94e94"
@@ -323,5 +324,5 @@
   ],
   "implemented_ready": true,
   "decision": "implemented_ready",
-  "finished_utc": "2026-10-31T06:24:27.719062+00:00"
+  "finished_utc": "2026-10-31T08:45:47.738046+00:00"
 }

@@ -23,6 +23,11 @@
     "eligible_candidates_consumed": 207,
     "unexpected_nonnegative_cancel_quantity": 1
   },
-  "seconds": 12.160716,
+  "price_comparison_counts": {
+    "unknown": 13191,
+    "same": 6086,
+    "different": 217
+  },
+  "seconds": 12.232452,
   "limits": "政策例外清单由同一 Q1 解释导出，算法独立但业务政策仍需复核；参考性能不计入生产 120 秒"
 }

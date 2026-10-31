@@ -14,6 +14,10 @@ RFM 基于上述毛购买，只有非空原始客户 ID 参加。国家以不同
 
 ## 正式整合验收
 
-当前报告 reports/q3/acceptance_8d16e3746722486a870c33c82102928f.json 已通过；当前代码的全量独立复算、正式默认入口、三份 Parquet 回读及重跑字节一致通过。该次核心管道计时 2.790354 秒，完整阶段耗时见 reports/release_execution.json；不同运行边界与缓存条件的数字不应混成同一个基准。完整项目仍因 Q4 和最终提交事项未完成而不通过。
+早期报告 reports/q3/acceptance_8d16e3746722486a870c33c82102928f.json 与 2.790354 秒计时仅保留为历史快照。价格三态变更后的当前源码已重新完成全量独立复算、默认入口、Parquet 回读与旧版不变量检查；实际新回执见 [本轮结果](NULLABLE_PRICE_RESULT.md)，完整阶段耗时见 reports/release_execution.json。完整提交仍有 Q4 人工评估及最终材料等未闭环条件。
 
-扩展字段语义：price_mismatch 是“匹配存在且检测到价格不同”的标记；未匹配 False 不构成价格相同证据，必须先检查 matched_source_row。same_time_candidate_rows 是原始同时间候选行数，包含已消费行，不是当前可用候选数。可进一步采用 nullable 检测标记改善下游误用风险；这不影响必填的匹配发票 NULL 或容量约束。
+扩展字段 price_mismatch 使用 nullable boolean：未匹配为 NULL，匹配后价格相同为 False、不同为 True。比较使用双方原始整数千分单位价格；NULL 表示没有比较对象，不能填成 False。计算价格差异比例时以非空比较行为分母，报告另列 unknown/same/different 三类数量。该字段从旧版“未匹配 False”迁移，调用方必须显式处理 NULL；已知标记仍只是算法候选之间的比较，不认证真实退款。
+
+same_time_candidate_rows 是原始同时间候选行数，包含已消费行，不是当前可用候选数。本轮不改变该口径，也不改变必填的匹配发票 NULL 或容量约束。三态验收标准见 [契约](ACCEPTANCE_NULLABLE_PRICE.md)。
+
+未匹配时该计数字段为 0，仅表示未记录选中时间的候选数，不能据此证明原始销售不存在。下游价格差异比例可先取 `returns[returns['price_mismatch'].notna()]`，以这些已比较行为分母；不把原列的 NULL 改成 False，也不把全部取消行当作价格已比较的分母。

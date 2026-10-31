@@ -1,12 +1,12 @@
 {
-  "run_id": "034589093ef9499ea747858bf4c6a6bf",
+  "run_id": "abe73086360340868c1922586ba9d0ae",
   "status": "passed",
   "scope": "engineering",
-  "started_utc": "2026-10-31T06:23:37.599095+00:00",
+  "started_utc": "2026-10-31T08:44:58.061574+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "pandas": "3.1.0",
-  "git_base": "0f4088994a531209dc3aeaec7732cef83566fdd8",
+  "git_base": "1b32c881ee3d3c605b1b10b7d2f8f39b3feb8072",
   "python_optimization_level": 0,
   "source_sha256": {
     "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
@@ -45,7 +45,7 @@
     "scripts/verify_q2_2.py": "eac925a9460f1509f06fe01f83a666e0df68869eb0b8f2a8503eda6c87c316fc",
     "scripts/verify_q2_3.py": "ff718e6aeb504bd24a9f5ad0216330f858ff677bc4a495f94b3ce9020cd8b1ce",
     "scripts/verify_q2_4.py": "c1bec1ebec3ea4b8d187108618f90a9b3461eb2938fe32ebf05b191be5ca6358",
-    "scripts/verify_q3.py": "dc3148dbf0793a2c9ef8f9a7b43e6d185e4e521047d1c7506b9a2af2c761c2f6",
+    "scripts/verify_q3.py": "bfe4b70f54e2b478df0c25200eba490251bbef17a49bba8b3f9b32375cdf9b32",
     "scripts/verify_q4.py": "9981028db1fc8c3d9468a376870edcb07142c3adf845f1d874013f03bd8eb376",
     "scripts/verify_q4_live.py": "04edddef993205b70a0de4aa20f51eb4156b68c0a833ad09216e88ad9c8e4b40",
     "scripts/verify_q5.py": "84c2d6f481f1aa44497a52b1a50fd7c0ac1998d9a918f841b3338cd597a07d31",
@@ -91,10 +91,11 @@
     "audit/ACCEPTANCE_Q2_3_PERFORMANCE.md": "5de992576135f88deda338be837e73619c0931a1ade47a54f180e80e1e38dfc7",
     "audit/fixtures/q2_3_baseline_0f40889.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
     "audit/fixtures/q2_3_materialized_candidate.sql": "3debb31b7bb42395e8eaf70e708b2e1594e33c71fab5525d2e0dc763447bee94",
-    "q3_etl_pipeline/pipeline.py": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
-    "q3_etl_pipeline/reference_check.py": "c397a4617f9568b317e3dec7a58b0ed1f58bbd765db216fe4e5789cdbc293a71",
-    "q3_etl_pipeline/test_pipeline.py": "8857672d2627cf32e7c62fb9fbf80fdfd81dc5877c461af8f7f5a60175506452",
+    "q3_etl_pipeline/pipeline.py": "342cd437efbf8e7ad0d384994dadcb721c5f08a794fcd0a6008635b3f9692d80",
+    "q3_etl_pipeline/reference_check.py": "8cd116e7c3ed9760c39589e6327f759bd3e98a134de3571fdb50c55b658978e1",
+    "q3_etl_pipeline/test_pipeline.py": "440d0b3ca8168c37f7f69a6d279a97521d5a76572bc7fcd049c8a2d0566da0c5",
     "q3_etl_pipeline/ACCEPTANCE.md": "7dff9ad124bfc5e2c13f201c862fa57c0e6d4c7117bdd6fef70c89a00aa4e506",
+    "q3_etl_pipeline/ACCEPTANCE_NULLABLE_PRICE.md": "32ede43fca2f104b55204525ac249ee2f341c03a83d67070f8df388977cc5b20",
     "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
     "q4_llm_extraction/extract_reviews.py": "8c8c1be79f9cbc6995e3d5280b9b2ac8a690d6a1f1bdff1a30506f1dc90fd006",
     "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
@@ -126,25 +127,25 @@
             "mutation": "移除逐条引文校验",
             "target_test": "test_schema_counterexamples",
             "exit_code": 1,
-            "failure_tail": "F\n======================================================================\nFAIL: test_schema_counterexamples (tests.test_q4.Q4Cases.test_schema_counterexamples) (item={'results': [{'source_row': 7, 'issues': [{'category': 'quality_defect', 'severity': 'high', 'evidence_quote': 'Outro produto', 'evidence_quote_en': 'Broken product'}], 'sentiment_score': -0.8, 'actionable_for_seller': True, 'confidence': 0.8}]})\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-q4-mutants-4oicg960/tests/test_q4.py\", line 64, in test_schema_counterexamples\n    with self.subTest(item=item), self.assertRaises((ValueError, TypeError)):\n                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: (<class 'ValueError'>, <class 'TypeError'>) not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+            "failure_tail": "F\n======================================================================\nFAIL: test_schema_counterexamples (tests.test_q4.Q4Cases.test_schema_counterexamples) (item={'results': [{'source_row': 7, 'issues': [{'category': 'quality_defect', 'severity': 'high', 'evidence_quote': 'Outro produto', 'evidence_quote_en': 'Broken product'}], 'sentiment_score': -0.8, 'actionable_for_seller': True, 'confidence': 0.8}]})\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-q4-mutants-bvs6haw5/tests/test_q4.py\", line 64, in test_schema_counterexamples\n    with self.subTest(item=item), self.assertRaises((ValueError, TypeError)):\n                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: (<class 'ValueError'>, <class 'TypeError'>) not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
           },
           {
             "mutation": "预算占用恒为零",
             "target_test": "test_cumulative_budget_includes_prior_uncertain_request",
             "exit_code": 1,
-            "failure_tail": "F\n======================================================================\nFAIL: test_cumulative_budget_includes_prior_uncertain_request (tests.test_q4.Q4Cases.test_cumulative_budget_includes_prior_uncertain_request)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-q4-mutants-4oicg960/tests/test_q4.py\", line 168, in test_cumulative_budget_includes_prior_uncertain_request\n    self.assertEqual(q.request_batch([other],CONFIG,'fixture',self.ledger,time.monotonic()+5,transport=fake)[1],'budget_exhausted')\nAssertionError: 'uncertain' != 'budget_exhausted'\n- uncertain\n+ budget_exhausted\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.002s\n\nFAILED (failures=1)\n"
+            "failure_tail": "F\n======================================================================\nFAIL: test_cumulative_budget_includes_prior_uncertain_request (tests.test_q4.Q4Cases.test_cumulative_budget_includes_prior_uncertain_request)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-q4-mutants-bvs6haw5/tests/test_q4.py\", line 168, in test_cumulative_budget_includes_prior_uncertain_request\n    self.assertEqual(q.request_batch([other],CONFIG,'fixture',self.ledger,time.monotonic()+5,transport=fake)[1],'budget_exhausted')\nAssertionError: 'uncertain' != 'budget_exhausted'\n- uncertain\n+ budget_exhausted\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.002s\n\nFAILED (failures=1)\n"
           },
           {
             "mutation": "禁止行级成功恢复",
             "target_test": "test_expanding_batch_does_not_recharge_or_overwrite_duplicate_review_ids",
             "exit_code": 1,
-            "failure_tail": "F\n======================================================================\nFAIL: test_expanding_batch_does_not_recharge_or_overwrite_duplicate_review_ids (tests.test_q4.Q4Cases.test_expanding_batch_does_not_recharge_or_overwrite_duplicate_review_ids)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-q4-mutants-4oicg960/tests/test_q4.py\", line 210, in test_expanding_batch_does_not_recharge_or_overwrite_duplicate_review_ids\n    self.assertEqual(full['stage_completion'],'passed');self.assertCountEqual(called,[7,8,9,10])\n                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Element counts were not equal:\nFirst has 2, Second has 1:  7\n\n----------------------------------------------------------------------\nRan 1 test in 0.008s\n\nFAILED (failures=1)\n"
+            "failure_tail": "F\n======================================================================\nFAIL: test_expanding_batch_does_not_recharge_or_overwrite_duplicate_review_ids (tests.test_q4.Q4Cases.test_expanding_batch_does_not_recharge_or_overwrite_duplicate_review_ids)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-q4-mutants-bvs6haw5/tests/test_q4.py\", line 210, in test_expanding_batch_does_not_recharge_or_overwrite_duplicate_review_ids\n    self.assertEqual(full['stage_completion'],'passed');self.assertCountEqual(called,[7,8,9,10])\n                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Element counts were not equal:\nFirst has 2, Second has 1:  7\n\n----------------------------------------------------------------------\nRan 1 test in 0.009s\n\nFAILED (failures=1)\n"
           },
           {
             "mutation": "丢失中断请求行标识",
             "target_test": "test_expanding_after_uncertain_call_never_resends_same_rows",
             "exit_code": 1,
-            "failure_tail": "F\n======================================================================\nFAIL: test_expanding_after_uncertain_call_never_resends_same_rows (tests.test_q4.Q4Cases.test_expanding_after_uncertain_call_never_resends_same_rows)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-q4-mutants-4oicg960/tests/test_q4.py\", line 220, in test_expanding_after_uncertain_call_never_resends_same_rows\n    self.assertEqual(fake.call_count,1);self.assertEqual(second['metrics']['stop_reason'],'prior_unresolved_request')\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 2 != 1\n\n----------------------------------------------------------------------\nRan 1 test in 0.006s\n\nFAILED (failures=1)\n"
+            "failure_tail": "F\n======================================================================\nFAIL: test_expanding_after_uncertain_call_never_resends_same_rows (tests.test_q4.Q4Cases.test_expanding_after_uncertain_call_never_resends_same_rows)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-q4-mutants-bvs6haw5/tests/test_q4.py\", line 220, in test_expanding_after_uncertain_call_never_resends_same_rows\n    self.assertEqual(fake.call_count,1);self.assertEqual(second['metrics']['stop_reason'],'prior_unresolved_request')\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 2 != 1\n\n----------------------------------------------------------------------\nRan 1 test in 0.006s\n\nFAILED (failures=1)\n"
           }
         ],
         "scope": "四个定向局部故障能被检出，不代表所有错误或未知语义均能检出"
@@ -162,7 +163,7 @@
           "generic": 151
         },
         "duplicate_review_id_extra_rows": 261,
-        "pipeline_run_id": "8a42362f697b4b2a87246a092299d513",
+        "pipeline_run_id": "fbd816dbc1ed4d4e9adb09f589925bf4",
         "pipeline_design_nonwhitespace_chars": 436,
         "blind_sample_source_rows": [
           80467,
@@ -225,9 +226,9 @@
     "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
     "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
     "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
-    "q3_etl_pipeline/pipeline.py": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
-    "q3_etl_pipeline/reference_check.py": "c397a4617f9568b317e3dec7a58b0ed1f58bbd765db216fe4e5789cdbc293a71",
-    "q3_etl_pipeline/test_pipeline.py": "8857672d2627cf32e7c62fb9fbf80fdfd81dc5877c461af8f7f5a60175506452",
+    "q3_etl_pipeline/pipeline.py": "342cd437efbf8e7ad0d384994dadcb721c5f08a794fcd0a6008635b3f9692d80",
+    "q3_etl_pipeline/reference_check.py": "8cd116e7c3ed9760c39589e6327f759bd3e98a134de3571fdb50c55b658978e1",
+    "q3_etl_pipeline/test_pipeline.py": "440d0b3ca8168c37f7f69a6d279a97521d5a76572bc7fcd049c8a2d0566da0c5",
     "q4_llm_extraction/accuracy_evaluation.md": "baa643b26e2eb685fe962fc069652ac6e2ac766adabaa1b175c8366da89e9767",
     "q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
     "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
@@ -249,11 +250,11 @@
   ],
   "artifact_sha256": {
     ".venv/q4-engineering-output/extracted_issues.json": "b20eba911deea631954f817adc992521ed476dc1f644dcfb9a83dd9b4489112c",
-    ".venv/q4-engineering-output/run_metrics.json": "36e60f45c2eb4c6f175ddcdc5b21ff0f87cd7467155acfbc2ca296576ad60b72",
+    ".venv/q4-engineering-output/run_metrics.json": "a8c904c0717562d34ec0120c0eda090644ba82d83193603b896a9af38c214980",
     ".venv/q4-engineering-output/annotation_blind.json": "ccf216cc111f0e97715af6505f227afc111e49c41508c8730f0c9db92ca22696",
     ".venv/q4-engineering-output/cost_report.md": "8afaa6099af6bdacc7f63ae353e966ee086ae61ac4514358a19da7cff023e49c",
     "q4_llm_extraction/pipeline_design.md": "a986b3902edca56a050b1145a14a41533a1b6cd973e956f8d5bdddb63466526c",
     "q4_llm_extraction/accuracy_evaluation.md": "baa643b26e2eb685fe962fc069652ac6e2ac766adabaa1b175c8366da89e9767"
   },
-  "finished_utc": "2026-10-31T06:23:40.463919+00:00"
+  "finished_utc": "2026-10-31T08:45:00.890823+00:00"
 }

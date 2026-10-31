@@ -53,7 +53,10 @@ def check(folder):
             if position<0:reason='eligible_candidates_consumed' if first_time[key]<when else 'no_strictly_earlier_sale'
             else:selected=group.pop(position);reason='candidate_matched';ties=same_time[key][selected[0]]
         match_counts[reason]+=1
-        matched[source]={'invoice':selected[2] if selected else None,'source':selected[1] if selected else None,'reason':reason,'ties':ties,'price_mismatch':selected[3]!=price if selected else False}
+        # 未选中候选时不进行比较；选中后直接比较 CSV 独立解析的整数价格。
+        price_comparison=None
+        if selected is not None:price_comparison=selected[3]!=price
+        matched[source]={'invoice':selected[2] if selected else None,'source':selected[1] if selected else None,'reason':reason,'ties':ties,'price_mismatch':price_comparison}
     sales=pd.read_parquet(folder/'outputs/sales_facts.parquet')
     for r in sales.itertuples(index=False):
         digest_row(actual_hash,[r.source_row,r.invoice_no,r.stock_code,r.description,r.quantity,round(r.unit_price*1000),round(r.total_amount*1000),r.invoice_datetime.strftime('%Y-%m-%d %H:%M:%S'),None if pd.isna(r.customer_id) else r.customer_id,r.country])
@@ -68,16 +71,22 @@ def check(folder):
         if values!=wanted:raise AssertionError('客户特征逐列不符独立集合参考')
     returns=pd.read_parquet(folder/'outputs/returns_log.parquet')
     if len(returns)!=len(return_events):raise AssertionError('取消日志行数不符')
+    if str(returns['price_mismatch'].dtype)!='boolean':raise AssertionError('价格比较未保留可空布尔类型')
     for row in returns.itertuples(index=False):
         expected=matched[row.source_row]
-        values=(None if pd.isna(row.matched_original_invoice) else row.matched_original_invoice,None if pd.isna(row.matched_source_row) else int(row.matched_source_row),row.match_reason,row.same_time_candidate_rows,row.price_mismatch)
+        actual_comparison=None if pd.isna(row.price_mismatch) else bool(row.price_mismatch)
+        values=(None if pd.isna(row.matched_original_invoice) else row.matched_original_invoice,None if pd.isna(row.matched_source_row) else int(row.matched_source_row),row.match_reason,row.same_time_candidate_rows,actual_comparison)
         wanted=(expected['invoice'],expected['source'],expected['reason'],expected['ties'],expected['price_mismatch'])
         if values!=wanted:raise AssertionError('退货候选/容量/原因逐条不符独立列表删除参考')
     metrics=json.loads((folder/'validation_metrics.json').read_text())
     if metrics['reason_counts']!=dict(reasons) or metrics['match_reasons']!=dict(match_counts) or metrics['sales_amount_milli']!=amount:raise AssertionError('报告与独立复算不一致')
+    price_counts=dict(Counter('unknown' if r['price_mismatch'] is None else 'different' if r['price_mismatch'] else 'same' for r in matched.values()))
+    price_counts={key:price_counts.get(key,0) for key in ('unknown','same','different')}
+    if metrics.get('price_comparison_counts')!=price_counts:raise AssertionError('价格比较分母与独立原始价格参考不一致')
+    if metrics['return_candidate_sensitivity']['matched_price_mismatch_rows']!=price_counts['different']:raise AssertionError('已匹配价格差异计数不符')
     return {'sales_rows':sales_count,'customers':len(customers),'returns':len(return_events),'sales_amount_milli':amount,
         'sales_row_digest':actual_hash.hexdigest(),'all_customer_fields_compared':True,'all_return_choices_compared':True,
-        'reason_counts':dict(reasons),'match_reasons':dict(match_counts),'seconds':round(time.perf_counter()-started,6),
+        'reason_counts':dict(reasons),'match_reasons':dict(match_counts),'price_comparison_counts':price_counts,'seconds':round(time.perf_counter()-started,6),
         'limits':'政策例外清单由同一 Q1 解释导出，算法独立但业务政策仍需复核；参考性能不计入生产 120 秒'}
 
 

@@ -1,0 +1,38 @@
+{
+  "baseline_commit": "1b32c881ee3d3c605b1b10b7d2f8f39b3feb8072",
+  "red_before_fix": {
+    "expected_exit_code": 1,
+    "exit_code": 1,
+    "tests_run": 4,
+    "failing_assertions": 5,
+    "scope": "新价格用例在旧实现上检出类型、未知丢失和已知比较未校验"
+  },
+  "green_after_fix": {
+    "exit_code": 0,
+    "q3_tests_run": 9,
+    "scope": "价格三态、损坏拒绝、空/全未知及已有匹配与金额边界"
+  },
+  "general_unit_suite": {
+    "tests_run": 95,
+    "successful": true
+  },
+  "scope": "实际预检记录；完整当前源码及真实数据验收由本轮后续回执提供",
+  "native_parquet_edge_controls": [
+    {
+      "fixture": "all_unknown",
+      "rows": 1,
+      "native_type": "bool",
+      "null_count": 1
+    },
+    {
+      "fixture": "empty",
+      "rows": 0,
+      "native_type": "bool",
+      "null_count": 0
+    }
+  ],
+  "captured_log_files": {
+    "red": "reports/q3/nullable_price_red.json",
+    "green": "reports/q3/nullable_price_green.json"
+  }
+}

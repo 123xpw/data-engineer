@@ -24,7 +24,7 @@
     "eligible_candidates_consumed": 207,
     "unexpected_nonnegative_cancel_quantity": 1
   },
-  "seconds": 2.7897,
+  "seconds": 2.820502,
   "under_120_seconds": true,
   "scope": "正向商品毛交易、毛购买 RFM、容量受限精确数量候选；非净退款认证",
   "return_candidate_sensitivity": {
@@ -36,6 +36,11 @@
     "matched_price_mismatch_rows": 217,
     "matching_coverage_fraction": 0.3233302554632195,
     "limit": "覆盖率不是准确率；未匹配不等于无原单，毛购买 RFM 不能当净留存特征"
+  },
+  "price_comparison_counts": {
+    "unknown": 13191,
+    "same": 6086,
+    "different": 217
   },
   "reference_day": "2011-12-09 00:00:00",
   "source_sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9",
@@ -109,7 +114,7 @@
         "matched_source_row": 13191,
         "match_reason": 0,
         "same_time_candidate_rows": 0,
-        "price_mismatch": 0
+        "price_mismatch": 13191
       },
       "dtypes": {
         "invoice_no": "string",
@@ -126,11 +131,11 @@
         "matched_source_row": "Int64",
         "match_reason": "string",
         "same_time_candidate_rows": "int64",
-        "price_mismatch": "bool"
+        "price_mismatch": "boolean"
       }
     }
   }
 }
 ```
 
-匹配是候选，部分退货不自动凑单；未知编码隔离，原始文件未删除。金额输出 float、内部整数千分单位；RFM 为毛购买而非净留存。
+匹配是候选，部分退货不自动凑单；未知编码隔离，原始文件未删除。金额输出 float、内部整数千分单位；RFM 为毛购买而非净留存。price_mismatch 为可空布尔：无候选 NULL，有候选时同价 False、异价 True；只在已比较行中解释价格差异比例。

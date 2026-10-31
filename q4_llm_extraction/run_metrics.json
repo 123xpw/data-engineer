@@ -35,7 +35,7 @@
   "budget_occupied_usd": "1.7664627",
   "uncertain_cost_requests": 0,
   "prompt_sha256": "c659c828cbc9ae2c8862fce6a715b350663d7ae972ef8e813af72f281cd68bfd",
-  "seconds": 5.644436,
+  "seconds": 5.640241,
   "service_config_sha256": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
   "actual_billed_cost_usd": null,
   "scope": "逐行分流及调用控制；usage 按配置单价计算，非账单认证；引文校验不认证语义；人工评估另行完成",

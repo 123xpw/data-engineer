@@ -109,7 +109,8 @@ def match_returns(f,sales):
     source[valid]=candidates.iloc[chosen[valid]]['source_row'].to_numpy()
     out['matched_original_invoice']=originals;out['matched_source_row']=source
     out['match_reason']=pd.array(reasons,dtype='string');out['same_time_candidate_rows']=ties
-    out['price_mismatch']=False
+    # 没有候选便没有比较对象；保持未知，不能把“未比较”编码成价格相同。
+    out['price_mismatch']=pd.array([pd.NA]*len(out),dtype='boolean')
     out.loc[valid,'price_mismatch']=out.loc[valid,'_price_milli'].to_numpy()!=candidates.iloc[chosen[valid]]['_price_milli'].to_numpy()
     return out.sort_values('source_row').reset_index(drop=True)
 
@@ -121,6 +122,8 @@ def validate_output(sales,rfm,returns):
     require(not rfm['customer_id'].isna().any() and rfm['customer_id'].is_unique,'客户特征键异常')
     require((rfm['recency_days']>=0).all() and (rfm['frequency']>=1).all(),'RFM 分母/时间异常')
     require(returns['invoice_no'].str.startswith('C').all(),'退货日志混入非 C 事件')
+    require(isinstance(returns['price_mismatch'].dtype,pd.BooleanDtype),'价格比较必须使用可空布尔类型')
+    require(returns['price_mismatch'].isna().equals(returns['matched_source_row'].isna()),'价格比较的未知状态必须恰好对应未匹配记录')
     matched=returns[returns['matched_source_row'].notna()]
     require(matched['matched_source_row'].is_unique,'销售行被重复消费')
     if len(matched):
@@ -129,6 +132,8 @@ def validate_output(sales,rfm,returns):
         require((right['quantity'].to_numpy()==-matched['quantity'].to_numpy()).all(),'匹配数量不相反')
         require((right['stock_code'].to_numpy()==matched['stock_code'].to_numpy()).all(),'匹配商品不同')
         require((right['customer_id'].to_numpy()==matched['customer_id'].to_numpy()).all(),'匹配客户不同')
+        require(np.array_equal(matched['price_mismatch'].to_numpy(dtype=bool),
+            matched['_price_milli'].to_numpy()!=right['_price_milli'].to_numpy()),'价格差异标记与匹配双方原始价格不符')
 
 
 def run_pipeline(input_path,output_dir):
@@ -152,11 +157,13 @@ def run_pipeline(input_path,output_dir):
         matched_sales=sales.set_index('source_row').loc[matched_ids]
         remaining=sales[~sales['source_row'].isin(matched_ids)]
         remaining_customers=remaining['customer_id'].dropna().nunique()
+        compared=returns['price_mismatch'].dropna()
+        price_counts={'unknown':len(returns)-len(compared),'same':int((~compared).sum()),'different':int(compared.sum())}
         sensitivity={'assumption':'仅作如果全部匹配候选均确认退货的敏感性，不作为已证实退款',
             'candidate_sales_rows':len(matched_sales),'candidate_original_amount_milli':int(matched_sales['_amount_milli'].sum()),
             'customers_with_candidates':int(matched_sales['customer_id'].nunique()),
             'customers_disappearing_if_candidates_removed':len(rfm)-int(remaining_customers),
-            'matched_price_mismatch_rows':int(returns['price_mismatch'].sum()),
+            'matched_price_mismatch_rows':price_counts['different'],
             'matching_coverage_fraction':len(matched_ids)/len(returns) if len(returns) else None,
             'limit':'覆盖率不是准确率；未匹配不等于无原单，毛购买 RFM 不能当净留存特征'}
         seconds=time.perf_counter()-start
@@ -165,10 +172,11 @@ def run_pipeline(input_path,output_dir):
             'match_reasons':returns['match_reason'].value_counts().to_dict(),'seconds':round(seconds,6),'under_120_seconds':seconds<120,
             'scope':'正向商品毛交易、毛购买 RFM、容量受限精确数量候选；非净退款认证',
             'return_candidate_sensitivity':sensitivity,
+            'price_comparison_counts':price_counts,
             'reference_day':str(f['invoice_datetime'].max().normalize()),'source_sha256':load_sources()['retail']['files'][0]['sha256'],
             'outputs':{name:{'rows':len(frame),'null_counts':frame.isna().sum().to_dict(),'dtypes':frame.dtypes.astype(str).to_dict()} for name,frame in frames.items()}}
         (output_dir/'validation_metrics.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
-        (output_dir/'validation_report.md').write_text('# Q3 ETL 实际统计\n\n```json\n'+json.dumps(report,ensure_ascii=False,indent=2)+'\n```\n\n匹配是候选，部分退货不自动凑单；未知编码隔离，原始文件未删除。金额输出 float、内部整数千分单位；RFM 为毛购买而非净留存。\n')
+        (output_dir/'validation_report.md').write_text('# Q3 ETL 实际统计\n\n```json\n'+json.dumps(report,ensure_ascii=False,indent=2)+'\n```\n\n匹配是候选，部分退货不自动凑单；未知编码隔离，原始文件未删除。金额输出 float、内部整数千分单位；RFM 为毛购买而非净留存。price_mismatch 为可空布尔：无候选 NULL，有候选时同价 False、异价 True；只在已比较行中解释价格差异比例。\n')
         require(seconds<120,f'实际耗时 {seconds:.6f} 秒，超过 120 秒门槛')
         logger.info('本轮完成，耗时 %.6f 秒',seconds)
         return report

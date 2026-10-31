@@ -1,0 +1,22 @@
+{
+  "baseline_commit": "1b32c881ee3d3c605b1b10b7d2f8f39b3feb8072",
+  "baseline_pipeline_sha256": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
+  "sales_and_rfm_byte_unchanged": {
+    "sales_facts": "f40bb584a5ea698446ad11bb0c93c2fa919293263a1d06313db2404242244e65",
+    "customer_features": "51c6c7c9d823ddcca243552991a99165ff69d1839b3e4b1ab1755fd2986d7990"
+  },
+  "all_other_return_columns_unchanged": true,
+  "known_price_comparisons_unchanged": true,
+  "matched_rows": 6303,
+  "price_comparison_counts": {
+    "unknown": 13191,
+    "same": 6086,
+    "different": 217
+  },
+  "native_parquet_price_type": "bool",
+  "native_parquet_null_count": 13191,
+  "independent_reference_accepted_control": true,
+  "independent_reference_rejected_unknown_as_false": true,
+  "corrupted_source_row": 179,
+  "scope": "旧版同数据重建及一类真实语义损坏拒绝；不证明其他未知错误不存在，也不认证退款真值"
+}

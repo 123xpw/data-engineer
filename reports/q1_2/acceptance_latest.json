@@ -1,12 +1,12 @@
 {
-  "run_id": "74e3e48fb665415db8dd42fd4ac326e5",
+  "run_id": "464870e77d164efc86357a5f305e6699",
   "status": "passed",
   "scope": "acceptance",
-  "started_utc": "2026-10-31T06:21:03.777279+00:00",
+  "started_utc": "2026-10-31T08:41:55.347640+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "pandas": "3.1.0",
-  "git_base": "0f4088994a531209dc3aeaec7732cef83566fdd8",
+  "git_base": "1b32c881ee3d3c605b1b10b7d2f8f39b3feb8072",
   "python_optimization_level": 0,
   "source_sha256": {
     "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
@@ -45,7 +45,7 @@
     "scripts/verify_q2_2.py": "eac925a9460f1509f06fe01f83a666e0df68869eb0b8f2a8503eda6c87c316fc",
     "scripts/verify_q2_3.py": "ff718e6aeb504bd24a9f5ad0216330f858ff677bc4a495f94b3ce9020cd8b1ce",
     "scripts/verify_q2_4.py": "c1bec1ebec3ea4b8d187108618f90a9b3461eb2938fe32ebf05b191be5ca6358",
-    "scripts/verify_q3.py": "dc3148dbf0793a2c9ef8f9a7b43e6d185e4e521047d1c7506b9a2af2c761c2f6",
+    "scripts/verify_q3.py": "bfe4b70f54e2b478df0c25200eba490251bbef17a49bba8b3f9b32375cdf9b32",
     "scripts/verify_q4.py": "9981028db1fc8c3d9468a376870edcb07142c3adf845f1d874013f03bd8eb376",
     "scripts/verify_q4_live.py": "04edddef993205b70a0de4aa20f51eb4156b68c0a833ad09216e88ad9c8e4b40",
     "scripts/verify_q5.py": "84c2d6f481f1aa44497a52b1a50fd7c0ac1998d9a918f841b3338cd597a07d31",
@@ -91,10 +91,11 @@
     "audit/ACCEPTANCE_Q2_3_PERFORMANCE.md": "5de992576135f88deda338be837e73619c0931a1ade47a54f180e80e1e38dfc7",
     "audit/fixtures/q2_3_baseline_0f40889.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
     "audit/fixtures/q2_3_materialized_candidate.sql": "3debb31b7bb42395e8eaf70e708b2e1594e33c71fab5525d2e0dc763447bee94",
-    "q3_etl_pipeline/pipeline.py": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
-    "q3_etl_pipeline/reference_check.py": "c397a4617f9568b317e3dec7a58b0ed1f58bbd765db216fe4e5789cdbc293a71",
-    "q3_etl_pipeline/test_pipeline.py": "8857672d2627cf32e7c62fb9fbf80fdfd81dc5877c461af8f7f5a60175506452",
+    "q3_etl_pipeline/pipeline.py": "342cd437efbf8e7ad0d384994dadcb721c5f08a794fcd0a6008635b3f9692d80",
+    "q3_etl_pipeline/reference_check.py": "8cd116e7c3ed9760c39589e6327f759bd3e98a134de3571fdb50c55b658978e1",
+    "q3_etl_pipeline/test_pipeline.py": "440d0b3ca8168c37f7f69a6d279a97521d5a76572bc7fcd049c8a2d0566da0c5",
     "q3_etl_pipeline/ACCEPTANCE.md": "7dff9ad124bfc5e2c13f201c862fa57c0e6d4c7117bdd6fef70c89a00aa4e506",
+    "q3_etl_pipeline/ACCEPTANCE_NULLABLE_PRICE.md": "32ede43fca2f104b55204525ac249ee2f341c03a83d67070f8df388977cc5b20",
     "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
     "q4_llm_extraction/extract_reviews.py": "8c8c1be79f9cbc6995e3d5280b9b2ac8a690d6a1f1bdff1a30506f1dc90fd006",
     "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
@@ -222,7 +223,7 @@
       "name": "Q12-新增实验 单条件消融手算、全量运行及首尾交叉核对",
       "passed": true,
       "evidence": {
-        "run_id": "d9b3cc0744bd4acfa5ddd3ac53ac9074",
+        "run_id": "a2c39eadbc7a494dbb056c1f1ed24945",
         "hand_checked_views": 8,
         "report_sha256": "ef2327038384607b490555b831656ee9547467b3510f1f3188f14c516a57ecfa",
         "conclusion": "单独数量或单价过滤已使排序反转，不能唯一归因于特殊编码排除"
@@ -232,10 +233,10 @@
       "name": "Q12-4/6 当前源码的 Q1.1、骨架和旧变异回归",
       "passed": true,
       "evidence": {
-        "q1_1_current_regression": "79a69bda7c9f4ba99a0108fa355b8dc2",
+        "q1_1_current_regression": "519afee2cba44ce39f7bc2ed2b44563d",
         "includes": "原有骨架六个真实流程和旧五类变异；源文件/README/.gitignore 不变；依赖安装证明复用范围见 Q1.1 报告"
       }
     }
   ],
-  "finished_utc": "2026-10-31T06:22:27.763161+00:00"
+  "finished_utc": "2026-10-31T08:43:20.853019+00:00"
 }

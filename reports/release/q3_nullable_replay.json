@@ -1,0 +1,125 @@
+{
+  "started_utc": "2026-10-31T08:39:45.431129+00:00",
+  "status": "passed",
+  "scope": "当前源码、私有冻结输入、已有真实模型响应缓存；非冷启动、非真人语义验收",
+  "acceptance_contract": "q3_etl_pipeline/ACCEPTANCE_NULLABLE_PRICE.md",
+  "phases": [
+    {
+      "phase": "guard_selftest",
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "seconds": 0.021,
+      "passed": true
+    },
+    {
+      "phase": "q4_rebuild",
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "seconds": 5.735,
+      "passed": true
+    },
+    {
+      "phase": "q4_native_receipts",
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "seconds": 0.592,
+      "passed": true
+    },
+    {
+      "phase": "implemented_refresh",
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "seconds": 354.199,
+      "passed": true
+    },
+    {
+      "phase": "submission_gate",
+      "expected_exit_code": 2,
+      "exit_code": 2,
+      "seconds": 0.435,
+      "passed": true
+    }
+  ],
+  "production_source_sha256": {
+    "artifact_manifest.py": "082b0ce76e986daef448042ad6caaa79cad58d781fba95aa1a61d5c57dcb0c71",
+    "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
+    "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
+    "q1_data_quality/cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
+    "q1_data_quality/q1_code.py": "3cefc9f09bf7603f032e19ef7dd7408ea92de90c423622c0e47ccb342b351817",
+    "q1_data_quality/q1_findings.py": "9510aa26166c43ab232ff93bb8c60f6fc27842fb0044f7bfc169b5ce8d70ddaf",
+    "q1_data_quality/q1_strategy.py": "06b4f770a0df565855320664afe708fa78fc07dc969c2744327dc30195e6b022",
+    "q1_data_quality/strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208",
+    "q2_sql_analysis/catalog.py": "0108180bd105bb2dc977f7f42493e2ffbc30ec9fa7cc834007a5ce4d26174c30",
+    "q2_sql_analysis/load_olist.py": "d2cbc404f8ec4f9255a84756056ee27ff471a9965ba6550bfc0a6c6ac76fe7ba",
+    "q2_sql_analysis/mysql_runtime.py": "29c3d278b38e8d45562d5117b6c8576a9556541f3061e14dc1002340ba2ba04e",
+    "q2_sql_analysis/q2_1.py": "f9b33a5482a4de57cf03a954a25c9f912a200a6f06b74332aebdf261d2620ae8",
+    "q2_sql_analysis/q2_1_translation_gap.sql": "8ebd5dd6d6ab5b7d8d2848cefea7f606fea2b16e41816846e529745d4cd33b9a",
+    "q2_sql_analysis/q2_2.py": "ffb51f75d9f5f44364ea34c55b4f486345047316e878f4aed35456f81d8d1d16",
+    "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
+    "q2_sql_analysis/q2_3.py": "9481262c609328b197f30072fa7aa7ef6d4f7a237f746f58b36d97326397a979",
+    "q2_sql_analysis/q2_3_top_sellers.sql": "3debb31b7bb42395e8eaf70e708b2e1594e33c71fab5525d2e0dc763447bee94",
+    "q2_sql_analysis/q2_4.py": "9309a0f00b8512f7f6c983c6a47992428b1c4cfed4d051fff9335d95e9845839",
+    "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
+    "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
+    "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
+    "q3_etl_pipeline/pipeline.py": "342cd437efbf8e7ad0d384994dadcb721c5f08a794fcd0a6008635b3f9692d80",
+    "q3_etl_pipeline/reference_check.py": "8cd116e7c3ed9760c39589e6327f759bd3e98a134de3571fdb50c55b658978e1",
+    "q3_etl_pipeline/test_pipeline.py": "440d0b3ca8168c37f7f69a6d279a97521d5a76572bc7fcd049c8a2d0566da0c5",
+    "q4_llm_extraction/accuracy_evaluation.md": "baa643b26e2eb685fe962fc069652ac6e2ac766adabaa1b175c8366da89e9767",
+    "q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
+    "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
+    "q4_llm_extraction/extract_reviews.py": "8c8c1be79f9cbc6995e3d5280b9b2ac8a690d6a1f1bdff1a30506f1dc90fd006",
+    "q4_llm_extraction/pipeline_design.md": "a986b3902edca56a050b1145a14a41533a1b6cd973e956f8d5bdddb63466526c",
+    "q4_llm_extraction/prompt_template.txt": "c659c828cbc9ae2c8862fce6a715b350663d7ae972ef8e813af72f281cd68bfd",
+    "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
+    "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
+    "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
+    "release_check.py": "f6bff89ff2e5173e04012ad37f76193bdfa620d52df6d9f548c702cdc22780ee",
+    "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
+    "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f"
+  },
+  "cache_preflight": {
+    "requested": 14294,
+    "recovered": 14294,
+    "blocked": 0,
+    "passed": true,
+    "ledger_entries": 912
+  },
+  "active_phase": null,
+  "final_checks": {
+    "original_private_env_unchanged": true,
+    "original_private_ledger_unchanged": true,
+    "replay_ledger_byte_unchanged": true,
+    "no_new_ledger_entries": true,
+    "model_results_byte_unchanged": true,
+    "production_source_unchanged_during_run": true,
+    "no_external_attempt_after_selftest": true,
+    "guard_positive_control_observed": true
+  },
+  "finished_utc": "2026-10-31T08:45:48.219433+00:00",
+  "recorded_utc": "2026-10-31T08:53:36.096454+00:00",
+  "full_submission_ready": false,
+  "network_guard_scope": "验收 Python socket 限制外部连接、允许回环 MySQL；不是操作系统全局隔离，验收占位凭据只用于完整缓存重放",
+  "evidence": {
+    "q3": {
+      "run_id": "b51d47e40f6347ef94c35338787621bd",
+      "status": "passed",
+      "path": "reports/q3/acceptance_latest.json"
+    },
+    "implemented": {
+      "run_id": "7e6b3d5ffd904033966da9ab757b98f6",
+      "status": "passed",
+      "path": "reports/release/implemented_latest.json"
+    },
+    "submission": {
+      "run_id": "741adb7044a04b318d74f35135a6dc36",
+      "status": "failed",
+      "path": "reports/release/submission_latest.json"
+    },
+    "pipeline": {
+      "run_id": "57a3b51283764371b6f87598a019ea3f",
+      "status": "passed",
+      "path": "reports/release_execution.json"
+    }
+  }
+}
