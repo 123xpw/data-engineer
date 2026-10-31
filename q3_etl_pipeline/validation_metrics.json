@@ -21,7 +21,7 @@
     "eligible_candidates_consumed": 207,
     "unexpected_nonnegative_cancel_quantity": 1
   },
-  "seconds": 2.903882,
+  "seconds": 2.853712,
   "under_120_seconds": true,
   "scope": "正向商品毛交易、毛购买 RFM、容量受限精确数量候选；非净退款认证",
   "return_candidate_sensitivity": {
@@ -41,6 +41,11 @@
   },
   "reference_day": "2011-12-09 00:00:00",
   "source_sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9",
+  "statistics_policy": {
+    "null_rate_denominator": "each_output_rows",
+    "empty_rate": null,
+    "quantile_interpolation": "linear"
+  },
   "outputs": {
     "sales_facts": {
       "rows": 1037021,
@@ -56,6 +61,18 @@
         "country": 0,
         "source_row": 0
       },
+      "null_rates": {
+        "invoice_no": 0.0,
+        "stock_code": 0.0,
+        "description": 0.0,
+        "quantity": 0.0,
+        "unit_price": 0.0,
+        "total_amount": 0.0,
+        "invoice_datetime": 0.0,
+        "customer_id": 0.22600313783423864,
+        "country": 0.0,
+        "source_row": 0.0
+      },
       "dtypes": {
         "invoice_no": "string",
         "stock_code": "string",
@@ -67,7 +84,207 @@
         "customer_id": "string",
         "country": "string",
         "source_row": "int64"
-      }
+      },
+      "numeric_distributions": {
+        "quantity": {
+          "count": 1037021,
+          "min": 1.0,
+          "p50": 3.0,
+          "p95": 30.0,
+          "max": 80995.0,
+          "mean": 10.995602789143133
+        },
+        "unit_price": {
+          "count": 1037021,
+          "min": 0.001,
+          "p50": 2.1,
+          "p95": 9.95,
+          "max": 1157.15,
+          "mean": 3.339407656161254
+        },
+        "total_amount": {
+          "count": 1037021,
+          "min": 0.001,
+          "p50": 9.96,
+          "p95": 59.4,
+          "max": 168469.6,
+          "mean": 19.39226015384452
+        }
+      },
+      "country_distribution": [
+        {
+          "value": "United Kingdom",
+          "rows": 955994
+        },
+        {
+          "value": "EIRE",
+          "rows": 17105
+        },
+        {
+          "value": "Germany",
+          "rows": 16035
+        },
+        {
+          "value": "France",
+          "rows": 13450
+        },
+        {
+          "value": "Netherlands",
+          "rows": 4983
+        },
+        {
+          "value": "Spain",
+          "rows": 3617
+        },
+        {
+          "value": "Switzerland",
+          "rows": 3081
+        },
+        {
+          "value": "Belgium",
+          "rows": 2923
+        },
+        {
+          "value": "Portugal",
+          "rows": 2497
+        },
+        {
+          "value": "Australia",
+          "rows": 1806
+        },
+        {
+          "value": "Channel Islands",
+          "rows": 1561
+        },
+        {
+          "value": "Italy",
+          "rows": 1436
+        },
+        {
+          "value": "Norway",
+          "rows": 1410
+        },
+        {
+          "value": "Sweden",
+          "rows": 1287
+        },
+        {
+          "value": "Cyprus",
+          "rows": 1151
+        },
+        {
+          "value": "Finland",
+          "rows": 985
+        },
+        {
+          "value": "Austria",
+          "rows": 888
+        },
+        {
+          "value": "Denmark",
+          "rows": 775
+        },
+        {
+          "value": "Unspecified",
+          "rows": 752
+        },
+        {
+          "value": "Greece",
+          "rows": 653
+        },
+        {
+          "value": "Poland",
+          "rows": 506
+        },
+        {
+          "value": "Japan",
+          "rows": 485
+        },
+        {
+          "value": "United Arab Emirates",
+          "rows": 462
+        },
+        {
+          "value": "USA",
+          "rows": 404
+        },
+        {
+          "value": "Israel",
+          "rows": 369
+        },
+        {
+          "value": "Hong Kong",
+          "rows": 351
+        },
+        {
+          "value": "Singapore",
+          "rows": 332
+        },
+        {
+          "value": "Malta",
+          "rows": 277
+        },
+        {
+          "value": "Iceland",
+          "rows": 253
+        },
+        {
+          "value": "Canada",
+          "rows": 227
+        },
+        {
+          "value": "Lithuania",
+          "rows": 189
+        },
+        {
+          "value": "RSA",
+          "rows": 166
+        },
+        {
+          "value": "Bahrain",
+          "rows": 124
+        },
+        {
+          "value": "Brazil",
+          "rows": 94
+        },
+        {
+          "value": "Thailand",
+          "rows": 76
+        },
+        {
+          "value": "European Community",
+          "rows": 57
+        },
+        {
+          "value": "Lebanon",
+          "rows": 57
+        },
+        {
+          "value": "West Indies",
+          "rows": 54
+        },
+        {
+          "value": "Korea",
+          "rows": 53
+        },
+        {
+          "value": "Bermuda",
+          "rows": 34
+        },
+        {
+          "value": "Nigeria",
+          "rows": 29
+        },
+        {
+          "value": "Czech Republic",
+          "rows": 24
+        },
+        {
+          "value": "Saudi Arabia",
+          "rows": 9
+        }
+      ]
     },
     "customer_features": {
       "rows": 5852,
@@ -82,6 +299,17 @@
         "country": 0,
         "is_one_time_buyer": 0
       },
+      "null_rates": {
+        "customer_id": 0.0,
+        "recency_days": 0.0,
+        "frequency": 0.0,
+        "monetary": 0.0,
+        "first_purchase_date": 0.0,
+        "last_purchase_date": 0.0,
+        "unique_products": 0.0,
+        "country": 0.0,
+        "is_one_time_buyer": 0.0
+      },
       "dtypes": {
         "customer_id": "string",
         "recency_days": "int64",
@@ -92,7 +320,207 @@
         "unique_products": "int64",
         "country": "string",
         "is_one_time_buyer": "bool"
-      }
+      },
+      "numeric_distributions": {
+        "recency_days": {
+          "count": 5852,
+          "min": 0.0,
+          "p50": 95.0,
+          "p95": 623.0,
+          "max": 738.0,
+          "mean": 199.7323991797676
+        },
+        "frequency": {
+          "count": 5852,
+          "min": 1.0,
+          "p50": 3.0,
+          "p95": 20.0,
+          "max": 373.0,
+          "mean": 6.253246753246753
+        },
+        "monetary": {
+          "count": 5852,
+          "min": 2.95,
+          "p50": 880.375,
+          "p95": 9447.6655,
+          "max": 608821.65,
+          "mean": 2979.2318433014357
+        },
+        "unique_products": {
+          "count": 5852,
+          "min": 1.0,
+          "p50": 45.0,
+          "p95": 281.0,
+          "max": 2546.0,
+          "mean": 82.19207108680793
+        }
+      },
+      "country_distribution": [
+        {
+          "value": "United Kingdom",
+          "rows": 5334
+        },
+        {
+          "value": "Germany",
+          "rows": 106
+        },
+        {
+          "value": "France",
+          "rows": 93
+        },
+        {
+          "value": "Spain",
+          "rows": 35
+        },
+        {
+          "value": "Belgium",
+          "rows": 28
+        },
+        {
+          "value": "Portugal",
+          "rows": 23
+        },
+        {
+          "value": "Netherlands",
+          "rows": 22
+        },
+        {
+          "value": "Switzerland",
+          "rows": 21
+        },
+        {
+          "value": "Sweden",
+          "rows": 19
+        },
+        {
+          "value": "Italy",
+          "rows": 17
+        },
+        {
+          "value": "Australia",
+          "rows": 15
+        },
+        {
+          "value": "Channel Islands",
+          "rows": 13
+        },
+        {
+          "value": "Finland",
+          "rows": 13
+        },
+        {
+          "value": "Austria",
+          "rows": 12
+        },
+        {
+          "value": "Norway",
+          "rows": 12
+        },
+        {
+          "value": "Japan",
+          "rows": 10
+        },
+        {
+          "value": "Cyprus",
+          "rows": 9
+        },
+        {
+          "value": "Denmark",
+          "rows": 9
+        },
+        {
+          "value": "USA",
+          "rows": 8
+        },
+        {
+          "value": "Poland",
+          "rows": 6
+        },
+        {
+          "value": "Unspecified",
+          "rows": 6
+        },
+        {
+          "value": "Canada",
+          "rows": 5
+        },
+        {
+          "value": "Greece",
+          "rows": 5
+        },
+        {
+          "value": "Israel",
+          "rows": 4
+        },
+        {
+          "value": "United Arab Emirates",
+          "rows": 4
+        },
+        {
+          "value": "EIRE",
+          "rows": 3
+        },
+        {
+          "value": "Bahrain",
+          "rows": 2
+        },
+        {
+          "value": "Brazil",
+          "rows": 2
+        },
+        {
+          "value": "Korea",
+          "rows": 2
+        },
+        {
+          "value": "Malta",
+          "rows": 2
+        },
+        {
+          "value": "RSA",
+          "rows": 2
+        },
+        {
+          "value": "Czech Republic",
+          "rows": 1
+        },
+        {
+          "value": "European Community",
+          "rows": 1
+        },
+        {
+          "value": "Iceland",
+          "rows": 1
+        },
+        {
+          "value": "Lebanon",
+          "rows": 1
+        },
+        {
+          "value": "Lithuania",
+          "rows": 1
+        },
+        {
+          "value": "Nigeria",
+          "rows": 1
+        },
+        {
+          "value": "Saudi Arabia",
+          "rows": 1
+        },
+        {
+          "value": "Singapore",
+          "rows": 1
+        },
+        {
+          "value": "Thailand",
+          "rows": 1
+        },
+        {
+          "value": "West Indies",
+          "rows": 1
+        }
+      ]
     },
     "returns_log": {
       "rows": 19494,
@@ -113,6 +541,23 @@
         "same_time_candidate_rows": 0,
         "price_mismatch": 13191
       },
+      "null_rates": {
+        "invoice_no": 0.0,
+        "stock_code": 0.0,
+        "description": 0.0,
+        "quantity": 0.0,
+        "unit_price": 0.0,
+        "total_amount": 0.0,
+        "invoice_datetime": 0.0,
+        "customer_id": 0.03847337642351493,
+        "country": 0.0,
+        "source_row": 0.0,
+        "matched_original_invoice": 0.6766697445367805,
+        "matched_source_row": 0.6766697445367805,
+        "match_reason": 0.0,
+        "same_time_candidate_rows": 0.0,
+        "price_mismatch": 0.6766697445367805
+      },
       "dtypes": {
         "invoice_no": "string",
         "stock_code": "string",
@@ -129,7 +574,179 @@
         "match_reason": "string",
         "same_time_candidate_rows": "int64",
         "price_mismatch": "boolean"
-      }
+      },
+      "numeric_distributions": {
+        "quantity": {
+          "count": 19494,
+          "min": -80995.0,
+          "p50": -2.0,
+          "p95": -1.0,
+          "max": 1.0,
+          "mean": -25.186826715912588
+        },
+        "unit_price": {
+          "count": 19494,
+          "min": 0.01,
+          "p50": 2.95,
+          "p95": 16.95,
+          "max": 38970.0,
+          "mean": 44.872221196265514
+        },
+        "total_amount": {
+          "count": 19494,
+          "min": -168469.6,
+          "p50": -8.95,
+          "p95": -1.25,
+          "max": 373.57,
+          "mean": -78.31475633528265
+        }
+      },
+      "country_distribution": [
+        {
+          "value": "United Kingdom",
+          "rows": 16650
+        },
+        {
+          "value": "Germany",
+          "rows": 921
+        },
+        {
+          "value": "EIRE",
+          "rows": 512
+        },
+        {
+          "value": "France",
+          "rows": 389
+        },
+        {
+          "value": "USA",
+          "rows": 126
+        },
+        {
+          "value": "Australia",
+          "rows": 98
+        },
+        {
+          "value": "Japan",
+          "rows": 97
+        },
+        {
+          "value": "Channel Islands",
+          "rows": 95
+        },
+        {
+          "value": "Spain",
+          "rows": 91
+        },
+        {
+          "value": "Italy",
+          "rows": 66
+        },
+        {
+          "value": "Portugal",
+          "rows": 58
+        },
+        {
+          "value": "Belgium",
+          "rows": 54
+        },
+        {
+          "value": "Switzerland",
+          "rows": 52
+        },
+        {
+          "value": "Netherlands",
+          "rows": 47
+        },
+        {
+          "value": "United Arab Emirates",
+          "rows": 33
+        },
+        {
+          "value": "Sweden",
+          "rows": 26
+        },
+        {
+          "value": "Poland",
+          "rows": 23
+        },
+        {
+          "value": "Cyprus",
+          "rows": 21
+        },
+        {
+          "value": "Denmark",
+          "rows": 19
+        },
+        {
+          "value": "Norway",
+          "rows": 18
+        },
+        {
+          "value": "Finland",
+          "rows": 17
+        },
+        {
+          "value": "Malta",
+          "rows": 17
+        },
+        {
+          "value": "Austria",
+          "rows": 16
+        },
+        {
+          "value": "Korea",
+          "rows": 10
+        },
+        {
+          "value": "Singapore",
+          "rows": 7
+        },
+        {
+          "value": "Greece",
+          "rows": 6
+        },
+        {
+          "value": "Hong Kong",
+          "rows": 6
+        },
+        {
+          "value": "Czech Republic",
+          "rows": 5
+        },
+        {
+          "value": "Unspecified",
+          "rows": 4
+        },
+        {
+          "value": "Bahrain",
+          "rows": 2
+        },
+        {
+          "value": "Israel",
+          "rows": 2
+        },
+        {
+          "value": "Nigeria",
+          "rows": 2
+        },
+        {
+          "value": "European Community",
+          "rows": 1
+        },
+        {
+          "value": "Lebanon",
+          "rows": 1
+        },
+        {
+          "value": "RSA",
+          "rows": 1
+        },
+        {
+          "value": "Saudi Arabia",
+          "rows": 1
+        }
+      ]
     }
   }
 }

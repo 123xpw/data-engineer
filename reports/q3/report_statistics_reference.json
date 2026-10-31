@@ -1,0 +1,117 @@
+{
+  "status": "passed",
+  "canonical": {
+    "outputs": {
+      "sales_facts": {
+        "rows": 1037021,
+        "all_column_null_counts_and_rates_verified": true,
+        "numeric_columns": [
+          "quantity",
+          "unit_price",
+          "total_amount"
+        ],
+        "country_buckets": 43,
+        "country_coverage": 1037021
+      },
+      "customer_features": {
+        "rows": 5852,
+        "all_column_null_counts_and_rates_verified": true,
+        "numeric_columns": [
+          "recency_days",
+          "frequency",
+          "monetary",
+          "unique_products"
+        ],
+        "country_buckets": 41,
+        "country_coverage": 5852
+      },
+      "returns_log": {
+        "rows": 19494,
+        "all_column_null_counts_and_rates_verified": true,
+        "numeric_columns": [
+          "quantity",
+          "unit_price",
+          "total_amount"
+        ],
+        "country_buckets": 36,
+        "country_coverage": 19494
+      }
+    },
+    "metric_file_sha256": "50c89e3f599f599a769e5bb750ea5d260c3e66573a6f41ad1bb82a4952c7843b",
+    "method": "Arrow原生读取；Python排序、Fraction位置及math.fsum；不调用生产汇总",
+    "numeric_tolerance": {
+      "relative": 1e-12,
+      "absolute": 1e-12
+    },
+    "scope": "实际Parquet的报告统计，不认证清洗政策、真实退款或全仓文档语义质量"
+  },
+  "candidate": {
+    "outputs": {
+      "sales_facts": {
+        "rows": 1037021,
+        "all_column_null_counts_and_rates_verified": true,
+        "numeric_columns": [
+          "quantity",
+          "unit_price",
+          "total_amount"
+        ],
+        "country_buckets": 43,
+        "country_coverage": 1037021
+      },
+      "customer_features": {
+        "rows": 5852,
+        "all_column_null_counts_and_rates_verified": true,
+        "numeric_columns": [
+          "recency_days",
+          "frequency",
+          "monetary",
+          "unique_products"
+        ],
+        "country_buckets": 41,
+        "country_coverage": 5852
+      },
+      "returns_log": {
+        "rows": 19494,
+        "all_column_null_counts_and_rates_verified": true,
+        "numeric_columns": [
+          "quantity",
+          "unit_price",
+          "total_amount"
+        ],
+        "country_buckets": 36,
+        "country_coverage": 19494
+      }
+    },
+    "metric_file_sha256": "a73b1b286cc920eca92842defeb63a5b675ff53324bb73b1856ca0d8de97de18",
+    "method": "Arrow原生读取；Python排序、Fraction位置及math.fsum；不调用生产汇总",
+    "numeric_tolerance": {
+      "relative": 1e-12,
+      "absolute": 1e-12
+    },
+    "scope": "实际Parquet的报告统计，不认证清洗政策、真实退款或全仓文档语义质量"
+  },
+  "negative_controls": [
+    {
+      "fixture_only": true,
+      "change": "missing_rate",
+      "rejected": true
+    },
+    {
+      "fixture_only": true,
+      "change": "wrong_rate",
+      "rejected": true
+    },
+    {
+      "fixture_only": true,
+      "change": "wrong_quantile",
+      "rejected": true
+    },
+    {
+      "fixture_only": true,
+      "change": "country_coverage",
+      "rejected": true
+    }
+  ],
+  "production_wall_seconds_including_reports_and_publish": 2.929141500033438,
+  "real_metrics_unchanged_by_controls": true
+}

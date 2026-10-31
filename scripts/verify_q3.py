@@ -1,5 +1,7 @@
 """Q3 当前验收：手算、不同匹配算法、全量逐行摘要、回读、确定性与默认入口。"""
 import json
+from copy import deepcopy
+import time
 import hashlib
 import importlib.util
 from pathlib import Path
@@ -16,6 +18,7 @@ from artifact_manifest import publish,source_hashes,validate_manifest,manifest_p
 from scripts.verification_support import EvidenceRun,require,sha256,atomic_json
 from q3_etl_pipeline.pipeline import run_pipeline
 from q3_etl_pipeline.reference_check import check
+from scripts.q3_report_reference import check_report_statistics
 
 
 def inspect_nullable_prices(folder=ROOT/'q3_etl_pipeline'):
@@ -78,7 +81,7 @@ def inspect_nullable_prices(folder=ROOT/'q3_etl_pipeline'):
 def main():
     with EvidenceRun(ROOT/'reports/q3','acceptance') as e:
         def fixtures():
-            r=subprocess.run([sys.executable,'-m','unittest','q3_etl_pipeline.test_pipeline','-v'],cwd=ROOT,capture_output=True,text=True,timeout=60)
+            r=subprocess.run([sys.executable,'-m','unittest','q3_etl_pipeline.test_pipeline','q3_etl_pipeline.test_report_statistics','-v'],cwd=ROOT,capture_output=True,text=True,timeout=60)
             require(r.returncode==0,r.stderr[-1800:]);return {'fixed_samples':'手算金额/RFM、时间、匿名、容量、部分退货、异常 C 单、特殊商品'}
         if not e.check('固定手算与拒绝有损输入',fixtures):return 1
         def prior():
@@ -92,19 +95,41 @@ def main():
             require(next(r for r in top['results'] if r['stage']=='q3')['status']=='passed','默认入口未完成 Q3')
             validate_manifest(manifest_path(folder,'q3'),top['run_id'])
             reference=check(folder);atomic_json(ROOT/'reports/q3_reference.json',reference)
+            wall_started=time.monotonic()
             actual=publish('q3',ROOT/'q3_etl_pipeline',lambda fresh:run_pipeline(ROOT/'data/online_retail_ii.csv',fresh),inputs=[ROOT/'data/online_retail_ii.csv'])
-            require(actual['under_120_seconds'],'本次真实运行未达到两分钟')
+            wall_seconds=time.monotonic()-wall_started
+            require(actual['under_120_seconds'] and wall_seconds<120,'本次真实运行含统计/报告未达到两分钟')
             hashes={}
             for name in ['sales_facts','customer_features','returns_log']:
                 relative='outputs/'+name+'.parquet';value=sha256(ROOT/'q3_etl_pipeline'/relative)
                 require(value==sha256(folder/relative),'重跑 Parquet 字节不同，不能沿用逐行参考')
                 hashes[relative]=value
+            statistics=check_report_statistics(ROOT/'q3_etl_pipeline')
+            candidate_statistics=check_report_statistics(folder)
+            claimed=json.loads((ROOT/'q3_etl_pipeline/validation_metrics.json').read_text())
+            controls=[]
+            for field in ('missing_rate','wrong_rate','wrong_quantile','country_coverage'):
+                bad=deepcopy(claimed);summary=bad['outputs']['sales_facts']
+                if field=='missing_rate':summary.pop('null_rates')
+                elif field=='wrong_rate':summary['null_rates']['customer_id']=0.0
+                elif field=='wrong_quantile':summary['numeric_distributions']['quantity']['p95']+=1
+                else:summary['country_distribution'].pop()
+                rejected=False
+                try:check_report_statistics(ROOT/'q3_etl_pipeline',bad)
+                except AssertionError:rejected=True
+                require(rejected,'统计损坏未被独立参考拒绝：'+field)
+                controls.append({'fixture_only':True,'change':field,'rejected':rejected})
+            statistics_proof={'status':'passed','canonical':statistics,'candidate':candidate_statistics,
+                'negative_controls':controls,'production_wall_seconds_including_reports_and_publish':wall_seconds,
+                'real_metrics_unchanged_by_controls':sha256(ROOT/'q3_etl_pipeline/validation_metrics.json')==statistics['metric_file_sha256']}
+            require(statistics_proof['real_metrics_unchanged_by_controls'],'损坏控制修改了真实指标')
+            atomic_json(ROOT/'reports/q3/report_statistics_reference.json',statistics_proof)
             with tempfile.TemporaryDirectory(prefix='gekko-q3-fail-') as tmp:
                 target=Path(tmp)
                 r=subprocess.run([sys.executable,str(ROOT/'q3_etl_pipeline/pipeline.py'),'--input',str(target/'missing.csv'),'--output-dir',str(target)],cwd=target,capture_output=True,text=True,timeout=30)
                 require(r.returncode!=0,'独立 CLI 缺输入未失败')
                 state=json.loads(manifest_path(target,'q3').read_text());require(state['status']=='failed','失败清单未写出')
-            return {'pipeline_run_id':top['run_id'],'reference':reference,'production_seconds':actual['seconds'],'parquet_sha256':hashes,
+            return {'pipeline_run_id':top['run_id'],'reference':reference,'production_seconds':actual['seconds'],'production_wall_seconds_including_reports_and_publish':wall_seconds,'report_statistics':statistics,'parquet_sha256':hashes,
                 'sensitivity':actual['return_candidate_sensitivity'],'scope':'固定业务政策与候选匹配；不是业务真值或净退款认证'}
         if not e.check('全量独立复算、确定性、类型回读、性能和失败清单',full):return 1
         if not e.check('可空价格三态、旧版不变量与独立参考拒绝语义损坏',inspect_nullable_prices):return 1
@@ -112,6 +137,7 @@ def main():
         names=['validation_metrics.json','validation_report.md','outputs/sales_facts.parquet','outputs/customer_features.parquet','outputs/returns_log.parquet']
         e.report['artifact_sha256']={str((ROOT/'q3_etl_pipeline'/p).relative_to(ROOT)):sha256(ROOT/'q3_etl_pipeline'/p) for p in names}
         e.report['artifact_sha256']['reports/q3/nullable_price_snapshot.json']=sha256(ROOT/'reports/q3/nullable_price_snapshot.json')
+        e.report['artifact_sha256']['reports/q3/report_statistics_reference.json']=sha256(ROOT/'reports/q3/report_statistics_reference.json')
         e.save()
     return 0 if e.report['status']=='passed' else 1
 

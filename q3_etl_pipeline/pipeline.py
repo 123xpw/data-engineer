@@ -136,6 +136,56 @@ def validate_output(sales,rfm,returns):
             matched['_price_milli'].to_numpy()!=right['_price_milli'].to_numpy()),'价格差异标记与匹配双方原始价格不符')
 
 
+def summarize_output(frame,numeric_columns):
+    """按输出自己的行粒度统计，空分母保留未知，不改业务数据。"""
+    rows=len(frame);nulls={key:int(value) for key,value in frame.isna().sum().items()}
+    distributions={}
+    for name in numeric_columns:
+        valid=frame[name].dropna()
+        require(np.isfinite(valid.to_numpy(dtype=float)).all(),'报告数值列含非有限值：'+name)
+        values={'count':len(valid),'min':None,'p50':None,'p95':None,'max':None,'mean':None}
+        if len(valid):
+            values.update(min=float(valid.min()),p50=float(valid.quantile(.5,interpolation='linear')),
+                          p95=float(valid.quantile(.95,interpolation='linear')),max=float(valid.max()),mean=float(valid.mean()))
+            require(all(np.isfinite(v) for k,v in values.items() if k!='count'),'报告统计溢出或非有限：'+name)
+        distributions[name]=values
+    countries=[{'value':None if pd.isna(value) else str(value),'rows':int(count)}
+               for value,count in frame['country'].value_counts(dropna=False).items()]
+    countries.sort(key=lambda item:(-item['rows'],item['value'] is not None,item['value'] or ''))
+    return {'rows':rows,'null_counts':nulls,'null_rates':{key:value/rows if rows else None for key,value in nulls.items()},
+            'dtypes':frame.dtypes.astype(str).to_dict(),'numeric_distributions':distributions,'country_distribution':countries}
+
+
+def render_validation_report(report):
+    """面向验收者解释统计的用途；完整指标另存JSON，避免只贴大对象。"""
+    parts=['# Q3 ETL 数据校验与统计解释\n\n',
+        '## 我是怎样确定统计口径的\n\n',
+        '我把销售、客户和取消记录分开统计，因为三张表的行粒度不同。销售和取消是一条来源明细，客户表则是一位有标识的客户。若把它们使用同一个分母，空值率和国家占比会失去含义；因此下面的空值率一律是该输出字段的空值数量除以该输出实际行数，而不是原始文件总行数。空输出没有可解释的比例，写null而不是0%，也不能把空表说成质量完美。\n\n',
+        '我同时展示均值、中位数和高分位数，而不只给均值。少量大数量或高金额明细可能拉高均值，p50与p95能帮助判断长尾；极端值仍保留并单列核查，不因为超出分位数就删掉。分位数按排序位置(n-1)*q做线性插值，所以它可能不是某条原始记录的值，也不是实际成交价格。有效数排除真正的NULL，但不会把零、负数、空字符串或未知编码随意补成别的值。\n\n',
+        '销售表按正向商品毛交易解释，不能仅因金额都非负就称为净收入。取消表保留原始符号，负数量和负金额可能正是需要观察的事件，不能直接套销售表的非负规则。商品属性或退款是否最终完成仍需业务主数据核对，分布只描述程序产物，不能认证这些业务事实。金额沿用原数据单位，不推断或换算币种；内部千分整数与导出float的取舍不因报告统计而改变。\n\n',
+        '客户RFM使用有标识的毛购买记录，frequency是独立发票数，monetary是该客户的毛购买总额；它们与销售明细的数量或单行金额不能直接比较。客户主要国家已经按明确规则选取，因此这里国家分布是客户数，而销售与取消的国家分布是明细数。这也是为什么国家占比变化不能立即解释为市场份额或真实活跃人群变化。\n\n',
+        '取消匹配仍只是候选。price_mismatch为NULL表示没有比较对象，不能当作价格相同，也不应为了降低空值率而填False。只有已比较行可用于解释价差比例；匹配覆盖率不是准确率。未匹配也可能来自原始销售范围、缺身份、精确数量规则或候选已被消费，而不是已经证明没有原单。\n\n',
+        '所有逐列空值数量、比例、类型以及完整数值和国家分布保存在validation_metrics.json，便于机器复算；本页只列关键数值及国家TOP5，其余合计保留，不把未展示的国家当作不存在。并列按NULL在先、原字符串升序确定，重跑不依赖原始出现顺序。表内数值作展示舍入，JSON保留float值。浮点统计的独立核验有明确容差，计数与分母则精确比较；这些检查不是本人或另一位人员已经完成语义审核的声明。\n\n',
+        '## 三份输出的实际统计\n\n',
+        f"原始来源记录 {report['rows']}；销售明细 {report['sales_rows']}；客户 {report['customers']}；取消明细 {report['returns_rows']}。完整指标见 [validation_metrics.json](validation_metrics.json)。\n\n"]
+    def show(value):return 'null' if value is None else format(value,'.8g')
+    for name,summary in report['outputs'].items():
+        parts.append(f"### {name}\n\n实际行数：{summary['rows']}。\n\n")
+        if not summary['rows']:parts.append('空输出：各列空值率为null，不报告0%。\n\n')
+        else:
+            missing=[f"`{key}` {count}（{summary['null_rates'][key]:.6%}）" for key,count in summary['null_counts'].items() if count]
+            parts.append('空值数量/空值率：'+('；'.join(missing)+'；其余字段为0。' if missing else '所有字段均为0。')+'\n\n')
+        parts.append('| 数值列 | 有效数 | min | p50 | p95 | max | mean |\n|---|---:|---:|---:|---:|---:|---:|\n')
+        for key,stats in summary['numeric_distributions'].items():
+            parts.append('| '+key+' | '+' | '.join(show(stats[k]) for k in ('count','min','p50','p95','max','mean'))+' |\n')
+        parts.append('\n国家分布（按本表行数，TOP5）：\n\n| 原国家值 | 行数 |\n|---|---:|\n')
+        countries=summary['country_distribution']
+        for item in countries[:5]:parts.append(f"| {str(item['value']).replace('|',' / ') if item['value'] is not None else 'NULL（缺失）'} | {item['rows']} |\n")
+        parts.append(f"| 其余国家合计 | {sum(item['rows'] for item in countries[5:])} |\n\n")
+    parts.append('## 如何复核及当前边界\n\n逐列比例和分布应从实际Parquet复算，不能只信本报告或文件存在。确定性、金额/客户/候选的独立CSV参考与报告统计是不同检查；三份Parquet和本机两分钟要求另有真实回执。原始记录不因本报告被删除或修改，毛购买RFM和候选退款也不因报告完整就成为业务真值。\n')
+    return ''.join(parts)
+
+
 def run_pipeline(input_path,output_dir):
     output_dir=Path(output_dir);output_dir.mkdir(parents=True,exist_ok=True)
     logger=logging.getLogger('gekko.q3');logger.setLevel(logging.INFO)
@@ -174,11 +224,12 @@ def run_pipeline(input_path,output_dir):
             'return_candidate_sensitivity':sensitivity,
             'price_comparison_counts':price_counts,
             'reference_day':str(f['invoice_datetime'].max().normalize()),'source_sha256':load_sources()['retail']['files'][0]['sha256'],
-            'outputs':{name:{'rows':len(frame),'null_counts':frame.isna().sum().to_dict(),'dtypes':frame.dtypes.astype(str).to_dict()} for name,frame in frames.items()}}
-        (output_dir/'validation_metrics.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
-        (output_dir/'validation_report.md').write_text('# Q3 ETL 实际统计\n\n```json\n'+json.dumps(report,ensure_ascii=False,indent=2)+'\n```\n\n匹配是候选，部分退货不自动凑单；未知编码隔离，原始文件未删除。金额输出 float、内部整数千分单位；RFM 为毛购买而非净留存。price_mismatch 为可空布尔：无候选 NULL，有候选时同价 False、异价 True；只在已比较行中解释价格差异比例。\n')
-        require(seconds<120,f'实际耗时 {seconds:.6f} 秒，超过 120 秒门槛')
-        logger.info('本轮完成，耗时 %.6f 秒',seconds)
+            'statistics_policy':{'null_rate_denominator':'each_output_rows','empty_rate':None,'quantile_interpolation':'linear'},
+            'outputs':{name:summarize_output(frame,['recency_days','frequency','monetary','unique_products'] if name=='customer_features' else ['quantity','unit_price','total_amount']) for name,frame in frames.items()}}
+        (output_dir/'validation_report.md').write_text(render_validation_report(report))
+        report['seconds']=round(time.perf_counter()-start,6)
+        report['under_120_seconds']=report['seconds']<120
+        (output_dir/'validation_metrics.json').write_text(json.dumps(report,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
         return report
     except Exception as exc:
         logger.exception('管道失败，未声称通过');handler.flush()

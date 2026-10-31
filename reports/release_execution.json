@@ -1,7 +1,7 @@
 {
-  "run_id": "ccb9fa631c6d46bda700317e5e8d0277",
+  "run_id": "14c308a42650440baf7e801835372636",
   "status": "redacted_copy",
-  "timestamp_utc": "2026-10-31T14:26:49.539510+00:00",
+  "timestamp_utc": "2026-10-31T15:22:08.449367+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "requested_stage": "all",
@@ -32,7 +32,7 @@
           }
         ]
       },
-      "seconds": 0.4978
+      "seconds": 0.4962
     },
     {
       "stage": "data.olist",
@@ -175,7 +175,7 @@
           }
         ]
       },
-      "seconds": 0.6472
+      "seconds": 0.645
     },
     {
       "stage": "q1.1",
@@ -184,9 +184,9 @@
         "rows": 1067371,
         "observations": 10,
         "scope": "仅 Q1.1",
-        "output_dir": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/396fb55389f34292a6ea96b35022152f/q1"
+        "output_dir": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/c9c406be37ce4e1fb83e3a2fe5c70084/q1"
       },
-      "seconds": 1.7271
+      "seconds": 1.7136
     },
     {
       "stage": "q1.2",
@@ -194,9 +194,9 @@
       "detail": {
         "rows": 1067371,
         "scope": "仅 Q1.2",
-        "output_dir": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/396fb55389f34292a6ea96b35022152f/q1"
+        "output_dir": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/c9c406be37ce4e1fb83e3a2fe5c70084/q1"
       },
-      "seconds": 3.7045
+      "seconds": 3.6742
     },
     {
       "stage": "q1.3",
@@ -212,7 +212,7 @@
         "business_approval": "未获得；见规则假设和待确认范围",
         "validation_limit": "程序只核验交付文件和长度；不是自动业务语义审查"
       },
-      "seconds": 0.0052
+      "seconds": 0.0051
     },
     {
       "stage": "q2",
@@ -223,7 +223,7 @@
             "stage": "q2.load",
             "status": "passed",
             "detail": {
-              "version": "9fe8c1e1f116",
+              "version": "3f991531e31e",
               "tables": {
                 "customers": 99441,
                 "geolocation": 1000163,
@@ -235,7 +235,7 @@
                 "sellers": 3095,
                 "product_category_name_translation": 71
               },
-              "report": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/396fb55389f34292a6ea96b35022152f/q2/.pending-s7ukudk3/load_report.json"
+              "report": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/c9c406be37ce4e1fb83e3a2fe5c70084/q2/.pending-18zxvu3q/load_report.json"
             }
           },
           {
@@ -243,7 +243,7 @@
             "status": "passed",
             "detail": {
               "server_version": "8.4.13",
-              "load_version": "9fe8c1e1f116",
+              "load_version": "3f991531e31e",
               "total_products": 32951,
               "unknown_category_products": 610,
               "named_translation_gaps": [
@@ -265,7 +265,7 @@
             "status": "passed",
             "detail": {
               "server_version": "8.4.13",
-              "load_version": "9fe8c1e1f116",
+              "load_version": "3f991531e31e",
               "cancel_rate_unit": "百分数",
               "delivery_days": "有效 delivered 订单等权，秒/86400，六位小数；NULL 排除并披露",
               "months": [
@@ -626,7 +626,7 @@
             "stage": "q2.3",
             "status": "passed",
             "detail": {
-              "load_version": "9fe8c1e1f116",
+              "load_version": "3f991531e31e",
               "year": 2017,
               "rate_unit": "百分数",
               "review_rule": "每订单按创建、回答、review_id、来源行降序取一条；不是权威性认证",
@@ -1000,7 +1000,7 @@
             "stage": "q2.4",
             "status": "passed",
             "detail": {
-              "load_version": "9fe8c1e1f116",
+              "load_version": "3f991531e31e",
               "scope": "原题筛选；商品价格不含运费/退款，评分每订单最新一条等权；不是净收入审计",
               "states": [
                 {
@@ -1207,7 +1207,7 @@
         ],
         "scope": "九表与 Q2.1–Q2.4"
       },
-      "seconds": 29.4134
+      "seconds": 29.1928
     },
     {
       "stage": "q3",
@@ -1235,7 +1235,7 @@
           "eligible_candidates_consumed": 207,
           "unexpected_nonnegative_cancel_quantity": 1
         },
-        "seconds": 3.052473,
+        "seconds": 2.989926,
         "under_120_seconds": true,
         "scope": "正向商品毛交易、毛购买 RFM、容量受限精确数量候选；非净退款认证",
         "return_candidate_sensitivity": {
@@ -1255,6 +1255,11 @@
         },
         "reference_day": "2011-12-09 00:00:00",
         "source_sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9",
+        "statistics_policy": {
+          "null_rate_denominator": "each_output_rows",
+          "empty_rate": null,
+          "quantile_interpolation": "linear"
+        },
         "outputs": {
           "sales_facts": {
             "rows": 1037021,
@@ -1270,6 +1275,18 @@
               "country": 0,
               "source_row": 0
             },
+            "null_rates": {
+              "invoice_no": 0.0,
+              "stock_code": 0.0,
+              "description": 0.0,
+              "quantity": 0.0,
+              "unit_price": 0.0,
+              "total_amount": 0.0,
+              "invoice_datetime": 0.0,
+              "customer_id": 0.22600313783423864,
+              "country": 0.0,
+              "source_row": 0.0
+            },
             "dtypes": {
               "invoice_no": "string",
               "stock_code": "string",
@@ -1281,7 +1298,207 @@
               "customer_id": "string",
               "country": "string",
               "source_row": "int64"
-            }
+            },
+            "numeric_distributions": {
+              "quantity": {
+                "count": 1037021,
+                "min": 1.0,
+                "p50": 3.0,
+                "p95": 30.0,
+                "max": 80995.0,
+                "mean": 10.995602789143133
+              },
+              "unit_price": {
+                "count": 1037021,
+                "min": 0.001,
+                "p50": 2.1,
+                "p95": 9.95,
+                "max": 1157.15,
+                "mean": 3.339407656161254
+              },
+              "total_amount": {
+                "count": 1037021,
+                "min": 0.001,
+                "p50": 9.96,
+                "p95": 59.4,
+                "max": 168469.6,
+                "mean": 19.39226015384452
+              }
+            },
+            "country_distribution": [
+              {
+                "value": "United Kingdom",
+                "rows": 955994
+              },
+              {
+                "value": "EIRE",
+                "rows": 17105
+              },
+              {
+                "value": "Germany",
+                "rows": 16035
+              },
+              {
+                "value": "France",
+                "rows": 13450
+              },
+              {
+                "value": "Netherlands",
+                "rows": 4983
+              },
+              {
+                "value": "Spain",
+                "rows": 3617
+              },
+              {
+                "value": "Switzerland",
+                "rows": 3081
+              },
+              {
+                "value": "Belgium",
+                "rows": 2923
+              },
+              {
+                "value": "Portugal",
+                "rows": 2497
+              },
+              {
+                "value": "Australia",
+                "rows": 1806
+              },
+              {
+                "value": "Channel Islands",
+                "rows": 1561
+              },
+              {
+                "value": "Italy",
+                "rows": 1436
+              },
+              {
+                "value": "Norway",
+                "rows": 1410
+              },
+              {
+                "value": "Sweden",
+                "rows": 1287
+              },
+              {
+                "value": "Cyprus",
+                "rows": 1151
+              },
+              {
+                "value": "Finland",
+                "rows": 985
+              },
+              {
+                "value": "Austria",
+                "rows": 888
+              },
+              {
+                "value": "Denmark",
+                "rows": 775
+              },
+              {
+                "value": "Unspecified",
+                "rows": 752
+              },
+              {
+                "value": "Greece",
+                "rows": 653
+              },
+              {
+                "value": "Poland",
+                "rows": 506
+              },
+              {
+                "value": "Japan",
+                "rows": 485
+              },
+              {
+                "value": "United Arab Emirates",
+                "rows": 462
+              },
+              {
+                "value": "USA",
+                "rows": 404
+              },
+              {
+                "value": "Israel",
+                "rows": 369
+              },
+              {
+                "value": "Hong Kong",
+                "rows": 351
+              },
+              {
+                "value": "Singapore",
+                "rows": 332
+              },
+              {
+                "value": "Malta",
+                "rows": 277
+              },
+              {
+                "value": "Iceland",
+                "rows": 253
+              },
+              {
+                "value": "Canada",
+                "rows": 227
+              },
+              {
+                "value": "Lithuania",
+                "rows": 189
+              },
+              {
+                "value": "RSA",
+                "rows": 166
+              },
+              {
+                "value": "Bahrain",
+                "rows": 124
+              },
+              {
+                "value": "Brazil",
+                "rows": 94
+              },
+              {
+                "value": "Thailand",
+                "rows": 76
+              },
+              {
+                "value": "European Community",
+                "rows": 57
+              },
+              {
+                "value": "Lebanon",
+                "rows": 57
+              },
+              {
+                "value": "West Indies",
+                "rows": 54
+              },
+              {
+                "value": "Korea",
+                "rows": 53
+              },
+              {
+                "value": "Bermuda",
+                "rows": 34
+              },
+              {
+                "value": "Nigeria",
+                "rows": 29
+              },
+              {
+                "value": "Czech Republic",
+                "rows": 24
+              },
+              {
+                "value": "Saudi Arabia",
+                "rows": 9
+              }
+            ]
           },
           "customer_features": {
             "rows": 5852,
@@ -1296,6 +1513,17 @@
               "country": 0,
               "is_one_time_buyer": 0
             },
+            "null_rates": {
+              "customer_id": 0.0,
+              "recency_days": 0.0,
+              "frequency": 0.0,
+              "monetary": 0.0,
+              "first_purchase_date": 0.0,
+              "last_purchase_date": 0.0,
+              "unique_products": 0.0,
+              "country": 0.0,
+              "is_one_time_buyer": 0.0
+            },
             "dtypes": {
               "customer_id": "string",
               "recency_days": "int64",
@@ -1306,7 +1534,207 @@
               "unique_products": "int64",
               "country": "string",
               "is_one_time_buyer": "bool"
-            }
+            },
+            "numeric_distributions": {
+              "recency_days": {
+                "count": 5852,
+                "min": 0.0,
+                "p50": 95.0,
+                "p95": 623.0,
+                "max": 738.0,
+                "mean": 199.7323991797676
+              },
+              "frequency": {
+                "count": 5852,
+                "min": 1.0,
+                "p50": 3.0,
+                "p95": 20.0,
+                "max": 373.0,
+                "mean": 6.253246753246753
+              },
+              "monetary": {
+                "count": 5852,
+                "min": 2.95,
+                "p50": 880.375,
+                "p95": 9447.6655,
+                "max": 608821.65,
+                "mean": 2979.2318433014357
+              },
+              "unique_products": {
+                "count": 5852,
+                "min": 1.0,
+                "p50": 45.0,
+                "p95": 281.0,
+                "max": 2546.0,
+                "mean": 82.19207108680793
+              }
+            },
+            "country_distribution": [
+              {
+                "value": "United Kingdom",
+                "rows": 5334
+              },
+              {
+                "value": "Germany",
+                "rows": 106
+              },
+              {
+                "value": "France",
+                "rows": 93
+              },
+              {
+                "value": "Spain",
+                "rows": 35
+              },
+              {
+                "value": "Belgium",
+                "rows": 28
+              },
+              {
+                "value": "Portugal",
+                "rows": 23
+              },
+              {
+                "value": "Netherlands",
+                "rows": 22
+              },
+              {
+                "value": "Switzerland",
+                "rows": 21
+              },
+              {
+                "value": "Sweden",
+                "rows": 19
+              },
+              {
+                "value": "Italy",
+                "rows": 17
+              },
+              {
+                "value": "Australia",
+                "rows": 15
+              },
+              {
+                "value": "Channel Islands",
+                "rows": 13
+              },
+              {
+                "value": "Finland",
+                "rows": 13
+              },
+              {
+                "value": "Austria",
+                "rows": 12
+              },
+              {
+                "value": "Norway",
+                "rows": 12
+              },
+              {
+                "value": "Japan",
+                "rows": 10
+              },
+              {
+                "value": "Cyprus",
+                "rows": 9
+              },
+              {
+                "value": "Denmark",
+                "rows": 9
+              },
+              {
+                "value": "USA",
+                "rows": 8
+              },
+              {
+                "value": "Poland",
+                "rows": 6
+              },
+              {
+                "value": "Unspecified",
+                "rows": 6
+              },
+              {
+                "value": "Canada",
+                "rows": 5
+              },
+              {
+                "value": "Greece",
+                "rows": 5
+              },
+              {
+                "value": "Israel",
+                "rows": 4
+              },
+              {
+                "value": "United Arab Emirates",
+                "rows": 4
+              },
+              {
+                "value": "EIRE",
+                "rows": 3
+              },
+              {
+                "value": "Bahrain",
+                "rows": 2
+              },
+              {
+                "value": "Brazil",
+                "rows": 2
+              },
+              {
+                "value": "Korea",
+                "rows": 2
+              },
+              {
+                "value": "Malta",
+                "rows": 2
+              },
+              {
+                "value": "RSA",
+                "rows": 2
+              },
+              {
+                "value": "Czech Republic",
+                "rows": 1
+              },
+              {
+                "value": "European Community",
+                "rows": 1
+              },
+              {
+                "value": "Iceland",
+                "rows": 1
+              },
+              {
+                "value": "Lebanon",
+                "rows": 1
+              },
+              {
+                "value": "Lithuania",
+                "rows": 1
+              },
+              {
+                "value": "Nigeria",
+                "rows": 1
+              },
+              {
+                "value": "Saudi Arabia",
+                "rows": 1
+              },
+              {
+                "value": "Singapore",
+                "rows": 1
+              },
+              {
+                "value": "Thailand",
+                "rows": 1
+              },
+              {
+                "value": "West Indies",
+                "rows": 1
+              }
+            ]
           },
           "returns_log": {
             "rows": 19494,
@@ -1327,6 +1755,23 @@
               "same_time_candidate_rows": 0,
               "price_mismatch": 13191
             },
+            "null_rates": {
+              "invoice_no": 0.0,
+              "stock_code": 0.0,
+              "description": 0.0,
+              "quantity": 0.0,
+              "unit_price": 0.0,
+              "total_amount": 0.0,
+              "invoice_datetime": 0.0,
+              "customer_id": 0.03847337642351493,
+              "country": 0.0,
+              "source_row": 0.0,
+              "matched_original_invoice": 0.6766697445367805,
+              "matched_source_row": 0.6766697445367805,
+              "match_reason": 0.0,
+              "same_time_candidate_rows": 0.0,
+              "price_mismatch": 0.6766697445367805
+            },
             "dtypes": {
               "invoice_no": "string",
               "stock_code": "string",
@@ -1343,11 +1788,183 @@
               "match_reason": "string",
               "same_time_candidate_rows": "int64",
               "price_mismatch": "boolean"
-            }
+            },
+            "numeric_distributions": {
+              "quantity": {
+                "count": 19494,
+                "min": -80995.0,
+                "p50": -2.0,
+                "p95": -1.0,
+                "max": 1.0,
+                "mean": -25.186826715912588
+              },
+              "unit_price": {
+                "count": 19494,
+                "min": 0.01,
+                "p50": 2.95,
+                "p95": 16.95,
+                "max": 38970.0,
+                "mean": 44.872221196265514
+              },
+              "total_amount": {
+                "count": 19494,
+                "min": -168469.6,
+                "p50": -8.95,
+                "p95": -1.25,
+                "max": 373.57,
+                "mean": -78.31475633528265
+              }
+            },
+            "country_distribution": [
+              {
+                "value": "United Kingdom",
+                "rows": 16650
+              },
+              {
+                "value": "Germany",
+                "rows": 921
+              },
+              {
+                "value": "EIRE",
+                "rows": 512
+              },
+              {
+                "value": "France",
+                "rows": 389
+              },
+              {
+                "value": "USA",
+                "rows": 126
+              },
+              {
+                "value": "Australia",
+                "rows": 98
+              },
+              {
+                "value": "Japan",
+                "rows": 97
+              },
+              {
+                "value": "Channel Islands",
+                "rows": 95
+              },
+              {
+                "value": "Spain",
+                "rows": 91
+              },
+              {
+                "value": "Italy",
+                "rows": 66
+              },
+              {
+                "value": "Portugal",
+                "rows": 58
+              },
+              {
+                "value": "Belgium",
+                "rows": 54
+              },
+              {
+                "value": "Switzerland",
+                "rows": 52
+              },
+              {
+                "value": "Netherlands",
+                "rows": 47
+              },
+              {
+                "value": "United Arab Emirates",
+                "rows": 33
+              },
+              {
+                "value": "Sweden",
+                "rows": 26
+              },
+              {
+                "value": "Poland",
+                "rows": 23
+              },
+              {
+                "value": "Cyprus",
+                "rows": 21
+              },
+              {
+                "value": "Denmark",
+                "rows": 19
+              },
+              {
+                "value": "Norway",
+                "rows": 18
+              },
+              {
+                "value": "Finland",
+                "rows": 17
+              },
+              {
+                "value": "Malta",
+                "rows": 17
+              },
+              {
+                "value": "Austria",
+                "rows": 16
+              },
+              {
+                "value": "Korea",
+                "rows": 10
+              },
+              {
+                "value": "Singapore",
+                "rows": 7
+              },
+              {
+                "value": "Greece",
+                "rows": 6
+              },
+              {
+                "value": "Hong Kong",
+                "rows": 6
+              },
+              {
+                "value": "Czech Republic",
+                "rows": 5
+              },
+              {
+                "value": "Unspecified",
+                "rows": 4
+              },
+              {
+                "value": "Bahrain",
+                "rows": 2
+              },
+              {
+                "value": "Israel",
+                "rows": 2
+              },
+              {
+                "value": "Nigeria",
+                "rows": 2
+              },
+              {
+                "value": "European Community",
+                "rows": 1
+              },
+              {
+                "value": "Lebanon",
+                "rows": 1
+              },
+              {
+                "value": "RSA",
+                "rows": 1
+              },
+              {
+                "value": "Saudi Arabia",
+                "rows": 1
+              }
+            ]
           }
         }
       },
-      "seconds": 3.1612
+      "seconds": 3.0863
     },
     {
       "stage": "q4",
@@ -1391,7 +2008,7 @@
           "budget_occupied_usd": "1.7664627",
           "uncertain_cost_requests": 0,
           "prompt_sha256": "c659c828cbc9ae2c8862fce6a715b350663d7ae972ef8e813af72f281cd68bfd",
-          "seconds": 5.860318,
+          "seconds": 5.696598,
           "service_config_sha256": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
           "actual_billed_cost_usd": null,
           "scope": "逐行分流及调用控制；usage 按配置单价计算，非账单认证；引文校验不认证语义；人工评估另行完成",
@@ -1401,7 +2018,7 @@
           "campaign_span_is_execution_time": false
         }
       },
-      "seconds": 5.8873
+      "seconds": 5.7222
     },
     {
       "stage": "q5",
@@ -1418,7 +2035,7 @@
         },
         "scope": "文档交付、字数与数学情景；未部署、压测或独立人员审阅"
       },
-      "seconds": 0.0047
+      "seconds": 0.0058
     }
   ],
   "source_sha256": {
@@ -1443,9 +2060,10 @@
     "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
     "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
     "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
-    "q3_etl_pipeline/pipeline.py": "342cd437efbf8e7ad0d384994dadcb721c5f08a794fcd0a6008635b3f9692d80",
+    "q3_etl_pipeline/pipeline.py": "ed04843071901f434356531d4b0823406a861040ae0ee4d6482f5236fe7ee972",
     "q3_etl_pipeline/reference_check.py": "8cd116e7c3ed9760c39589e6327f759bd3e98a134de3571fdb50c55b658978e1",
     "q3_etl_pipeline/test_pipeline.py": "440d0b3ca8168c37f7f69a6d279a97521d5a76572bc7fcd049c8a2d0566da0c5",
+    "q3_etl_pipeline/test_report_statistics.py": "a823481abb12a691abe470eaadd48a893bf8009430e58f4861f2134338ab93af",
     "q4_llm_extraction/accuracy_evaluation.md": "baa643b26e2eb685fe962fc069652ac6e2ac766adabaa1b175c8366da89e9767",
     "q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
     "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
@@ -1455,22 +2073,22 @@
     "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
     "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
     "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
-    "release_check.py": "c60784f978570afcc0527b8c3b142a249c51940320c175f5f72d4c8a09c211d7",
+    "release_check.py": "4173f7ca975e1f1023fedccbb83648eac50d88bf2805d320a190a0164438cbba",
     "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
     "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f"
   },
   "output_directories": {
-    "q1": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/396fb55389f34292a6ea96b35022152f/q1",
-    "q2": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/396fb55389f34292a6ea96b35022152f/q2",
-    "q3": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/396fb55389f34292a6ea96b35022152f/q3",
-    "q4": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/396fb55389f34292a6ea96b35022152f/q4",
-    "q5": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/396fb55389f34292a6ea96b35022152f/q5"
+    "q1": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/c9c406be37ce4e1fb83e3a2fe5c70084/q1",
+    "q2": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/c9c406be37ce4e1fb83e3a2fe5c70084/q2",
+    "q3": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/c9c406be37ce4e1fb83e3a2fe5c70084/q3",
+    "q4": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/c9c406be37ce4e1fb83e3a2fe5c70084/q4",
+    "q5": "[本地用户目录]/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/c9c406be37ce4e1fb83e3a2fe5c70084/q5"
   },
   "recorded_status_before_redaction": "passed",
   "publication_redaction": {
     "classification": "个人目录已脱敏的阅读副本，不作为机器验收通过输入；运行后生成新的实际回执",
-    "original_file_sha256": "ba4a18f5725a986af8f904c365d45a0380fee2737250c26196ebace60e472091",
-    "source_commit": "2c809470f15e33a91cd52d6b3a90aec791c01bd1",
+    "original_file_sha256": "c66291f8869b1ebe997bc879b55f866efd43b84efb2da8691de3191f9055ce4f",
+    "source_commit": "1b414ef78f98654c72280ddb9c4a26c5ea90e56e",
     "redacted_category": "本地用户目录",
     "original_unredacted_file_in_public_package": false
   }

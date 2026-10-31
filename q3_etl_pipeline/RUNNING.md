@@ -21,3 +21,9 @@ RFM 基于上述毛购买，只有非空原始客户 ID 参加。国家以不同
 same_time_candidate_rows 是原始同时间候选行数，包含已消费行，不是当前可用候选数。本轮不改变该口径，也不改变必填的匹配发票 NULL 或容量约束。三态验收标准见 [契约](ACCEPTANCE_NULLABLE_PRICE.md)。
 
 未匹配时该计数字段为 0，仅表示未记录选中时间的候选数，不能据此证明原始销售不存在。下游价格差异比例可先取 `returns[returns['price_mismatch'].notna()]`，以这些已比较行为分母；不把原列的 NULL 改成 False，也不把全部取消行当作价格已比较的分母。
+
+## 验证报告统计
+
+validation_metrics.json为三输出逐列给出null_counts/null_rates/dtypes及关键数值和完整国家分布；空值率以各自输出行数为分母，空表为null。数值含有效数、min/p50/p95/max/mean，分位数用线性插值。国家按各自行粒度计数、并列确定性排序，Markdown只展示TOP5及其余合计。
+
+报告先解释长尾、粒度、毛购买及退款候选，再给可读统计；金额表格有展示舍入，JSON保留float，内部业务金额仍为千分整数。Arrow原生读取、Python排序/Fraction/fsum验证端独立复算，计数/分母精确、浮点容差公开；独立统计回执已纳入正式Q3门槛。详见 [本轮结果](../audit/Q3_REPORT_STATS_RESULT.md)。这不代表统计描述认证真实退款、客户身份或候选人已完成人工审核。

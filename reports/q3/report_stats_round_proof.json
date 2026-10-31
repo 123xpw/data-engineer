@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "business_parquet_byte_unchanged_from_round_before": {
+    "q3_etl_pipeline/outputs/sales_facts.parquet": true,
+    "q3_etl_pipeline/outputs/customer_features.parquet": true,
+    "q3_etl_pipeline/outputs/returns_log.parquet": true
+  },
+  "production_report_seconds": 2.853712,
+  "canonical_wall_seconds_including_reports_and_publish": 2.929141500033438,
+  "reasoning_section_nonwhitespace_characters": 981,
+  "whole_report_nonwhitespace_characters": 2605,
+  "reasoning_section_fraction": 0.37658349328214974,
+  "reasoning_measurement_scope": "人工指定的解释段与全Markdown非空白字符，包含表格；不是语义评分或全仓每文档1/3认证",
+  "independent_reference_artifact": "reports/q3/report_statistics_reference.json",
+  "scope": "统计报告补齐；不改销售/RFM/取消业务结果、不认证净退款或客户身份",
+  "markdown_display_verified": {
+    "numeric_cells": 50,
+    "nonzero_null_rate_displays": 5
+  },
+  "display_numeric_tolerance": {
+    "relative": 1e-07,
+    "absolute": 1e-07
+  },
+  "null_rate_display_absolute_tolerance": 5.1e-09,
+  "markdown_only_quantile_corruption_rejected": true,
+  "markdown_sha256": "0a4b3a70737b6b87c22c968e75b1baf02fe540d431669f9da846e16c3c728522",
+  "display_check_scope": "当前版本额外展示核对；正式统计参考已核验JSON和Parquet，本检查补展示舍入/列位置，不认证语义质量"
+}

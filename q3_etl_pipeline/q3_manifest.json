@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "run_id": "7fed316717044a3bb2ce0eb02c71db5d",
+  "run_id": "e34d2dd08cb244fa83f9758e91ea8a1b",
   "stage": "q3",
   "status": "redacted_copy",
-  "updated_utc": "2026-10-31T14:25:29.814096+00:00",
+  "updated_utc": "2026-10-31T15:20:48.977655+00:00",
   "artifacts": {
     "outputs/sales_facts.parquet": "f40bb584a5ea698446ad11bb0c93c2fa919293263a1d06313db2404242244e65",
     "outputs/customer_features.parquet": "51c6c7c9d823ddcca243552991a99165ff69d1839b3e4b1ab1755fd2986d7990",
     "outputs/returns_log.parquet": "a12fa6a9e9cd8afb595b881bc3049ed536665673fb995032d0e77c172144f1fd",
-    "pipeline_log.txt": "c2e1ef1a5b553559eaad359c608ace4f0d6094ffe665c07d6df823495c43c5d5",
-    "validation_metrics.json": "694eac2027ce515cbccf6f966581346b7cfd42496cf32f31e164e9dc819ce28f",
-    "validation_report.md": "91b2c21a3722c5be486c8b382f19708abc2311b080286033bc5717f6979f994a"
+    "pipeline_log.txt": "189a45c6244250eb71b6e71ecd7376b37c68af78079452d93ea04de51785f239",
+    "validation_metrics.json": "50c89e3f599f599a769e5bb750ea5d260c3e66573a6f41ad1bb82a4952c7843b",
+    "validation_report.md": "0a4b3a70737b6b87c22c968e75b1baf02fe540d431669f9da846e16c3c728522"
   },
   "source_sha256": {
     "artifact_manifest.py": "e15c63eb82cf6c77e93b2ec537733aad8dd0f14020decf99b6144a1b7ae59c97",
@@ -34,9 +34,10 @@
     "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
     "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
     "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
-    "q3_etl_pipeline/pipeline.py": "342cd437efbf8e7ad0d384994dadcb721c5f08a794fcd0a6008635b3f9692d80",
+    "q3_etl_pipeline/pipeline.py": "ed04843071901f434356531d4b0823406a861040ae0ee4d6482f5236fe7ee972",
     "q3_etl_pipeline/reference_check.py": "8cd116e7c3ed9760c39589e6327f759bd3e98a134de3571fdb50c55b658978e1",
     "q3_etl_pipeline/test_pipeline.py": "440d0b3ca8168c37f7f69a6d279a97521d5a76572bc7fcd049c8a2d0566da0c5",
+    "q3_etl_pipeline/test_report_statistics.py": "a823481abb12a691abe470eaadd48a893bf8009430e58f4861f2134338ab93af",
     "q4_llm_extraction/accuracy_evaluation.md": "baa643b26e2eb685fe962fc069652ac6e2ac766adabaa1b175c8366da89e9767",
     "q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
     "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
@@ -46,7 +47,7 @@
     "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
     "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
     "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
-    "release_check.py": "c60784f978570afcc0527b8c3b142a249c51940320c175f5f72d4c8a09c211d7",
+    "release_check.py": "4173f7ca975e1f1023fedccbb83648eac50d88bf2805d320a190a0164438cbba",
     "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
     "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f"
   },
@@ -56,8 +57,8 @@
   "recorded_status_before_redaction": "passed",
   "publication_redaction": {
     "classification": "个人目录已脱敏的阅读副本，不作为机器验收通过输入；运行后生成新的实际回执",
-    "original_file_sha256": "8f17895dc458a1a67f577c90a6d3b21ea99606909a9568d114c721070aae9e28",
-    "source_commit": "2c809470f15e33a91cd52d6b3a90aec791c01bd1",
+    "original_file_sha256": "f8eb8675515a6444fe82601f8408ff6672d1c19adb197d91978f342a5d0fecdc",
+    "source_commit": "1b414ef78f98654c72280ddb9c4a26c5ea90e56e",
     "redacted_category": "本地用户目录",
     "original_unredacted_file_in_public_package": false
   }

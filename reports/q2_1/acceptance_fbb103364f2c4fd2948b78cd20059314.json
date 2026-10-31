@@ -396,7 +396,7 @@
   "publication_redaction": {
     "classification": "个人目录已脱敏的阅读副本，不作为机器验收通过输入；运行后生成新的实际回执",
     "original_file_sha256": "56801cef46131f5ce066bf8dab2f0205c9662221f5bd5da04164e60b6a09af57",
-    "source_commit": "2c809470f15e33a91cd52d6b3a90aec791c01bd1",
+    "source_commit": "1b414ef78f98654c72280ddb9c4a26c5ea90e56e",
     "redacted_category": "本地用户目录",
     "original_unredacted_file_in_public_package": false
   }

@@ -45,4 +45,4 @@ DeepSeek 参考：[模型与价格](https://api-docs.deepseek.com/quick_start/pr
 
 使用 unittest.mock、deepcopy 和 tempfile 对真实报告的复制件进行状态、重复项、缺检查/产物、版本和指纹损坏控制，不改真实报告；替代方案是隔离工作树的完整错误版本运行，成本较高。JSON object_pairs_hook/parse_constant 拒绝重复键与NaN，避免标准解析器的后项覆盖。SHA-256、Git历史和实际输入字节复核用于版本适用性，不能证明业务真值或人类身份。
 
-当前新虚拟环境重新用无pip缓存安装锁定依赖、pip check/freeze逐项对比，空Kaggle缓存下载后独立核对10个CSV。替代方案是容器/CI新机器运行；当前复用本机MySQL，不冒称新服务器或已付费模型无缓存生成。完整结果见 [本轮验收](audit/RELEASE_AUDIT_RESULT.md)。
+此前在新虚拟环境用无pip缓存安装锁定依赖、pip check/freeze逐项对比，空Kaggle缓存下载后独立核对10个CSV；只按未变依赖/下载范围复用，当前新增报告逻辑另做回归。替代方案是容器/CI新机器运行；当前复用本机MySQL，不冒称新服务器或已付费模型无缓存生成。完整结果见 [本轮验收](audit/RELEASE_AUDIT_RESULT.md)。

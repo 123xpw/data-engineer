@@ -30,7 +30,7 @@ CONTRACTS={
  'Q2.4':('q2_4','acceptance',{'真实 MySQL 与 TLS 就绪','冻结 SQL、真实计时证据与手算反例','当前源码既有业务回归及默认四题入口','本题正式发布、逐州独立复算与全入口归属'},
   {'q2_sql_analysis/q2_4_results.json','q2_sql_analysis/q2_4_query_optimization.md','reports/q2_4_experiment.json'}),
  'Q3.1':('q3','acceptance',{'固定手算与拒绝有损输入','已有业务回归及默认全入口','全量独立复算、确定性、类型回读、性能和失败清单','可空价格三态、旧版不变量与独立参考拒绝语义损坏'},
-  {'q3_etl_pipeline/'+p for p in ['validation_metrics.json','validation_report.md','outputs/sales_facts.parquet','outputs/customer_features.parquet','outputs/returns_log.parquet']}|{'reports/q3/nullable_price_snapshot.json'}),
+  {'q3_etl_pipeline/'+p for p in ['validation_metrics.json','validation_report.md','outputs/sales_facts.parquet','outputs/customer_features.parquet','outputs/returns_log.parquet']}|{'reports/q3/nullable_price_snapshot.json','reports/q3/report_statistics_reference.json'}),
  'Q4.R1':('q4','engineering',{'预设反例、计费手算、恢复与墙钟进程终止','定向变异必须由指定反例检出','全量冻结输入、独立分流、部分状态与空标注拒绝'},
   {'.venv/q4-engineering-output/'+p for p in ['extracted_issues.json','run_metrics.json','annotation_blind.json','cost_report.md']}|{'q4_llm_extraction/pipeline_design.md','q4_llm_extraction/accuracy_evaluation.md'}),
  'Q4.PROCESSING':('q4','processing',{'真实全量、逐行证据、原始回执与累计预算时长'},

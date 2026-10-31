@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "run_id": "e495fa26eccf4db7ac6eb4d137444483",
+  "run_id": "5f409ad9359048a6ab271e75c787e1ad",
   "stage": "q5",
   "status": "passed",
-  "updated_utc": "2026-10-31T14:25:58.255110+00:00",
+  "updated_utc": "2026-10-31T15:21:18.204106+00:00",
   "artifacts": {
     "real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
     "design_metrics.json": "090227a3bafc35e7b96f0ea95df5ca7ea585fa311a96e97cdebb4c9023a94e94"
@@ -30,9 +30,10 @@
     "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
     "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
     "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
-    "q3_etl_pipeline/pipeline.py": "342cd437efbf8e7ad0d384994dadcb721c5f08a794fcd0a6008635b3f9692d80",
+    "q3_etl_pipeline/pipeline.py": "ed04843071901f434356531d4b0823406a861040ae0ee4d6482f5236fe7ee972",
     "q3_etl_pipeline/reference_check.py": "8cd116e7c3ed9760c39589e6327f759bd3e98a134de3571fdb50c55b658978e1",
     "q3_etl_pipeline/test_pipeline.py": "440d0b3ca8168c37f7f69a6d279a97521d5a76572bc7fcd049c8a2d0566da0c5",
+    "q3_etl_pipeline/test_report_statistics.py": "a823481abb12a691abe470eaadd48a893bf8009430e58f4861f2134338ab93af",
     "q4_llm_extraction/accuracy_evaluation.md": "baa643b26e2eb685fe962fc069652ac6e2ac766adabaa1b175c8366da89e9767",
     "q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
     "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
@@ -42,7 +43,7 @@
     "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
     "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
     "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
-    "release_check.py": "c60784f978570afcc0527b8c3b142a249c51940320c175f5f72d4c8a09c211d7",
+    "release_check.py": "4173f7ca975e1f1023fedccbb83648eac50d88bf2805d320a190a0164438cbba",
     "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
     "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f"
   },

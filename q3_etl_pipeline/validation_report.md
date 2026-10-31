@@ -1,141 +1,93 @@
-# Q3 ETL 实际统计
+# Q3 ETL 数据校验与统计解释
 
-```json
-{
-  "rows": 1067371,
-  "sales_rows": 1037021,
-  "customers": 5852,
-  "returns_rows": 19494,
-  "sales_amount_milli": 20110181017,
-  "reason_counts": {
-    "retained": 1037021,
-    "cancel_event": 19494,
-    "nonproduct": 3764,
-    "nonpositive_quantity": 3457,
-    "nonpositive_price": 2745,
-    "pending_product": 884,
-    "non_numeric_invoice": 6
-  },
-  "match_reasons": {
-    "no_exact_quantity_candidate": 11485,
-    "candidate_matched": 6303,
-    "no_strictly_earlier_sale": 749,
-    "missing_customer": 749,
-    "eligible_candidates_consumed": 207,
-    "unexpected_nonnegative_cancel_quantity": 1
-  },
-  "seconds": 2.903882,
-  "under_120_seconds": true,
-  "scope": "正向商品毛交易、毛购买 RFM、容量受限精确数量候选；非净退款认证",
-  "return_candidate_sensitivity": {
-    "assumption": "仅作如果全部匹配候选均确认退货的敏感性，不作为已证实退款",
-    "candidate_sales_rows": 6303,
-    "candidate_original_amount_milli": 611992031,
-    "customers_with_candidates": 1506,
-    "customers_disappearing_if_candidates_removed": 13,
-    "matched_price_mismatch_rows": 217,
-    "matching_coverage_fraction": 0.3233302554632195,
-    "limit": "覆盖率不是准确率；未匹配不等于无原单，毛购买 RFM 不能当净留存特征"
-  },
-  "price_comparison_counts": {
-    "unknown": 13191,
-    "same": 6086,
-    "different": 217
-  },
-  "reference_day": "2011-12-09 00:00:00",
-  "source_sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9",
-  "outputs": {
-    "sales_facts": {
-      "rows": 1037021,
-      "null_counts": {
-        "invoice_no": 0,
-        "stock_code": 0,
-        "description": 0,
-        "quantity": 0,
-        "unit_price": 0,
-        "total_amount": 0,
-        "invoice_datetime": 0,
-        "customer_id": 234370,
-        "country": 0,
-        "source_row": 0
-      },
-      "dtypes": {
-        "invoice_no": "string",
-        "stock_code": "string",
-        "description": "string",
-        "quantity": "int64",
-        "unit_price": "float64",
-        "total_amount": "float64",
-        "invoice_datetime": "datetime64[us]",
-        "customer_id": "string",
-        "country": "string",
-        "source_row": "int64"
-      }
-    },
-    "customer_features": {
-      "rows": 5852,
-      "null_counts": {
-        "customer_id": 0,
-        "recency_days": 0,
-        "frequency": 0,
-        "monetary": 0,
-        "first_purchase_date": 0,
-        "last_purchase_date": 0,
-        "unique_products": 0,
-        "country": 0,
-        "is_one_time_buyer": 0
-      },
-      "dtypes": {
-        "customer_id": "string",
-        "recency_days": "int64",
-        "frequency": "int64",
-        "monetary": "float64",
-        "first_purchase_date": "datetime64[us]",
-        "last_purchase_date": "datetime64[us]",
-        "unique_products": "int64",
-        "country": "string",
-        "is_one_time_buyer": "bool"
-      }
-    },
-    "returns_log": {
-      "rows": 19494,
-      "null_counts": {
-        "invoice_no": 0,
-        "stock_code": 0,
-        "description": 0,
-        "quantity": 0,
-        "unit_price": 0,
-        "total_amount": 0,
-        "invoice_datetime": 0,
-        "customer_id": 750,
-        "country": 0,
-        "source_row": 0,
-        "matched_original_invoice": 13191,
-        "matched_source_row": 13191,
-        "match_reason": 0,
-        "same_time_candidate_rows": 0,
-        "price_mismatch": 13191
-      },
-      "dtypes": {
-        "invoice_no": "string",
-        "stock_code": "string",
-        "description": "string",
-        "quantity": "int64",
-        "unit_price": "float64",
-        "total_amount": "float64",
-        "invoice_datetime": "datetime64[us]",
-        "customer_id": "string",
-        "country": "string",
-        "source_row": "int64",
-        "matched_original_invoice": "string",
-        "matched_source_row": "Int64",
-        "match_reason": "string",
-        "same_time_candidate_rows": "int64",
-        "price_mismatch": "boolean"
-      }
-    }
-  }
-}
-```
+## 我是怎样确定统计口径的
 
-匹配是候选，部分退货不自动凑单；未知编码隔离，原始文件未删除。金额输出 float、内部整数千分单位；RFM 为毛购买而非净留存。price_mismatch 为可空布尔：无候选 NULL，有候选时同价 False、异价 True；只在已比较行中解释价格差异比例。
+我把销售、客户和取消记录分开统计，因为三张表的行粒度不同。销售和取消是一条来源明细，客户表则是一位有标识的客户。若把它们使用同一个分母，空值率和国家占比会失去含义；因此下面的空值率一律是该输出字段的空值数量除以该输出实际行数，而不是原始文件总行数。空输出没有可解释的比例，写null而不是0%，也不能把空表说成质量完美。
+
+我同时展示均值、中位数和高分位数，而不只给均值。少量大数量或高金额明细可能拉高均值，p50与p95能帮助判断长尾；极端值仍保留并单列核查，不因为超出分位数就删掉。分位数按排序位置(n-1)*q做线性插值，所以它可能不是某条原始记录的值，也不是实际成交价格。有效数排除真正的NULL，但不会把零、负数、空字符串或未知编码随意补成别的值。
+
+销售表按正向商品毛交易解释，不能仅因金额都非负就称为净收入。取消表保留原始符号，负数量和负金额可能正是需要观察的事件，不能直接套销售表的非负规则。商品属性或退款是否最终完成仍需业务主数据核对，分布只描述程序产物，不能认证这些业务事实。金额沿用原数据单位，不推断或换算币种；内部千分整数与导出float的取舍不因报告统计而改变。
+
+客户RFM使用有标识的毛购买记录，frequency是独立发票数，monetary是该客户的毛购买总额；它们与销售明细的数量或单行金额不能直接比较。客户主要国家已经按明确规则选取，因此这里国家分布是客户数，而销售与取消的国家分布是明细数。这也是为什么国家占比变化不能立即解释为市场份额或真实活跃人群变化。
+
+取消匹配仍只是候选。price_mismatch为NULL表示没有比较对象，不能当作价格相同，也不应为了降低空值率而填False。只有已比较行可用于解释价差比例；匹配覆盖率不是准确率。未匹配也可能来自原始销售范围、缺身份、精确数量规则或候选已被消费，而不是已经证明没有原单。
+
+所有逐列空值数量、比例、类型以及完整数值和国家分布保存在validation_metrics.json，便于机器复算；本页只列关键数值及国家TOP5，其余合计保留，不把未展示的国家当作不存在。并列按NULL在先、原字符串升序确定，重跑不依赖原始出现顺序。表内数值作展示舍入，JSON保留float值。浮点统计的独立核验有明确容差，计数与分母则精确比较；这些检查不是本人或另一位人员已经完成语义审核的声明。
+
+## 三份输出的实际统计
+
+原始来源记录 1067371；销售明细 1037021；客户 5852；取消明细 19494。完整指标见 [validation_metrics.json](validation_metrics.json)。
+
+### sales_facts
+
+实际行数：1037021。
+
+空值数量/空值率：`customer_id` 234370（22.600314%）；其余字段为0。
+
+| 数值列 | 有效数 | min | p50 | p95 | max | mean |
+|---|---:|---:|---:|---:|---:|---:|
+| quantity | 1037021 | 1 | 3 | 30 | 80995 | 10.995603 |
+| unit_price | 1037021 | 0.001 | 2.1 | 9.95 | 1157.15 | 3.3394077 |
+| total_amount | 1037021 | 0.001 | 9.96 | 59.4 | 168469.6 | 19.39226 |
+
+国家分布（按本表行数，TOP5）：
+
+| 原国家值 | 行数 |
+|---|---:|
+| United Kingdom | 955994 |
+| EIRE | 17105 |
+| Germany | 16035 |
+| France | 13450 |
+| Netherlands | 4983 |
+| 其余国家合计 | 29454 |
+
+### customer_features
+
+实际行数：5852。
+
+空值数量/空值率：所有字段均为0。
+
+| 数值列 | 有效数 | min | p50 | p95 | max | mean |
+|---|---:|---:|---:|---:|---:|---:|
+| recency_days | 5852 | 0 | 95 | 623 | 738 | 199.7324 |
+| frequency | 5852 | 1 | 3 | 20 | 373 | 6.2532468 |
+| monetary | 5852 | 2.95 | 880.375 | 9447.6655 | 608821.65 | 2979.2318 |
+| unique_products | 5852 | 1 | 45 | 281 | 2546 | 82.192071 |
+
+国家分布（按本表行数，TOP5）：
+
+| 原国家值 | 行数 |
+|---|---:|
+| United Kingdom | 5334 |
+| Germany | 106 |
+| France | 93 |
+| Spain | 35 |
+| Belgium | 28 |
+| 其余国家合计 | 256 |
+
+### returns_log
+
+实际行数：19494。
+
+空值数量/空值率：`customer_id` 750（3.847338%）；`matched_original_invoice` 13191（67.666974%）；`matched_source_row` 13191（67.666974%）；`price_mismatch` 13191（67.666974%）；其余字段为0。
+
+| 数值列 | 有效数 | min | p50 | p95 | max | mean |
+|---|---:|---:|---:|---:|---:|---:|
+| quantity | 19494 | -80995 | -2 | -1 | 1 | -25.186827 |
+| unit_price | 19494 | 0.01 | 2.95 | 16.95 | 38970 | 44.872221 |
+| total_amount | 19494 | -168469.6 | -8.95 | -1.25 | 373.57 | -78.314756 |
+
+国家分布（按本表行数，TOP5）：
+
+| 原国家值 | 行数 |
+|---|---:|
+| United Kingdom | 16650 |
+| Germany | 921 |
+| EIRE | 512 |
+| France | 389 |
+| USA | 126 |
+| 其余国家合计 | 896 |
+
+## 如何复核及当前边界
+
+逐列比例和分布应从实际Parquet复算，不能只信本报告或文件存在。确定性、金额/客户/候选的独立CSV参考与报告统计是不同检查；三份Parquet和本机两分钟要求另有真实回执。原始记录不因本报告被删除或修改，毛购买RFM和候选退款也不因报告完整就成为业务真值。
