@@ -1,0 +1,1469 @@
+{
+  "run_id": "d47fcce3686f4a05a0a22a54fe09942a",
+  "status": "passed",
+  "timestamp_utc": "2026-10-31T13:04:26.061808+00:00",
+  "python": "3.12.13",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "requested_stage": "all",
+  "exit_code": 0,
+  "results": [
+    {
+      "stage": "data.retail",
+      "status": "passed",
+      "detail": {
+        "source": "mashlyn/online-retail-ii-uci/versions/3",
+        "files": [
+          {
+            "path": "online_retail_ii.csv",
+            "action": "downloaded",
+            "sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9",
+            "bytes": 94850204,
+            "rows": 1067371,
+            "columns": [
+              "Invoice",
+              "StockCode",
+              "Description",
+              "Quantity",
+              "InvoiceDate",
+              "Price",
+              "Customer ID",
+              "Country"
+            ]
+          }
+        ]
+      },
+      "seconds": 6.8779
+    },
+    {
+      "stage": "data.olist",
+      "status": "passed",
+      "detail": {
+        "source": "olistbr/brazilian-ecommerce/versions/2",
+        "files": [
+          {
+            "path": "olist/olist_customers_dataset.csv",
+            "action": "downloaded",
+            "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+            "bytes": 9033957,
+            "rows": 99441,
+            "columns": [
+              "customer_id",
+              "customer_unique_id",
+              "customer_zip_code_prefix",
+              "customer_city",
+              "customer_state"
+            ]
+          },
+          {
+            "path": "olist/olist_geolocation_dataset.csv",
+            "action": "downloaded",
+            "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6",
+            "bytes": 61273883,
+            "rows": 1000163,
+            "columns": [
+              "geolocation_zip_code_prefix",
+              "geolocation_lat",
+              "geolocation_lng",
+              "geolocation_city",
+              "geolocation_state"
+            ]
+          },
+          {
+            "path": "olist/olist_order_items_dataset.csv",
+            "action": "downloaded",
+            "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+            "bytes": 15438671,
+            "rows": 112650,
+            "columns": [
+              "order_id",
+              "order_item_id",
+              "product_id",
+              "seller_id",
+              "shipping_limit_date",
+              "price",
+              "freight_value"
+            ]
+          },
+          {
+            "path": "olist/olist_order_payments_dataset.csv",
+            "action": "downloaded",
+            "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
+            "bytes": 5777138,
+            "rows": 103886,
+            "columns": [
+              "order_id",
+              "payment_sequential",
+              "payment_type",
+              "payment_installments",
+              "payment_value"
+            ]
+          },
+          {
+            "path": "olist/olist_order_reviews_dataset.csv",
+            "action": "downloaded",
+            "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+            "bytes": 14451670,
+            "rows": 99224,
+            "columns": [
+              "review_id",
+              "order_id",
+              "review_score",
+              "review_comment_title",
+              "review_comment_message",
+              "review_creation_date",
+              "review_answer_timestamp"
+            ]
+          },
+          {
+            "path": "olist/olist_orders_dataset.csv",
+            "action": "downloaded",
+            "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+            "bytes": 17654914,
+            "rows": 99441,
+            "columns": [
+              "order_id",
+              "customer_id",
+              "order_status",
+              "order_purchase_timestamp",
+              "order_approved_at",
+              "order_delivered_carrier_date",
+              "order_delivered_customer_date",
+              "order_estimated_delivery_date"
+            ]
+          },
+          {
+            "path": "olist/olist_products_dataset.csv",
+            "action": "downloaded",
+            "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc",
+            "bytes": 2379446,
+            "rows": 32951,
+            "columns": [
+              "product_id",
+              "product_category_name",
+              "product_name_lenght",
+              "product_description_lenght",
+              "product_photos_qty",
+              "product_weight_g",
+              "product_length_cm",
+              "product_height_cm",
+              "product_width_cm"
+            ]
+          },
+          {
+            "path": "olist/olist_sellers_dataset.csv",
+            "action": "downloaded",
+            "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e",
+            "bytes": 174703,
+            "rows": 3095,
+            "columns": [
+              "seller_id",
+              "seller_zip_code_prefix",
+              "seller_city",
+              "seller_state"
+            ]
+          },
+          {
+            "path": "olist/product_category_name_translation.csv",
+            "action": "downloaded",
+            "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278",
+            "bytes": 2613,
+            "rows": 71,
+            "columns": [
+              "product_category_name",
+              "product_category_name_english"
+            ]
+          }
+        ]
+      },
+      "seconds": 131.6106
+    },
+    {
+      "stage": "q1.1",
+      "status": "passed",
+      "detail": {
+        "rows": 1067371,
+        "observations": 10,
+        "scope": "仅 Q1.1",
+        "output_dir": "/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-delivery-b901a98p/project/q1_data_quality"
+      },
+      "seconds": 11.0441
+    },
+    {
+      "stage": "q1.2",
+      "status": "passed",
+      "detail": {
+        "rows": 1067371,
+        "scope": "仅 Q1.2",
+        "output_dir": "/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-delivery-b901a98p/project/q1_data_quality"
+      },
+      "seconds": 3.5859
+    },
+    {
+      "stage": "q1.3",
+      "status": "passed",
+      "detail": {
+        "scope": "Q1.3 策略文档交付；未实施 ETL",
+        "nonwhitespace_characters": 462,
+        "han_characters": 408,
+        "artifact_sha256": {
+          "cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
+          "strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208"
+        },
+        "business_approval": "未获得；见规则假设和待确认范围",
+        "validation_limit": "程序只核验交付文件和长度；不是自动业务语义审查"
+      },
+      "seconds": 0.0052
+    },
+    {
+      "stage": "q2",
+      "status": "passed",
+      "detail": {
+        "results": [
+          {
+            "stage": "q2.load",
+            "status": "passed",
+            "detail": {
+              "version": "d63e3c236f36",
+              "tables": {
+                "customers": 99441,
+                "geolocation": 1000163,
+                "order_items": 112650,
+                "order_payments": 103886,
+                "order_reviews": 99224,
+                "orders": 99441,
+                "products": 32951,
+                "sellers": 3095,
+                "product_category_name_translation": 71
+              },
+              "report": "/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-delivery-b901a98p/project/q2_sql_analysis/.pending-92txypt8/load_report.json"
+            }
+          },
+          {
+            "stage": "q2.1",
+            "status": "passed",
+            "detail": {
+              "server_version": "8.4.13",
+              "load_version": "d63e3c236f36",
+              "total_products": 32951,
+              "unknown_category_products": 610,
+              "named_translation_gaps": [
+                {
+                  "category": "pc_gamer",
+                  "products": 3
+                },
+                {
+                  "category": "portateis_cozinha_e_preparadores_de_alimentos",
+                  "products": 10
+                }
+              ],
+              "named_gap_products": 13,
+              "scope": "精确类别名反连接；空类别单列，不猜测补译"
+            }
+          },
+          {
+            "stage": "q2.2",
+            "status": "passed",
+            "detail": {
+              "server_version": "8.4.13",
+              "load_version": "d63e3c236f36",
+              "cancel_rate_unit": "百分数",
+              "delivery_days": "有效 delivered 订单等权，秒/86400，六位小数；NULL 排除并披露",
+              "months": [
+                {
+                  "month": "2016-09",
+                  "total_orders": 4,
+                  "delivered_orders": 1,
+                  "canceled_orders": 2,
+                  "cancel_rate": "50.00",
+                  "delivered_gmv": "143.460",
+                  "avg_delivery_days": "54.813194",
+                  "valid_delivery_orders": 1,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2016-10",
+                  "total_orders": 324,
+                  "delivered_orders": 265,
+                  "canceled_orders": 24,
+                  "cancel_rate": "7.41",
+                  "delivered_gmv": "46490.660",
+                  "avg_delivery_days": "19.600559",
+                  "valid_delivery_orders": 265,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2016-12",
+                  "total_orders": 1,
+                  "delivered_orders": 1,
+                  "canceled_orders": 0,
+                  "cancel_rate": "0.00",
+                  "delivered_gmv": "19.620",
+                  "avg_delivery_days": "4.693021",
+                  "valid_delivery_orders": 1,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-01",
+                  "total_orders": 800,
+                  "delivered_orders": 750,
+                  "canceled_orders": 3,
+                  "cancel_rate": "0.38",
+                  "delivered_gmv": "127482.370",
+                  "avg_delivery_days": "12.647044",
+                  "valid_delivery_orders": 750,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-02",
+                  "total_orders": 1780,
+                  "delivered_orders": 1653,
+                  "canceled_orders": 17,
+                  "cancel_rate": "0.96",
+                  "delivered_gmv": "271239.320",
+                  "avg_delivery_days": "13.168825",
+                  "valid_delivery_orders": 1653,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-03",
+                  "total_orders": 2682,
+                  "delivered_orders": 2546,
+                  "canceled_orders": 33,
+                  "cancel_rate": "1.23",
+                  "delivered_gmv": "414330.950",
+                  "avg_delivery_days": "12.951184",
+                  "valid_delivery_orders": 2546,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-04",
+                  "total_orders": 2404,
+                  "delivered_orders": 2303,
+                  "canceled_orders": 18,
+                  "cancel_rate": "0.75",
+                  "delivered_gmv": "390812.400",
+                  "avg_delivery_days": "14.917913",
+                  "valid_delivery_orders": 2303,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-05",
+                  "total_orders": 3700,
+                  "delivered_orders": 3546,
+                  "canceled_orders": 29,
+                  "cancel_rate": "0.78",
+                  "delivered_gmv": "566851.400",
+                  "avg_delivery_days": "11.322363",
+                  "valid_delivery_orders": 3545,
+                  "missing_delivery_time_orders": 1,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-06",
+                  "total_orders": 3245,
+                  "delivered_orders": 3135,
+                  "canceled_orders": 16,
+                  "cancel_rate": "0.49",
+                  "delivered_gmv": "490050.370",
+                  "avg_delivery_days": "12.011573",
+                  "valid_delivery_orders": 3135,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-07",
+                  "total_orders": 4026,
+                  "delivered_orders": 3872,
+                  "canceled_orders": 28,
+                  "cancel_rate": "0.70",
+                  "delivered_gmv": "566299.080",
+                  "avg_delivery_days": "11.592732",
+                  "valid_delivery_orders": 3872,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-08",
+                  "total_orders": 4331,
+                  "delivered_orders": 4193,
+                  "canceled_orders": 27,
+                  "cancel_rate": "0.62",
+                  "delivered_gmv": "645832.360",
+                  "avg_delivery_days": "11.147125",
+                  "valid_delivery_orders": 4193,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-09",
+                  "total_orders": 4285,
+                  "delivered_orders": 4150,
+                  "canceled_orders": 20,
+                  "cancel_rate": "0.47",
+                  "delivered_gmv": "701077.490",
+                  "avg_delivery_days": "11.851007",
+                  "valid_delivery_orders": 4150,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-10",
+                  "total_orders": 4631,
+                  "delivered_orders": 4478,
+                  "canceled_orders": 26,
+                  "cancel_rate": "0.56",
+                  "delivered_gmv": "751117.010",
+                  "avg_delivery_days": "11.856700",
+                  "valid_delivery_orders": 4478,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-11",
+                  "total_orders": 7544,
+                  "delivered_orders": 7289,
+                  "canceled_orders": 37,
+                  "cancel_rate": "0.49",
+                  "delivered_gmv": "1153364.200",
+                  "avg_delivery_days": "15.161132",
+                  "valid_delivery_orders": 7288,
+                  "missing_delivery_time_orders": 1,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2017-12",
+                  "total_orders": 5673,
+                  "delivered_orders": 5513,
+                  "canceled_orders": 11,
+                  "cancel_rate": "0.19",
+                  "delivered_gmv": "843078.290",
+                  "avg_delivery_days": "15.394919",
+                  "valid_delivery_orders": 5513,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-01",
+                  "total_orders": 7269,
+                  "delivered_orders": 7069,
+                  "canceled_orders": 34,
+                  "cancel_rate": "0.47",
+                  "delivered_gmv": "1077887.460",
+                  "avg_delivery_days": "14.080563",
+                  "valid_delivery_orders": 7069,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-02",
+                  "total_orders": 6728,
+                  "delivered_orders": 6555,
+                  "canceled_orders": 73,
+                  "cancel_rate": "1.09",
+                  "delivered_gmv": "966168.410",
+                  "avg_delivery_days": "16.945138",
+                  "valid_delivery_orders": 6555,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-03",
+                  "total_orders": 7211,
+                  "delivered_orders": 7003,
+                  "canceled_orders": 26,
+                  "cancel_rate": "0.36",
+                  "delivered_gmv": "1120598.240",
+                  "avg_delivery_days": "16.301410",
+                  "valid_delivery_orders": 7003,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-04",
+                  "total_orders": 6939,
+                  "delivered_orders": 6798,
+                  "canceled_orders": 15,
+                  "cancel_rate": "0.22",
+                  "delivered_gmv": "1132878.930",
+                  "avg_delivery_days": "11.499241",
+                  "valid_delivery_orders": 6798,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-05",
+                  "total_orders": 6873,
+                  "delivered_orders": 6749,
+                  "canceled_orders": 24,
+                  "cancel_rate": "0.35",
+                  "delivered_gmv": "1128774.520",
+                  "avg_delivery_days": "11.419029",
+                  "valid_delivery_orders": 6749,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-06",
+                  "total_orders": 6167,
+                  "delivered_orders": 6099,
+                  "canceled_orders": 18,
+                  "cancel_rate": "0.29",
+                  "delivered_gmv": "1011978.290",
+                  "avg_delivery_days": "9.239216",
+                  "valid_delivery_orders": 6096,
+                  "missing_delivery_time_orders": 3,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-07",
+                  "total_orders": 6292,
+                  "delivered_orders": 6159,
+                  "canceled_orders": 41,
+                  "cancel_rate": "0.65",
+                  "delivered_gmv": "1027807.280",
+                  "avg_delivery_days": "8.958636",
+                  "valid_delivery_orders": 6156,
+                  "missing_delivery_time_orders": 3,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-08",
+                  "total_orders": 6512,
+                  "delivered_orders": 6351,
+                  "canceled_orders": 84,
+                  "cancel_rate": "1.29",
+                  "delivered_gmv": "985491.640",
+                  "avg_delivery_days": "7.732780",
+                  "valid_delivery_orders": 6351,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-09",
+                  "total_orders": 16,
+                  "delivered_orders": 0,
+                  "canceled_orders": 15,
+                  "cancel_rate": "93.75",
+                  "delivered_gmv": "0.000",
+                  "avg_delivery_days": null,
+                  "valid_delivery_orders": 0,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                },
+                {
+                  "month": "2018-10",
+                  "total_orders": 4,
+                  "delivered_orders": 0,
+                  "canceled_orders": 4,
+                  "cancel_rate": "100.00",
+                  "delivered_gmv": "0.000",
+                  "avg_delivery_days": null,
+                  "valid_delivery_orders": 0,
+                  "missing_delivery_time_orders": 0,
+                  "delivered_missing_item_orders": 0,
+                  "delivered_invalid_amount_orders": 0,
+                  "negative_delivery_orders": 0
+                }
+              ]
+            }
+          },
+          {
+            "stage": "q2.3",
+            "status": "passed",
+            "detail": {
+              "load_version": "d63e3c236f36",
+              "year": 2017,
+              "rate_unit": "百分数",
+              "review_rule": "每订单按创建、回答、review_id、来源行降序取一条；不是权威性认证",
+              "unattributed_orders": 522,
+              "unattributed_canceled_orders": 61,
+              "sellers": [
+                {
+                  "seller_id": "53243585a1d6dc2643021fd1853d8905",
+                  "seller_state": "BA",
+                  "gmv_2017": "185858.390",
+                  "order_count": 243,
+                  "unique_customers": 238,
+                  "avg_review_score": "4.261411",
+                  "late_delivery_rate": "3.361345",
+                  "cancel_rate": "0.000000",
+                  "reviewed_orders": 241,
+                  "delivered_orders": 238,
+                  "canceled_orders": 0,
+                  "valid_delivery_orders": 238,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 1
+                },
+                {
+                  "seller_id": "7e93a43ef30c4f03f38b393420bc753a",
+                  "seller_state": "SP",
+                  "gmv_2017": "155059.420",
+                  "order_count": 281,
+                  "unique_customers": 281,
+                  "avg_review_score": "4.189286",
+                  "late_delivery_rate": "5.970149",
+                  "cancel_rate": "1.423488",
+                  "reviewed_orders": 280,
+                  "delivered_orders": 268,
+                  "canceled_orders": 4,
+                  "valid_delivery_orders": 268,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 1
+                },
+                {
+                  "seller_id": "4a3ca9315b744ce9f8e9374361493884",
+                  "seller_state": "SP",
+                  "gmv_2017": "145094.220",
+                  "order_count": 1120,
+                  "unique_customers": 1112,
+                  "avg_review_score": "3.827430",
+                  "late_delivery_rate": "9.662716",
+                  "cancel_rate": "0.000000",
+                  "reviewed_orders": 1101,
+                  "delivered_orders": 1097,
+                  "canceled_orders": 0,
+                  "valid_delivery_orders": 1097,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 2
+                },
+                {
+                  "seller_id": "7c67e1448b00f6e969d365cea6b010ab",
+                  "seller_state": "SP",
+                  "gmv_2017": "118558.030",
+                  "order_count": 497,
+                  "unique_customers": 493,
+                  "avg_review_score": "3.562500",
+                  "late_delivery_rate": "11.111111",
+                  "cancel_rate": "0.000000",
+                  "reviewed_orders": 496,
+                  "delivered_orders": 495,
+                  "canceled_orders": 0,
+                  "valid_delivery_orders": 495,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 3
+                },
+                {
+                  "seller_id": "46dc3b2cc0980fb8ec44634e21d2718e",
+                  "seller_state": "RJ",
+                  "gmv_2017": "114136.390",
+                  "order_count": 442,
+                  "unique_customers": 442,
+                  "avg_review_score": "4.219178",
+                  "late_delivery_rate": "6.759907",
+                  "cancel_rate": "0.226244",
+                  "reviewed_orders": 438,
+                  "delivered_orders": 429,
+                  "canceled_orders": 1,
+                  "valid_delivery_orders": 429,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 1
+                },
+                {
+                  "seller_id": "7a67c85e85bb2ce8582c35f2203ad736",
+                  "seller_state": "SP",
+                  "gmv_2017": "109986.920",
+                  "order_count": 792,
+                  "unique_customers": 789,
+                  "avg_review_score": "4.316391",
+                  "late_delivery_rate": "3.954082",
+                  "cancel_rate": "0.000000",
+                  "reviewed_orders": 787,
+                  "delivered_orders": 784,
+                  "canceled_orders": 0,
+                  "valid_delivery_orders": 784,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 4
+                },
+                {
+                  "seller_id": "fa1c13f2614d7b5c4749cbc52fecda94",
+                  "seller_state": "SP",
+                  "gmv_2017": "101783.050",
+                  "order_count": 287,
+                  "unique_customers": 285,
+                  "avg_review_score": "4.526132",
+                  "late_delivery_rate": "7.017544",
+                  "cancel_rate": "0.348432",
+                  "reviewed_orders": 287,
+                  "delivered_orders": 285,
+                  "canceled_orders": 1,
+                  "valid_delivery_orders": 285,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 5
+                },
+                {
+                  "seller_id": "4869f7a5dfa277a7dca6462dcf3b52b2",
+                  "seller_state": "SP",
+                  "gmv_2017": "98100.630",
+                  "order_count": 409,
+                  "unique_customers": 404,
+                  "avg_review_score": "4.187192",
+                  "late_delivery_rate": "10.294118",
+                  "cancel_rate": "0.244499",
+                  "reviewed_orders": 406,
+                  "delivered_orders": 408,
+                  "canceled_orders": 1,
+                  "valid_delivery_orders": 408,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 6
+                },
+                {
+                  "seller_id": "cc419e0650a3c5ba77189a1882b7556a",
+                  "seller_state": "SP",
+                  "gmv_2017": "88150.050",
+                  "order_count": 1208,
+                  "unique_customers": 1166,
+                  "avg_review_score": "4.089850",
+                  "late_delivery_rate": "4.603581",
+                  "cancel_rate": "0.000000",
+                  "reviewed_orders": 1202,
+                  "delivered_orders": 1173,
+                  "canceled_orders": 0,
+                  "valid_delivery_orders": 1173,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 7
+                },
+                {
+                  "seller_id": "da8622b14eb17ae2831f4ac5b9dab84a",
+                  "seller_state": "SP",
+                  "gmv_2017": "81586.390",
+                  "order_count": 539,
+                  "unique_customers": 517,
+                  "avg_review_score": "4.087361",
+                  "late_delivery_rate": "7.262570",
+                  "cancel_rate": "0.000000",
+                  "reviewed_orders": 538,
+                  "delivered_orders": 537,
+                  "canceled_orders": 0,
+                  "valid_delivery_orders": 537,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 8
+                },
+                {
+                  "seller_id": "1f50f920176fa81dab994f9023523100",
+                  "seller_state": "SP",
+                  "gmv_2017": "79835.860",
+                  "order_count": 785,
+                  "unique_customers": 776,
+                  "avg_review_score": "4.158568",
+                  "late_delivery_rate": "10.613811",
+                  "cancel_rate": "0.000000",
+                  "reviewed_orders": 782,
+                  "delivered_orders": 782,
+                  "canceled_orders": 0,
+                  "valid_delivery_orders": 782,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 9
+                },
+                {
+                  "seller_id": "5dceca129747e92ff8ef7a997dc4f8ca",
+                  "seller_state": "SP",
+                  "gmv_2017": "67481.060",
+                  "order_count": 242,
+                  "unique_customers": 239,
+                  "avg_review_score": "4.230126",
+                  "late_delivery_rate": "5.857741",
+                  "cancel_rate": "0.413223",
+                  "reviewed_orders": 239,
+                  "delivered_orders": 239,
+                  "canceled_orders": 1,
+                  "valid_delivery_orders": 239,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 10
+                },
+                {
+                  "seller_id": "cca3071e3e9bb7d12640c9fbe2301306",
+                  "seller_state": "SP",
+                  "gmv_2017": "66941.390",
+                  "order_count": 616,
+                  "unique_customers": 605,
+                  "avg_review_score": "3.876033",
+                  "late_delivery_rate": "5.785124",
+                  "cancel_rate": "0.000000",
+                  "reviewed_orders": 605,
+                  "delivered_orders": 605,
+                  "canceled_orders": 0,
+                  "valid_delivery_orders": 605,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 11
+                },
+                {
+                  "seller_id": "620c87c171fb2a6dd6e8bb4dec959fc6",
+                  "seller_state": "RJ",
+                  "gmv_2017": "65919.310",
+                  "order_count": 345,
+                  "unique_customers": 339,
+                  "avg_review_score": "4.418129",
+                  "late_delivery_rate": "5.309735",
+                  "cancel_rate": "0.289855",
+                  "reviewed_orders": 342,
+                  "delivered_orders": 339,
+                  "canceled_orders": 1,
+                  "valid_delivery_orders": 339,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 2
+                },
+                {
+                  "seller_id": "6560211a19b47992c3666cc44a7e94c0",
+                  "seller_state": "SP",
+                  "gmv_2017": "65878.930",
+                  "order_count": 855,
+                  "unique_customers": 839,
+                  "avg_review_score": "3.945626",
+                  "late_delivery_rate": "5.502392",
+                  "cancel_rate": "0.116959",
+                  "reviewed_orders": 846,
+                  "delivered_orders": 836,
+                  "canceled_orders": 1,
+                  "valid_delivery_orders": 836,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 12
+                },
+                {
+                  "seller_id": "3d871de0142ce09b7081e2b9d1733cb1",
+                  "seller_state": "SP",
+                  "gmv_2017": "65671.580",
+                  "order_count": 623,
+                  "unique_customers": 621,
+                  "avg_review_score": "4.176948",
+                  "late_delivery_rate": "6.158833",
+                  "cancel_rate": "0.321027",
+                  "reviewed_orders": 616,
+                  "delivered_orders": 617,
+                  "canceled_orders": 2,
+                  "valid_delivery_orders": 617,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 13
+                },
+                {
+                  "seller_id": "37be5a7c751166fbc5f8ccba4119e043",
+                  "seller_state": "SP",
+                  "gmv_2017": "58913.470",
+                  "order_count": 264,
+                  "unique_customers": 261,
+                  "avg_review_score": "4.338462",
+                  "late_delivery_rate": "1.915709",
+                  "cancel_rate": "0.000000",
+                  "reviewed_orders": 260,
+                  "delivered_orders": 261,
+                  "canceled_orders": 0,
+                  "valid_delivery_orders": 261,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 14
+                },
+                {
+                  "seller_id": "a1043bafd471dff536d0c462352beb48",
+                  "seller_state": "MG",
+                  "gmv_2017": "52349.750",
+                  "order_count": 295,
+                  "unique_customers": 293,
+                  "avg_review_score": "4.179661",
+                  "late_delivery_rate": "4.482759",
+                  "cancel_rate": "0.000000",
+                  "reviewed_orders": 295,
+                  "delivered_orders": 290,
+                  "canceled_orders": 0,
+                  "valid_delivery_orders": 290,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 1
+                },
+                {
+                  "seller_id": "8581055ce74af1daba164fdbd55a40de",
+                  "seller_state": "SP",
+                  "gmv_2017": "51963.870",
+                  "order_count": 270,
+                  "unique_customers": 265,
+                  "avg_review_score": "4.337037",
+                  "late_delivery_rate": "7.547170",
+                  "cancel_rate": "0.370370",
+                  "reviewed_orders": 270,
+                  "delivered_orders": 266,
+                  "canceled_orders": 1,
+                  "valid_delivery_orders": 265,
+                  "missing_delivery_time_orders": 1,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 15
+                },
+                {
+                  "seller_id": "25c5c91f63607446a97b143d2d535d31",
+                  "seller_state": "MG",
+                  "gmv_2017": "50234.190",
+                  "order_count": 126,
+                  "unique_customers": 123,
+                  "avg_review_score": "3.912000",
+                  "late_delivery_rate": "7.258065",
+                  "cancel_rate": "0.000000",
+                  "reviewed_orders": 125,
+                  "delivered_orders": 124,
+                  "canceled_orders": 0,
+                  "valid_delivery_orders": 124,
+                  "missing_delivery_time_orders": 0,
+                  "invalid_amount_orders": 0,
+                  "missing_dimension_orders": 0,
+                  "state_rank": 2
+                }
+              ]
+            }
+          },
+          {
+            "stage": "q2.4",
+            "status": "passed",
+            "detail": {
+              "load_version": "d63e3c236f36",
+              "scope": "原题筛选；商品价格不含运费/退款，评分每订单最新一条等权；不是净收入审计",
+              "states": [
+                {
+                  "customer_state": "SP",
+                  "orders": 17990,
+                  "price_revenue": "2217437.430",
+                  "avg_score": "4.246310",
+                  "reviewed_orders": 17884,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "RJ",
+                  "orders": 648,
+                  "price_revenue": "84171.420",
+                  "avg_score": "3.848200",
+                  "reviewed_orders": 639,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "MA",
+                  "orders": 370,
+                  "price_revenue": "55224.970",
+                  "avg_score": "3.782016",
+                  "reviewed_orders": 367,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "SC",
+                  "orders": 319,
+                  "price_revenue": "40035.010",
+                  "avg_score": "3.939873",
+                  "reviewed_orders": 316,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "MG",
+                  "orders": 302,
+                  "price_revenue": "39457.830",
+                  "avg_score": "4.219595",
+                  "reviewed_orders": 296,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "RS",
+                  "orders": 242,
+                  "price_revenue": "28419.660",
+                  "avg_score": "4.202479",
+                  "reviewed_orders": 242,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "PR",
+                  "orders": 185,
+                  "price_revenue": "20937.220",
+                  "avg_score": "4.273224",
+                  "reviewed_orders": 183,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "ES",
+                  "orders": 90,
+                  "price_revenue": "10984.790",
+                  "avg_score": "4.266667",
+                  "reviewed_orders": 90,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "PE",
+                  "orders": 32,
+                  "price_revenue": "5260.170",
+                  "avg_score": "4.062500",
+                  "reviewed_orders": 32,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "PI",
+                  "orders": 18,
+                  "price_revenue": "5102.570",
+                  "avg_score": "4.235294",
+                  "reviewed_orders": 17,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "RN",
+                  "orders": 27,
+                  "price_revenue": "4172.610",
+                  "avg_score": "4.333333",
+                  "reviewed_orders": 27,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "BA",
+                  "orders": 33,
+                  "price_revenue": "4151.220",
+                  "avg_score": "4.303030",
+                  "reviewed_orders": 33,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "GO",
+                  "orders": 21,
+                  "price_revenue": "3948.430",
+                  "avg_score": "4.571429",
+                  "reviewed_orders": 21,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "SE",
+                  "orders": 15,
+                  "price_revenue": "3758.480",
+                  "avg_score": "4.066667",
+                  "reviewed_orders": 15,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "AL",
+                  "orders": 11,
+                  "price_revenue": "3728.320",
+                  "avg_score": "4.363636",
+                  "reviewed_orders": 11,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "PA",
+                  "orders": 18,
+                  "price_revenue": "3278.280",
+                  "avg_score": "4.117647",
+                  "reviewed_orders": 17,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "CE",
+                  "orders": 12,
+                  "price_revenue": "1398.850",
+                  "avg_score": "4.333333",
+                  "reviewed_orders": 12,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "PB",
+                  "orders": 7,
+                  "price_revenue": "969.890",
+                  "avg_score": "4.857143",
+                  "reviewed_orders": 7,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "MT",
+                  "orders": 9,
+                  "price_revenue": "965.690",
+                  "avg_score": "4.555556",
+                  "reviewed_orders": 9,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "TO",
+                  "orders": 5,
+                  "price_revenue": "699.990",
+                  "avg_score": "4.400000",
+                  "reviewed_orders": 5,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "RO",
+                  "orders": 6,
+                  "price_revenue": "684.340",
+                  "avg_score": "3.833333",
+                  "reviewed_orders": 6,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                },
+                {
+                  "customer_state": "MS",
+                  "orders": 7,
+                  "price_revenue": "526.720",
+                  "avg_score": "3.714286",
+                  "reviewed_orders": 7,
+                  "missing_item_orders": 0,
+                  "invalid_price_items": 0
+                }
+              ]
+            }
+          }
+        ],
+        "scope": "九表与 Q2.1–Q2.4"
+      },
+      "seconds": 29.3701
+    },
+    {
+      "stage": "q3",
+      "status": "passed",
+      "detail": {
+        "rows": 1067371,
+        "sales_rows": 1037021,
+        "customers": 5852,
+        "returns_rows": 19494,
+        "sales_amount_milli": 20110181017,
+        "reason_counts": {
+          "retained": 1037021,
+          "cancel_event": 19494,
+          "nonproduct": 3764,
+          "nonpositive_quantity": 3457,
+          "nonpositive_price": 2745,
+          "pending_product": 884,
+          "non_numeric_invoice": 6
+        },
+        "match_reasons": {
+          "no_exact_quantity_candidate": 11485,
+          "candidate_matched": 6303,
+          "no_strictly_earlier_sale": 749,
+          "missing_customer": 749,
+          "eligible_candidates_consumed": 207,
+          "unexpected_nonnegative_cancel_quantity": 1
+        },
+        "seconds": 5.474377,
+        "under_120_seconds": true,
+        "scope": "正向商品毛交易、毛购买 RFM、容量受限精确数量候选；非净退款认证",
+        "return_candidate_sensitivity": {
+          "assumption": "仅作如果全部匹配候选均确认退货的敏感性，不作为已证实退款",
+          "candidate_sales_rows": 6303,
+          "candidate_original_amount_milli": 611992031,
+          "customers_with_candidates": 1506,
+          "customers_disappearing_if_candidates_removed": 13,
+          "matched_price_mismatch_rows": 217,
+          "matching_coverage_fraction": 0.3233302554632195,
+          "limit": "覆盖率不是准确率；未匹配不等于无原单，毛购买 RFM 不能当净留存特征"
+        },
+        "price_comparison_counts": {
+          "unknown": 13191,
+          "same": 6086,
+          "different": 217
+        },
+        "reference_day": "2011-12-09 00:00:00",
+        "source_sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9",
+        "outputs": {
+          "sales_facts": {
+            "rows": 1037021,
+            "null_counts": {
+              "invoice_no": 0,
+              "stock_code": 0,
+              "description": 0,
+              "quantity": 0,
+              "unit_price": 0,
+              "total_amount": 0,
+              "invoice_datetime": 0,
+              "customer_id": 234370,
+              "country": 0,
+              "source_row": 0
+            },
+            "dtypes": {
+              "invoice_no": "string",
+              "stock_code": "string",
+              "description": "string",
+              "quantity": "int64",
+              "unit_price": "float64",
+              "total_amount": "float64",
+              "invoice_datetime": "datetime64[us]",
+              "customer_id": "string",
+              "country": "string",
+              "source_row": "int64"
+            }
+          },
+          "customer_features": {
+            "rows": 5852,
+            "null_counts": {
+              "customer_id": 0,
+              "recency_days": 0,
+              "frequency": 0,
+              "monetary": 0,
+              "first_purchase_date": 0,
+              "last_purchase_date": 0,
+              "unique_products": 0,
+              "country": 0,
+              "is_one_time_buyer": 0
+            },
+            "dtypes": {
+              "customer_id": "string",
+              "recency_days": "int64",
+              "frequency": "int64",
+              "monetary": "float64",
+              "first_purchase_date": "datetime64[us]",
+              "last_purchase_date": "datetime64[us]",
+              "unique_products": "int64",
+              "country": "string",
+              "is_one_time_buyer": "bool"
+            }
+          },
+          "returns_log": {
+            "rows": 19494,
+            "null_counts": {
+              "invoice_no": 0,
+              "stock_code": 0,
+              "description": 0,
+              "quantity": 0,
+              "unit_price": 0,
+              "total_amount": 0,
+              "invoice_datetime": 0,
+              "customer_id": 750,
+              "country": 0,
+              "source_row": 0,
+              "matched_original_invoice": 13191,
+              "matched_source_row": 13191,
+              "match_reason": 0,
+              "same_time_candidate_rows": 0,
+              "price_mismatch": 13191
+            },
+            "dtypes": {
+              "invoice_no": "string",
+              "stock_code": "string",
+              "description": "string",
+              "quantity": "int64",
+              "unit_price": "float64",
+              "total_amount": "float64",
+              "invoice_datetime": "datetime64[us]",
+              "customer_id": "string",
+              "country": "string",
+              "source_row": "int64",
+              "matched_original_invoice": "string",
+              "matched_source_row": "Int64",
+              "match_reason": "string",
+              "same_time_candidate_rows": "int64",
+              "price_mismatch": "boolean"
+            }
+          }
+        }
+      },
+      "seconds": 5.58
+    },
+    {
+      "stage": "q4",
+      "status": "passed",
+      "detail": {
+        "stage_completion": "passed",
+        "metrics": {
+          "input_rows": 99224,
+          "low_score_rows": 22754,
+          "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+          "output_rows": 22754,
+          "routes": {
+            "no_text": 8309,
+            "llm": 14294,
+            "generic": 151
+          },
+          "status_counts": {
+            "no_text": 8309,
+            "resolved": 14445
+          },
+          "unresolved": 0,
+          "request_modes_this_run": {
+            "cached_rows": 14294
+          },
+          "stop_reason": "complete",
+          "live": true,
+          "cached_model_rows_this_run": 14294,
+          "request_events_this_run": {},
+          "configured_workers": 4,
+          "repair_summary": {
+            "newly_salvaged_valid_rows": 0,
+            "eligible_repair_rows": 0,
+            "remaining_blocked_rows": 0,
+            "unsafe_requests_present": false
+          },
+          "api_entries_campaign": 912,
+          "usage_cost_upper_bound_usd": "1.7664627",
+          "prompt_tokens_campaign": 1220873,
+          "completion_tokens_campaign": 1166834,
+          "usage_reported_text_rows_campaign": 14344,
+          "budget_occupied_usd": "1.7664627",
+          "uncertain_cost_requests": 0,
+          "prompt_sha256": "c659c828cbc9ae2c8862fce6a715b350663d7ae972ef8e813af72f281cd68bfd",
+          "seconds": 5.732999,
+          "service_config_sha256": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
+          "actual_billed_cost_usd": null,
+          "scope": "逐行分流及调用控制；usage 按配置单价计算，非账单认证；引文校验不认证语义；人工评估另行完成",
+          "average_reported_cost_per_queried_row_usd": "0.0001231499372559955382041271612",
+          "under_time_limit": true,
+          "campaign_elapsed_seconds": 4912.925116,
+          "campaign_span_is_execution_time": false
+        }
+      },
+      "seconds": 5.7614
+    },
+    {
+      "stage": "q5",
+      "status": "passed",
+      "detail": {
+        "body_nonwhitespace_characters": 1281,
+        "han_characters": 1015,
+        "scenario": {
+          "annual_all_review_cost_usd": "114975.0",
+          "annual_routed_cost_usd": "9198.000",
+          "average_orders_per_second": "11.57407407407407407407407407",
+          "assumed_peak_events_per_second": "1388.888888888888888888888888",
+          "scope": "输入/输出单价与比例均为压力情景假设，不是厂商报价或实际费用；未含基础设施/人工"
+        },
+        "scope": "文档交付、字数与数学情景；未部署、压测或独立人员审阅"
+      },
+      "seconds": 0.0048
+    }
+  ],
+  "source_sha256": {
+    "artifact_manifest.py": "e15c63eb82cf6c77e93b2ec537733aad8dd0f14020decf99b6144a1b7ae59c97",
+    "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
+    "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
+    "q1_data_quality/cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
+    "q1_data_quality/q1_code.py": "3cefc9f09bf7603f032e19ef7dd7408ea92de90c423622c0e47ccb342b351817",
+    "q1_data_quality/q1_findings.py": "9510aa26166c43ab232ff93bb8c60f6fc27842fb0044f7bfc169b5ce8d70ddaf",
+    "q1_data_quality/q1_strategy.py": "06b4f770a0df565855320664afe708fa78fc07dc969c2744327dc30195e6b022",
+    "q1_data_quality/strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208",
+    "q2_sql_analysis/catalog.py": "0108180bd105bb2dc977f7f42493e2ffbc30ec9fa7cc834007a5ce4d26174c30",
+    "q2_sql_analysis/load_olist.py": "d2cbc404f8ec4f9255a84756056ee27ff471a9965ba6550bfc0a6c6ac76fe7ba",
+    "q2_sql_analysis/mysql_runtime.py": "29c3d278b38e8d45562d5117b6c8576a9556541f3061e14dc1002340ba2ba04e",
+    "q2_sql_analysis/q2_1.py": "f9b33a5482a4de57cf03a954a25c9f912a200a6f06b74332aebdf261d2620ae8",
+    "q2_sql_analysis/q2_1_translation_gap.sql": "8ebd5dd6d6ab5b7d8d2848cefea7f606fea2b16e41816846e529745d4cd33b9a",
+    "q2_sql_analysis/q2_2.py": "ffb51f75d9f5f44364ea34c55b4f486345047316e878f4aed35456f81d8d1d16",
+    "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
+    "q2_sql_analysis/q2_3.py": "9481262c609328b197f30072fa7aa7ef6d4f7a237f746f58b36d97326397a979",
+    "q2_sql_analysis/q2_3_top_sellers.sql": "3debb31b7bb42395e8eaf70e708b2e1594e33c71fab5525d2e0dc763447bee94",
+    "q2_sql_analysis/q2_4.py": "9309a0f00b8512f7f6c983c6a47992428b1c4cfed4d051fff9335d95e9845839",
+    "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
+    "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
+    "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
+    "q3_etl_pipeline/pipeline.py": "342cd437efbf8e7ad0d384994dadcb721c5f08a794fcd0a6008635b3f9692d80",
+    "q3_etl_pipeline/reference_check.py": "8cd116e7c3ed9760c39589e6327f759bd3e98a134de3571fdb50c55b658978e1",
+    "q3_etl_pipeline/test_pipeline.py": "440d0b3ca8168c37f7f69a6d279a97521d5a76572bc7fcd049c8a2d0566da0c5",
+    "q4_llm_extraction/accuracy_evaluation.md": "baa643b26e2eb685fe962fc069652ac6e2ac766adabaa1b175c8366da89e9767",
+    "q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
+    "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
+    "q4_llm_extraction/extract_reviews.py": "8c8c1be79f9cbc6995e3d5280b9b2ac8a690d6a1f1bdff1a30506f1dc90fd006",
+    "q4_llm_extraction/pipeline_design.md": "a986b3902edca56a050b1145a14a41533a1b6cd973e956f8d5bdddb63466526c",
+    "q4_llm_extraction/prompt_template.txt": "c659c828cbc9ae2c8862fce6a715b350663d7ae972ef8e813af72f281cd68bfd",
+    "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
+    "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
+    "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
+    "release_check.py": "c60784f978570afcc0527b8c3b142a249c51940320c175f5f72d4c8a09c211d7",
+    "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
+    "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f"
+  },
+  "output_directories": {
+    "q1": "/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-delivery-b901a98p/project/q1_data_quality",
+    "q2": "/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-delivery-b901a98p/project/q2_sql_analysis",
+    "q3": "/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-delivery-b901a98p/project/q3_etl_pipeline",
+    "q4": "/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-delivery-b901a98p/project/q4_llm_extraction",
+    "q5": "/private/var/folders/v6/zd02csmd4lj57dm1dy41h13c0000gn/T/gekko-delivery-b901a98p/project/q5_system_design"
+  }
+}

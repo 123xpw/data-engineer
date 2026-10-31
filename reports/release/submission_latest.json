@@ -1,12 +1,12 @@
 {
-  "run_id": "e8aa7b907edf4116a41b8ddb22fedbf3",
+  "run_id": "abaf99c3170a4345a47d2081cae5e04b",
   "status": "failed",
   "scope": "submission",
-  "started_utc": "2026-10-31T09:59:11.650024+00:00",
+  "started_utc": "2026-10-31T13:14:56.050920+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "pandas": "3.1.0",
-  "git_base": "9b20de1147934ea9bfbc03f8e859b13a560068d0",
+  "git_base": "8a4e4034c0089339027d9b771f18e5c522cd63dc",
   "python_optimization_level": 0,
   "source_sha256": {
     "VALIDATION_GATES.md": "6198a51889e85992b5cb63f87cc0032463e7cb0682c7e94aaf25edb65f63413b",
@@ -187,7 +187,7 @@
       "name": "Q6 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "fdb0812f87524876ac777404a5541b41",
+        "run_id": "9f2c6bb85687446e80be0f6274e0fa9d",
         "scope": "具备全部必需检查、限定产物、当前源码及实际字节的程序证据"
       }
     },
@@ -356,5 +356,5 @@
     }
   ],
   "decision": "not_ready",
-  "finished_utc": "2026-10-31T09:59:11.935686+00:00"
+  "finished_utc": "2026-10-31T13:14:56.331185+00:00"
 }

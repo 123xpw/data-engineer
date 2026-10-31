@@ -1,0 +1,12 @@
+{
+  "scope": "新增隐私检查：当前日志及既有公开历史分别记录；不公开被识别的具体姓名或本地用户名",
+  "published_baseline_commit": "bd06e24b1b6523bd03087af311b7b64071833c58",
+  "historical_candidate_name_present": true,
+  "historical_local_user_path_present": true,
+  "historical_privacy_resolved": false,
+  "original_log_attachment_will_be_delivered": false,
+  "candidate_choice": "仅交付脱敏日志",
+  "new_preview_published": false,
+  "force_push_performed": false,
+  "limits": "当前文件脱敏不能清除旧Git对象；不擅自改写或删除历史；面试方未确认日志例外"
+}

@@ -40,6 +40,6 @@ python q4_llm_extraction/evaluate_annotations.py --labels .venv/q4_labels.json
 
 R1 检查合成反例、预算/恢复/并发、变异与全量无网络分流。真实处理检查以另一 CSV 解析器核对每行标识、引文、原始响应、用量与费用，不以 resolved 或 confidence 自证。两种验证仍由同一 AI 编写，不是独立人员审查。
 
-按 accuracy_evaluation.md 填写 30 条真人盲标；用户已选择稍后进行，当前没有准确率结果。引文存在不认证类别、否定、翻译或归责。空标签拒绝评估，不能由 AI 代填“人工真值”。程序执行完成与完整笔试可提交分开判定。
+按 accuracy_evaluation.md 填写 30 条真人盲标；候选人已说明尚未填写，当前提供本地盲标表，尚无准确率结果。引文存在不认证类别、否定、翻译或归责。空标签拒绝评估，不能由 AI 代填“人工真值”。程序执行完成与完整笔试可提交分开判定。
 
 官方参考：[价格](https://api-docs.deepseek.com/quick_start/pricing/)、[接口](https://api-docs.deepseek.com/api/create-chat-completion/)、[JSON 模式](https://api-docs.deepseek.com/guides/json_mode/)、[模型元数据](https://api-docs.deepseek.com/api/list-models/)。模型别名可能更新，接口回执与输入/提示版本一同保存。当前使用 macOS/Linux 的 fcntl 锁，未声称 Windows 兼容。

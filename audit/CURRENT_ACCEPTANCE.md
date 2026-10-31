@@ -1,6 +1,8 @@
 # 当前验收入口
 
-**当前源码的程序范围通过；完整提交仍未通过。本轮候选未推送。** 本轮修复验收器误放行风险，源码冻结后重新验证全部模块，并另做新虚拟环境与空缓存真实数据下载。
+**当前源码的程序范围通过；同一次默认入口的空数据下载及完整缓存执行也通过。完整提交仍有明确缺项，本轮候选未推送。** 本轮修复验收器误放行风险，源码冻结后重新验证全部模块，并另做新虚拟环境与空缓存真实数据下载。
+
+最新一轮：[交付复现演练、真实回执及个人信息边界](DELIVERY_REHEARSAL_RESULT.md)。此前未填写真人盲标；当前只交付脱敏日志，已发现既有公开历史含个人信息，处理选择待确认。
 
 ## 当前结果与完整依据
 
@@ -11,9 +13,9 @@
 - [修复后103项单元原始输出](../reports/release/gate_audit_green.json)、[旧验收器失败原始输出](../reports/release/gate_audit_red.json)：JSON保留捕获文本和UTF-8摘要。
 - [新环境5组实测](../reports/hardening/clean_environment_latest.json)：全新venv/依赖、空缓存数据下载、独立核对及故障流程；复用本机MySQL、无付费模型调用。
 - [本轮完整重放与保护条件](../reports/release/gate_audit_replay.json)：全部刷新352.780秒，完整真实缓存覆盖，新增模型请求零，原私有配置/账本与抽取结果未变。
-- [程序范围判定](../reports/release/implemented_latest.json)：c14be50fcbe5401895f2d176ab7d87fa，passed / implemented_ready。
+- [程序范围判定](../reports/release/implemented_latest.json)：c2b6dd534f134a548dfbba3bc7681e7b，passed / implemented_ready。
 - [完整默认入口](../reports/release_execution.json)：47ddf6a85ad44155b6ffe1a052f422f2，passed / exit 0，Q1–Q5全部必答阶段通过。
-- [完整提交的实际拒绝](../reports/release/submission_latest.json)：e8aa7b907edf4116a41b8ddb22fedbf3，not_ready / 退出2，未完成原因逐项保留。
+- [完整提交的实际拒绝](../reports/release/submission_latest.json)：abaf99c3170a4345a47d2081cae5e04b，not_ready / 退出2，未完成原因逐项保留。
 
 ## 已关闭的前轮问题
 

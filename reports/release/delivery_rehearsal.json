@@ -1,0 +1,296 @@
+{
+  "started_utc": "2026-10-31T12:56:16.342372+00:00",
+  "status": "passed",
+  "tested_commit": "8a4e4034c0089339027d9b771f18e5c522cd63dc",
+  "acceptance_contract": "audit/ACCEPTANCE_DELIVERY_REHEARSAL.md",
+  "acceptance_contract_sha256": "4cd29af9c509ed1ae6abfd365b55fb221040f74a2f40099745f9629e3ea89042",
+  "driver_sha256": "a85ec82a5d03d954a281a06d80cc1ac04c1fb96ee5b4fe1ccb24a669f96883e5",
+  "checks": [
+    {
+      "name": "精确Git导出无开发私有文件",
+      "passed": true,
+      "evidence": {
+        "git_archive": true,
+        "initial_raw_data_files": 0,
+        "initial_parquet_files": 0,
+        "initial_env_file": false,
+        "initial_venv": false,
+        "archive_sha256": "6f7c89d1e0535ad4ef27798948dd2edaed0a5d4a8c7e8082e27599495c6f15f2"
+      },
+      "seconds": 0.107
+    },
+    {
+      "name": "全新Python环境锁定安装",
+      "passed": true,
+      "evidence": {
+        "fresh_venv": true,
+        "pip_check": "passed",
+        "installed": [
+          "certifi==2026.10.23",
+          "charset-normalizer==3.5.2",
+          "idna==3.20",
+          "kagglehub==1.0.3",
+          "kagglesdk==0.1.38",
+          "numpy==2.5.4",
+          "packaging==26.3",
+          "pandas==3.1.0",
+          "protobuf==7.36.2",
+          "pyarrow==26.0.0",
+          "PyMySQL==1.1.2",
+          "python-dateutil==3.0.0",
+          "PyYAML==6.0.3",
+          "requests==2.34.2",
+          "six==1.17.0",
+          "tqdm==4.70.1",
+          "tzdata==2026.5",
+          "urllib3==2.8.0"
+        ]
+      },
+      "seconds": 294.66
+    },
+    {
+      "name": "模型HTTP拦截阳性控制",
+      "passed": true,
+      "evidence": {
+        "attempt_rejected": true,
+        "live_model_key_supplied": false,
+        "ledger_entries_seeded": 912
+      },
+      "seconds": 0.701
+    },
+    {
+      "name": "同一次默认入口下载并完成全部模块",
+      "passed": true,
+      "evidence": {
+        "run_id": "d47fcce3686f4a05a0a22a54fe09942a",
+        "exit_code": 0,
+        "status": "passed",
+        "stages": [
+          {
+            "stage": "data.retail",
+            "status": "passed",
+            "seconds": 6.8779
+          },
+          {
+            "stage": "data.olist",
+            "status": "passed",
+            "seconds": 131.6106
+          },
+          {
+            "stage": "q1.1",
+            "status": "passed",
+            "seconds": 11.0441
+          },
+          {
+            "stage": "q1.2",
+            "status": "passed",
+            "seconds": 3.5859
+          },
+          {
+            "stage": "q1.3",
+            "status": "passed",
+            "seconds": 0.0052
+          },
+          {
+            "stage": "q2",
+            "status": "passed",
+            "seconds": 29.3701
+          },
+          {
+            "stage": "q3",
+            "status": "passed",
+            "seconds": 5.58
+          },
+          {
+            "stage": "q4",
+            "status": "passed",
+            "seconds": 5.7614
+          },
+          {
+            "stage": "q5",
+            "status": "passed",
+            "seconds": 0.0048
+          }
+        ],
+        "actual_empty_data_download": true
+      },
+      "seconds": 194.704
+    },
+    {
+      "name": "实际输入清单及全部业务产物独立核对",
+      "passed": true,
+      "evidence": {
+        "independent_inputs": {
+          "retail": [
+            {
+              "path": "online_retail_ii.csv",
+              "rows": 1067371,
+              "columns": [
+                "Invoice",
+                "StockCode",
+                "Description",
+                "Quantity",
+                "InvoiceDate",
+                "Price",
+                "Customer ID",
+                "Country"
+              ],
+              "bytes": 94850204,
+              "sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9"
+            }
+          ],
+          "olist": [
+            {
+              "path": "olist/olist_customers_dataset.csv",
+              "rows": 99441,
+              "columns": [
+                "customer_id",
+                "customer_unique_id",
+                "customer_zip_code_prefix",
+                "customer_city",
+                "customer_state"
+              ],
+              "bytes": 9033957,
+              "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+            },
+            {
+              "path": "olist/olist_geolocation_dataset.csv",
+              "rows": 1000163,
+              "columns": [
+                "geolocation_zip_code_prefix",
+                "geolocation_lat",
+                "geolocation_lng",
+                "geolocation_city",
+                "geolocation_state"
+              ],
+              "bytes": 61273883,
+              "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+            },
+            {
+              "path": "olist/olist_order_items_dataset.csv",
+              "rows": 112650,
+              "columns": [
+                "order_id",
+                "order_item_id",
+                "product_id",
+                "seller_id",
+                "shipping_limit_date",
+                "price",
+                "freight_value"
+              ],
+              "bytes": 15438671,
+              "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+            },
+            {
+              "path": "olist/olist_order_payments_dataset.csv",
+              "rows": 103886,
+              "columns": [
+                "order_id",
+                "payment_sequential",
+                "payment_type",
+                "payment_installments",
+                "payment_value"
+              ],
+              "bytes": 5777138,
+              "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+            },
+            {
+              "path": "olist/olist_order_reviews_dataset.csv",
+              "rows": 99224,
+              "columns": [
+                "review_id",
+                "order_id",
+                "review_score",
+                "review_comment_title",
+                "review_comment_message",
+                "review_creation_date",
+                "review_answer_timestamp"
+              ],
+              "bytes": 14451670,
+              "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+            },
+            {
+              "path": "olist/olist_orders_dataset.csv",
+              "rows": 99441,
+              "columns": [
+                "order_id",
+                "customer_id",
+                "order_status",
+                "order_purchase_timestamp",
+                "order_approved_at",
+                "order_delivered_carrier_date",
+                "order_delivered_customer_date",
+                "order_estimated_delivery_date"
+              ],
+              "bytes": 17654914,
+              "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+            },
+            {
+              "path": "olist/olist_products_dataset.csv",
+              "rows": 32951,
+              "columns": [
+                "product_id",
+                "product_category_name",
+                "product_name_lenght",
+                "product_description_lenght",
+                "product_photos_qty",
+                "product_weight_g",
+                "product_length_cm",
+                "product_height_cm",
+                "product_width_cm"
+              ],
+              "bytes": 2379446,
+              "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+            },
+            {
+              "path": "olist/olist_sellers_dataset.csv",
+              "rows": 3095,
+              "columns": [
+                "seller_id",
+                "seller_zip_code_prefix",
+                "seller_city",
+                "seller_state"
+              ],
+              "bytes": 174703,
+              "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+            },
+            {
+              "path": "olist/product_category_name_translation.csv",
+              "rows": 71,
+              "columns": [
+                "product_category_name",
+                "product_category_name_english"
+              ],
+              "bytes": 2613,
+              "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+            }
+          ]
+        },
+        "all_manifests_valid": true,
+        "business_json_equal_except_load_version": true,
+        "exact_byte_matches": {
+          "q3_etl_pipeline/outputs/sales_facts.parquet": true,
+          "q3_etl_pipeline/outputs/customer_features.parquet": true,
+          "q3_etl_pipeline/outputs/returns_log.parquet": true,
+          "q4_llm_extraction/extracted_issues.json": true
+        }
+      },
+      "seconds": 1.164
+    },
+    {
+      "name": "无新增模型费用及正式私有文件保护",
+      "passed": true,
+      "evidence": {
+        "seeded_ledger_unchanged": true,
+        "new_model_request_entries": 0,
+        "no_model_http_attempt_after_selftest": true,
+        "formal_configuration_ledger_and_results_unchanged": true
+      },
+      "seconds": 0.015
+    }
+  ],
+  "scope": "新Git源码目录、新虚拟环境、空数据/下载缓存；明确复用本机MySQL与已有真实模型响应缓存，不是无缓存模型生成",
+  "active_check": null,
+  "temporary_files_cleaned": true,
+  "finished_utc": "2026-10-31T13:04:28.442321+00:00"
+}

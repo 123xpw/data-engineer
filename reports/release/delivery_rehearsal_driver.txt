@@ -1,0 +1,132 @@
+"""固定Git内容的新环境、空数据下载和完整缓存入口演练；不修改源码。"""
+from datetime import datetime, timezone
+from importlib.metadata import version
+import hashlib
+import io
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import tarfile
+import tempfile
+import time
+
+PLAN=Path(__file__).resolve().parent
+MAIN=PLAN.parents[1]
+ROOT=MAIN.parent/'公开脱敏预览'
+COMMIT='8a4e4034c0089339027d9b771f18e5c522cd63dc'
+DEST=PLAN/'delivery_rehearsal'
+DEST.mkdir(exist_ok=True);DEST.chmod(0o700)
+proof={'started_utc':datetime.now(timezone.utc).isoformat(),'status':'running','tested_commit':COMMIT,'acceptance_contract':'audit/ACCEPTANCE_DELIVERY_REHEARSAL.md','acceptance_contract_sha256':hashlib.sha256((ROOT/'audit/ACCEPTANCE_DELIVERY_REHEARSAL.md').read_bytes()).hexdigest(),'driver_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'checks':[],'scope':'新Git源码目录、新虚拟环境、空数据/下载缓存；明确复用本机MySQL与已有真实模型响应缓存，不是无缓存模型生成'}
+def digest(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def save():
+ (DEST/'result.json').write_text(json.dumps(proof,ensure_ascii=False,indent=2)+'\n')
+def check(name,fn):
+ proof['active_check']=name;save();start=time.monotonic()
+ try:
+  value=fn();passed=True;item={'name':name,'passed':True,'evidence':value}
+ except Exception as e:
+  passed=False;item={'name':name,'passed':False,'error':type(e).__name__+(': '+str(e) if isinstance(e,AssertionError) else '')}
+ item['seconds']=round(time.monotonic()-start,3);proof['checks'].append(item);save();print(json.dumps(item,ensure_ascii=False),flush=True)
+ if not passed:raise RuntimeError('验收失败，停止后续步骤')
+ return value
+protected=[MAIN/'.env',MAIN/'.venv/q4_state/ledger.json',ROOT/'.env',ROOT/'.venv/q4_state/ledger.json',ROOT/'q4_llm_extraction/extracted_issues.json']
+before={str(p):digest(p) for p in protected}
+try:
+ with tempfile.TemporaryDirectory(prefix='gekko-delivery-') as temp:
+  base=Path(temp);project=base/'project';project.mkdir();virtual=base/'python';cache=base/'empty-kaggle-cache';guards=base/'guards';guards.mkdir()
+  raw=subprocess.check_output(['git','archive','--format=tar',COMMIT],cwd=ROOT)
+  def extract():
+   with tarfile.open(fileobj=io.BytesIO(raw)) as archive:archive.extractall(project,filter='data')
+   assert not any(project.rglob('*.csv')) and not any(project.rglob('*.parquet')) and not (project/'.env').exists() and not (project/'.venv').exists()
+   return {'git_archive':True,'initial_raw_data_files':0,'initial_parquet_files':0,'initial_env_file':False,'initial_venv':False,'archive_sha256':hashlib.sha256(raw).hexdigest()}
+  check('精确Git导出无开发私有文件',extract)
+  env=os.environ.copy()
+  for k in list(env):
+   if 'API_KEY' in k or 'PASSWORD' in k or k.startswith('Q4_') or k in ('PYTHONPATH','PYTHONHOME','VIRTUAL_ENV'):env.pop(k,None)
+  env.update(PYTHONNOUSERSITE='1',PIP_NO_CACHE_DIR='1',PIP_DISABLE_PIP_VERSION_CHECK='1',KAGGLEHUB_CACHE=str(cache))
+  def run(args,name,timeout=1800):
+   result=subprocess.run(args,cwd=project,env=env,capture_output=True,text=True,timeout=timeout)
+   (DEST/(name+'.log')).write_text(result.stdout+result.stderr)
+   return result
+  def install():
+   assert run([sys.executable,'-m','venv',str(virtual)],'create_venv').returncode==0
+   py=str(virtual/'bin/python')
+   assert run([py,'-m','pip','install','--no-cache-dir','-r','requirements.txt'],'install').returncode==0
+   assert run([py,'-m','pip','check'],'pip_check').returncode==0
+   result=run([py,'-m','pip','freeze'],'freeze');assert result.returncode==0
+   installed=result.stdout.splitlines();wanted=[s.strip() for s in (project/'requirements.txt').read_text().splitlines() if s.strip() and not s.startswith('#')]
+   norm=lambda xs:sorted(x.lower().replace('_','-') for x in xs)
+   assert norm(installed)==norm(wanted),'依赖版本与锁定文件不一致'
+   return {'fresh_venv':True,'pip_check':'passed','installed':installed}
+  check('全新Python环境锁定安装',install)
+  py=str(virtual/'bin/python')
+  values={}
+  for line in (MAIN/'.env').read_text().splitlines():
+   if '=' in line and not line.lstrip().startswith('#'):
+    k,v=line.split('=',1)
+    if k in ('MYSQL_USER','MYSQL_PASSWORD','MYSQL_DATABASE','MYSQL_ROOT_PASSWORD'):values[k]=v
+  assert len(values)==4,'原数据库配置缺失，不猜测凭据'
+  (project/'.env').write_text(''.join(k+'='+v+'\n' for k,v in values.items())+'Q4_LIVE=1\nQ4_API_KEY=cache-only-verification-placeholder\n');(project/'.env').chmod(0o600)
+  state=project/'.venv/q4_state';shutil.copytree(ROOT/'.venv/q4_state',state)
+  ledger_before=digest(state/'ledger.json');entries_before=len(json.loads((state/'ledger.json').read_text())['entries'])
+  events=base/'http_events.jsonl'
+  guard='''import json,os\nfrom pathlib import Path\nfrom urllib.parse import urlsplit\nimport requests\noriginal=requests.Session.send\ndef send(self,request,*args,**kwargs):\n    host=(urlsplit(request.url).hostname or '').lower().rstrip('.')\n    if host=='api.deepseek.com':\n        p=Path(os.environ['GEKKO_HTTP_EVENTS'])\n        with p.open('a') as f:f.write(json.dumps({'phase':os.environ.get('GEKKO_HTTP_PHASE'),'rejected_host':host})+'\\n')\n        raise RuntimeError('演练禁止新增模型HTTP请求')\n    return original(self,request,*args,**kwargs)\nrequests.Session.send=send\n'''
+  (guards/'sitecustomize.py').write_text(guard)
+  env.update(PYTHONPATH=str(guards),GEKKO_HTTP_EVENTS=str(events),GEKKO_HTTP_PHASE='selftest',GEKKO_MYSQL_ENV_FILE=str(project/'.env'),Q4_LIVE='1',Q4_API_KEY='cache-only-verification-placeholder')
+  def selftest():
+   p=run([py,'-c',"import requests\ntry:requests.get('https://api.deepseek.com/guard-test')\nexcept RuntimeError:pass\nelse:raise AssertionError('没有拦截')"],'guard_selftest')
+   assert p.returncode==0 and events.exists()
+   return {'attempt_rejected':True,'live_model_key_supplied':False,'ledger_entries_seeded':entries_before}
+  check('模型HTTP拦截阳性控制',selftest)
+  assert not cache.exists() and not any((project/'data').rglob('*.csv'))
+  env['GEKKO_HTTP_PHASE']='default_pipeline'
+  def pipeline():
+   r=run([py,'run_all.py'],'default_pipeline')
+   assert r.returncode==0,f'默认入口退出{r.returncode}'
+   d=json.loads((project/'reports/latest_run.json').read_text())
+   from copy import deepcopy
+   sys.path.insert(0,str(ROOT))
+   import release_check
+   release_check.inspect_complete_execution(d)
+   for item in d['results']:
+    if item['stage'].startswith('data.'):
+     assert item['detail']['files'] and all(f['action']=='downloaded' for f in item['detail']['files']),'数据并未全部从空目录下载'
+   (DEST/'default_run.json').write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')
+   return {'run_id':d['run_id'],'exit_code':r.returncode,'status':d['status'],'stages':[{'stage':x['stage'],'status':x['status'],'seconds':x['seconds']} for x in d['results']],'actual_empty_data_download':True}
+  check('同一次默认入口下载并完成全部模块',pipeline)
+  def independently():
+   sys.path.insert(0,str(ROOT))
+   from scripts.verification_support import verify_outputs
+   spec=json.loads((project/'data_sources.json').read_text())['datasets']
+   inputs={name:verify_outputs(project/'data',item['files']) for name,item in spec.items()}
+   script="""import json\nfrom pathlib import Path\nfrom artifact_manifest import ARTIFACTS,validate_manifest,manifest_path\nr=json.loads(Path('reports/latest_run.json').read_text())\nfor stage in ARTIFACTS:\n folder=Path(r['output_directories'][stage.split('.')[0]])\n validate_manifest(manifest_path(folder,stage),r['run_id'])\nprint('all manifests validated')\n"""
+   assert run([py,'-c',script],'manifest_check').returncode==0,'清单拒绝'
+   for group,names in [('q1_data_quality',['data_quality_metrics.json','findings_metrics.json']),('q2_sql_analysis',[f'q2_{i}_results.json' for i in range(1,5)])]:
+    for name in names:
+     a=json.loads((project/group/name).read_text());b=json.loads((ROOT/group/name).read_text())
+     assert {k:v for k,v in a.items() if k!='load_version'}=={k:v for k,v in b.items() if k!='load_version'},'规范业务结果变化：'+name
+   matches={}
+   for f in ['q3_etl_pipeline/outputs/'+n+'.parquet' for n in ('sales_facts','customer_features','returns_log')]+['q4_llm_extraction/extracted_issues.json']:
+    matches[f]=digest(project/f)==digest(ROOT/f)
+   assert all(matches.values()),'Parquet或抽取结果变化'
+   return {'independent_inputs':inputs,'all_manifests_valid':True,'business_json_equal_except_load_version':True,'exact_byte_matches':matches}
+  check('实际输入清单及全部业务产物独立核对',independently)
+  def unchanged():
+   rows=[json.loads(s) for s in events.read_text().splitlines()]
+   assert all(r['phase']=='selftest' for r in rows),'发生新增模型HTTP尝试'
+   assert digest(state/'ledger.json')==ledger_before,'种子账本字节变化'
+   assert len(json.loads((state/'ledger.json').read_text())['entries'])==entries_before,'新增请求记录'
+   assert before=={str(p):digest(p) for p in protected},'正式私有配置或账本等变化'
+   return {'seeded_ledger_unchanged':True,'new_model_request_entries':0,'no_model_http_attempt_after_selftest':True,'formal_configuration_ledger_and_results_unchanged':True}
+  check('无新增模型费用及正式私有文件保护',unchanged)
+ proof['temporary_files_cleaned']=True
+ proof['status']='passed'
+except Exception as e:
+ proof['status']='failed';proof['error']=type(e).__name__
+finally:
+ proof['finished_utc']=datetime.now(timezone.utc).isoformat();proof['active_check']=None;save()
+print(json.dumps({'status':proof['status'],'checks':len(proof['checks'])},ensure_ascii=False),flush=True)
+sys.exit(proof['status']!='passed')

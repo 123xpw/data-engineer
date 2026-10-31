@@ -1,12 +1,12 @@
 {
-  "run_id": "c14be50fcbe5401895f2d176ab7d87fa",
+  "run_id": "c2b6dd534f134a548dfbba3bc7681e7b",
   "status": "passed",
   "scope": "implemented",
-  "started_utc": "2026-10-31T09:53:18.822729+00:00",
+  "started_utc": "2026-10-31T13:14:55.506233+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "pandas": "3.1.0",
-  "git_base": "9b20de1147934ea9bfbc03f8e859b13a560068d0",
+  "git_base": "8a4e4034c0089339027d9b771f18e5c522cd63dc",
   "python_optimization_level": 0,
   "source_sha256": {
     "VALIDATION_GATES.md": "6198a51889e85992b5cb63f87cc0032463e7cb0682c7e94aaf25edb65f63413b",
@@ -112,14 +112,6 @@
   },
   "checks": [
     {
-      "name": "重跑当前源码与全入口",
-      "passed": true,
-      "evidence": {
-        "pipeline_exit_code": 0,
-        "scope": "当前 Q1–Q5 及加分题的程序/真实处理范围；Q4 语义与最终提交材料另行验收，不冒称无缓存全量调用"
-      }
-    },
-    {
       "name": "当前功能回归及代码、产物绑定",
       "passed": true,
       "evidence": {
@@ -195,7 +187,7 @@
       "name": "Q6 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "fdb0812f87524876ac777404a5541b41",
+        "run_id": "9f2c6bb85687446e80be0f6274e0fa9d",
         "scope": "具备全部必需检查、限定产物、当前源码及实际字节的程序证据"
       }
     },
@@ -329,5 +321,5 @@
   ],
   "implemented_ready": true,
   "decision": "implemented_ready",
-  "finished_utc": "2026-10-31T09:59:11.322210+00:00"
+  "finished_utc": "2026-10-31T13:14:55.801637+00:00"
 }
