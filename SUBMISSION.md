@@ -2,7 +2,7 @@
 
 # 候选版本与复现入口
 
-最终交付应是本人公开Fork中的版本、可访问URL和邮件中的准确commit hash。当前按候选人决定暂不发布；本地ZIP仅是辅助快照。当前程序验证及剩余项统一见 [验收入口](audit/CURRENT_ACCEPTANCE.md)，不要把历史passed当作新克隆的运行结果。
+最终交付应是本人公开Fork中的版本、可访问URL和邮件中的准确commit hash。候选人已于2026-11-01授权仅做隐私历史处理后发布到新分支 `codex/submission-redacted`；本地ZIP仅是辅助快照。当前程序验证及剩余项统一见 [验收入口](audit/CURRENT_ACCEPTANCE.md)，不要把历史passed当作新克隆的运行结果。
 
 ## 运行条件与入口
 
@@ -53,6 +53,6 @@ python release_check.py
 
 真人30条盲标及解盲审阅未完成，准确率未知；实际账单未独立核验（Q4子README明确会查），但不要求公开余额、身份或密钥。REFLECTION/TOOLS/AI_LOG如实披露AI参与，候选人理解仍需本人复核。
 
-AI日志按本人选择仅交付脱敏副本，未满足完整未删改原文字面要求，面试方尚未确认例外。旧公开Git历史含个人信息，当前文件脱敏不能清除祖先；不擅自改写、强推、删除或变更可见性。
+AI日志按本人选择仅交付脱敏副本，未满足完整未删改原文字面要求，面试方尚未确认例外。旧公开分支历史含个人信息。本次在独立副本中仅处理隐私，保留37个真实逐轮提交后发布新分支；未覆盖、删除或强推旧分支，旧公开历史仍未清除。处理范围和验收见 [历史隐私说明](HISTORY_PRIVACY.md)。
 
-本人公开Fork为 [123xpw/data-engineer](https://github.com/123xpw/data-engineer)，父仓库Jay-gekko/data-engineer。远端仍是旧版本；本地交付分支codex/delivery-redacted尚未新发布，最终公开hash和提交邮件未冻结。待隐私边界确认后再按正常提交推送并独立核对远端，不把本地包或本地hash当作已经交付。
+本人公开Fork为 [123xpw/data-engineer](https://github.com/123xpw/data-engineer)，父仓库Jay-gekko/data-engineer。本次候选入口为 [codex/submission-redacted](https://github.com/123xpw/data-engineer/tree/codex/submission-redacted)。现有默认分支仍是旧版本，请按此分支复核；最终commit hash必须以推送后的GitHub实际返回值登记，提交邮件尚未发送。源码与原验收版本逐字节相同，历史引用hash不因脱敏自动变成新实测。

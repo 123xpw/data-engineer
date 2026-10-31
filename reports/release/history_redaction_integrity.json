@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "original_candidate": "b045aaa18f1c3049772ba4d47710cfb7e413b921",
+  "redacted_candidate": "c87472e208d0a25d3910a1cbfc3848cdfe01e752",
+  "preserved_own_commits": 37,
+  "historical_file_versions_compared": 15081,
+  "changed_history_blobs": 93,
+  "every_commit_tree_matches_only_declared_redaction": true,
+  "commit_messages_and_timestamps_preserved_except_identity_redaction": true,
+  "upstream_commit_unchanged": true,
+  "final_tree_byte_identical": true,
+  "private_mapping_published": false,
+  "remote_modified": false,
+  "verification_implementation": "初始逐文件校验实际完成通过；另用批量对象读取核对同样全部历史文件版本，两种实现均通过。尝试停止慢校验时进程已结束，没有终止其他进程"
+}
