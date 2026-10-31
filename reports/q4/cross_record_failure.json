@@ -1,0 +1,36 @@
+{
+  "batch_request_id": "10c90701-4e3f-4902-ac04-f04564f56b20",
+  "target_source_row": 44556,
+  "other_source_row_in_same_batch": 47809,
+  "target_original_message": "Estou muito de saco cheio minhas cortinas não foram entregues até agora ..dia 22/05/2017 recebi um comunicado que minha área de entrega era área de risco ..mas isso pq eu fui atrás para saber .",
+  "other_original_message": "Não recebi o produto ainda, já passou do prazo estipulado pela loja, só me informaram que o produto não chegou em Porto \r\nAlegre, que houve um imprevisto.",
+  "rejected_quote": "só me informaram que o produto não chegou em Porto",
+  "quote_in_target": false,
+  "quote_in_other": true,
+  "single_request_id": "c6927e26-d47a-464b-a835-cc8ae7d27a76",
+  "final_result": {
+    "source_row": 44556,
+    "review_id": "8e5623e7ff97383c53bd34cf427ffe93",
+    "order_id": "0e3ec3c17b64c6cc7bc01bba21e7afdf",
+    "route": "llm",
+    "status": "resolved",
+    "issues": [
+      {
+        "category": "other",
+        "severity": "high",
+        "evidence_quote": "minhas cortinas não foram entregues até agora",
+        "evidence_quote_en": "my curtains have not been delivered until now"
+      },
+      {
+        "category": "seller_communication",
+        "severity": "low",
+        "evidence_quote": "mas isso pq eu fui atrás para saber",
+        "evidence_quote_en": "but that's because I went after it to find out"
+      }
+    ],
+    "sentiment_score": -0.7,
+    "actionable_for_seller": true,
+    "confidence": 0.7
+  },
+  "scope": "一次真实跨记录引文与单条隔离观察；不据单例证明通用防幻觉或语义准确率"
+}

@@ -1,0 +1,350 @@
+{
+  "run_id": "7bbc958af912426aa07267eb927d358e",
+  "status": "passed",
+  "scope": "acceptance",
+  "started_utc": "2026-10-30T13:07:06.091688+00:00",
+  "python": "3.12.13",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "pandas": "3.1.0",
+  "git_base": "ca3cd69ac1e287dc28498615dfa5984c28145e63",
+  "python_optimization_level": 0,
+  "source_sha256": {
+    "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
+    "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
+    "VALIDATION_GATES.md": "6198a51889e85992b5cb63f87cc0032463e7cb0682c7e94aaf25edb65f63413b",
+    "delivery_requirements.json": "e7660813b65ad8aa0b7cb60ff85223d40dde9962b92d6f55ac3e9c120846aa1e",
+    "artifact_manifest.py": "082b0ce76e986daef448042ad6caaa79cad58d781fba95aa1a61d5c57dcb0c71",
+    "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
+    "release_check.py": "5985406a863bd429be40ca33855ae72d1dd773b1f4d1c111eb2455c1684407d9",
+    "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f",
+    "scripts/check_q2_1_cases.py": "b4f35cd1f2d7202b2598ef640e0899e04fdfd2e9168fcc2a2a29e4be53b217ea",
+    "scripts/check_q2_2_cases.py": "bedeae1353e7fece57f71fea830a658c1d1d83b96455175e42752fc6fc3d6551",
+    "scripts/check_q2_3_cases.py": "ee2a7e1bd044a4059dee36824cbdc27f9c7e84a19934eb4a2b6c6c03f5ee7ac1",
+    "scripts/check_q2_typed_values.py": "0637b8f4429cc89ee303205b2e4a4b8cbc4b95e506ac5694ed66ab3482c5858d",
+    "scripts/experiment_q1_2_sensitivity.py": "70c5bc0c19eab3ec6ae4cc89921e4e9fd52643eccd1e35cb099be2a101a7edf5",
+    "scripts/export_ai_log.py": "3d19d6954ef59a4801b5279565e500940ad75b0f99d62e9edc97bc18227bba59",
+    "scripts/probe_q1_3_rules.py": "454c4e668e2283fa7dd2a04112d9843ff429e697b920b0166bcde20562bda6bc",
+    "scripts/probe_q2_3.py": "681d6239f68474eb52301cf9a9350e142c52f5734d74ea51e2b5789cf9ff2c1d",
+    "scripts/q1_findings_reference.py": "716e57de471da0bf591526454796b2bf1ec30035f6c051b15c303f909e9017b6",
+    "scripts/q1_reference.py": "9b30a77c4c0d5458888dc94c472c2eae070c189604fb223e4339e533ac77f592",
+    "scripts/q1_review_experiments.py": "43fd4e749584edc25b48cea67ccdf75a6a02a8a04e4a96ef149eb8fef0651f70",
+    "scripts/q2_2_reference.py": "6aa8595f88d7885ea82e9b384336916620c61d73bba8961743ff613dc944b508",
+    "scripts/q2_3_reference.py": "adaeba688cb9eb57797b89cbcad9f6df0c36f1550089538ffe0f7a5b7ff53947",
+    "scripts/q2_4_reference.py": "986258f2f6fa3142bf8ef0e20a69ba7a33a8cc2687c2c775cdb156ed7e021f50",
+    "scripts/verification_support.py": "4476c03c2db1cde54f15a1e3dae82e43358328ef8da645eff15c2b263a15dadc",
+    "scripts/verify_baseline.py": "0c227cc127188be03e7f3f6359e40bbb3ea0c9b58f33b1a484a3503a3e3bd8da",
+    "scripts/verify_bonus.py": "999bdeec0af979762e1ff5e55325fafbb3f7f46feb66b6e8af87798adcb1efff",
+    "scripts/verify_clean_environment.py": "559aae0ff595ac61cb961b8b7f2c5b96457c32906c464c8feb4a52129116ab56",
+    "scripts/verify_mutations.py": "fd6e1f1e187a9fdba4cbc0b6674e2404022836095a9ca9bc5005167bdeef90d4",
+    "scripts/verify_q1_1.py": "5e2302f413967790df315883de3d3633ab532936bd3c5d89823bacc03cd56146",
+    "scripts/verify_q1_2.py": "47f4c9cab39f47c64af4265ae799b3b98788264392f2e69837bdd776988677df",
+    "scripts/verify_q1_3.py": "02b71cf2b9e84891c9ab4982cf07f66411ce906cfd2182e8803a28e235a0bc6c",
+    "scripts/verify_q1_review.py": "bad11e861cd44307c7a70e8d2930593b7de4191dd7bb37425278546636d50f71",
+    "scripts/verify_q2_1.py": "37b301ac6736b6b8ebfd1bc3d0281f0e6e187727ebd5c9947bc79efd04d44614",
+    "scripts/verify_q2_2.py": "eac925a9460f1509f06fe01f83a666e0df68869eb0b8f2a8503eda6c87c316fc",
+    "scripts/verify_q2_3.py": "a78ac7130d37f535be954f384c88617e17f82929b8f6380c9f302349254ff2af",
+    "scripts/verify_q2_4.py": "21c9b3ce2056b23bec8f8360d1d12733201dd94f3a41c825f59f4e0db3e8af8e",
+    "scripts/verify_q3.py": "dc3148dbf0793a2c9ef8f9a7b43e6d185e4e521047d1c7506b9a2af2c761c2f6",
+    "scripts/verify_q4.py": "ac69fe030d7b19db139d7fdd8858ad3d2cd3cc34c36b09c0992db79cc9d57337",
+    "scripts/verify_q5.py": "84c2d6f481f1aa44497a52b1a50fd7c0ac1998d9a918f841b3338cd597a07d31",
+    "scripts/verify_stage_gate.py": "d5bf59a49da6c81d06738fa65c3b6eca9fb5f71b40c28b04a947b010c2cfdd64",
+    "tests/test_artifact_manifest.py": "9c010c27f4a2efa520d1df840ef84a7196973fa36e782d22a4f3627f1c1c8627",
+    "tests/test_baseline.py": "976372dafdf60d7559a709673fc491c6069a7bd3aae7c000276d87756075d567",
+    "tests/test_q1_findings.py": "4868fa4f898375fd72c834a45d973ee4909e1a2b475a9ce715e089fba6790cbd",
+    "tests/test_q1_profile.py": "c2a1e8a1b4b235a12ff3742386d2f849fed40d940e71eba870c4704188783488",
+    "tests/test_q1_review.py": "7024092be87789b57551839b2a55b43341973790cf25566658cdeb5d9a30fddf",
+    "tests/test_q4.py": "5113bb2fea6ae0f00e87be1922b39a23aa85bc5e1c061a2ff0bf18280c4a17b2",
+    "tests/test_release_check.py": "922b6e731cface6f6f3e32cb2bf23e38ad271221d69cc6e67aec43cb3b36270a",
+    "tests/test_verification.py": "af2b13c13e2516be411183abb46eb19817d388b615f3f0d98f8eef1a3eb6728f",
+    "q1_data_quality/q1_code.py": "3cefc9f09bf7603f032e19ef7dd7408ea92de90c423622c0e47ccb342b351817",
+    "q1_data_quality/q1_findings.py": "9510aa26166c43ab232ff93bb8c60f6fc27842fb0044f7bfc169b5ce8d70ddaf",
+    "q1_data_quality/q1_strategy.py": "06b4f770a0df565855320664afe708fa78fc07dc969c2744327dc30195e6b022",
+    "q1_data_quality/ACCEPTANCE_Q1_1.md": "be762634b9f7f6348c9c2610bcaf07ad0680a5cfe09fd5955681fcece11b5a88",
+    "q1_data_quality/ACCEPTANCE_Q1_2.md": "5f20dde95d38cd2dff8556937899ebbe72179cd8e5ffafebc5b7b1cad6c1f3c9",
+    "q1_data_quality/ACCEPTANCE_Q1_2_REVIEW.md": "34c3dfc6efdb859624d80267e168f325ab0762b8183f1438dc6d7ca2c59cbcec",
+    "q1_data_quality/ACCEPTANCE_Q1_3.md": "0c556690b80c49587c99f1f7f7397e6b695f61c813812f909e87d595cf09a929",
+    "q2_sql_analysis/catalog.py": "0108180bd105bb2dc977f7f42493e2ffbc30ec9fa7cc834007a5ce4d26174c30",
+    "q2_sql_analysis/load_olist.py": "d2cbc404f8ec4f9255a84756056ee27ff471a9965ba6550bfc0a6c6ac76fe7ba",
+    "q2_sql_analysis/mysql_runtime.py": "3ddd738b19bda77d44192937ff73b51b340b888881c47567b96c909e80e6f56c",
+    "q2_sql_analysis/q2_1.py": "f9b33a5482a4de57cf03a954a25c9f912a200a6f06b74332aebdf261d2620ae8",
+    "q2_sql_analysis/q2_2.py": "ffb51f75d9f5f44364ea34c55b4f486345047316e878f4aed35456f81d8d1d16",
+    "q2_sql_analysis/q2_3.py": "9481262c609328b197f30072fa7aa7ef6d4f7a237f746f58b36d97326397a979",
+    "q2_sql_analysis/q2_4.py": "9309a0f00b8512f7f6c983c6a47992428b1c4cfed4d051fff9335d95e9845839",
+    "q2_sql_analysis/q2_1_translation_gap.sql": "8ebd5dd6d6ab5b7d8d2848cefea7f606fea2b16e41816846e529745d4cd33b9a",
+    "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
+    "q2_sql_analysis/q2_3_top_sellers.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
+    "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
+    "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
+    "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
+    "q2_sql_analysis/ACCEPTANCE_Q2_1.md": "95970638080de39def5bd8498366e43aaa5a5582d6485406acd91181ed659345",
+    "q2_sql_analysis/ACCEPTANCE_Q2_2.md": "1051ef3ad09fce68f2393f3b84227408ae9003a94d8ff059c2a4a5f694dbbf4d",
+    "q2_sql_analysis/ACCEPTANCE_Q2_3.md": "ff4bd7e420e1b5728a548a9a04276b9460a2dfe532768ebf6556e46e12d3847e",
+    "q2_sql_analysis/ACCEPTANCE_Q2_4.md": "5c468bd1ec8ec427596302f29cb3b614d4730539b75aa6bd619b62ec427364ac",
+    "audit/q2_4_experiment.py": "327db3c44b926e5d4bb8be9bb6e8b55b0ace0fb85f6d18432249d60471d90ca9",
+    "audit/verify_q2_4_experiment.py": "0a418a4c5d0fed11a00158c9804d398b40b40f3199ec3f450c7a5f17f35af873",
+    "q3_etl_pipeline/pipeline.py": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
+    "q3_etl_pipeline/reference_check.py": "c397a4617f9568b317e3dec7a58b0ed1f58bbd765db216fe4e5789cdbc293a71",
+    "q3_etl_pipeline/test_pipeline.py": "8857672d2627cf32e7c62fb9fbf80fdfd81dc5877c461af8f7f5a60175506452",
+    "q3_etl_pipeline/ACCEPTANCE.md": "7dff9ad124bfc5e2c13f201c862fa57c0e6d4c7117bdd6fef70c89a00aa4e506",
+    "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
+    "q4_llm_extraction/extract_reviews.py": "37ea321d31756a610b29f255b0f3240c8feae821013a537f2329e9e32283c51a",
+    "q4_llm_extraction/ACCEPTANCE.md": "c64858765a7fd3ff8ce38f26044470b65868c16c3b6bee17daeb4d19965bf8d5",
+    "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
+    "q5_system_design/ACCEPTANCE.md": "c8b8eb4ed4869103a168fba2c0d76fb0121672876b7b0076d3e79a7aa2bad03d",
+    "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
+    "q4_llm_extraction/prompt_template.txt": "3de842e7280e26be02ac0bbfb49ede35b32c39cb9839de862612633ac238faeb",
+    "q4_llm_extraction/pipeline_design.md": "db00dd4017d1eac5764758266cf45dbba249379bf4b97351ba7c509fc93a7fbd",
+    "q4_llm_extraction/accuracy_evaluation.md": "d141c63cd70a90372714fb3d609b06c49efcea32b4f99c8ecfbff24908493baf",
+    "q4_llm_extraction/config.example.json": "93c9cfc88cac1f8b2f2bbb91a3fa95116212211cdb8c2c64eded7fb13dd3a6ea",
+    "q4_llm_extraction/deepseek_config.json": "1d0a3ab24c58d50fbe57e98417cfd956b17fad8250045521a93409d8c42d05fc"
+  },
+  "checks": [
+    {
+      "name": "真实 MySQL 环境",
+      "passed": true,
+      "evidence": {
+        "version": "8.4.13",
+        "sql_mode": "STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION",
+        "collation": "utf8mb4_0900_bin",
+        "tls_cipher": "TLS_AES_256_GCM_SHA384",
+        "image_id": "sha256:a0225d1ea6631c8bc2385dc4c2faba17bbf1834ecf369e1659a9a382bd8d5dd7",
+        "endpoint": "127.0.0.1:3307",
+        "database": "gekko_exam",
+        "container": "gekko-de-exam-mysql",
+        "volume": "gekko-de-exam-mysql-data",
+        "configuration": "显式原配置或全新实例初始化；不输出凭据"
+      }
+    },
+    {
+      "name": "手算、连接粒度、分母、并列、截断及定向错误",
+      "passed": true,
+      "evidence": {
+        "fixed_expected_A": {
+          "gmv_2017": "143.000",
+          "order_count": 3,
+          "unique_customers": 1,
+          "avg_review_score": "3.000000",
+          "late_delivery_rate": "100.000000",
+          "cancel_rate": "33.333333",
+          "state_rank": 1,
+          "reviewed_orders": 3,
+          "valid_delivery_orders": 1,
+          "missing_delivery_time_orders": 1
+        },
+        "actual_A": {
+          "seller_id": "A",
+          "seller_state": "SP",
+          "gmv_2017": "143.000",
+          "order_count": 3,
+          "unique_customers": 1,
+          "avg_review_score": "3.000000",
+          "late_delivery_rate": "100.000000",
+          "cancel_rate": "33.333333",
+          "reviewed_orders": 3,
+          "delivered_orders": 2,
+          "canceled_orders": 1,
+          "valid_delivery_orders": 1,
+          "missing_delivery_time_orders": 1,
+          "invalid_amount_orders": 0,
+          "missing_dimension_orders": 0,
+          "state_rank": 1
+        },
+        "top20_stable": true,
+        "mutations": {
+          "省略运费": [
+            {
+              "seller_id": "A",
+              "fields": [
+                "gmv_2017"
+              ]
+            },
+            {
+              "seller_id": "C",
+              "fields": [
+                "gmv_2017"
+              ]
+            },
+            {
+              "seller_id": "B",
+              "fields": [
+                "gmv_2017"
+              ]
+            }
+          ],
+          "评价未去重": [
+            {
+              "seller_id": "A",
+              "fields": [
+                "gmv_2017",
+                "order_count",
+                "avg_review_score",
+                "cancel_rate",
+                "reviewed_orders",
+                "delivered_orders",
+                "valid_delivery_orders"
+              ]
+            },
+            {
+              "seller_id": "C",
+              "fields": [
+                "state_rank"
+              ]
+            },
+            {
+              "seller_id": "B",
+              "fields": [
+                "gmv_2017",
+                "order_count",
+                "avg_review_score",
+                "reviewed_orders",
+                "delivered_orders",
+                "valid_delivery_orders"
+              ]
+            }
+          ],
+          "以客户订单标识冒充自然客户": [
+            {
+              "seller_id": "A",
+              "fields": [
+                "unique_customers"
+              ]
+            }
+          ],
+          "全平台排名冒充州内排名": [
+            {
+              "seller_id": "B",
+              "fields": [
+                "state_rank"
+              ]
+            },
+            {
+              "seller_id": "D",
+              "fields": [
+                "state_rank"
+              ]
+            },
+            {
+              "seller_id": "x00",
+              "fields": [
+                "state_rank"
+              ]
+            }
+          ]
+        },
+        "scope": "人工样例；真实数据另行独立复算"
+      }
+    },
+    {
+      "name": "全部真实卖家独立复算、金额及评价规则敏感性",
+      "passed": true,
+      "evidence": {
+        "sellers": 1784,
+        "orders_2017": 45101,
+        "attributed_orders": 44579,
+        "unattributed_orders": 522,
+        "unattributed_canceled_orders": 61,
+        "gmv": "6921535.240",
+        "review_rule_sensitive_sellers": 72,
+        "sensitivity_examples": [
+          {
+            "seller_id": "41b39e28db005d9731d9d485a83b4c38",
+            "latest": "4.169811",
+            "earliest": "4.150943",
+            "per_order_mean": "4.160377"
+          },
+          {
+            "seller_id": "1554a68530182680ad5c8b042c3ab563",
+            "latest": "4.285714",
+            "earliest": "4.292208",
+            "per_order_mean": "4.288961"
+          },
+          {
+            "seller_id": "25c5c91f63607446a97b143d2d535d31",
+            "latest": "3.912000",
+            "earliest": "3.888000",
+            "per_order_mean": "3.900000"
+          }
+        ],
+        "top_seller": {
+          "seller_id": "53243585a1d6dc2643021fd1853d8905",
+          "seller_state": "BA",
+          "gmv_2017": "185858.390",
+          "order_count": 243,
+          "unique_customers": 238,
+          "avg_review_score": "4.261411",
+          "late_delivery_rate": "3.361345",
+          "cancel_rate": "0.000000",
+          "reviewed_orders": 241,
+          "delivered_orders": 238,
+          "canceled_orders": 0,
+          "valid_delivery_orders": 238,
+          "missing_delivery_time_orders": 0,
+          "invalid_amount_orders": 0,
+          "missing_dimension_orders": 0,
+          "state_rank": 1
+        }
+      }
+    },
+    {
+      "name": "已有业务当前源码回归",
+      "passed": true,
+      "evidence": {
+        "run_id": "07021252eba246b7bc0a34a90e7ffd04",
+        "scope": "包含 Q1、九表、Q2.1、Q2.2 当前源码回归"
+      }
+    },
+    {
+      "name": "本题正式入口与失败归属",
+      "passed": true,
+      "evidence": {
+        "direct_combined_equal": true,
+        "failed_old_artifact_rejected": true
+      }
+    }
+  ],
+  "requirement_id": "Q2.3",
+  "production_source_sha256": {
+    "artifact_manifest.py": "082b0ce76e986daef448042ad6caaa79cad58d781fba95aa1a61d5c57dcb0c71",
+    "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
+    "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
+    "q1_data_quality/cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
+    "q1_data_quality/q1_code.py": "3cefc9f09bf7603f032e19ef7dd7408ea92de90c423622c0e47ccb342b351817",
+    "q1_data_quality/q1_findings.py": "9510aa26166c43ab232ff93bb8c60f6fc27842fb0044f7bfc169b5ce8d70ddaf",
+    "q1_data_quality/q1_strategy.py": "06b4f770a0df565855320664afe708fa78fc07dc969c2744327dc30195e6b022",
+    "q1_data_quality/strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208",
+    "q2_sql_analysis/catalog.py": "0108180bd105bb2dc977f7f42493e2ffbc30ec9fa7cc834007a5ce4d26174c30",
+    "q2_sql_analysis/load_olist.py": "d2cbc404f8ec4f9255a84756056ee27ff471a9965ba6550bfc0a6c6ac76fe7ba",
+    "q2_sql_analysis/mysql_runtime.py": "3ddd738b19bda77d44192937ff73b51b340b888881c47567b96c909e80e6f56c",
+    "q2_sql_analysis/q2_1.py": "f9b33a5482a4de57cf03a954a25c9f912a200a6f06b74332aebdf261d2620ae8",
+    "q2_sql_analysis/q2_1_translation_gap.sql": "8ebd5dd6d6ab5b7d8d2848cefea7f606fea2b16e41816846e529745d4cd33b9a",
+    "q2_sql_analysis/q2_2.py": "ffb51f75d9f5f44364ea34c55b4f486345047316e878f4aed35456f81d8d1d16",
+    "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
+    "q2_sql_analysis/q2_3.py": "9481262c609328b197f30072fa7aa7ef6d4f7a237f746f58b36d97326397a979",
+    "q2_sql_analysis/q2_3_top_sellers.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
+    "q2_sql_analysis/q2_4.py": "9309a0f00b8512f7f6c983c6a47992428b1c4cfed4d051fff9335d95e9845839",
+    "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
+    "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
+    "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
+    "q3_etl_pipeline/pipeline.py": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
+    "q3_etl_pipeline/reference_check.py": "c397a4617f9568b317e3dec7a58b0ed1f58bbd765db216fe4e5789cdbc293a71",
+    "q3_etl_pipeline/test_pipeline.py": "8857672d2627cf32e7c62fb9fbf80fdfd81dc5877c461af8f7f5a60175506452",
+    "q4_llm_extraction/accuracy_evaluation.md": "d141c63cd70a90372714fb3d609b06c49efcea32b4f99c8ecfbff24908493baf",
+    "q4_llm_extraction/deepseek_config.json": "1d0a3ab24c58d50fbe57e98417cfd956b17fad8250045521a93409d8c42d05fc",
+    "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
+    "q4_llm_extraction/extract_reviews.py": "37ea321d31756a610b29f255b0f3240c8feae821013a537f2329e9e32283c51a",
+    "q4_llm_extraction/pipeline_design.md": "db00dd4017d1eac5764758266cf45dbba249379bf4b97351ba7c509fc93a7fbd",
+    "q4_llm_extraction/prompt_template.txt": "3de842e7280e26be02ac0bbfb49ede35b32c39cb9839de862612633ac238faeb",
+    "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
+    "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
+    "release_check.py": "5985406a863bd429be40ca33855ae72d1dd773b1f4d1c111eb2455c1684407d9",
+    "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
+    "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f"
+  },
+  "review_scope": "Q2.3 手算、全部卖家、默认全入口和独立 CLI；不认证业务权威性",
+  "artifact_sha256": {
+    "q2_sql_analysis/q2_3_results.json": "d179b9b15fbf40b30ec5032ae0913188a38401a1e3b50d5ba3b9223cc7ed7aac",
+    "q2_sql_analysis/q2_3_findings.md": "54c0ac9c0eea3a6cd2aeb7188ae20af4133ba88e8e69d59ccc80b1371994916a",
+    "reports/q2_3_reference.json": "347ba5e94e053bd2575ec58475ce9f64958c99396a64a3551a19396f68f33d77"
+  },
+  "finished_utc": "2026-10-30T13:21:14.890002+00:00"
+}

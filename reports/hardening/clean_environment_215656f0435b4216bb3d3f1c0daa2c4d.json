@@ -1,0 +1,819 @@
+{
+  "run_id": "215656f0435b4216bb3d3f1c0daa2c4d",
+  "status": "passed",
+  "scope": "clean_environment",
+  "started_utc": "2026-10-30T12:51:16.628273+00:00",
+  "python": "3.12.13",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "pandas": "3.1.0",
+  "git_base": "bd06e24b1b6523bd03087af311b7b64071833c58",
+  "python_optimization_level": 0,
+  "source_sha256": {
+    "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
+    "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
+    "VALIDATION_GATES.md": "6198a51889e85992b5cb63f87cc0032463e7cb0682c7e94aaf25edb65f63413b",
+    "delivery_requirements.json": "e7660813b65ad8aa0b7cb60ff85223d40dde9962b92d6f55ac3e9c120846aa1e",
+    "artifact_manifest.py": "1515dd93b62adcbcf61ad308bdd31cef5769e43826f1a0fe52ef1cfaf2cff820",
+    "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
+    "release_check.py": "5985406a863bd429be40ca33855ae72d1dd773b1f4d1c111eb2455c1684407d9",
+    "run_all.py": "333cfd87037a1fce0bc3d1cdffdf70aeaf85454315bfb96f3e5bf8f00d9072f7",
+    "scripts/check_q2_1_cases.py": "b4f35cd1f2d7202b2598ef640e0899e04fdfd2e9168fcc2a2a29e4be53b217ea",
+    "scripts/check_q2_2_cases.py": "bedeae1353e7fece57f71fea830a658c1d1d83b96455175e42752fc6fc3d6551",
+    "scripts/check_q2_3_cases.py": "ee2a7e1bd044a4059dee36824cbdc27f9c7e84a19934eb4a2b6c6c03f5ee7ac1",
+    "scripts/check_q2_typed_values.py": "0637b8f4429cc89ee303205b2e4a4b8cbc4b95e506ac5694ed66ab3482c5858d",
+    "scripts/experiment_q1_2_sensitivity.py": "70c5bc0c19eab3ec6ae4cc89921e4e9fd52643eccd1e35cb099be2a101a7edf5",
+    "scripts/export_ai_log.py": "3d19d6954ef59a4801b5279565e500940ad75b0f99d62e9edc97bc18227bba59",
+    "scripts/probe_q1_3_rules.py": "454c4e668e2283fa7dd2a04112d9843ff429e697b920b0166bcde20562bda6bc",
+    "scripts/probe_q2_3.py": "681d6239f68474eb52301cf9a9350e142c52f5734d74ea51e2b5789cf9ff2c1d",
+    "scripts/q1_findings_reference.py": "716e57de471da0bf591526454796b2bf1ec30035f6c051b15c303f909e9017b6",
+    "scripts/q1_reference.py": "9b30a77c4c0d5458888dc94c472c2eae070c189604fb223e4339e533ac77f592",
+    "scripts/q1_review_experiments.py": "43fd4e749584edc25b48cea67ccdf75a6a02a8a04e4a96ef149eb8fef0651f70",
+    "scripts/q2_2_reference.py": "6aa8595f88d7885ea82e9b384336916620c61d73bba8961743ff613dc944b508",
+    "scripts/q2_3_reference.py": "adaeba688cb9eb57797b89cbcad9f6df0c36f1550089538ffe0f7a5b7ff53947",
+    "scripts/q2_4_reference.py": "986258f2f6fa3142bf8ef0e20a69ba7a33a8cc2687c2c775cdb156ed7e021f50",
+    "scripts/verification_support.py": "4e85b67a4a819bc5ed066522c1c714468ab366d8faeb34d19ada8881d3f3c87c",
+    "scripts/verify_baseline.py": "0c227cc127188be03e7f3f6359e40bbb3ea0c9b58f33b1a484a3503a3e3bd8da",
+    "scripts/verify_bonus.py": "999bdeec0af979762e1ff5e55325fafbb3f7f46feb66b6e8af87798adcb1efff",
+    "scripts/verify_clean_environment.py": "559aae0ff595ac61cb961b8b7f2c5b96457c32906c464c8feb4a52129116ab56",
+    "scripts/verify_mutations.py": "fd6e1f1e187a9fdba4cbc0b6674e2404022836095a9ca9bc5005167bdeef90d4",
+    "scripts/verify_q1_1.py": "5e2302f413967790df315883de3d3633ab532936bd3c5d89823bacc03cd56146",
+    "scripts/verify_q1_2.py": "47f4c9cab39f47c64af4265ae799b3b98788264392f2e69837bdd776988677df",
+    "scripts/verify_q1_3.py": "02b71cf2b9e84891c9ab4982cf07f66411ce906cfd2182e8803a28e235a0bc6c",
+    "scripts/verify_q1_review.py": "bad11e861cd44307c7a70e8d2930593b7de4191dd7bb37425278546636d50f71",
+    "scripts/verify_q2_1.py": "37b301ac6736b6b8ebfd1bc3d0281f0e6e187727ebd5c9947bc79efd04d44614",
+    "scripts/verify_q2_2.py": "eac925a9460f1509f06fe01f83a666e0df68869eb0b8f2a8503eda6c87c316fc",
+    "scripts/verify_q2_3.py": "a78ac7130d37f535be954f384c88617e17f82929b8f6380c9f302349254ff2af",
+    "scripts/verify_q2_4.py": "21c9b3ce2056b23bec8f8360d1d12733201dd94f3a41c825f59f4e0db3e8af8e",
+    "scripts/verify_q3.py": "dc3148dbf0793a2c9ef8f9a7b43e6d185e4e521047d1c7506b9a2af2c761c2f6",
+    "scripts/verify_q4.py": "da06eafb544098f7f0df58f18bdf8d3dc420627b6c271f7c0c7598d4d38bbf4b",
+    "scripts/verify_q5.py": "84c2d6f481f1aa44497a52b1a50fd7c0ac1998d9a918f841b3338cd597a07d31",
+    "scripts/verify_stage_gate.py": "d5bf59a49da6c81d06738fa65c3b6eca9fb5f71b40c28b04a947b010c2cfdd64",
+    "tests/test_artifact_manifest.py": "9c010c27f4a2efa520d1df840ef84a7196973fa36e782d22a4f3627f1c1c8627",
+    "tests/test_baseline.py": "976372dafdf60d7559a709673fc491c6069a7bd3aae7c000276d87756075d567",
+    "tests/test_q1_findings.py": "4868fa4f898375fd72c834a45d973ee4909e1a2b475a9ce715e089fba6790cbd",
+    "tests/test_q1_profile.py": "c2a1e8a1b4b235a12ff3742386d2f849fed40d940e71eba870c4704188783488",
+    "tests/test_q1_review.py": "7024092be87789b57551839b2a55b43341973790cf25566658cdeb5d9a30fddf",
+    "tests/test_q4.py": "b6c75dff0b85109d65aaf6a1648794f9784c3d0369028e4e35a98faac73e1e16",
+    "tests/test_release_check.py": "922b6e731cface6f6f3e32cb2bf23e38ad271221d69cc6e67aec43cb3b36270a",
+    "tests/test_verification.py": "af2b13c13e2516be411183abb46eb19817d388b615f3f0d98f8eef1a3eb6728f",
+    "q1_data_quality/q1_code.py": "3cefc9f09bf7603f032e19ef7dd7408ea92de90c423622c0e47ccb342b351817",
+    "q1_data_quality/q1_findings.py": "9510aa26166c43ab232ff93bb8c60f6fc27842fb0044f7bfc169b5ce8d70ddaf",
+    "q1_data_quality/q1_strategy.py": "06b4f770a0df565855320664afe708fa78fc07dc969c2744327dc30195e6b022",
+    "q1_data_quality/ACCEPTANCE_Q1_1.md": "be762634b9f7f6348c9c2610bcaf07ad0680a5cfe09fd5955681fcece11b5a88",
+    "q1_data_quality/ACCEPTANCE_Q1_2.md": "5f20dde95d38cd2dff8556937899ebbe72179cd8e5ffafebc5b7b1cad6c1f3c9",
+    "q1_data_quality/ACCEPTANCE_Q1_2_REVIEW.md": "34c3dfc6efdb859624d80267e168f325ab0762b8183f1438dc6d7ca2c59cbcec",
+    "q1_data_quality/ACCEPTANCE_Q1_3.md": "0c556690b80c49587c99f1f7f7397e6b695f61c813812f909e87d595cf09a929",
+    "q2_sql_analysis/catalog.py": "0108180bd105bb2dc977f7f42493e2ffbc30ec9fa7cc834007a5ce4d26174c30",
+    "q2_sql_analysis/load_olist.py": "d2cbc404f8ec4f9255a84756056ee27ff471a9965ba6550bfc0a6c6ac76fe7ba",
+    "q2_sql_analysis/mysql_runtime.py": "3ddd738b19bda77d44192937ff73b51b340b888881c47567b96c909e80e6f56c",
+    "q2_sql_analysis/q2_1.py": "f9b33a5482a4de57cf03a954a25c9f912a200a6f06b74332aebdf261d2620ae8",
+    "q2_sql_analysis/q2_2.py": "ffb51f75d9f5f44364ea34c55b4f486345047316e878f4aed35456f81d8d1d16",
+    "q2_sql_analysis/q2_3.py": "9481262c609328b197f30072fa7aa7ef6d4f7a237f746f58b36d97326397a979",
+    "q2_sql_analysis/q2_4.py": "9309a0f00b8512f7f6c983c6a47992428b1c4cfed4d051fff9335d95e9845839",
+    "q2_sql_analysis/q2_1_translation_gap.sql": "8ebd5dd6d6ab5b7d8d2848cefea7f606fea2b16e41816846e529745d4cd33b9a",
+    "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
+    "q2_sql_analysis/q2_3_top_sellers.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
+    "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
+    "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
+    "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
+    "q2_sql_analysis/ACCEPTANCE_Q2_1.md": "95970638080de39def5bd8498366e43aaa5a5582d6485406acd91181ed659345",
+    "q2_sql_analysis/ACCEPTANCE_Q2_2.md": "1051ef3ad09fce68f2393f3b84227408ae9003a94d8ff059c2a4a5f694dbbf4d",
+    "q2_sql_analysis/ACCEPTANCE_Q2_3.md": "ff4bd7e420e1b5728a548a9a04276b9460a2dfe532768ebf6556e46e12d3847e",
+    "q2_sql_analysis/ACCEPTANCE_Q2_4.md": "5c468bd1ec8ec427596302f29cb3b614d4730539b75aa6bd619b62ec427364ac",
+    "audit/q2_4_experiment.py": "327db3c44b926e5d4bb8be9bb6e8b55b0ace0fb85f6d18432249d60471d90ca9",
+    "audit/verify_q2_4_experiment.py": "0a418a4c5d0fed11a00158c9804d398b40b40f3199ec3f450c7a5f17f35af873",
+    "q3_etl_pipeline/pipeline.py": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
+    "q3_etl_pipeline/reference_check.py": "c397a4617f9568b317e3dec7a58b0ed1f58bbd765db216fe4e5789cdbc293a71",
+    "q3_etl_pipeline/test_pipeline.py": "8857672d2627cf32e7c62fb9fbf80fdfd81dc5877c461af8f7f5a60175506452",
+    "q3_etl_pipeline/ACCEPTANCE.md": "7dff9ad124bfc5e2c13f201c862fa57c0e6d4c7117bdd6fef70c89a00aa4e506",
+    "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
+    "q4_llm_extraction/extract_reviews.py": "935f68b87f8cb36c2be41416d59e74bb24fd734e96b469b8651d78040eb09050",
+    "q4_llm_extraction/ACCEPTANCE.md": "35779d9b269f5028f6938848d5e653ce1c5ba40578a756da964fc10f6104f8e2",
+    "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
+    "q5_system_design/ACCEPTANCE.md": "c8b8eb4ed4869103a168fba2c0d76fb0121672876b7b0076d3e79a7aa2bad03d",
+    "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
+    "q4_llm_extraction/prompt_template.txt": "3de842e7280e26be02ac0bbfb49ede35b32c39cb9839de862612633ac238faeb",
+    "q4_llm_extraction/pipeline_design.md": "db00dd4017d1eac5764758266cf45dbba249379bf4b97351ba7c509fc93a7fbd",
+    "q4_llm_extraction/accuracy_evaluation.md": "d141c63cd70a90372714fb3d609b06c49efcea32b4f99c8ecfbff24908493baf",
+    "q4_llm_extraction/config.example.json": "93c9cfc88cac1f8b2f2bbb91a3fa95116212211cdb8c2c64eded7fb13dd3a6ea"
+  },
+  "checks": [
+    {
+      "name": "创建空虚拟环境与源码副本",
+      "passed": true,
+      "evidence": {
+        "fresh_venv": true,
+        "fresh_source_copy": true,
+        "user_site_disabled": true,
+        "mysql_scope": "使用本机项目实例和私有配置，重新导入；不声称是新建服务器"
+      }
+    },
+    {
+      "name": "锁定依赖从零安装且版本一致",
+      "passed": true,
+      "evidence": {
+        "pip_check": "passed",
+        "installed": [
+          "certifi==2026.10.23",
+          "charset-normalizer==3.5.2",
+          "idna==3.20",
+          "kagglehub==1.0.3",
+          "kagglesdk==0.1.38",
+          "numpy==2.5.4",
+          "packaging==26.3",
+          "pandas==3.1.0",
+          "protobuf==7.36.2",
+          "pyarrow==26.0.0",
+          "PyMySQL==1.1.2",
+          "python-dateutil==3.0.0",
+          "PyYAML==6.0.3",
+          "requests==2.34.2",
+          "six==1.17.0",
+          "tqdm==4.70.1",
+          "tzdata==2026.5",
+          "urllib3==2.8.0"
+        ]
+      }
+    },
+    {
+      "name": "干净环境单元测试",
+      "passed": true,
+      "evidence": {
+        "result": "失败应被记录: FAIL\n人工成功夹具: PASS\n"
+      }
+    },
+    {
+      "name": "空数据空缓存下载并从外部核验",
+      "passed": true,
+      "evidence": {
+        "empty_cache_download": true,
+        "independent_files": {
+          "retail": [
+            {
+              "path": "online_retail_ii.csv",
+              "rows": 1067371,
+              "columns": [
+                "Invoice",
+                "StockCode",
+                "Description",
+                "Quantity",
+                "InvoiceDate",
+                "Price",
+                "Customer ID",
+                "Country"
+              ],
+              "bytes": 94850204,
+              "sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9"
+            }
+          ],
+          "olist": [
+            {
+              "path": "olist/olist_customers_dataset.csv",
+              "rows": 99441,
+              "columns": [
+                "customer_id",
+                "customer_unique_id",
+                "customer_zip_code_prefix",
+                "customer_city",
+                "customer_state"
+              ],
+              "bytes": 9033957,
+              "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+            },
+            {
+              "path": "olist/olist_geolocation_dataset.csv",
+              "rows": 1000163,
+              "columns": [
+                "geolocation_zip_code_prefix",
+                "geolocation_lat",
+                "geolocation_lng",
+                "geolocation_city",
+                "geolocation_state"
+              ],
+              "bytes": 61273883,
+              "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+            },
+            {
+              "path": "olist/olist_order_items_dataset.csv",
+              "rows": 112650,
+              "columns": [
+                "order_id",
+                "order_item_id",
+                "product_id",
+                "seller_id",
+                "shipping_limit_date",
+                "price",
+                "freight_value"
+              ],
+              "bytes": 15438671,
+              "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+            },
+            {
+              "path": "olist/olist_order_payments_dataset.csv",
+              "rows": 103886,
+              "columns": [
+                "order_id",
+                "payment_sequential",
+                "payment_type",
+                "payment_installments",
+                "payment_value"
+              ],
+              "bytes": 5777138,
+              "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+            },
+            {
+              "path": "olist/olist_order_reviews_dataset.csv",
+              "rows": 99224,
+              "columns": [
+                "review_id",
+                "order_id",
+                "review_score",
+                "review_comment_title",
+                "review_comment_message",
+                "review_creation_date",
+                "review_answer_timestamp"
+              ],
+              "bytes": 14451670,
+              "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+            },
+            {
+              "path": "olist/olist_orders_dataset.csv",
+              "rows": 99441,
+              "columns": [
+                "order_id",
+                "customer_id",
+                "order_status",
+                "order_purchase_timestamp",
+                "order_approved_at",
+                "order_delivered_carrier_date",
+                "order_delivered_customer_date",
+                "order_estimated_delivery_date"
+              ],
+              "bytes": 17654914,
+              "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+            },
+            {
+              "path": "olist/olist_products_dataset.csv",
+              "rows": 32951,
+              "columns": [
+                "product_id",
+                "product_category_name",
+                "product_name_lenght",
+                "product_description_lenght",
+                "product_photos_qty",
+                "product_weight_g",
+                "product_length_cm",
+                "product_height_cm",
+                "product_width_cm"
+              ],
+              "bytes": 2379446,
+              "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+            },
+            {
+              "path": "olist/olist_sellers_dataset.csv",
+              "rows": 3095,
+              "columns": [
+                "seller_id",
+                "seller_zip_code_prefix",
+                "seller_city",
+                "seller_state"
+              ],
+              "bytes": 174703,
+              "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+            },
+            {
+              "path": "olist/product_category_name_translation.csv",
+              "rows": 71,
+              "columns": [
+                "product_category_name",
+                "product_category_name_english"
+              ],
+              "bytes": 2613,
+              "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "干净环境独立解析和故障流程",
+      "passed": true,
+      "evidence": {
+        "run_id": "56740366cdde44e18aa4c213867f91ba",
+        "checks": [
+          {
+            "name": "G2/G3 全部真实 CSV 独立解析与离线重跑",
+            "passed": true,
+            "evidence": {
+              "actual_exit_code": 0,
+              "statuses": [
+                "passed",
+                "passed"
+              ],
+              "independent_files": {
+                "retail": [
+                  {
+                    "path": "online_retail_ii.csv",
+                    "rows": 1067371,
+                    "columns": [
+                      "Invoice",
+                      "StockCode",
+                      "Description",
+                      "Quantity",
+                      "InvoiceDate",
+                      "Price",
+                      "Customer ID",
+                      "Country"
+                    ],
+                    "bytes": 94850204,
+                    "sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9"
+                  }
+                ],
+                "olist": [
+                  {
+                    "path": "olist/olist_customers_dataset.csv",
+                    "rows": 99441,
+                    "columns": [
+                      "customer_id",
+                      "customer_unique_id",
+                      "customer_zip_code_prefix",
+                      "customer_city",
+                      "customer_state"
+                    ],
+                    "bytes": 9033957,
+                    "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+                  },
+                  {
+                    "path": "olist/olist_geolocation_dataset.csv",
+                    "rows": 1000163,
+                    "columns": [
+                      "geolocation_zip_code_prefix",
+                      "geolocation_lat",
+                      "geolocation_lng",
+                      "geolocation_city",
+                      "geolocation_state"
+                    ],
+                    "bytes": 61273883,
+                    "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+                  },
+                  {
+                    "path": "olist/olist_order_items_dataset.csv",
+                    "rows": 112650,
+                    "columns": [
+                      "order_id",
+                      "order_item_id",
+                      "product_id",
+                      "seller_id",
+                      "shipping_limit_date",
+                      "price",
+                      "freight_value"
+                    ],
+                    "bytes": 15438671,
+                    "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+                  },
+                  {
+                    "path": "olist/olist_order_payments_dataset.csv",
+                    "rows": 103886,
+                    "columns": [
+                      "order_id",
+                      "payment_sequential",
+                      "payment_type",
+                      "payment_installments",
+                      "payment_value"
+                    ],
+                    "bytes": 5777138,
+                    "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+                  },
+                  {
+                    "path": "olist/olist_order_reviews_dataset.csv",
+                    "rows": 99224,
+                    "columns": [
+                      "review_id",
+                      "order_id",
+                      "review_score",
+                      "review_comment_title",
+                      "review_comment_message",
+                      "review_creation_date",
+                      "review_answer_timestamp"
+                    ],
+                    "bytes": 14451670,
+                    "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+                  },
+                  {
+                    "path": "olist/olist_orders_dataset.csv",
+                    "rows": 99441,
+                    "columns": [
+                      "order_id",
+                      "customer_id",
+                      "order_status",
+                      "order_purchase_timestamp",
+                      "order_approved_at",
+                      "order_delivered_carrier_date",
+                      "order_delivered_customer_date",
+                      "order_estimated_delivery_date"
+                    ],
+                    "bytes": 17654914,
+                    "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+                  },
+                  {
+                    "path": "olist/olist_products_dataset.csv",
+                    "rows": 32951,
+                    "columns": [
+                      "product_id",
+                      "product_category_name",
+                      "product_name_lenght",
+                      "product_description_lenght",
+                      "product_photos_qty",
+                      "product_weight_g",
+                      "product_length_cm",
+                      "product_height_cm",
+                      "product_width_cm"
+                    ],
+                    "bytes": 2379446,
+                    "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+                  },
+                  {
+                    "path": "olist/olist_sellers_dataset.csv",
+                    "rows": 3095,
+                    "columns": [
+                      "seller_id",
+                      "seller_zip_code_prefix",
+                      "seller_city",
+                      "seller_state"
+                    ],
+                    "bytes": 174703,
+                    "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+                  },
+                  {
+                    "path": "olist/product_category_name_translation.csv",
+                    "rows": 71,
+                    "columns": [
+                      "product_category_name",
+                      "product_category_name_english"
+                    ],
+                    "bytes": 2613,
+                    "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "全流程未完成不能报告成功",
+            "passed": true,
+            "evidence": {
+              "actual_exit_code": 2,
+              "statuses": [
+                "passed",
+                "passed",
+                "passed",
+                "passed",
+                "passed",
+                "passed",
+                "passed",
+                "partial",
+                "passed"
+              ],
+              "independent_files": {
+                "retail": [
+                  {
+                    "path": "online_retail_ii.csv",
+                    "rows": 1067371,
+                    "columns": [
+                      "Invoice",
+                      "StockCode",
+                      "Description",
+                      "Quantity",
+                      "InvoiceDate",
+                      "Price",
+                      "Customer ID",
+                      "Country"
+                    ],
+                    "bytes": 94850204,
+                    "sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9"
+                  }
+                ],
+                "olist": [
+                  {
+                    "path": "olist/olist_customers_dataset.csv",
+                    "rows": 99441,
+                    "columns": [
+                      "customer_id",
+                      "customer_unique_id",
+                      "customer_zip_code_prefix",
+                      "customer_city",
+                      "customer_state"
+                    ],
+                    "bytes": 9033957,
+                    "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+                  },
+                  {
+                    "path": "olist/olist_geolocation_dataset.csv",
+                    "rows": 1000163,
+                    "columns": [
+                      "geolocation_zip_code_prefix",
+                      "geolocation_lat",
+                      "geolocation_lng",
+                      "geolocation_city",
+                      "geolocation_state"
+                    ],
+                    "bytes": 61273883,
+                    "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+                  },
+                  {
+                    "path": "olist/olist_order_items_dataset.csv",
+                    "rows": 112650,
+                    "columns": [
+                      "order_id",
+                      "order_item_id",
+                      "product_id",
+                      "seller_id",
+                      "shipping_limit_date",
+                      "price",
+                      "freight_value"
+                    ],
+                    "bytes": 15438671,
+                    "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+                  },
+                  {
+                    "path": "olist/olist_order_payments_dataset.csv",
+                    "rows": 103886,
+                    "columns": [
+                      "order_id",
+                      "payment_sequential",
+                      "payment_type",
+                      "payment_installments",
+                      "payment_value"
+                    ],
+                    "bytes": 5777138,
+                    "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+                  },
+                  {
+                    "path": "olist/olist_order_reviews_dataset.csv",
+                    "rows": 99224,
+                    "columns": [
+                      "review_id",
+                      "order_id",
+                      "review_score",
+                      "review_comment_title",
+                      "review_comment_message",
+                      "review_creation_date",
+                      "review_answer_timestamp"
+                    ],
+                    "bytes": 14451670,
+                    "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+                  },
+                  {
+                    "path": "olist/olist_orders_dataset.csv",
+                    "rows": 99441,
+                    "columns": [
+                      "order_id",
+                      "customer_id",
+                      "order_status",
+                      "order_purchase_timestamp",
+                      "order_approved_at",
+                      "order_delivered_carrier_date",
+                      "order_delivered_customer_date",
+                      "order_estimated_delivery_date"
+                    ],
+                    "bytes": 17654914,
+                    "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+                  },
+                  {
+                    "path": "olist/olist_products_dataset.csv",
+                    "rows": 32951,
+                    "columns": [
+                      "product_id",
+                      "product_category_name",
+                      "product_name_lenght",
+                      "product_description_lenght",
+                      "product_photos_qty",
+                      "product_weight_g",
+                      "product_length_cm",
+                      "product_height_cm",
+                      "product_width_cm"
+                    ],
+                    "bytes": 2379446,
+                    "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+                  },
+                  {
+                    "path": "olist/olist_sellers_dataset.csv",
+                    "rows": 3095,
+                    "columns": [
+                      "seller_id",
+                      "seller_zip_code_prefix",
+                      "seller_city",
+                      "seller_state"
+                    ],
+                    "bytes": 174703,
+                    "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+                  },
+                  {
+                    "path": "olist/product_category_name_translation.csv",
+                    "rows": 71,
+                    "columns": [
+                      "product_category_name",
+                      "product_category_name_english"
+                    ],
+                    "bytes": 2613,
+                    "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "缺失输入失败",
+            "passed": true,
+            "evidence": {
+              "actual_exit_code": 1,
+              "statuses": [
+                "failed",
+                "failed"
+              ],
+              "independent_files": {}
+            }
+          },
+          {
+            "name": "损坏输入失败且独立阶段继续",
+            "passed": true,
+            "evidence": {
+              "actual_exit_code": 1,
+              "statuses": [
+                "failed",
+                "passed"
+              ],
+              "independent_files": {
+                "olist": [
+                  {
+                    "path": "olist/olist_customers_dataset.csv",
+                    "rows": 99441,
+                    "columns": [
+                      "customer_id",
+                      "customer_unique_id",
+                      "customer_zip_code_prefix",
+                      "customer_city",
+                      "customer_state"
+                    ],
+                    "bytes": 9033957,
+                    "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+                  },
+                  {
+                    "path": "olist/olist_geolocation_dataset.csv",
+                    "rows": 1000163,
+                    "columns": [
+                      "geolocation_zip_code_prefix",
+                      "geolocation_lat",
+                      "geolocation_lng",
+                      "geolocation_city",
+                      "geolocation_state"
+                    ],
+                    "bytes": 61273883,
+                    "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+                  },
+                  {
+                    "path": "olist/olist_order_items_dataset.csv",
+                    "rows": 112650,
+                    "columns": [
+                      "order_id",
+                      "order_item_id",
+                      "product_id",
+                      "seller_id",
+                      "shipping_limit_date",
+                      "price",
+                      "freight_value"
+                    ],
+                    "bytes": 15438671,
+                    "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+                  },
+                  {
+                    "path": "olist/olist_order_payments_dataset.csv",
+                    "rows": 103886,
+                    "columns": [
+                      "order_id",
+                      "payment_sequential",
+                      "payment_type",
+                      "payment_installments",
+                      "payment_value"
+                    ],
+                    "bytes": 5777138,
+                    "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+                  },
+                  {
+                    "path": "olist/olist_order_reviews_dataset.csv",
+                    "rows": 99224,
+                    "columns": [
+                      "review_id",
+                      "order_id",
+                      "review_score",
+                      "review_comment_title",
+                      "review_comment_message",
+                      "review_creation_date",
+                      "review_answer_timestamp"
+                    ],
+                    "bytes": 14451670,
+                    "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+                  },
+                  {
+                    "path": "olist/olist_orders_dataset.csv",
+                    "rows": 99441,
+                    "columns": [
+                      "order_id",
+                      "customer_id",
+                      "order_status",
+                      "order_purchase_timestamp",
+                      "order_approved_at",
+                      "order_delivered_carrier_date",
+                      "order_delivered_customer_date",
+                      "order_estimated_delivery_date"
+                    ],
+                    "bytes": 17654914,
+                    "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+                  },
+                  {
+                    "path": "olist/olist_products_dataset.csv",
+                    "rows": 32951,
+                    "columns": [
+                      "product_id",
+                      "product_category_name",
+                      "product_name_lenght",
+                      "product_description_lenght",
+                      "product_photos_qty",
+                      "product_weight_g",
+                      "product_length_cm",
+                      "product_height_cm",
+                      "product_width_cm"
+                    ],
+                    "bytes": 2379446,
+                    "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+                  },
+                  {
+                    "path": "olist/olist_sellers_dataset.csv",
+                    "rows": 3095,
+                    "columns": [
+                      "seller_id",
+                      "seller_zip_code_prefix",
+                      "seller_city",
+                      "seller_state"
+                    ],
+                    "bytes": 174703,
+                    "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+                  },
+                  {
+                    "path": "olist/product_category_name_translation.csv",
+                    "rows": 71,
+                    "columns": [
+                      "product_category_name",
+                      "product_category_name_english"
+                    ],
+                    "bytes": 2613,
+                    "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "单份数据缺失保持独立状态",
+            "passed": true,
+            "evidence": {
+              "actual_exit_code": 1,
+              "statuses": [
+                "passed",
+                "failed"
+              ],
+              "independent_files": {
+                "retail": [
+                  {
+                    "path": "online_retail_ii.csv",
+                    "rows": 1067371,
+                    "columns": [
+                      "Invoice",
+                      "StockCode",
+                      "Description",
+                      "Quantity",
+                      "InvoiceDate",
+                      "Price",
+                      "Customer ID",
+                      "Country"
+                    ],
+                    "bytes": 94850204,
+                    "sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "G3 正式输入内容不变",
+            "passed": true,
+            "evidence": {
+              "unchanged_files": 10
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-10-30T13:05:42.255496+00:00"
+}

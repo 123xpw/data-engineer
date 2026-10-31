@@ -1,0 +1,8 @@
+{
+  "checked_utc": "2026-10-30T16:26:23.807290+00:00",
+  "git_base": "15c17e15aaaa3c2bac13a7f6e96820e9cb4ade96",
+  "historical_blobs_scanned": 723,
+  "historical_credential_candidates_paths_only": [],
+  "current_tree_scan": "已检查所有索引文件：无 CSV/Parquet/凭据/超大文件，原题三文件未修改",
+  "scope": "精确匹配当前已知私有凭据及常见密钥格式；不保存任何密钥或密钥摘要，不构成发现全部未知秘密的证明"
+}

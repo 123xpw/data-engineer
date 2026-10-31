@@ -1,50 +1,45 @@
 # Q4 运行与验收
 
-## 无网络验收
+当前真实结果覆盖 22,754 条低分来源行：8,309 条无文本、151 条短语规则、14,294 条模型结果。所有模型结果均有来源及回执，真人语义准确率尚未评估。
 
-```bash
-python run_all.py --stage q4 --q4-plan
-python scripts/verify_q4.py
-```
+## 配置与正式入口
 
-生成全部低分行的分流结果、累计指标、成本说明与 30 条盲标模板。待模型记录的字段为 null，退出 2；q4_manifest.json 为 partial，普通成功清单消费者拒绝。输出无文本行的 sentiment_score=0/confidence=0 是未知约定，不能当作证实中性。
-
-## 配置后真实试运行
-
-用户已选择 DeepSeek。仓库 deepseek_config.json 已根据 2026-10-30 官方文档配置 deepseek-flash、非思考模式、max_tokens 与 JSON mode；上下文上界 1,048,576，批 8/输出上界 3072。单价使用峰时缓存未命中输入 0.3 / 输出 1.2 USD 每百万 token，均作为保守上界，不将缓存折扣或非峰时折扣填成已获得。真实调用前重新核实官方价格和账号模型可用性，见下方来源。
-
-其他服务可将 config.example.json 复制到 .venv/q4_config.json 后填写；该示例是失效占位。通用适配使用 max_completion_tokens，DeepSeek 适配使用 max_tokens 并禁用思考；不同服务不能只换 URL 就假定兼容。
-
-在现有本地 .env 追加 DEEPSEEK_API_KEY（不要覆盖已有 MySQL 配置）。也支持专用 Q4_API_KEY 对应显式端点；DEEPSEEK_API_KEY 只用于 api.deepseek.com，OPENAI_API_KEY 只用于 api.openai.com。不要在聊天或 Git 发送密钥。
+使用 Python 3.12，安装根目录 requirements.txt。现有 .env 中追加 DEEPSEEK_API_KEY，保留 MySQL 配置；不要把密钥发到聊天或 Git。专用密钥仅发送至 api.deepseek.com。运行前核对 deepseek_config.json 的模型与官方费率。已测 deepseek-flash 非思考 JSON 模式，批 16、最多四路，输出上限 3072。
 
 ```bash
 python q4_llm_extraction/extract_reviews.py --live --limit 4 --budget 0.5
+python q4_llm_extraction/extract_reviews.py --live --budget 3 --workers 4
 ```
 
-先查看 .venv/q4_state/ledger.json 的原始 request_id/usage、原文与结果，核对服务账单、单价和语义。若超时/无 usage，不自动重试；预算预留继续占用。若过程停止，这不是“免费失败”。不要删账本或更换目录绕过费用。价格/模型/提示变更会产生新的语义版本，但费用仍累加在同一账本。
-
-小样本、账单核对通过再扩大：
-
-当前实现为串行小批，请先用真实服务测出每条 token 和批次时延，再估算全量所需时间。守卫能在时限停止，不能证明 14,294 条语义文本能在四十分钟内完成；若吞吐不够，需另轮验收更大批次或有界并发，不能直接把时限设置为更大值。未知模型/未测吞吐前不做完成保证。
+默认 run_all.py 通过本地 .env 的 Q4_LIVE=1 启用真实流程，也可显式使用 --q4-live；Q4_CONFIG 可指定配置绝对路径。已验证结果按行复用，重复运行不会重新生成同一版本。默认配置由官方资料核对，价格和账号可用模型仍须在真实调用前确认。
 
 ```bash
-python q4_llm_extraction/extract_reviews.py --live --budget 3
+python run_all.py --stage q4
+python run_all.py --stage q4 --q4-plan
 ```
 
-首次真实请求起累计墙钟限 2400 秒；中断不重置。超时不明请求需先与服务端人工对账，程序不会为凑全量重发。不同批大小按行复用成功结果；没有自动提升预算。当前支持 macOS/Linux 的 fcntl 锁，未声称 Windows 可运行。
+--q4-plan 强制无网络并如实输出 partial；验收器将它放在隔离目录，不覆盖正式模型结果。--offline 只约束 Kaggle 下载，不能替代 --q4-plan。
 
-正式默认入口可通过 --q4-live --q4-config 显式开启；或在 .env 加 Q4_LIVE=1 ，默认使用本仓库 DeepSeek 配置；Q4_CONFIG 可覆盖为本地配置绝对路径，使 python run_all.py 使用同一配置。验收脚本强制 --q4-plan，防止回归测试产生付费请求。--offline 只约束 Kaggle 下载，不替代 --q4-plan。
+## 失败、预算与时间
 
-## 人工评估与证据边界
+共享累计账本 .venv/q4_state/ledger.json 覆盖所有试验和失败，不得删除或换目录重置。请求前按完整上下文上界预留；结束后以真实 usage 和峰时缓存未命中价折算费用上界，未报告用量保留预留。未知计费不自动重发，禁止把超时当免费。
 
-按 accuracy_evaluation.md 复制模板并盲标，禁止 AI 代填“人工真值”。evaluate_annotations.py 只计算已提交标签的差异，不能认证标注人身份、葡语能力或标签就是业务真理。真实全量费用、时长和语义评估未闭环时，Q4 不通过完整提交门槛。
+先严格验证整批来源 ID，再逐行挽救有效记录。只对唯一大小写等价区间恢复原文字面，保存原引文/偏移；词语、重音、标点或歧义不自动修补。失败行最多经过主批、批四修复、单条隔离三个生成阶段，仍不合格就保留 pending。原始响应不覆盖。
 
-接口字段核对来源：[OpenAI Chat Completions 官方参考](https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create)（2026-10-30）。这里只采用请求/用量协议，不据此虚构其他兼容服务支持情况、模型价格或本账号可用额度。
+每次 pipeline 执行上限 2400 秒，包含本次修复；跨轮研发/暂停的墙钟跨度另外记录，不能当作生产耗时。初版将两者混为一谈，已在契约和 Git 记录更正。主处理实测 977.302249 秒，使用 1920 条先期缓存；这不是最终源码完全无缓存全量的计时认证。最终缓存重放约六秒也不作模型性能宣传。
 
-## DeepSeek 价格与协议证据
+本轮 912 次真实请求共 1,220,873 输入 token、1,166,834 输出 token；累计费用上界 1.7664627 USD。独立实际账单未核验，费用上界不能冒称实际扣款。见 cost_report.md。
 
-- [模型与价格](https://api-docs.deepseek.com/quick_start/pricing/)：记录的是核对时点的峰时上界；服务报告 usage 的上界折算不是实际账单费用。actual_billed_cost_usd 在未核对账单时为 null。
-- [模型元数据](https://api-docs.deepseek.com/api/list-models/)：context_window=1048576。此处预留整个上下文上界，因此小样本也预留 0.3182592 USD，实际有 usage 后改为按已用 token 的上界占用。末段余量不足仍可能保守停止，不能降低上界凑通过。
-- [调用协议](https://api-docs.deepseek.com/api/create-chat-completion/) 与 [JSON 模式](https://api-docs.deepseek.com/guides/json_mode/)：空内容即使 stop 也拒绝，按已用量计费上界，不自动重试。
+## 验收和人工边界
 
-账户账单可能以 CNY 计价，不能把余额变化直接当 USD；实际扣费、币种和换算依据需另存证据。共用账号还有其他消费时，余额差不能单独归因本任务。
+```bash
+python scripts/verify_q4.py
+python scripts/verify_q4_live.py --output-dir q4_llm_extraction
+python q4_llm_extraction/evaluate_annotations.py --labels .venv/q4_labels.json
+```
+
+R1 检查合成反例、预算/恢复/并发、变异与全量无网络分流。真实处理检查以另一 CSV 解析器核对每行标识、引文、原始响应、用量与费用，不以 resolved 或 confidence 自证。两种验证仍由同一 AI 编写，不是独立人员审查。
+
+按 accuracy_evaluation.md 填写 30 条真人盲标；用户已选择稍后进行，当前没有准确率结果。引文存在不认证类别、否定、翻译或归责。空标签拒绝评估，不能由 AI 代填“人工真值”。程序执行完成与完整笔试可提交分开判定。
+
+官方参考：[价格](https://api-docs.deepseek.com/quick_start/pricing/)、[接口](https://api-docs.deepseek.com/api/create-chat-completion/)、[JSON 模式](https://api-docs.deepseek.com/guides/json_mode/)、[模型元数据](https://api-docs.deepseek.com/api/list-models/)。模型别名可能更新，接口回执与输入/提示版本一同保存。当前使用 macOS/Linux 的 fcntl 锁，未声称 Windows 兼容。

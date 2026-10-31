@@ -1,0 +1,46 @@
+{
+  "input_rows": 99224,
+  "low_score_rows": 22754,
+  "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+  "output_rows": 22754,
+  "routes": {
+    "no_text": 8309,
+    "llm": 14294,
+    "generic": 151
+  },
+  "status_counts": {
+    "no_text": 8309,
+    "resolved": 14445
+  },
+  "unresolved": 0,
+  "request_modes_this_run": {
+    "cached_rows": 14294
+  },
+  "stop_reason": "complete",
+  "live": true,
+  "cached_model_rows_this_run": 14294,
+  "request_events_this_run": {},
+  "configured_workers": 4,
+  "repair_summary": {
+    "newly_salvaged_valid_rows": 0,
+    "eligible_repair_rows": 0,
+    "remaining_blocked_rows": 0,
+    "unsafe_requests_present": false
+  },
+  "api_entries_campaign": 912,
+  "usage_cost_upper_bound_usd": "1.7664627",
+  "prompt_tokens_campaign": 1220873,
+  "completion_tokens_campaign": 1166834,
+  "usage_reported_text_rows_campaign": 14344,
+  "budget_occupied_usd": "1.7664627",
+  "uncertain_cost_requests": 0,
+  "prompt_sha256": "c659c828cbc9ae2c8862fce6a715b350663d7ae972ef8e813af72f281cd68bfd",
+  "seconds": 5.746873,
+  "service_config_sha256": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
+  "actual_billed_cost_usd": null,
+  "scope": "逐行分流及调用控制；usage 按配置单价计算，非账单认证；引文校验不认证语义；人工评估另行完成",
+  "average_reported_cost_per_queried_row_usd": "0.0001231499372559955382041271612",
+  "under_time_limit": true,
+  "campaign_elapsed_seconds": 4912.925116,
+  "campaign_span_is_execution_time": false
+}

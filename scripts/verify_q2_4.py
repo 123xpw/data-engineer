@@ -11,10 +11,12 @@ from scripts.verification_support import EvidenceRun,require,sha256
 from scripts.q2_4_reference import read_reference
 from audit.q2_4_experiment import ORIGINAL,EQUIVALENT,CORRECTED,hand_probe
 from q2_sql_analysis.q2_4 import query
+from q2_sql_analysis.mysql_runtime import ensure_mysql
 
 
 def main():
     with EvidenceRun(ROOT/'reports/q2_4','acceptance') as e:
+        if not e.check('真实 MySQL 与 TLS 就绪',ensure_mysql):return 1
         def frozen_experiment():
             proof=json.loads((ROOT/'reports/q2_4/experiment_latest.json').read_text())
             require(proof['status']=='passed','没有真实计时实验通过证据')

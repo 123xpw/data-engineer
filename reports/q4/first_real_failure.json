@@ -1,0 +1,33 @@
+{
+  "stage": "首次真实四行试验",
+  "status": "failed",
+  "request_id": "05650fd9-9631-496d-af79-89114200cbc5",
+  "model": "deepseek-flash",
+  "usage": {
+    "prompt_tokens": 743,
+    "completion_tokens": 340,
+    "total_tokens": 1083,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 743
+  },
+  "cost_upper_bound_usd": "0.0006309",
+  "source_row": 17,
+  "original_message": "GOSTARIA DE SABER O QUE HOUVE, SEMPRE RECEBI E ESSA COMPRA AGORA ME DECPCIONOU",
+  "invalid_model_quote": "essa compra agora ME DECPCIONOU",
+  "literal_substring_test": false,
+  "raw_model_content": "{\"results\":[{\"source_row\":17,\"issues\":[{\"category\":\"other\",\"severity\":\"low\",\"evidence_quote\":\"GOSTARIA DE SABER O QUE HOUVE\",\"evidence_quote_en\":\"I WOULD LIKE TO KNOW WHAT HAPPENED\"},{\"category\":\"other\",\"severity\":\"low\",\"evidence_quote\":\"essa compra agora ME DECPCIONOU\",\"evidence_quote_en\":\"this purchase now disappointed me\"}],\"sentiment_score\":-0.5,\"actionable_for_seller\":true,\"confidence\":0.5},{\"source_row\":30,\"issues\":[{\"category\":\"other\",\"severity\":\"medium\",\"evidence_quote\":\"Comprei gato por lebre\",\"evidence_quote_en\":\"I bought a pig in a poke\"}],\"sentiment_score\":-0.7,\"actionable_for_seller\":true,\"confidence\":0.6},{\"source_row\":33,\"issues\":[{\"category\":\"delivery_late\",\"severity\":\"medium\",\"evidence_quote\":\"No stark o prazo máximo já se esgotou e ainda não recebi o produto\",\"evidence_quote_en\":\"At Stark the maximum deadline has already passed and I still haven't received the product\"}],\"sentiment_score\":-0.6,\"actionable_for_seller\":true,\"confidence\":0.85},{\"source_row\":40,\"issues\":[{\"category\":\"other\",\"severity\":\"high\",\"evidence_quote\":\"Nada de chegar o meu pedido\",\"evidence_quote_en\":\"My order hasn't arrived at all\"}],\"sentiment_score\":-0.8,\"actionable_for_seller\":true,\"confidence\":0.7}]}",
+  "prompt_sha256": "3de842e7280e26be02ac0bbfb49ede35b32c39cb9839de862612633ac238faeb",
+  "source_sha256_at_failure": {
+    "q4_llm_extraction/accuracy_evaluation.md": "d141c63cd70a90372714fb3d609b06c49efcea32b4f99c8ecfbff24908493baf",
+    "q4_llm_extraction/deepseek_config.json": "1d0a3ab24c58d50fbe57e98417cfd956b17fad8250045521a93409d8c42d05fc",
+    "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
+    "q4_llm_extraction/extract_reviews.py": "37ea321d31756a610b29f255b0f3240c8feae821013a537f2329e9e32283c51a",
+    "q4_llm_extraction/pipeline_design.md": "db00dd4017d1eac5764758266cf45dbba249379bf4b97351ba7c509fc93a7fbd",
+    "q4_llm_extraction/prompt_template.txt": "3de842e7280e26be02ac0bbfb49ede35b32c39cb9839de862612633ac238faeb"
+  },
+  "decision": "整批未计入有效预测；用量保留计费，随后在新版本提示及严格原文映射下重试小样本；不是免费失败",
+  "scope": "客户端保存的真实失败回执；不认证模型整体语义质量或服务商独立账单"
+}

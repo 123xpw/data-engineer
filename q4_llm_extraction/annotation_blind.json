@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "sampling": "固定种子哈希排序，非空低分来源行，不按 review_id 去重",
+  "annotator": null,
+  "annotated_utc": null,
+  "rows": [
+    {
+      "source_row": 80467,
+      "review_id": "323e52280b9e6a83326f12a03e91b088",
+      "order_id": "0eb4df6bfdca047c300acf9d25b04391",
+      "message": "Infelizmente o produto não chegou dentro do prazo estabelecido.",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 61865,
+      "review_id": "7c8154d29d239b02ad0e8f2dcdf3261a",
+      "order_id": "cacb1996e2de4ef6334c5223259544e0",
+      "message": "Péssimo o procedimento. Vergonha. Nada entregue até agora. Absurdo e descaso com cliente.",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 67553,
+      "review_id": "fa58c1cc692cdd5e4d378ff443b587f4",
+      "order_id": "ead0bec6842006b655fed967de837883",
+      "message": "Regular",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 89875,
+      "review_id": "d02e8c73378487bfa411d8000ade6428",
+      "order_id": "5ad5a009431bd3f53d623de6ca712cb4",
+      "message": "O produto não foi entregue no prazo informado. Porém a empresa me enviou por Sedex para que não ficasse muito longo. Sorte que eu não tinha pressa do produto. Minha avaliação fica como média",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 53502,
+      "review_id": "2e948224ec4bf8fab2b705e05a81da38",
+      "order_id": "8bf44eb0d19208f9bde92d553a6bf064",
+      "message": "Eu pedir a troca e falaram que em dois dias eu iria ter resposta para mandar o produto de volta a loja e nada de me responder. Eu não quero esse produto de plástico ",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 45576,
+      "review_id": "7674217612b792b13220559e1ce6d20b",
+      "order_id": "4cb20b515815d480b0dccbe2fa6ea5bc",
+      "message": "Sempre comprei na loja nunca tive problemas...\r\n\r\n",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 9984,
+      "review_id": "8edf7fb0249ccbee18ac0e6a261440dc",
+      "order_id": "13f48b228960c77c8ebeef615e898f32",
+      "message": "Como podem mandar um produto errado ? Não existe conferências? Loja falha",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 88538,
+      "review_id": "5430589748eb1d2c1e48e65ce612fddd",
+      "order_id": "5f321b4a49def66a561530fce7c03bab",
+      "message": "gostaria de receber meu dinheiro de volta",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 36091,
+      "review_id": "ff1dfc9a95e3eff7cae0dd7041901add",
+      "order_id": "c0524fb1b4c905d054adbddaffa2380c",
+      "message": "Produto de baixa qualidade x preco x descrição do produto",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 59528,
+      "review_id": "b2a4b4ee1157d7b5a66e2111bcdfba3d",
+      "order_id": "f3a34019663003872f3892902d2b7b2d",
+      "message": "Ainda não recebi o produto, mas por causa do atraso dos Correios. Ainda aguardando...",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 40488,
+      "review_id": "070b7a160179451a326f017a2c7866f8",
+      "order_id": "f16010e0add047ba483e2b3eefa7c60e",
+      "message": "Não foi colocado meu nome como destinatário e sim ?casa da mãe? os correios não quiseram me entregar. Foram varias tentativas, frustradas. ",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 65257,
+      "review_id": "f14ac82b38645fdfd7034a6e700a4ec1",
+      "order_id": "94aa3ae1cb5c1c152c6cc757b68bb659",
+      "message": "Realizei a compra e antes de receber me informaram que o produto não seria entregue, acho que por ser uma loja virtual não poderiam fazer isso, agora não consigo resgatar o valor pago.\r\n",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 17725,
+      "review_id": "4ba5b0ecd10c4a46a58493b5ab2547f6",
+      "order_id": "c19c55592299c2b3c838a4b77b639ed3",
+      "message": "Uma loja que só pensa em pegar o dinheiro do cliente, mas não entrega mercadoria.",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 94515,
+      "review_id": "8fdec3fb20f41ffe2d35f0f1f7eb3f2e",
+      "order_id": "403d497d5ac592144b9c83c01daa3a25",
+      "message": "Veio uma cor diferente da que eu comprei .\r\nQuando entrei no site já ñ estava mais disponível.\r\nEra presente fiquei aborrecida demais.",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 58900,
+      "review_id": "3b3b349f1583be5cb1bc0f0ddaea63e6",
+      "order_id": "1966886b80f14d0588adf6406afb0026",
+      "message": "Até agora não recebi o meu produto,já enviei e-mails perguntando sobre a entrega é não fui respondida ,como faço para ter meu dinheiro de volta",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 47603,
+      "review_id": "3b3281d06d8ec237c3e2b4e7289ca9d2",
+      "order_id": "cb415863b9b9ae1341b2deaebdc88c9b",
+      "message": "Demorou muito pra entregar.",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 13289,
+      "review_id": "9a00e9def910da499d6593d3ebf92f16",
+      "order_id": "d9f8dfc775170aba5d24809cc2c04058",
+      "message": "nota 10",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 43505,
+      "review_id": "5193565d8ef972341e963399fedec040",
+      "order_id": "79b0101fa56acf957666dd3d2fe39a61",
+      "message": "Entrega atrasada ",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 8144,
+      "review_id": "81aae8ed71e002e1b101c896312e33a3",
+      "order_id": "eb31fdfb332cea92e0b75fbe92b0a1cd",
+      "message": "O produto não é o quê eu imaginava Quero devolvê-lo pequeno demais não consigo enxergar nada",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 43805,
+      "review_id": "dcb7795bbab5b0438f1f05d2ef615ae0",
+      "order_id": "e28fb6cbf050a8cde2b9af4ae94f3241",
+      "message": "e não recebi o ressarcimento do valor, um absurdo.",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 70919,
+      "review_id": "1d04002b2de634976fc0d2739979f17b",
+      "order_id": "607cf95d7f8a8c1590f421fecdf0d95c",
+      "message": "Não recebi o produto. Estou no aguardo.",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 26172,
+      "review_id": "840257883f9664e315f38949ac0b17aa",
+      "order_id": "8fe3c4dff68cddab1e0b9291b683c1fc",
+      "message": "Eu comprei duas bonecas lol é só veio uma",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 12174,
+      "review_id": "66ee705809e0b18dd051d8ad86df5972",
+      "order_id": "ccfed873cb913a60c9603cfe245060ff",
+      "message": "não foi entregue em casa tive que buscar no correio",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 21018,
+      "review_id": "e31545c0cf8abb164a90146216fbcd20",
+      "order_id": "05b57f5540e48c853b6235bf8ff10e20",
+      "message": "Bom dia, o produto que comprei, recusei-o mas até agora não me reembolsaram.",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 94225,
+      "review_id": "21669c0b1d532d754a411e09973d118d",
+      "order_id": "28eaf28c1a7f1e6d917f465578bb1b43",
+      "message": "Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma semana e nem sinal da empresa",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 25550,
+      "review_id": "795ffd774dbcbb981bf85766f8e2a953",
+      "order_id": "a3a97bc6e236d5351537c8f466c34dad",
+      "message": "O produto é bom só que o valor do frete é muito caro não recomendo.",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 79284,
+      "review_id": "118e180ad70a009dd6fbb31c246763c9",
+      "order_id": "855996678baddb2597d33300f0148406",
+      "message": "Foto mostra uma coisa o produto é outro como sempre",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 60065,
+      "review_id": "56d63f9d81b4ef4e626a6cf928e62098",
+      "order_id": "1f70d88d8d6e9880a9e50ee78420c24c",
+      "message": "O pedido foi entregue parcial e nao total. Na nota veio faturado dois adesivos, porem recebi Smente Faixa Carro Trenzinho Trator Caminhão M10 , a faixa Carro Trator Caminhão Trenzinho M18 NAO RECEBI",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 48986,
+      "review_id": "fddea14d3a1ca086646c1c6b8e2eb874",
+      "order_id": "fdfce023fb0abea352d3231865c62fde",
+      "message": "a entrega foi rapida",
+      "labels": null,
+      "prediction_audit": null
+    },
+    {
+      "source_row": 3869,
+      "review_id": "fde930a6fba57d9ac9cb718f6f75a88b",
+      "order_id": "b4617485242633fa27f00e4f1a051e0a",
+      "message": "Comprei 3 almofadas e só recebi 2, sem a respectiva Nota Fiscal.",
+      "labels": null,
+      "prediction_audit": null
+    }
+  ]
+}

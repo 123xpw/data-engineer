@@ -534,7 +534,7 @@ def run_pipeline(input_path, output_dir, *, config_path=None, api_key=None, live
         f"本次 {'真实服务模式' if live else '无网络分流模式'}；累计请求 {len(entries)}，服务报告用量按配置上界折算 {metrics['usage_cost_upper_bound_usd']} USD，保守占用 {metrics['budget_occupied_usd']} USD，未知计费 {metrics['uncertain_cost_requests']} 次。实际账单费用未核对，为 null。\n\n"+
         f"累计已报告输入 token {metrics['prompt_tokens_campaign']}，输出 token {metrics['completion_tokens_campaign']}；已报告用量的请求覆盖 {charged_rows} 条文本（重付费的语义版本分别计次），单条均费 {metrics['average_reported_cost_per_queried_row_usd']} USD。无请求时均费为 null，不以零代表完成。\n\n"+
         '无网络模式的零请求不代表全量模型免费。用量明细在本地累计账本 .venv/q4_state/ledger.json；不得删账本重置预算。价格需先核实，最终须与实际服务账单核对；未完成前不宣称已独立核实实际美元账单。\n\n'+
-        '候选人此次验收的历史余额观察（如存在）见 [billing_observation.json](../reports/q4/billing_observation.json)。它是带时点的账户观察，不代表你本次运行的扣费；CNY 不直接当作 USD。首次实际处理及缓存阶段的用时见 [运行阶段](../reports/q4/real_execution_milestones.json)，不能把缓存重放秒数当作无缓存模型全量耗时。\n', encoding='utf-8')
+        '公开材料仅展示实际模型用量和官方费率计算的费用上界，独立实际账单尚未核验。首次实际处理及缓存阶段的用时见 [运行阶段](../reports/q4/real_execution_milestones.json)，不能把缓存重放秒数当作无缓存模型全量耗时。\n', encoding='utf-8')
     metrics['seconds'] = round(time.monotonic()-started, 6)
     metrics['under_time_limit'] = metrics['seconds'] <= max_seconds
     first = ledger.data['first_request_epoch'] if ledger else None

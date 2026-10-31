@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "run_id": "78f7b1a24dec4eec92f01b44a920f6b1",
+  "run_id": "69d9701fcc7441e192fdc105f742fe6d",
   "stage": "q3",
   "status": "redacted_copy",
-  "updated_utc": "2026-10-30T09:56:07.277265+00:00",
+  "updated_utc": "2026-10-31T05:48:23.042837+00:00",
   "artifacts": {
     "outputs/sales_facts.parquet": "f40bb584a5ea698446ad11bb0c93c2fa919293263a1d06313db2404242244e65",
     "outputs/customer_features.parquet": "51c6c7c9d823ddcca243552991a99165ff69d1839b3e4b1ab1755fd2986d7990",
     "outputs/returns_log.parquet": "05b6c248cb61b85f78deef8712011b2e6dbbda02ffc6210d7a8742b97710a3fb",
-    "pipeline_log.txt": "3566fe6961fcd2a597db4c9a82b2bfe508817b705bbe4f56ecf0812ada149978",
-    "validation_metrics.json": "3395a060a8283fb5d758fae10eb21b88dbcc61e6e67dad4619fe705e70f798df",
-    "validation_report.md": "4143ef7e5958de4408bb6de49858c46fb9c57b50b3b72429c3d8396c3e9c7691"
+    "pipeline_log.txt": "c6d6f6d1f80452532aa31986ce000c6cd2817ffd2863c0426eae5f26d81a461f",
+    "validation_metrics.json": "413d6e11d916a204268d1cf60726f41d3c537661b5ac3f4b60c5d3d74987743e",
+    "validation_report.md": "a3fc94806ed4f95fccfabd24335995acdb7ec108f6b40778e33ac50558d90748"
   },
   "source_sha256": {
-    "artifact_manifest.py": "26cd307ca6aefff22734f14d16994882d662b4aa2bcb701c141dd9e016c6a808",
+    "artifact_manifest.py": "082b0ce76e986daef448042ad6caaa79cad58d781fba95aa1a61d5c57dcb0c71",
     "data_sources.json": "9afb6c658fdfeaf43563212cb27955fb862f9ba42ee7daf3f99e0cfa1cbf6dd0",
     "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
     "q1_data_quality/cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
@@ -23,7 +23,7 @@
     "q1_data_quality/strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208",
     "q2_sql_analysis/catalog.py": "0108180bd105bb2dc977f7f42493e2ffbc30ec9fa7cc834007a5ce4d26174c30",
     "q2_sql_analysis/load_olist.py": "d2cbc404f8ec4f9255a84756056ee27ff471a9965ba6550bfc0a6c6ac76fe7ba",
-    "q2_sql_analysis/mysql_runtime.py": "3ddd738b19bda77d44192937ff73b51b340b888881c47567b96c909e80e6f56c",
+    "q2_sql_analysis/mysql_runtime.py": "29c3d278b38e8d45562d5117b6c8576a9556541f3061e14dc1002340ba2ba04e",
     "q2_sql_analysis/q2_1.py": "f9b33a5482a4de57cf03a954a25c9f912a200a6f06b74332aebdf261d2620ae8",
     "q2_sql_analysis/q2_1_translation_gap.sql": "8ebd5dd6d6ab5b7d8d2848cefea7f606fea2b16e41816846e529745d4cd33b9a",
     "q2_sql_analysis/q2_2.py": "ffb51f75d9f5f44364ea34c55b4f486345047316e878f4aed35456f81d8d1d16",
@@ -37,14 +37,21 @@
     "q3_etl_pipeline/pipeline.py": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
     "q3_etl_pipeline/reference_check.py": "c397a4617f9568b317e3dec7a58b0ed1f58bbd765db216fe4e5789cdbc293a71",
     "q3_etl_pipeline/test_pipeline.py": "8857672d2627cf32e7c62fb9fbf80fdfd81dc5877c461af8f7f5a60175506452",
+    "q4_llm_extraction/accuracy_evaluation.md": "baa643b26e2eb685fe962fc069652ac6e2ac766adabaa1b175c8366da89e9767",
+    "q4_llm_extraction/deepseek_config.json": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
+    "q4_llm_extraction/evaluate_annotations.py": "2ff72cdf9cf67dccad1addd8e07087a847374c1dfcdb5f00070004a19adf406e",
+    "q4_llm_extraction/extract_reviews.py": "8c8c1be79f9cbc6995e3d5280b9b2ac8a690d6a1f1bdff1a30506f1dc90fd006",
+    "q4_llm_extraction/pipeline_design.md": "a986b3902edca56a050b1145a14a41533a1b6cd973e956f8d5bdddb63466526c",
+    "q4_llm_extraction/prompt_template.txt": "c659c828cbc9ae2c8862fce6a715b350663d7ae972ef8e813af72f281cd68bfd",
+    "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
     "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
     "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
-    "release_check.py": "a3f97d2bb1783605279dc1db3db3961ec21c1f18c8d70d4fff981a1d7726c9d8",
-    "requirements.txt": "61a813e12457bf169d82652a379d276acb0405658dc7070588aac83c73a3f157",
-    "run_all.py": "fc6e8eb01140e914ae69f77786e4107e47abdf325b99b9260271d0df2ed8c655"
+    "release_check.py": "68058e969a6925bf3dae2bc6c4205df22d986a25e4b0b3bb46d21ab497f73742",
+    "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
+    "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f"
   },
   "input_sha256": {
-    "/Users/candidate/Documents/ChatGPT/实习笔试10-26/data-engineer/data/online_retail_ii.csv": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9"
+    "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/data/online_retail_ii.csv": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9"
   },
   "recorded_status_before_history_redaction": "passed",
   "_history_privacy_redaction_notice": "历史隐私脱敏阅读副本；指定身份/目录已替换，原始运行记录仅本地保存，不能据此认证原始回执。"
