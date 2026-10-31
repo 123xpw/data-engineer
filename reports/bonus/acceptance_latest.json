@@ -1,12 +1,12 @@
 {
-  "run_id": "6dc599c459e9428296b512a9be5615d9",
+  "run_id": "b06df1907d5a47d79abe0364936aa41a",
   "status": "passed",
   "scope": "acceptance",
-  "started_utc": "2026-10-31T14:32:39.553351+00:00",
+  "started_utc": "2026-10-31T14:42:58.377522+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "pandas": "3.1.0",
-  "git_base": "8ff16e445bf3e41d2e94b33d6fffd36cf812e818",
+  "git_base": "2c809470f15e33a91cd52d6b3a90aec791c01bd1",
   "python_optimization_level": 0,
   "source_sha256": {
     "VALIDATION_GATES.md": "6198a51889e85992b5cb63f87cc0032463e7cb0682c7e94aaf25edb65f63413b",
@@ -190,5 +190,5 @@
     "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f"
   },
   "review_scope": "可见原文引用、业务事实和收益假设范围；非独立人员语义审核",
-  "finished_utc": "2026-10-31T14:32:41.091014+00:00"
+  "finished_utc": "2026-10-31T14:43:00.154521+00:00"
 }
