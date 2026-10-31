@@ -7,7 +7,7 @@ import sys
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from artifact_manifest import digest
+from artifact_manifest import digest,source_hashes
 from scripts.verification_support import EvidenceRun,require
 from scripts.q2_4_reference import read_reference
 
@@ -59,7 +59,7 @@ def main():
                     'scope':'事实重新解析/Decimal 复算；收益为情景，未做因果/业务 ROI 认证'}
         evidence.check('Q6.2 逐事实独立复算与字数边界',facts)
         evidence.report['artifact_sha256']={str(p.relative_to(ROOT)):digest(p) for p in (ROOT/'bonus').glob('*.md')}
-        evidence.report.update(requirement_id='Q6',review_scope='可见原文引用、业务事实和收益假设范围；非独立人员语义审核');evidence.save()
+        evidence.report.update(requirement_id='Q6',production_source_sha256=source_hashes(),review_scope='可见原文引用、业务事实和收益假设范围；非独立人员语义审核');evidence.save()
     return 0 if evidence.report['status']=='passed' else 1
 
 

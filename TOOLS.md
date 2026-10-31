@@ -40,3 +40,9 @@ Q4 已完成真实模型抽取；真人准确率评估按用户选择稍后进�
 安装和空缓存下载在新虚拟环境完成，复用本机项目 MySQL 配置；没有宣称重建 OS、远程生产库或独立人员审核。依赖已锁定，不等于覆盖所有平台；推荐复现实际验证的 Python 3.12.13。原题 README/.gitignore/数据版本清单保持不变，CSV、Parquet 与私有配置未提交。
 
 DeepSeek 参考：[模型与价格](https://api-docs.deepseek.com/quick_start/pricing/)、[调用协议](https://api-docs.deepseek.com/api/create-chat-completion/)。已验证账号支持 deepseek-flash；使用非思考 JSON 模式。费用为核对时点官方费率计算的上界，不能代替独立实际账单。
+
+## 验收器审查使用的方法
+
+使用 unittest.mock、deepcopy 和 tempfile 对真实报告的复制件进行状态、重复项、缺检查/产物、版本和指纹损坏控制，不改真实报告；替代方案是隔离工作树的完整错误版本运行，成本较高。JSON object_pairs_hook/parse_constant 拒绝重复键与NaN，避免标准解析器的后项覆盖。SHA-256、Git历史和实际输入字节复核用于版本适用性，不能证明业务真值或人类身份。
+
+当前新虚拟环境重新用无pip缓存安装锁定依赖、pip check/freeze逐项对比，空Kaggle缓存下载后独立核对10个CSV。替代方案是容器/CI新机器运行；当前复用本机MySQL，不冒称新服务器或已付费模型无缓存生成。完整结果见 [本轮验收](audit/RELEASE_AUDIT_RESULT.md)。

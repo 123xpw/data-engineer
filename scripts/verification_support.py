@@ -81,6 +81,23 @@ def atomic_json(path, value):
         Path(temp).unlink(missing_ok=True)
 
 
+def verification_source_hashes():
+    """生成和消费证据共用源码清单，避免只核对生产文件而漏掉验收器变化。"""
+    files = [ROOT / "requirements.txt", ROOT / "data_sources.json", ROOT / "VALIDATION_GATES.md", ROOT / "delivery_requirements.json"]
+    files += sorted(ROOT.glob("*.py")) + sorted((ROOT / "scripts").glob("*.py")) + sorted((ROOT / "tests").glob("*.py"))
+    files += sorted((ROOT / "q1_data_quality").glob("*.py")) + sorted((ROOT / "q1_data_quality").glob("ACCEPTANCE_*.md"))
+    files += sorted((ROOT / "q2_sql_analysis").glob("*.py")) + sorted((ROOT / "q2_sql_analysis").glob("*.sql"))
+    files += sorted((ROOT / "q2_sql_analysis").glob("ACCEPTANCE_*.md"))
+    files += [ROOT/'audit/q2_4_experiment.py', ROOT/'audit/verify_q2_4_experiment.py']
+    files += [ROOT/'audit/q2_3_performance.py',ROOT/'audit/ACCEPTANCE_Q2_3_PERFORMANCE.md',
+              ROOT/'audit/fixtures/q2_3_baseline_0f40889.sql',ROOT/'audit/fixtures/q2_3_materialized_candidate.sql']
+    files += [ROOT/'audit/ACCEPTANCE_RELEASE_AUDIT.md']
+    for directory in ('q3_etl_pipeline','q4_llm_extraction','q5_system_design'):
+        files += sorted((ROOT/directory).glob('*.py'))+sorted((ROOT/directory).glob('ACCEPTANCE*.md'))
+    files += [ROOT/'q5_system_design/real_time_pipeline_design.md']
+    files += [ROOT/'q4_llm_extraction'/name for name in ('prompt_template.txt','pipeline_design.md','accuracy_evaluation.md','config.example.json','deepseek_config.json')]
+    return {str(p.relative_to(ROOT)):sha256(p) for p in sorted(set(files)) if p.exists()}
+
 class EvidenceRun:
     """每次运行独立编号；开始即标为运行中，每个结果立即落盘。"""
 
@@ -88,25 +105,13 @@ class EvidenceRun:
         run_id = uuid.uuid4().hex
         self.path = Path(report_dir) / f"{label}_{run_id}.json"
         self.latest = Path(report_dir) / f"{label}_latest.json"
-        files = [ROOT / "requirements.txt", ROOT / "data_sources.json", ROOT / "VALIDATION_GATES.md", ROOT / "delivery_requirements.json"]
-        files += sorted(ROOT.glob("*.py")) + sorted((ROOT / "scripts").glob("*.py")) + sorted((ROOT / "tests").glob("*.py"))
-        files += sorted((ROOT / "q1_data_quality").glob("*.py")) + sorted((ROOT / "q1_data_quality").glob("ACCEPTANCE_*.md"))
-        files += sorted((ROOT / "q2_sql_analysis").glob("*.py")) + sorted((ROOT / "q2_sql_analysis").glob("*.sql"))
-        files += sorted((ROOT / "q2_sql_analysis").glob("ACCEPTANCE_*.md"))
-        files += [ROOT/'audit/q2_4_experiment.py', ROOT/'audit/verify_q2_4_experiment.py']
-        files += [ROOT/'audit/q2_3_performance.py',ROOT/'audit/ACCEPTANCE_Q2_3_PERFORMANCE.md',
-                  ROOT/'audit/fixtures/q2_3_baseline_0f40889.sql',ROOT/'audit/fixtures/q2_3_materialized_candidate.sql']
-        for directory in ('q3_etl_pipeline','q4_llm_extraction','q5_system_design'):
-            files += sorted((ROOT/directory).glob('*.py'))+sorted((ROOT/directory).glob('ACCEPTANCE*.md'))
-        files += [ROOT/'q5_system_design/real_time_pipeline_design.md']
-        files += [ROOT/'q4_llm_extraction'/name for name in ('prompt_template.txt','pipeline_design.md','accuracy_evaluation.md','config.example.json','deepseek_config.json')]
         git = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True)
         self.report = {"run_id": run_id, "status": "running", "scope": label,
                        "started_utc": datetime.now(timezone.utc).isoformat(),
                        "python": platform.python_version(), "platform": platform.platform(),
                        "pandas": version("pandas"), "git_base": git.stdout.strip(),
                        "python_optimization_level": sys.flags.optimize,
-                       "source_sha256": {str(p.relative_to(ROOT)): sha256(p) for p in files if p.exists()},
+                       "source_sha256": verification_source_hashes(),
                        "checks": []}
         self.save()
         if sys.flags.optimize:

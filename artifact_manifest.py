@@ -32,6 +32,18 @@ def digest(path):
         return hashlib.file_digest(stream, 'sha256').hexdigest()
 
 
+def read_json(path):
+    """元数据拒绝重复字段和非标准数值，避免后一个 passed 覆盖前一个 failed。"""
+    def pairs(items):
+        result={}
+        for key,value in items:
+            if key in result:raise ValueError('重复 JSON 字段：'+key)
+            result[key]=value
+        return result
+    def invalid(value):raise ValueError('JSON 包含非有限常量：'+value)
+    return json.loads(Path(path).read_text(),object_pairs_hook=pairs,parse_constant=invalid)
+
+
 def source_hashes():
     """生产代码与规则声明；不将生成的业务报告混入源码指纹。"""
     files = list(ROOT.glob('*.py')) + [ROOT/'requirements.txt', ROOT/'data_sources.json']
@@ -108,7 +120,7 @@ def publish(stage, output_dir, action, *, inputs=(), run_id=None):
 def validate_manifest(path, expected_run_id, *, allow_partial=False):
     """调用者必须持有本轮编号；仅检查 latest 或文件存在不足以验收。"""
     path = Path(path)
-    record = json.loads(path.read_text())
+    record = read_json(path)
     allowed = {'passed', 'partial'} if allow_partial else {'passed'}
     if not expected_run_id or record.get('run_id') != expected_run_id or record.get('status') not in allowed:
         raise ValueError('清单不是指定运行的成功产物')

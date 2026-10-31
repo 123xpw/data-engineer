@@ -9,8 +9,8 @@ import uuid
 
 ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT))
-from artifact_manifest import ARTIFACTS, digest, manifest_path, source_hashes, validate_manifest
-from scripts.verification_support import EvidenceRun, require
+from artifact_manifest import ARTIFACTS, digest, manifest_path, source_hashes, validate_manifest, read_json
+from scripts.verification_support import EvidenceRun, require, verification_source_hashes
 from audit.q2_3_performance import inspect_performance
 
 REQUIRED_PENDING={'Q2.3','Q2.4','Q3.1','Q4.1','Q5.1','DOCS','AI_LOG','COLD_START','PUBLIC_FORK','FINAL_COMMIT','HUMAN_REVIEW'}
@@ -22,10 +22,64 @@ REGRESSION_CHECKS={
 }
 PIPELINE=ROOT/'reports/release_execution.json'
 REGRESSION=ROOT/'reports/q2_2/acceptance_latest.json'
+CONTRACTS={
+ 'Q2.3':('q2_3','acceptance',{
+  '真实 MySQL 环境','冻结口径的性能实测与适用范围','手算、连接粒度、分母、并列、截断及定向错误',
+  '全部真实卖家独立复算、金额及评价规则敏感性','已有业务当前源码回归','本题正式入口与失败归属'},
+  {'q2_sql_analysis/q2_3_results.json','q2_sql_analysis/q2_3_findings.md','reports/q2_3_reference.json'}),
+ 'Q2.4':('q2_4','acceptance',{'真实 MySQL 与 TLS 就绪','冻结 SQL、真实计时证据与手算反例','当前源码既有业务回归及默认四题入口','本题正式发布、逐州独立复算与全入口归属'},
+  {'q2_sql_analysis/q2_4_results.json','q2_sql_analysis/q2_4_query_optimization.md','reports/q2_4_experiment.json'}),
+ 'Q3.1':('q3','acceptance',{'固定手算与拒绝有损输入','已有业务回归及默认全入口','全量独立复算、确定性、类型回读、性能和失败清单','可空价格三态、旧版不变量与独立参考拒绝语义损坏'},
+  {'q3_etl_pipeline/'+p for p in ['validation_metrics.json','validation_report.md','outputs/sales_facts.parquet','outputs/customer_features.parquet','outputs/returns_log.parquet']}|{'reports/q3/nullable_price_snapshot.json'}),
+ 'Q4.R1':('q4','engineering',{'预设反例、计费手算、恢复与墙钟进程终止','定向变异必须由指定反例检出','全量冻结输入、独立分流、部分状态与空标注拒绝'},
+  {'.venv/q4-engineering-output/'+p for p in ['extracted_issues.json','run_metrics.json','annotation_blind.json','cost_report.md']}|{'q4_llm_extraction/pipeline_design.md','q4_llm_extraction/accuracy_evaluation.md'}),
+ 'Q4.PROCESSING':('q4','processing',{'真实全量、逐行证据、原始回执与累计预算时长'},
+  {'q4_llm_extraction/'+p for p in ['extracted_issues.json','run_metrics.json','annotation_blind.json','cost_report.md']}),
+ 'Q5.1':('q5','acceptance',{'文档、情景手算与正式默认入口'},
+  {'q5_system_design/real_time_pipeline_design.md','q5_system_design/design_metrics.json'}),
+ 'Q6':('bonus','acceptance',{'Q6.1 原文、用户轮次和重写提示区分','Q6.2 逐事实独立复算与字数边界'},
+  {'bonus/q6_1_ai_collaboration.md','bonus/q6_2_business_insights.md','bonus/ACCEPTANCE.md'}),
+}
+REGRESSION_ARTIFACTS={'q2_sql_analysis/q2_2_results.json','q2_sql_analysis/q2_2_findings.md','reports/q2_2_reference.json'}
 
 
 def read(path):
-    return json.loads(Path(path).read_text())
+    return read_json(path)
+
+
+def inspect_checks(proof,required=None):
+    checks=proof.get('checks')
+    require(isinstance(checks,list) and checks and all(isinstance(c,dict) and isinstance(c.get('name'),str) and c['name'] for c in checks),'检查记录缺失或结构无效')
+    names=[c['name'] for c in checks]
+    require(len(names)==len(set(names)),'检查记录重复')
+    require(required is None or set(names)==required,'必需检查缺项或范围改变')
+    require(all(c.get('passed') is True for c in checks),'检查存在未通过或非布尔状态')
+
+
+def inspect_artifacts(proof,required=None):
+    values=proof.get('artifact_sha256')
+    require(isinstance(values,dict) and values,'缺少验收产物指纹')
+    require(required is None or set(values)==required,'必需产物缺项或引用无关产物')
+    for path,value in values.items():
+        require(isinstance(path,str) and not Path(path).is_absolute(),'产物路径无效')
+        target=(ROOT/path).resolve()
+        require(target.is_relative_to(ROOT.resolve()),'产物路径越出项目')
+        require(target.is_file() and isinstance(value,str) and digest(target)==value,'验收产物缺失或已改变：'+path)
+
+
+def inspect_subquestion(stage,current=None,proof=None):
+    folder,label,checks,artifacts=CONTRACTS[stage]
+    proof=read(ROOT/f'reports/{folder}/{label}_latest.json') if proof is None else proof
+    require(isinstance(proof,dict),'验收记录不是结构化对象')
+    require(proof.get('status')=='passed' and proof.get('requirement_id')==stage,stage+' 没有对应范围的通过报告')
+    require(proof.get('source_sha256')==(verification_source_hashes() if current is None else current),stage+' 验收源码已变化')
+    require(proof.get('production_source_sha256')==source_hashes(),stage+' 生产源码已变化')
+    require(isinstance(proof.get('review_scope'),str) and proof['review_scope'].strip(),'验收范围说明缺失')
+    inspect_checks(proof,checks);inspect_artifacts(proof,artifacts)
+    if stage=='Q4.PROCESSING':
+        path=manifest_path(ROOT/'q4_llm_extraction','q4');record=read(path)
+        validate_manifest(path,record['run_id'])
+    return {'run_id':proof['run_id'],'scope':'具备全部必需检查、限定产物、当前源码及实际字节的程序证据'}
 
 
 def inspect_regression(report, current):
@@ -34,9 +88,7 @@ def inspect_regression(report, current):
     require({c['name'] for c in checks}==REGRESSION_CHECKS and len(checks)==len(REGRESSION_CHECKS), '关键检查缺失、重复或范围变化；需审查验收契约')
     require(all(c.get('passed') is True for c in checks),'存在失败检查')
     require(report.get('source_sha256')==current,'功能回归源码已过期')
-    for path,value in report.get('artifact_sha256',{}).items():
-        require(digest(ROOT/path)==value,f'回归产物已变化：{path}')
-    require(bool(report.get('artifact_sha256')),'缺少回归产物指纹')
+    inspect_artifacts(report,REGRESSION_ARTIFACTS)
     return {'run_id':report['run_id'],'report_sha256':digest(REGRESSION),'scope':'当前源码的 Q1、九表、Q2.1、Q2.2；不含未完成题'}
 
 
@@ -52,19 +104,20 @@ def inspect_dependencies():
 
 def inspect_execution():
     report=read(PIPELINE)
-    require(report.get('requested_stage')=='all','需要真实全入口执行记录')
+    inspect_complete_execution(report)
     require(report.get('source_sha256')==source_hashes(),'全入口运行源码已变化')
+    input_evidence=inspect_inputs()
     rows={r['stage']:r for r in report['results']}
     for stage in ('data.retail','data.olist','q1.1','q1.2','q1.3','q3','q4','q5'):
         require(rows.get(stage,{}).get('status')=='passed',f'{stage} 未成功')
-    require(rows.get('q2',{}).get('status') in ('passed','partial'),'Q2 已实现部分运行失败')
+    require(rows.get('q2',{}).get('status')=='passed','Q2 未完整通过')
     nested={r['stage']:r for r in rows['q2']['detail']['results']}
     for stage in ('q2.load','q2.1','q2.2','q2.3','q2.4'):
         require(nested.get(stage,{}).get('status')=='passed',f'{stage} 未成功')
     outputs=report['output_directories']; validated={}
     for stage in ARTIFACTS:
         folder=Path(outputs[stage.split('.')[0]])
-        record=validate_manifest(manifest_path(folder,stage),report['run_id'],allow_partial=stage=='q4')
+        record=validate_manifest(manifest_path(folder,stage),report['run_id'])
         if stage=='q4':
             require(record['status']==rows['q4']['status'],'Q4 清单与实际入口状态不一致')
         validated[stage]={'manifest_sha256':digest(manifest_path(folder,stage)),'artifacts':record['artifacts']}
@@ -77,8 +130,21 @@ def inspect_execution():
     for name in ['sales_facts','customer_features','returns_log']:
         require(digest(Path(outputs['q3'])/'outputs'/(name+'.parquet'))==digest(ROOT/'q3_etl_pipeline/outputs'/(name+'.parquet')),'Q3 候选与独立复算版本不一致')
     require(digest(Path(outputs['q4'])/'extracted_issues.json')==digest(ROOT/'q4_llm_extraction/extracted_issues.json'),'Q4 默认入口与真实验证结果不同')
-    return {'run_id':report['run_id'],'exit_code':report['exit_code'],'report_sha256':digest(PIPELINE),'manifests':validated,
+    return {'run_id':report['run_id'],'exit_code':report['exit_code'],'report_sha256':digest(PIPELINE),'manifests':validated,'current_inputs':input_evidence,
             'scope':'当前环境、已下载冻结输入；不是完整冷启动证明'}
+
+
+def inspect_inputs():
+    datasets=read(ROOT/'data_sources.json')['datasets'];targets=set()
+    require(set(datasets)=={'retail','olist'},'冻结数据源缺项')
+    for dataset in datasets.values():
+        require(isinstance(dataset.get('files'),list) and dataset['files'],'数据源文件清单为空')
+        for expected in dataset['files']:
+            target=expected['target'];path=(ROOT/'data'/target).resolve()
+            require(target not in targets and path.is_relative_to((ROOT/'data').resolve()),'输入路径重复或越界')
+            targets.add(target)
+            require(path.is_file() and path.stat().st_size==expected['bytes'] and digest(path)==expected['sha256'],'当前输入缺失或已改变：'+target)
+    return {'verified_files':len(targets),'scope':'当前输入字节与未修改的冻结数据清单一致；不以旧运行记录替代当前文件'}
 
 
 def inspect_runtime_repair():
@@ -103,11 +169,15 @@ def inspect_protected():
 
 
 def inspect_complete_execution(report):
-    require(report.get('requested_stage')=='all' and report.get('exit_code')==0 and report.get('status')=='passed','完整全入口未通过')
-    rows={r['stage']:r for r in report.get('results',[])}
+    require(report.get('requested_stage')=='all' and type(report.get('exit_code')) is int and report['exit_code']==0 and report.get('status')=='passed','完整全入口未通过')
+    def unique_rows(items):
+        require(isinstance(items,list) and all(isinstance(r,dict) and isinstance(r.get('stage'),str) for r in items),'阶段结构无效')
+        require(len({r['stage'] for r in items})==len(items),'阶段重复，不能覆盖前项失败')
+        return {r['stage']:r for r in items}
+    rows=unique_rows(report.get('results',[]))
     required={'data.retail','data.olist','q1.1','q1.2','q1.3','q2','q3','q4','q5'}
     require(set(rows)==required and all(r.get('status')=='passed' for r in rows.values()),'完整入口缺少必答阶段或存在未通过阶段')
-    nested={r['stage']:r for r in rows['q2']['detail']['results']}
+    nested=unique_rows(rows['q2'].get('detail',{}).get('results',[]))
     require(set(nested)=={'q2.load','q2.1','q2.2','q2.3','q2.4'} and all(r.get('status')=='passed' for r in nested.values()),'Q2 缺少必答题或未通过')
     return True
 
@@ -120,14 +190,19 @@ def pending_items(items):
         if row.get('status')!='verified' or not row.get('evidence'):
             pending.append({'id':row['id'],'reason':row.get('reason','没有经过核验的证据')})
             continue
-        proof=read(ROOT/row['evidence'])
-        valid=(proof.get('requirement_id')==row['id'] and proof.get('status')=='passed'
-               and proof.get('production_source_sha256',proof.get('source_sha256'))==source_hashes() and bool(proof.get('artifact_sha256'))
-               and bool(proof.get('review_scope')))
-        if valid:
-            valid=all((ROOT/path).is_file() and digest(ROOT/path)==value for path,value in proof['artifact_sha256'].items())
-        if not valid:
-            pending.append({'id':row['id'],'reason':'验收记录缺失、过期或没有限定审查范围'})
+        try:
+            path=(ROOT/row['evidence']).resolve()
+            require(path.is_relative_to(ROOT.resolve()),'证据路径越出项目')
+            proof=read(path)
+            require(isinstance(proof,dict),'验收记录不是结构化对象')
+            if row['id'] in CONTRACTS:inspect_subquestion(row['id'],proof=proof)
+            else:
+                require(proof.get('requirement_id')==row['id'] and proof.get('status')=='passed','验收范围或状态不符')
+                require(proof.get('production_source_sha256')==source_hashes(),'生产源码已变化')
+                require(isinstance(proof.get('review_scope'),str) and proof['review_scope'].strip(),'验收范围缺失')
+                inspect_checks(proof);inspect_artifacts(proof)
+        except (OSError,ValueError,TypeError,KeyError,AssertionError):
+            pending.append({'id':row['id'],'reason':'验收记录缺失、结构不完整、过期或未满足限定审查范围'})
     return pending
 
 
@@ -164,17 +239,8 @@ def main():
             return 1
         e.check('当前功能回归及代码、产物绑定',lambda:inspect_regression(read(REGRESSION),e.report['source_sha256']))
         e.check('Q2.3 性能证据仍适用',inspect_performance)
-        def subquestion_evidence(stage):
-            report_folder={'Q2.3':'q2_3','Q2.4':'q2_4','Q3.1':'q3','Q4.R1':'q4','Q4.PROCESSING':'q4','Q5.1':'q5','Q6':'bonus'}[stage]
-            name='engineering_latest.json' if stage=='Q4.R1' else 'processing_latest.json' if stage=='Q4.PROCESSING' else 'acceptance_latest.json'
-            proof=read(ROOT/('reports/'+report_folder+'/'+name))
-            require(proof.get('status')=='passed' and proof.get('source_sha256')==e.report['source_sha256'],stage+' 缺少当前源码通过证据')
-            require(proof.get('requirement_id')==stage,stage+' 验收范围未声明')
-            for name,value in proof['artifact_sha256'].items():
-                require(digest(ROOT/name)==value,stage+' 产物已变化')
-            return {'run_id':proof['run_id'],'scope':'当前子题、独立参考及默认全入口'}
         for stage in ('Q2.3','Q2.4','Q3.1','Q4.R1','Q4.PROCESSING','Q5.1','Q6'):
-            e.check(stage+' 当前业务及默认入口',lambda name=stage:subquestion_evidence(name))
+            e.check(stage+' 当前业务及默认入口',lambda name=stage:inspect_subquestion(name,e.report['source_sha256']))
         e.check('锁定依赖安装证据及适用范围',inspect_dependencies)
         e.check('真实全入口及本轮产物归属',inspect_execution)
         e.check('数据库配置修复证据适用范围',inspect_runtime_repair)

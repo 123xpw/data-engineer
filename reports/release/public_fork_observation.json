@@ -1,0 +1,11 @@
+{
+  "observed_utc": "2026-10-31T09:59:43.876932+00:00",
+  "method": "gh api repos/123xpw/data-engineer 只读查询；仅保存选定非敏感字段",
+  "full_name": "123xpw/data-engineer",
+  "private": false,
+  "fork": true,
+  "parent": "Jay-gekko/data-engineer",
+  "default_branch": "codex/verified-baseline",
+  "current_preview_published": false,
+  "limits": "证明查询时Fork元数据；不证明本轮源码已推送，不代表最终邮件提交"
+}

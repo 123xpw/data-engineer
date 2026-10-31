@@ -40,6 +40,9 @@ def main():
             environment.pop(key, None)
         environment["PYTHONNOUSERSITE"] = "1"
         environment["KAGGLEHUB_CACHE"] = str(root / "empty-cache")
+        environment['Q4_LIVE']='0'
+        for key in ('Q4_API_KEY','DEEPSEEK_API_KEY','OPENAI_API_KEY'):
+            environment.pop(key,None)
         def command(args, *, timeout=900):
             result = subprocess.run(args, cwd=project, env=environment, capture_output=True, text=True, timeout=timeout)
             if result.returncode != 0:

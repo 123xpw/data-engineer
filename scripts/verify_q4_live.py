@@ -97,7 +97,7 @@ def main():
                     'scope':'来源/结构/逐字证据/回执用量和时长；原始响应是客户端保存证据，不是服务商签章账单或真人语义认证'}
         evidence.check('真实全量、逐行证据、原始回执与累计预算时长',coverage)
         evidence.report.update(requirement_id='Q4.PROCESSING',production_source_sha256=source_hashes(),review_scope='真实模型处理闭环；不含真人标签和独立账单核对')
-        evidence.report['artifact_sha256']={str((output/name).relative_to(ROOT)):digest(output/name) for name in ['extracted_issues.json','run_metrics.json','cost_report.md'] if (output/name).is_file()};evidence.save()
+        evidence.report['artifact_sha256']={str((output/name).relative_to(ROOT)):digest(output/name) for name in ['extracted_issues.json','run_metrics.json','annotation_blind.json','cost_report.md'] if (output/name).is_file()};evidence.save()
     return 0 if evidence.report['status']=='passed' else 1
 
 
