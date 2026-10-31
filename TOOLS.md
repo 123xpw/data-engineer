@@ -12,7 +12,7 @@
 | PyArrow 26.0.0 | 三份 Parquet 写入回读、类型与字节重跑核验；先在独立环境验证二进制轮子 | fastparquet 等，但需再验证 schema、缺失和版本兼容性 |
 | MySQL 8.4.13、Docker | 强制 MySQL 的真实九表、临时表反例、TLS、受管卷生命周期 | 另一台独立 MySQL；SQLite 不能替代题目要求。本机 Docker 不等于新机器或生产系统 |
 | PyMySQL 1.1.2 | 参数化导入、严格类型/警告检查、执行 SQL 与状态核对 | mysqlclient/SQLAlchemy；额外抽象不自动解决粒度和去重问题 |
-| EXPLAIN JSON / ANALYZE | 区分估计计划与实际迭代器；三轮交替计时、不伪报百倍性能 | 生产回放、压测、监控；本次未完成生产或百倍规模实验 |
+| EXPLAIN JSON / ANALYZE | 区分估计计划与实际迭代器；Q2.3 三轮同口径对照，局部连接顺序预检失败后增加事实块隔离；Q2.4 保留未提速结论 | 生产回放、压测、监控；本次未完成生产或百倍规模实验，固定顺序未来可能退化 |
 | unittest/subprocess | 手算固定答案、真实 CLI、运行模式、异常隔离和变异测试；旧骨架副本使用 -B，Q4 副本逐次删除字节码缓存 | pytest/外部 CI；当前仍由同一 AI 编写，不能冒称独立人员审查 |
 | tempfile/os.replace/hashlib | 空目录生成、完整发布、编号和摘要校验，拒绝失败后旧结果 | 不可变对象存储与元数据事务；当前未证明并发发布/断电恢复 |
 | requests/multiprocessing/fcntl | Q4 兼容接口、墙钟终止、累计账本排他锁；真实 DeepSeek 调用、原始回执与全量分流 | SDK/异步客户端；已验证服务兼容性/真实处理；独立账单与真人语义待核验，未声称 Windows 支持 |

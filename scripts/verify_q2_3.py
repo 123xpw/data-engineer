@@ -13,6 +13,7 @@ from scripts.q2_3_reference import read_reference
 from q2_sql_analysis.q2_3 import query,execute,SQL
 from q2_sql_analysis.mysql_runtime import ensure_mysql,connect
 from artifact_manifest import validate_manifest,manifest_path,publish,source_hashes,digest
+from audit.q2_3_performance import inspect_performance
 
 
 def command(args,expected=0,timeout=900):
@@ -23,6 +24,7 @@ def command(args,expected=0,timeout=900):
 def main():
     with EvidenceRun(ROOT/'reports/q2_3','acceptance') as e:
         if not e.check('真实 MySQL 环境',ensure_mysql):return 1
+        if not e.check('冻结口径的性能实测与适用范围',inspect_performance):return 1
         if not e.check('手算、连接粒度、分母、并列、截断及定向错误',check_cases):return 1
         def real_data():
             ref=read_reference();actual=query()

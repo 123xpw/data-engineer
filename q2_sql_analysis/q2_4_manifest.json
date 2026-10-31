@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "run_id": "102f7153bf284e5c91e7747a0d7b6a06",
+  "run_id": "110cf6496a5343f782bf2214272dbb68",
   "stage": "q2.4",
   "status": "passed",
-  "updated_utc": "2026-10-31T05:48:05.961305+00:00",
+  "updated_utc": "2026-10-31T06:23:20.510610+00:00",
   "artifacts": {
-    "q2_4_results.json": "db8d17a747faecd16f5dfb20783568ac901200e693c1919f153dfe701b422516",
+    "q2_4_results.json": "a88e8d8b1975214c5feae98ef585b8758a9a4fbbbb1e3f5239634213e1e8f15e",
     "q2_4_query_optimization.md": "f670b17448f65a7618df65b554651c02d650ba82f6230e6a9e7a119a8fcee251"
   },
   "source_sha256": {
@@ -25,7 +25,7 @@
     "q2_sql_analysis/q2_2.py": "ffb51f75d9f5f44364ea34c55b4f486345047316e878f4aed35456f81d8d1d16",
     "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
     "q2_sql_analysis/q2_3.py": "9481262c609328b197f30072fa7aa7ef6d4f7a237f746f58b36d97326397a979",
-    "q2_sql_analysis/q2_3_top_sellers.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
+    "q2_sql_analysis/q2_3_top_sellers.sql": "3debb31b7bb42395e8eaf70e708b2e1594e33c71fab5525d2e0dc763447bee94",
     "q2_sql_analysis/q2_4.py": "9309a0f00b8512f7f6c983c6a47992428b1c4cfed4d051fff9335d95e9845839",
     "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
     "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
@@ -42,10 +42,10 @@
     "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
     "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
     "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
-    "release_check.py": "68058e969a6925bf3dae2bc6c4205df22d986a25e4b0b3bb46d21ab497f73742",
+    "release_check.py": "f6bff89ff2e5173e04012ad37f76193bdfa620d52df6d9f548c702cdc22780ee",
     "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
     "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f"
   },
   "input_sha256": {},
-  "load_version": "b8e95b785ac1"
+  "load_version": "6944ee485491"
 }

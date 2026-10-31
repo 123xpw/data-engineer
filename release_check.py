@@ -11,6 +11,7 @@ ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT))
 from artifact_manifest import ARTIFACTS, digest, manifest_path, source_hashes, validate_manifest
 from scripts.verification_support import EvidenceRun, require
+from audit.q2_3_performance import inspect_performance
 
 REQUIRED_PENDING={'Q2.3','Q2.4','Q3.1','Q4.1','Q5.1','DOCS','AI_LOG','COLD_START','PUBLIC_FORK','FINAL_COMMIT','HUMAN_REVIEW'}
 REGRESSION_CHECKS={
@@ -162,6 +163,7 @@ def main():
         if args.refresh and not e.check('重跑当前源码与全入口',refresh):
             return 1
         e.check('当前功能回归及代码、产物绑定',lambda:inspect_regression(read(REGRESSION),e.report['source_sha256']))
+        e.check('Q2.3 性能证据仍适用',inspect_performance)
         def subquestion_evidence(stage):
             report_folder={'Q2.3':'q2_3','Q2.4':'q2_4','Q3.1':'q3','Q4.R1':'q4','Q4.PROCESSING':'q4','Q5.1':'q5','Q6':'bonus'}[stage]
             name='engineering_latest.json' if stage=='Q4.R1' else 'processing_latest.json' if stage=='Q4.PROCESSING' else 'acceptance_latest.json'

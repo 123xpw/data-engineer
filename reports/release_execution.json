@@ -1,7 +1,7 @@
 {
-  "run_id": "0fd9e72ffc204a67a3998a48700f3f1e",
+  "run_id": "8bc4abf58a6f4d9ca58a5f4a00f6fa04",
   "status": "redacted_copy",
-  "timestamp_utc": "2026-10-31T05:50:55.134682+00:00",
+  "timestamp_utc": "2026-10-31T06:24:27.513279+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "requested_stage": "all",
@@ -32,7 +32,7 @@
           }
         ]
       },
-      "seconds": 0.5018
+      "seconds": 0.4943
     },
     {
       "stage": "data.olist",
@@ -175,7 +175,7 @@
           }
         ]
       },
-      "seconds": 0.6682
+      "seconds": 0.6377
     },
     {
       "stage": "q1.1",
@@ -184,9 +184,9 @@
         "rows": 1067371,
         "observations": 10,
         "scope": "仅 Q1.1",
-        "output_dir": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/cc5df6249ed24653b848bd25d0fadb5f/q1"
+        "output_dir": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/35f6360bd7824630a843e8649339b9f4/q1"
       },
-      "seconds": 1.746
+      "seconds": 1.7092
     },
     {
       "stage": "q1.2",
@@ -194,9 +194,9 @@
       "detail": {
         "rows": 1067371,
         "scope": "仅 Q1.2",
-        "output_dir": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/cc5df6249ed24653b848bd25d0fadb5f/q1"
+        "output_dir": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/35f6360bd7824630a843e8649339b9f4/q1"
       },
-      "seconds": 3.7631
+      "seconds": 3.6666
     },
     {
       "stage": "q1.3",
@@ -212,7 +212,7 @@
         "business_approval": "未获得；见规则假设和待确认范围",
         "validation_limit": "程序只核验交付文件和长度；不是自动业务语义审查"
       },
-      "seconds": 0.0054
+      "seconds": 0.0051
     },
     {
       "stage": "q2",
@@ -223,7 +223,7 @@
             "stage": "q2.load",
             "status": "passed",
             "detail": {
-              "version": "27afead20210",
+              "version": "3d3b236cbbdd",
               "tables": {
                 "customers": 99441,
                 "geolocation": 1000163,
@@ -235,7 +235,7 @@
                 "sellers": 3095,
                 "product_category_name_translation": 71
               },
-              "report": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/cc5df6249ed24653b848bd25d0fadb5f/q2/.pending-ov7_k21o/load_report.json"
+              "report": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/35f6360bd7824630a843e8649339b9f4/q2/.pending-d7hhyu5t/load_report.json"
             }
           },
           {
@@ -243,7 +243,7 @@
             "status": "passed",
             "detail": {
               "server_version": "8.4.13",
-              "load_version": "27afead20210",
+              "load_version": "3d3b236cbbdd",
               "total_products": 32951,
               "unknown_category_products": 610,
               "named_translation_gaps": [
@@ -265,7 +265,7 @@
             "status": "passed",
             "detail": {
               "server_version": "8.4.13",
-              "load_version": "27afead20210",
+              "load_version": "3d3b236cbbdd",
               "cancel_rate_unit": "百分数",
               "delivery_days": "有效 delivered 订单等权，秒/86400，六位小数；NULL 排除并披露",
               "months": [
@@ -626,7 +626,7 @@
             "stage": "q2.3",
             "status": "passed",
             "detail": {
-              "load_version": "27afead20210",
+              "load_version": "3d3b236cbbdd",
               "year": 2017,
               "rate_unit": "百分数",
               "review_rule": "每订单按创建、回答、review_id、来源行降序取一条；不是权威性认证",
@@ -1000,7 +1000,7 @@
             "stage": "q2.4",
             "status": "passed",
             "detail": {
-              "load_version": "27afead20210",
+              "load_version": "3d3b236cbbdd",
               "scope": "原题筛选；商品价格不含运费/退款，评分每订单最新一条等权；不是净收入审计",
               "states": [
                 {
@@ -1207,7 +1207,7 @@
         ],
         "scope": "九表与 Q2.1–Q2.4"
       },
-      "seconds": 129.7068
+      "seconds": 29.2166
     },
     {
       "stage": "q3",
@@ -1235,7 +1235,7 @@
           "eligible_candidates_consumed": 207,
           "unexpected_nonnegative_cancel_quantity": 1
         },
-        "seconds": 3.015409,
+        "seconds": 2.923257,
         "under_120_seconds": true,
         "scope": "正向商品毛交易、毛购买 RFM、容量受限精确数量候选；非净退款认证",
         "return_candidate_sensitivity": {
@@ -1342,7 +1342,7 @@
           }
         }
       },
-      "seconds": 3.1225
+      "seconds": 3.0267
     },
     {
       "stage": "q4",
@@ -1386,7 +1386,7 @@
           "budget_occupied_usd": "1.7664627",
           "uncertain_cost_requests": 0,
           "prompt_sha256": "c659c828cbc9ae2c8862fce6a715b350663d7ae972ef8e813af72f281cd68bfd",
-          "seconds": 5.909988,
+          "seconds": 5.708171,
           "service_config_sha256": "e602c97c3a4d7fd232229a8d8010863db42bd16c3e0352b992471cd52ca7b2fa",
           "actual_billed_cost_usd": null,
           "scope": "逐行分流及调用控制；usage 按配置单价计算，非账单认证；引文校验不认证语义；人工评估另行完成",
@@ -1396,7 +1396,7 @@
           "campaign_span_is_execution_time": false
         }
       },
-      "seconds": 5.937
+      "seconds": 5.7317
     },
     {
       "stage": "q5",
@@ -1413,7 +1413,7 @@
         },
         "scope": "文档交付、字数与数学情景；未部署、压测或独立人员审阅"
       },
-      "seconds": 0.0048
+      "seconds": 0.0043
     }
   ],
   "source_sha256": {
@@ -1433,7 +1433,7 @@
     "q2_sql_analysis/q2_2.py": "ffb51f75d9f5f44364ea34c55b4f486345047316e878f4aed35456f81d8d1d16",
     "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
     "q2_sql_analysis/q2_3.py": "9481262c609328b197f30072fa7aa7ef6d4f7a237f746f58b36d97326397a979",
-    "q2_sql_analysis/q2_3_top_sellers.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
+    "q2_sql_analysis/q2_3_top_sellers.sql": "3debb31b7bb42395e8eaf70e708b2e1594e33c71fab5525d2e0dc763447bee94",
     "q2_sql_analysis/q2_4.py": "9309a0f00b8512f7f6c983c6a47992428b1c4cfed4d051fff9335d95e9845839",
     "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
     "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
@@ -1450,16 +1450,16 @@
     "q4_llm_extraction/repair.py": "2b1b9736c0ba95b143a60560c18f883575db575fbdc843deda61d819ef7c71b0",
     "q5_system_design/design.py": "309ddf86abbc44229864cc1fc93317c47cf042b770cc4420a6253225d10c61dd",
     "q5_system_design/real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
-    "release_check.py": "68058e969a6925bf3dae2bc6c4205df22d986a25e4b0b3bb46d21ab497f73742",
+    "release_check.py": "f6bff89ff2e5173e04012ad37f76193bdfa620d52df6d9f548c702cdc22780ee",
     "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
     "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f"
   },
   "output_directories": {
-    "q1": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/cc5df6249ed24653b848bd25d0fadb5f/q1",
-    "q2": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/cc5df6249ed24653b848bd25d0fadb5f/q2",
-    "q3": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/cc5df6249ed24653b848bd25d0fadb5f/q3",
-    "q4": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/cc5df6249ed24653b848bd25d0fadb5f/q4",
-    "q5": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/cc5df6249ed24653b848bd25d0fadb5f/q5"
+    "q1": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/35f6360bd7824630a843e8649339b9f4/q1",
+    "q2": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/35f6360bd7824630a843e8649339b9f4/q2",
+    "q3": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/35f6360bd7824630a843e8649339b9f4/q3",
+    "q4": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/35f6360bd7824630a843e8649339b9f4/q4",
+    "q5": "/Users/candidate/Documents/ChatGPT/实习笔试10-26/公开脱敏预览/.venv/release-runs/35f6360bd7824630a843e8649339b9f4/q5"
   },
   "recorded_status_before_history_redaction": "passed",
   "_history_privacy_redaction_notice": "历史隐私脱敏阅读副本；指定身份/目录已替换，原始运行记录仅本地保存，不能据此认证原始回执。"

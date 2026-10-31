@@ -1,6 +1,6 @@
 {
   "server_version": "8.4.13",
-  "load_version": "87edde7ded8c",
+  "load_version": "6108ef03456d",
   "cancel_rate_unit": "百分数",
   "delivery_days": "有效 delivered 订单等权，秒/86400，六位小数；NULL 排除并披露",
   "months": [

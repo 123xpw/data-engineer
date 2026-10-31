@@ -94,6 +94,8 @@ class EvidenceRun:
         files += sorted((ROOT / "q2_sql_analysis").glob("*.py")) + sorted((ROOT / "q2_sql_analysis").glob("*.sql"))
         files += sorted((ROOT / "q2_sql_analysis").glob("ACCEPTANCE_*.md"))
         files += [ROOT/'audit/q2_4_experiment.py', ROOT/'audit/verify_q2_4_experiment.py']
+        files += [ROOT/'audit/q2_3_performance.py',ROOT/'audit/ACCEPTANCE_Q2_3_PERFORMANCE.md',
+                  ROOT/'audit/fixtures/q2_3_baseline_0f40889.sql',ROOT/'audit/fixtures/q2_3_materialized_candidate.sql']
         for directory in ('q3_etl_pipeline','q4_llm_extraction','q5_system_design'):
             files += sorted((ROOT/directory).glob('*.py'))+sorted((ROOT/directory).glob('ACCEPTANCE*.md'))
         files += [ROOT/'q5_system_design/real_time_pipeline_design.md']

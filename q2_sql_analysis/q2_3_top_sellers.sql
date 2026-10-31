@@ -13,13 +13,13 @@ WITH seller_orders AS (
            o.order_delivered_customer_date AS actual_date, o.order_estimated_delivery_date AS estimated_date,
            r.review_score
     FROM seller_orders i
-    JOIN orders o ON o.order_id=i.order_id
-    JOIN sellers s ON s.seller_id=i.seller_id
-    JOIN customers c ON c.customer_id=o.customer_id
+    STRAIGHT_JOIN orders o ON o.order_id=i.order_id
+    STRAIGHT_JOIN sellers s ON s.seller_id=i.seller_id
+    STRAIGHT_JOIN customers c ON c.customer_id=o.customer_id
     LEFT JOIN review_choices r ON r.order_id=o.order_id AND r.choice=1
     WHERE o.order_purchase_timestamp >= '2017-01-01' AND o.order_purchase_timestamp < '2018-01-01'
 ), aggregates AS (
-    SELECT seller_id, seller_state,
+    SELECT /*+ NO_MERGE(facts) */ seller_id, seller_state,
            SUM(CASE WHEN order_status='delivered' THEN amount ELSE 0 END) AS gmv_2017,
            COUNT(*) AS order_count, COUNT(DISTINCT customer_unique_id) AS unique_customers,
            ROUND(AVG(CAST(review_score AS DECIMAL(20,10))),6) AS avg_review_score,

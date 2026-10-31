@@ -1,12 +1,12 @@
 {
-  "run_id": "f2ded53b0a454621a84604733e7f3054",
+  "run_id": "bede3e43317246e1837950f56d8cac1f",
   "status": "passed",
   "scope": "implemented",
-  "started_utc": "2026-10-31T05:33:32.709868+00:00",
+  "started_utc": "2026-10-31T06:19:04.213591+00:00",
   "python": "3.12.13",
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "pandas": "3.1.0",
-  "git_base": "15c17e15aaaa3c2bac13a7f6e96820e9cb4ade96",
+  "git_base": "0f4088994a531209dc3aeaec7732cef83566fdd8",
   "python_optimization_level": 0,
   "source_sha256": {
     "requirements.txt": "2041b59e183b776249261e671bed11c38603eb6ab27765ec474fa053cefff879",
@@ -15,7 +15,7 @@
     "delivery_requirements.json": "4f647f26ff86fa464ec3a2594ff47553c93b6db176c4520c69c8a4408b3dbe29",
     "artifact_manifest.py": "082b0ce76e986daef448042ad6caaa79cad58d781fba95aa1a61d5c57dcb0c71",
     "download_data.py": "372c0734f4a01dbe7a39145b65589997d000182b95ca3032b4ddddaf62f2e0b1",
-    "release_check.py": "68058e969a6925bf3dae2bc6c4205df22d986a25e4b0b3bb46d21ab497f73742",
+    "release_check.py": "f6bff89ff2e5173e04012ad37f76193bdfa620d52df6d9f548c702cdc22780ee",
     "run_all.py": "0dc00b8d6c84ab0a13bb08af3a249df210ce910d9ead52948ff70a9e7f36c82f",
     "scripts/check_q2_1_cases.py": "b4f35cd1f2d7202b2598ef640e0899e04fdfd2e9168fcc2a2a29e4be53b217ea",
     "scripts/check_q2_2_cases.py": "bedeae1353e7fece57f71fea830a658c1d1d83b96455175e42752fc6fc3d6551",
@@ -32,7 +32,7 @@
     "scripts/q2_3_reference.py": "adaeba688cb9eb57797b89cbcad9f6df0c36f1550089538ffe0f7a5b7ff53947",
     "scripts/q2_4_reference.py": "986258f2f6fa3142bf8ef0e20a69ba7a33a8cc2687c2c775cdb156ed7e021f50",
     "scripts/repair_q4.py": "745eb0a649804ce249692d0618e6959069e8410207716099c9a7387b90e6eccd",
-    "scripts/verification_support.py": "4476c03c2db1cde54f15a1e3dae82e43358328ef8da645eff15c2b263a15dadc",
+    "scripts/verification_support.py": "4e3592747c37926ba7bc90a14d793a562bd6c0f4760c69b65930d9673cfbbf1d",
     "scripts/verify_baseline.py": "0c227cc127188be03e7f3f6359e40bbb3ea0c9b58f33b1a484a3503a3e3bd8da",
     "scripts/verify_bonus.py": "999bdeec0af979762e1ff5e55325fafbb3f7f46feb66b6e8af87798adcb1efff",
     "scripts/verify_clean_environment.py": "559aae0ff595ac61cb961b8b7f2c5b96457c32906c464c8feb4a52129116ab56",
@@ -43,7 +43,7 @@
     "scripts/verify_q1_review.py": "bad11e861cd44307c7a70e8d2930593b7de4191dd7bb37425278546636d50f71",
     "scripts/verify_q2_1.py": "37b301ac6736b6b8ebfd1bc3d0281f0e6e187727ebd5c9947bc79efd04d44614",
     "scripts/verify_q2_2.py": "eac925a9460f1509f06fe01f83a666e0df68869eb0b8f2a8503eda6c87c316fc",
-    "scripts/verify_q2_3.py": "a78ac7130d37f535be954f384c88617e17f82929b8f6380c9f302349254ff2af",
+    "scripts/verify_q2_3.py": "ff718e6aeb504bd24a9f5ad0216330f858ff677bc4a495f94b3ce9020cd8b1ce",
     "scripts/verify_q2_4.py": "c1bec1ebec3ea4b8d187108618f90a9b3461eb2938fe32ebf05b191be5ca6358",
     "scripts/verify_q3.py": "dc3148dbf0793a2c9ef8f9a7b43e6d185e4e521047d1c7506b9a2af2c761c2f6",
     "scripts/verify_q4.py": "9981028db1fc8c3d9468a376870edcb07142c3adf845f1d874013f03bd8eb376",
@@ -56,6 +56,7 @@
     "tests/test_q1_findings.py": "4868fa4f898375fd72c834a45d973ee4909e1a2b475a9ce715e089fba6790cbd",
     "tests/test_q1_profile.py": "c2a1e8a1b4b235a12ff3742386d2f849fed40d940e71eba870c4704188783488",
     "tests/test_q1_review.py": "7024092be87789b57551839b2a55b43341973790cf25566658cdeb5d9a30fddf",
+    "tests/test_q2_3_performance.py": "57c860e8128a1919661791e087d9b33cf6fc7444d0bc2296e9e38ded76e345f2",
     "tests/test_q4.py": "0127932e11e7eefb3a192596823114aa14da0701ae03609735300f9e00ba4b90",
     "tests/test_q4_repair.py": "1be8107bf411188ebbab71e4b17a33251472010e5e67eec07ea0b45990dc60f2",
     "tests/test_release_check.py": "922b6e731cface6f6f3e32cb2bf23e38ad271221d69cc6e67aec43cb3b36270a",
@@ -76,7 +77,7 @@
     "q2_sql_analysis/q2_4.py": "9309a0f00b8512f7f6c983c6a47992428b1c4cfed4d051fff9335d95e9845839",
     "q2_sql_analysis/q2_1_translation_gap.sql": "8ebd5dd6d6ab5b7d8d2848cefea7f606fea2b16e41816846e529745d4cd33b9a",
     "q2_sql_analysis/q2_2_monthly_metrics.sql": "b8a5dc8bcb30b4344d6bcc7f7fb7e58378307b99174a1f5bcd63fae23a7d76b1",
-    "q2_sql_analysis/q2_3_top_sellers.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
+    "q2_sql_analysis/q2_3_top_sellers.sql": "3debb31b7bb42395e8eaf70e708b2e1594e33c71fab5525d2e0dc763447bee94",
     "q2_sql_analysis/q2_4_corrected.sql": "4b6c55def0567548940b440a08463e14a8bc517b10e481f37b8b7127bdc1eff7",
     "q2_sql_analysis/q2_4_equivalent.sql": "b4e06419ce6a8eb15dc4d23418d7810b0a1bb47bbc43f3996cec782442c0445c",
     "q2_sql_analysis/q2_4_original.sql": "b06d437b2cb55647adaeb2be12d6ad015265b7abcb0fc5238135b96114073f7c",
@@ -86,6 +87,10 @@
     "q2_sql_analysis/ACCEPTANCE_Q2_4.md": "5c468bd1ec8ec427596302f29cb3b614d4730539b75aa6bd619b62ec427364ac",
     "audit/q2_4_experiment.py": "327db3c44b926e5d4bb8be9bb6e8b55b0ace0fb85f6d18432249d60471d90ca9",
     "audit/verify_q2_4_experiment.py": "0a418a4c5d0fed11a00158c9804d398b40b40f3199ec3f450c7a5f17f35af873",
+    "audit/q2_3_performance.py": "8cf3f5f9a4956bb0956440d27fb50b7ccabd01920f2e777b5593e7d790670911",
+    "audit/ACCEPTANCE_Q2_3_PERFORMANCE.md": "5de992576135f88deda338be837e73619c0931a1ade47a54f180e80e1e38dfc7",
+    "audit/fixtures/q2_3_baseline_0f40889.sql": "830e64cbbe1220619adc10ae4217194bc0487b9df4e62a15a17e03968e66600e",
+    "audit/fixtures/q2_3_materialized_candidate.sql": "3debb31b7bb42395e8eaf70e708b2e1594e33c71fab5525d2e0dc763447bee94",
     "q3_etl_pipeline/pipeline.py": "96c6d1a324879cab191c7a406108c16db33b9cf5fa00f1b549d9dba097277ee5",
     "q3_etl_pipeline/reference_check.py": "c397a4617f9568b317e3dec7a58b0ed1f58bbd765db216fe4e5789cdbc293a71",
     "q3_etl_pipeline/test_pipeline.py": "8857672d2627cf32e7c62fb9fbf80fdfd81dc5877c461af8f7f5a60175506452",
@@ -116,16 +121,31 @@
       "name": "当前功能回归及代码、产物绑定",
       "passed": true,
       "evidence": {
-        "run_id": "eade41906b8e44e09e9383d201104e4b",
-        "report_sha256": "66f06edd9332c72e95763f286bcb5fff2b4e6bef72c6414c3ee64ad1086f85b9",
+        "run_id": "0e871b61352c40da9e91ec2b1bbac099",
+        "report_sha256": "5fb8fa98e7c6af0e468b34bcfb580292c4934982e7ca17965ed90d2c735478fd",
         "scope": "当前源码的 Q1、九表、Q2.1、Q2.2；不含未完成题"
+      }
+    },
+    {
+      "name": "Q2.3 性能证据仍适用",
+      "passed": true,
+      "evidence": {
+        "run_id": "45f38cd43a96458db72301b7a7c40d08",
+        "median_seconds": {
+          "baseline": 99.875974,
+          "candidate": 2.360676
+        },
+        "baseline_over_candidate": 42.30820917398236,
+        "candidate_max_seconds": 2.363538,
+        "baseline_min_seconds": 99.330081,
+        "scope": "复用相同 SQL、类型视图、冻结数据与依赖的本机暖缓存三轮对照；当前入口另验，非跨环境速度保证"
       }
     },
     {
       "name": "Q2.3 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "39ef2c5b9c604f738358759657584b92",
+        "run_id": "147f0e3e1e5b491a89954e4cbc557f10",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -133,7 +153,7 @@
       "name": "Q2.4 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "93eaa5402fcc430b8c8d87cd234c27ce",
+        "run_id": "5bcfca3f4ef64d9b800bfafad6267fb1",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -141,7 +161,7 @@
       "name": "Q3.1 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "f23a48f0b5df454792a7dd7e55274ff1",
+        "run_id": "0dfdc1b38914438b831dacdda740678a",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -149,7 +169,7 @@
       "name": "Q4.R1 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "24f5a197a50540f2949ff3db363d2355",
+        "run_id": "034589093ef9499ea747858bf4c6a6bf",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -157,7 +177,7 @@
       "name": "Q4.PROCESSING 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "03846031dd67484aba46282415b1bb04",
+        "run_id": "b0d9345140ac4760958748282b49de26",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -165,7 +185,7 @@
       "name": "Q5.1 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "1fdb43fe312a4a79af30063613ccd784",
+        "run_id": "e3ce926ab1dd422a950599d05a57f52f",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -173,7 +193,7 @@
       "name": "Q6 当前业务及默认入口",
       "passed": true,
       "evidence": {
-        "run_id": "dbbfc7bc1e3a4cbba5c78e06bf14138c",
+        "run_id": "18560987c1804195bb3ed5aaaef64a13",
         "scope": "当前子题、独立参考及默认全入口"
       }
     },
@@ -194,87 +214,87 @@
       "name": "真实全入口及本轮产物归属",
       "passed": true,
       "evidence": {
-        "run_id": "0fd9e72ffc204a67a3998a48700f3f1e",
+        "run_id": "8bc4abf58a6f4d9ca58a5f4a00f6fa04",
         "exit_code": 0,
-        "report_sha256": "0fe2b9cca10c387cb892c817045179e1881ccb155d3492e95077be27b89f1067",
+        "report_sha256": "63c568f1801f4e982701b4d57c628b73e0e52b3a1da988361b499ff47c3c9568",
         "manifests": {
           "q1.1": {
-            "manifest_sha256": "af9653fd872cae3c2f17515adcf8c6ed713630701b20cd0b238906e16fa4d6e3",
+            "manifest_sha256": "c936e8c4c8f4c8f7638184216fd38f8c6d48263a67661fd27ec03230655bb14b",
             "artifacts": {
               "data_quality_metrics.json": "382ce6c09ca40341650133f6b6085b328dc1f6700bcc2fc97f43ad98fce68a44",
               "data_quality_report.md": "690a4117954f741c37f2cf0ff2e879ec39c175e5780599768320d680178a1a3d"
             }
           },
           "q1.2": {
-            "manifest_sha256": "a7f0e5dd52dd20514d4684f162f87abaf38e6b5aa9bcb29724459f1db2ffad35",
+            "manifest_sha256": "87e94003edadba8f7c36b0ff95d20189ffabdc2d43e00c73274e36398946e92e",
             "artifacts": {
               "findings_metrics.json": "28e62fa7611e25acce6f435efa10dd7a7cb461ec96b235d00cea8846944435b8",
               "findings.md": "31b589432df894214acd7bcd5f9b3087d22d91b8c7670e441d348187f66c847f"
             }
           },
           "q1.3": {
-            "manifest_sha256": "1f1b23dc30b1d1d339d311f94ee7ff015b87ea363a14025e96a175845ba0ca68",
+            "manifest_sha256": "4f1917b624a430096d42196ff93c34adab9fdd1414bc972b7e23ce8dbfb7837f",
             "artifacts": {
               "cleaning_strategy.md": "6a5a73f13c79d802531a4f5bcc1ff84bb0efd5b76c4b495cc546f26687f07942",
               "strategy_review.md": "08d694bb3658eee38b37835a67b4c6db2f7f59d13458b2f133eb1bd8b561e208"
             }
           },
           "q2.load": {
-            "manifest_sha256": "6ac1e3590aa0f405c61900c16db6cd9f8f9066dc9a7e24bfd3f8283f51338241",
+            "manifest_sha256": "1094d858dc4633586eb04144a221060f5cee0a314500e82dcaba7cab77399bf8",
             "artifacts": {
-              "load_report.json": "504e178ba332b86c201a1c608a6786d547e289c2140532f34081fa46af5f0cf0"
+              "load_report.json": "0cc3fe3cbe59b6b89b4b39ff02cd3d5691211988be656c25e78be57e1358d268"
             }
           },
           "q2.1": {
-            "manifest_sha256": "1783e9cd1bd06202f612df4f56e58c96c0b52b2d0f10a62e0e1d74b0d4e9c78d",
+            "manifest_sha256": "4ba8295e1374816d4891f7eeb0c7b2ec0a8b66f8ecb72658217ae364ac6ac42d",
             "artifacts": {
-              "q2_1_results.json": "257e4fbdafa152984fc146a5750364c59bfa9919dde435cabd835db4e29ab582",
-              "q2_1_findings.md": "aefb165d6f5d2f47c9de914b1b2f6d13ec76694619e4765b9eff2e4200d6e1a8"
+              "q2_1_results.json": "c47f67f331b3dd5abd63901c567e135e0fff0356d40addc25f0311da5f1767d2",
+              "q2_1_findings.md": "d81822239c4ccb35884ef49f2f0545c3f297be212eb1e6aa0550512a9e4756e3"
             }
           },
           "q2.2": {
-            "manifest_sha256": "d2c96d7792b92de25d4f595afb64fcf7d9b39ae52d347b9cc32a937f21b25202",
+            "manifest_sha256": "e1c7baa73dab616e5403b8a709d286dd8ace2e4156ff9f88b35755f8f5558f46",
             "artifacts": {
-              "q2_2_results.json": "573646ae6350876c85e132209cc3cb497630b31b43fe3f376564ae9218748f17",
-              "q2_2_findings.md": "f2c44e86e3296fc9eaaa2ec0ceca1b4476075482106090d372a1d400091405ec"
+              "q2_2_results.json": "4f50ffe051ec174f6187003f11343bad0916562ee66aebc00543741df39cddf8",
+              "q2_2_findings.md": "8d5fe5c78698b7473c642631df16eceb8a50cb38bd0090b8b49eaef30049adee"
             }
           },
           "q2.3": {
-            "manifest_sha256": "4e7a335d12f7b91aed23075686c162c4319f60f0308fb1fbb6a2c889674cc191",
+            "manifest_sha256": "b615d44b72898ec14ab55e9a33fd736bd99da5b3aceb886aa40b5298009f0bc6",
             "artifacts": {
-              "q2_3_results.json": "23f7a253c82af50345cfc8e58bb3ed4d241fe833f0d6419c5ad23f24f95c8446",
+              "q2_3_results.json": "9fc28c237c013774df2925f9e51a0f0d228a9e25f8b3ec4beef849a242fdf55a",
               "q2_3_findings.md": "54c0ac9c0eea3a6cd2aeb7188ae20af4133ba88e8e69d59ccc80b1371994916a"
             }
           },
           "q2.4": {
-            "manifest_sha256": "f5536ba777b64a7b6855672d60858fe57b1dbad328e1b78dfe04fcbc78f3025e",
+            "manifest_sha256": "61b59d7edb1fd708b504d344af4e57015f6cfd7565d27dcf09056a15993bd3b0",
             "artifacts": {
-              "q2_4_results.json": "2c9a72fd8872c2990bf5ed63f438023611fb85fc09f9700feddd05bab7718a0b",
+              "q2_4_results.json": "e2e20612e1acd6588949079aa6307442a0736df40516cac4575378e3fc860c29",
               "q2_4_query_optimization.md": "f670b17448f65a7618df65b554651c02d650ba82f6230e6a9e7a119a8fcee251"
             }
           },
           "q3": {
-            "manifest_sha256": "50de7d5a995b4c9db2ee6e80a866c02e298192c61b41ad12e4ef58b35249a8e6",
+            "manifest_sha256": "ba637186c28f0e2cf7f95c7ba6a3fc9f85e73d36c149a1b2c92ee5fde0638157",
             "artifacts": {
               "outputs/sales_facts.parquet": "f40bb584a5ea698446ad11bb0c93c2fa919293263a1d06313db2404242244e65",
               "outputs/customer_features.parquet": "51c6c7c9d823ddcca243552991a99165ff69d1839b3e4b1ab1755fd2986d7990",
               "outputs/returns_log.parquet": "05b6c248cb61b85f78deef8712011b2e6dbbda02ffc6210d7a8742b97710a3fb",
-              "pipeline_log.txt": "82ef1cb45c56fd580e4d0b025a56d4e1d982498af679a289aa554f7e26bb632d",
-              "validation_metrics.json": "fda109603c7d3e232543d42002dcad9e31044fc1d306879875349237141f2d1f",
-              "validation_report.md": "125aed8fcc0e8b003c0f71588b77bc110e588c85b90f19204f5be9c635a119e9"
+              "pipeline_log.txt": "1d1a1e0fad1e97657670ac000abdb732cd92cb34ba00741cb8c69d09a6d02cba",
+              "validation_metrics.json": "7ba0ff6e9cf597faf4b18be9435f9f1a3901dcf1bfc3cdc7c6c16a88494cb6ec",
+              "validation_report.md": "c089f33c5cf971c275dc180ac7012b204a313254814bc84e2e019d80c0abbbce"
             }
           },
           "q4": {
-            "manifest_sha256": "b58cd256df5f38bb355e89aad689337249884219a06c7c27327a0bfd990c5b3e",
+            "manifest_sha256": "b1b4e7df9ea9cff3a394982c53c9e2bf57df2e097deb0f976a95b46b0cda841c",
             "artifacts": {
               "extracted_issues.json": "42ffbb7c6b9e051839e49d34edb4ac0f9a841766124ebe13fa4a3c29a3d36a6c",
-              "run_metrics.json": "07da47c74610ce918a39f024087171e60c33318f09c084bd40023c6e7d08024b",
+              "run_metrics.json": "2c898907550e418df52c66f73c7cf9292113821710cc2641b5a4aa07711b867f",
               "annotation_blind.json": "ccf216cc111f0e97715af6505f227afc111e49c41508c8730f0c9db92ca22696",
               "cost_report.md": "82229a760290c5e35aa1f63a15a13ece808db7114e6d5c0e07eb7c6669294d00"
             }
           },
           "q5": {
-            "manifest_sha256": "15955fc5c52f065194826a683a9f68e72683f51b5195b3f371d9a657057ad46a",
+            "manifest_sha256": "d8ae7d219d312f0fccebaef752ca2016f872447b1a8b75928df3c016267fd17b",
             "artifacts": {
               "real_time_pipeline_design.md": "d9f660a1f64da5aec300be9aa7e68e457e5a272bf99ae12651d9acc2cbed5750",
               "design_metrics.json": "090227a3bafc35e7b96f0ea95df5ca7ea585fa311a96e97cdebb4c9023a94e94"
@@ -303,5 +323,5 @@
   ],
   "implemented_ready": true,
   "decision": "implemented_ready",
-  "finished_utc": "2026-10-31T05:50:55.318760+00:00"
+  "finished_utc": "2026-10-31T06:24:27.719062+00:00"
 }

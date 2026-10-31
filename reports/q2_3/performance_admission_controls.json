@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "real_proof_accepted": true,
+  "controls": [
+    {
+      "case": "篡改汇总耗时",
+      "rejected": true,
+      "reason": "性能汇总与原始观测不一致"
+    },
+    {
+      "case": "漏掉最后一轮",
+      "rejected": true,
+      "reason": "测量轮次、顺序或数量不符预先协议"
+    },
+    {
+      "case": "陈旧候选 SQL 指纹",
+      "rejected": true,
+      "reason": "实测 SQL 已变化"
+    },
+    {
+      "case": "预检冒充正式实测",
+      "rejected": true,
+      "reason": "没有本题性能实验通过证据"
+    }
+  ],
+  "scope": "四类证据损坏会被拒绝，不证明所有伪造均可识别",
+  "performance_run_id": "45f38cd43a96458db72301b7a7c40d08"
+}
